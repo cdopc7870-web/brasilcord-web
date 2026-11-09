@@ -1,0 +1,18 @@
+.bc-install-banner{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));z-index:10000;display:flex;align-items:center;gap:12px;max-width:min(540px,calc(100vw - 28px));padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:18px;background:linear-gradient(110deg,#092e2a,#12264b);color:#fff;box-shadow:0 14px 38px rgba(0,0,0,.4);font-family:system-ui,-apple-system,'Segoe UI',sans-serif}
+.bc-install-banner[hidden]{display:none!important}
+.bc-install-brand{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
+.bc-install-brand img{width:42px;height:42px;object-fit:contain;border-radius:12px;flex-shrink:0}
+.bc-install-brand span{display:flex;flex-direction:column;min-width:0;gap:3px}
+.bc-install-brand strong{font-size:15px;color:#fff}
+.bc-install-brand small{font-size:12px;color:#c6e2d9}
+.bc-install-primary{background:#f5ce32;border:0;border-radius:11px;padding:11px 13px;color:#11262a;font-weight:800;cursor:pointer;white-space:nowrap}
+.bc-install-primary:hover{background:#ffe26b}
+.bc-install-dismiss{background:transparent;border:0;color:#e3e9ec;font-size:25px;cursor:pointer;line-height:1;padding:3px;align-self:flex-start}
+.bc-install-help{border:1px solid #295b73;border-radius:18px;max-width:min(460px,calc(100vw - 24px));padding:0;background:#0b1d30;color:#fff;box-shadow:0 18px 45px #0009}
+.bc-install-help::backdrop{background:#000a}
+.bc-install-help-inner{padding:22px;display:flex;flex-direction:column;gap:14px}
+.bc-install-help-heading{display:flex;justify-content:space-between;align-items:center;font-size:19px}
+.bc-install-help-heading button{color:#fff;background:transparent;border:0;font-size:25px;cursor:pointer}
+.bc-install-help p{margin:0;color:#d5e5ed;line-height:1.6}
+#bc-install-help-ok{background:#f5ce32;color:#142533;padding:12px;border:0;border-radius:10px;font-weight:800;cursor:pointer}
+@media(max-width:600px){.bc-install-banner{left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));bottom:max(10px,env(safe-area-inset-bottom));gap:8px;padding:9px 10px;max-width:none}.bc-install-brand img{width:34px;height:34px}.bc-install-brand strong{font-size:13px}.bc-install-brand small{font-size:10px}.bc-install-primary{font-size:12px;padding:10px 9px}.bc-install-dismiss{font-size:21px}}

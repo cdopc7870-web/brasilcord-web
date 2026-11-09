@@ -65,7 +65,7 @@
     },{threshold:.08,rootMargin:'0px 0px 45px 0px'});
     nodes.forEach((el,index)=>{
       el.setAttribute('data-bc-reveal','');
-      el.style.setProperty('--bc-reveal-delay',String(Math.min((index%3)*85,170))+'ms');
+      el.dataset.bcRevealDelay=String(index%3);
       // Initial viewport content is never temporarily hidden.
       if(el.getBoundingClientRect().top<window.innerHeight+45)el.classList.add('bc-visible');
       else observer.observe(el);

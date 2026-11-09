@@ -27,3 +27,18 @@
 .bc-download-action:hover,.bc-download-action:focus-visible{background:#fff09c}
 .bc-download-note{margin:18px 0 0;font-size:12px;text-align:center}
 @media(max-width:760px){.bc-landing-intro,.bc-download-grid{grid-template-columns:minmax(0,1fr)}.bc-landing-intro{gap:16px}.bc-landing-identity-orb{width:155px}.bc-download-section{padding:20px 13px}.bc-download-header{margin-bottom:18px}.bc-download-card{padding:19px}.bc-landing-intro-copy>p{font-size:14px}}
+
+
+/* Download e instalação imediatamente visíveis na abertura do site. */
+.bc-nav-download{display:inline-flex;align-items:center;justify-content:center;background:#f4cd39;border:1px solid #ffed91;color:#14313b!important;text-decoration:none!important;border-radius:11px;padding:9px 13px;font-size:13px;font-weight:850;white-space:nowrap;box-shadow:0 5px 16px #0003}
+.bc-nav-download:hover{background:#ffe17d}
+.bc-hero-download-links{display:flex;flex-wrap:wrap;align-items:stretch;gap:11px;margin:16px 0 6px}
+.bc-hero-win-button,.bc-hero-mobile-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:49px;padding:12px 16px;border-radius:12px;font-weight:850;font-size:14px;text-decoration:none!important;cursor:pointer;box-sizing:border-box;transition:transform .2s ease,background .2s ease}
+.bc-hero-win-button{border:1px solid #ffe78a;background:#f6d33f;color:#16303a!important}
+.bc-hero-mobile-button{border:1px solid #67cfb4;background:#104941;color:#e9fff8!important}
+.bc-hero-win-button:hover,.bc-hero-mobile-button:hover{transform:translateY(-2px)}
+.bc-hero-win-button:hover{background:#ffe47e}
+.bc-hero-mobile-button:hover{background:#18695e}
+.bc-hero-platform-hint{font-size:12px;line-height:1.5;color:#c5dcd6;max-width:560px;margin:8px 0 14px}
+#baixar{scroll-margin-top:85px}
+@media(max-width:680px){.bc-hero-download-links{flex-direction:column}.bc-hero-win-button,.bc-hero-mobile-button{width:100%;min-height:48px}.bc-nav-download{font-size:12px;padding:8px 10px}}

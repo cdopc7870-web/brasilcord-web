@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#041828">
+  <meta name="description" content="Acesse sua conta do BrasilCord.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; connect-src 'self' https://brasilcord-sinalizacao-dkx157.onrender.com; form-action 'self'; base-uri 'self';">
+  <title>Entrar — BrasilCord</title>
+  <link rel="icon" href="assets/brand-icon.png" type="image/png">
+  <link rel="stylesheet" href="landing.css"><link rel="stylesheet" href="auth.css">
+  <script src="access-guard.js"></script>
+  <script src="landing.js" defer></script>
+  <script src="auth.js" defer></script>
+</head>
+<body data-theme="dark" class="auth-body"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./" aria-label="BrasilCord, voltar à página inicial">
+      <img src="assets/brand-icon.png" width="42" height="42" alt=""><strong>BrasilCord</strong>
+    </a>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="header-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <div class="header-menu" id="header-menu">
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="./#recursos">Recursos</a><a href="./#seguranca">Segurança</a><a href="./#como-usar">Como usar</a>
+      </nav>
+      <div class="header-actions">
+        <div class="theme-switch" role="group" aria-label="Aparência do site">
+          <button type="button" data-set-theme="auto" aria-label="Seguir aparência do dispositivo" title="Automático">◐</button>
+          <button type="button" data-set-theme="light" aria-label="Tema claro" title="Tema claro">☼</button>
+          <button type="button" data-set-theme="dark" aria-label="Tema escuro" title="Tema escuro">☾</button>
+        </div>
+        <a class="btn btn-subtle btn-small" href="https://cdopc7870-web.github.io/brasilcord-updates/">Baixar</a>
+      </div>
+    </div>
+  </div>
+</header>
+<main id="conteudo" class="auth-main" data-auth-view="login">
+  <section class="auth-panel" aria-labelledby="auth-title">
+    <div class="auth-brand-small"><img src="assets/brand-icon.png" alt="" width="38" height="38"><span>Bem-vindo de volta ao BrasilCord</span></div>
+    <h1 id="auth-title">Entrar</h1>
+    <p class="auth-intro">Acesse sua conta e continue de onde parou.</p>
+    <form id="auth-form" autocomplete="on">
+      <div class="auth-field"><label for="login-email">E-mail</label><input id="login-email" name="email" type="email" autocomplete="username" inputmode="email" maxlength="254" placeholder="voce@exemplo.com" required autofocus></div>
+      <div class="auth-field"><div class="label-line"><label for="login-password">Senha</label><a href="recuperar-senha.html">Esqueci minha senha</a></div>
+      <div class="input-password"><input id="login-password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" placeholder="Digite sua senha" required><button type="button" class="toggle-password" data-toggle-password="login-password" aria-label="Mostrar senha" aria-pressed="false">
+<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
+      <button class="auth-submit" type="submit">Entrar</button>
+      <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
+    </form>
+    <form id="auth-otp-form" class="otp-form" hidden>
+      <h2>Confirme seu e-mail</h2><p>Digite o código de seis números que foi enviado para sua conta.</p>
+      <div class="auth-field"><label for="auth-otp-code">Código de verificação</label><input id="auth-otp-code" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" placeholder="000000" required></div>
+      <button class="auth-submit" type="submit">Confirmar código</button>
+      <button class="auth-link-button" id="auth-otp-back" type="button">Voltar ao login</button>
+      <p class="auth-message" id="auth-otp-message" role="status" aria-live="polite"></p>
+    </form>
+    <p class="auth-switch">Ainda não tem conta? <a href="cadastro.html">Criar conta</a></p>
+    <div class="auth-note"><span class="auth-note-icon">●</span> Conexão com o serviço oficial do BrasilCord. Nunca informe sua senha no Discord.</div>
+  </section>
+</main>
+<footer class="auth-footer" aria-label="Rodapé"><a href="./#seguranca">Segurança e privacidade</a><a href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Precisa de ajuda? Discord</a></footer>
+</body></html>

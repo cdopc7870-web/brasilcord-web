@@ -1,0 +1,46 @@
+/* Modal de criação / convite inspirado no fluxo solicitado, com identidade BrasilCord. */
+#page-app .bc-add-server-button{display:grid;place-items:center;align-self:center;flex:none;margin:0 auto;width:44px;height:44px;border:1px dashed rgba(105,206,153,.42);border-radius:15px;background:#1c3b35;color:#65f4a0;font:400 26px/1 system-ui;cursor:pointer;transition:background .16s,border-color .16s,transform .16s}
+#page-app .bc-add-server-button:hover{background:#285f49;border-color:#6fe9aa;transform:translateY(-1px)}
+#page-app .bc-add-server-button:focus-visible{outline:2px solid #f0d66a;outline-offset:4px}
+.bc-server-create-dialog{position:fixed;inset:0;margin:auto;box-sizing:border-box;width:min(495px,calc(100vw - 28px));max-height:min(90vh,760px);padding:0;border:1px solid #454d57;border-radius:20px;background:linear-gradient(145deg,#282a30 0%,#22252c 100%);box-shadow:0 28px 90px rgba(0,0,0,.7);color:#f9f9fb;overflow-y:auto;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.bc-server-create-dialog::backdrop{background:rgba(4,8,15,.76);backdrop-filter:blur(7px)}
+.bc-server-modal-inner{padding:29px 32px 24px;position:relative}
+.bc-server-modal-close{position:absolute;top:11px;right:17px;border:0;background:transparent;color:#9ca2ac;font-size:35px;line-height:1;padding:3px 8px;cursor:pointer}
+.bc-server-modal-close:hover{color:white}
+.bc-server-modal-head{text-align:center;padding:4px 14px 17px}
+.bc-server-modal-emblem{width:57px;height:57px;border-radius:18px;margin:0 auto 15px;display:grid;place-items:center;background:linear-gradient(135deg,#59ed9e,#f1d55d,#448bd8);transform:rotate(-5deg);box-shadow:0 8px 28px #18453055}
+.bc-server-modal-emblem span{color:#0f2b24;font-weight:950;font-size:18px;transform:rotate(5deg)}
+.bc-server-modal-eyebrow{display:block;color:#83dcb2;font-size:10px;font-weight:800;letter-spacing:.14em;margin-bottom:7px}
+.bc-server-modal-head h2{font-size:27px;font-weight:850;line-height:1.2;margin:0 0 12px;letter-spacing:-.04em;color:white}
+.bc-server-modal-head p{font-size:15px;line-height:1.55;color:#d9dbdf;margin:0}
+.bc-server-modal-panel[hidden]{display:none!important}
+.bc-server-modal-panel{display:grid;gap:14px}
+.bc-server-choice{width:100%;display:flex;align-items:center;gap:13px;background:#35373e;color:white;border:1px solid #4b4d55;border-radius:13px;padding:15px;text-align:left;cursor:pointer;transition:background .15s,border-color .15s}
+.bc-server-choice:hover{background:#3e4646;border-color:#79cba8}
+.bc-server-choice-icon{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#245d46;color:#baffd5;font-size:21px}
+.bc-server-choice-copy{flex:1;display:grid;gap:4px}
+.bc-server-choice-copy strong{font-size:14px}
+.bc-server-choice-copy small{font-size:11px;color:#c7ced1;line-height:1.45}
+.bc-server-choice-arrow{font-size:24px;color:#c0c6c7}
+.bc-server-modal-separator{display:flex;align-items:center;gap:12px;color:#a0a4af;font-size:10px;letter-spacing:.1em}
+.bc-server-modal-separator>span{height:1px;background:#464a52;flex:1}
+.bc-server-join-invite{padding:15px 0 4px;text-align:center}
+.bc-server-join-invite h3{font-size:19px;font-weight:800;color:white;margin:0 0 12px}
+.bc-server-join-start{display:block;width:100%;min-height:48px;padding:10px 18px;border:1px solid #45454e;background:#36363d;color:white;border-radius:11px;font-size:16px;font-weight:700;cursor:pointer}
+.bc-server-join-start:hover{background:#474750}
+.bc-server-modal-back{background:none;border:0;color:#8be2b3;font-size:12px;font-weight:750;text-align:left;padding:4px 0;cursor:pointer;width:max-content}
+.bc-server-modal-back:hover{text-decoration:underline}
+.bc-server-modal-step-heading h3{font-size:19px;margin:0 0 5px;color:white}
+.bc-server-modal-step-heading p{font-size:12px;color:#c3c9cf;line-height:1.6;margin:0}
+.bc-server-modal-form{display:grid;gap:11px;margin-top:4px}
+.bc-server-modal-form label{font-size:10px;letter-spacing:.08em;font-weight:850;color:#b6d8c5}
+.bc-server-modal-form input{box-sizing:border-box;width:100%;min-height:45px;padding:12px 14px;border-radius:10px;border:1px solid #666871;background:#1b222b;color:#fff;font-size:14px}
+.bc-server-modal-form input:focus{border-color:#83e6b4;outline:2px solid #4bd39066}
+.bc-server-modal-form small{font-size:11px;color:#aeb8bf}
+.bc-server-modal-submit{width:100%;min-height:47px;background:linear-gradient(130deg,#47e69b,#35c58c);color:#0c2a21;border:0;border-radius:10px;font-size:14px;font-weight:850;cursor:pointer;margin-top:8px}
+.bc-server-modal-submit:hover{filter:brightness(1.08)}
+.bc-server-modal-submit:disabled{opacity:.62;cursor:progress}
+.bc-server-modal-status{min-height:19px;margin:9px 0 0;font-size:12px;text-align:center;color:#90f1b8}
+.bc-server-modal-status[data-error=true]{color:#ffb8b8}
+@media(max-width:520px){.bc-server-modal-inner{padding:25px 19px 18px}.bc-server-modal-head{padding:8px 10px 13px}.bc-server-modal-head h2{font-size:23px}.bc-server-modal-head p{font-size:13px}.bc-server-join-invite h3{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.bc-server-choice,.bc-add-server-button{transition:none!important}}

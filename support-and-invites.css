@@ -1,0 +1,41 @@
+/* BrasilCord · apoio independente, convites clicáveis e pedidos de amizade */
+#page-app .bc-support-rail{color:#9ceeb6;border:1px solid #72d8a15c;background:#17563c36}
+#page-app .bc-support-rail:hover{color:#ffe87b;background:#236b4c;border-color:#ffe78280}
+.bc-support-dialog{position:fixed;inset:0;margin:auto;max-height:88vh;overflow:auto;width:min(750px,calc(100vw - 24px));padding:27px;border:1px solid #78e9aa77;border-radius:23px;background:radial-gradient(ellipse at 85% 0%,#2d996752,transparent 55%),linear-gradient(145deg,#0e3932,#0d2131);color:#eefff3;box-shadow:0 30px 100px #000c;font-family:system-ui,Segoe UI,sans-serif}
+.bc-support-dialog::backdrop{background:#010f15ce;backdrop-filter:blur(7px)}
+.bc-support-header{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.bc-support-header h2{margin:8px 0 15px;font-size:27px;line-height:1.2;letter-spacing:-.035em}
+.bc-support-header span{font-size:11px;font-weight:800;color:#ffe96c;letter-spacing:.1em}
+.bc-support-header button{padding:9px 12px;border-radius:9px;border:1px solid #8edcaf70;background:#16463a;color:#f5fff8;cursor:pointer}
+.bc-support-dialog>p{color:#c6e6d8;line-height:1.65;font-size:13px}
+.bc-support-methods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.bc-support-methods section{display:flex;flex-direction:column;gap:8px;min-height:208px;border:1px solid #79deb05c;border-radius:16px;background:#153c36b8;padding:16px;min-width:0}
+.bc-support-methods section strong{font-size:16px;color:#ffec9c}
+.bc-support-methods section p{font-size:12px;line-height:1.6;color:#d3e8df;flex:1}
+.bc-support-methods section code{font-size:10px;overflow-wrap:anywhere;color:#a0ffd7}
+.bc-support-methods button{border:1px solid #fff19b;border-radius:10px;background:linear-gradient(125deg,#f9e768,#e0c44c);color:#143c30;padding:12px 8px;font-size:12px;font-weight:850;cursor:pointer}
+.bc-support-methods button:disabled{opacity:.43;cursor:not-allowed}
+#bc-support-status{font-weight:650;color:#f6dc88}
+.bc-support-dialog>small{display:block;border-top:1px solid #8bd1a047;padding-top:12px;color:#9ab7ac;font-size:11px;line-height:1.6}
+.bc-invite-message-actions{display:grid;gap:9px;max-width:380px;margin-top:10px}
+.bc-invite-message-card{display:grid;gap:10px;border:1px solid #7cddb27c;border-left:4px solid #ffdf57;border-radius:13px;padding:12px;background:linear-gradient(110deg,#163d39,#15323b);box-shadow:0 7px 23px #0004}
+.bc-invite-message-header{display:grid;gap:3px}
+.bc-invite-message-header strong{font-size:13px;color:#f6ffee}
+.bc-invite-message-header small{font-size:11px;color:#a4ccb7}
+.bc-invite-message-card button{justify-self:start;border:1px solid #e7eea1;border-radius:9px;padding:10px 14px;background:#3ac887;color:#0d3d29;font-weight:900;font-size:12px;cursor:pointer}
+.bc-invite-message-card button:hover{background:#72e5a4}
+#page-app .bc-friends-section-label{padding:12px 8px 6px;margin:10px 0 3px;font-size:12px;color:#9ee6c0;border-bottom:1px solid #5eac8961}
+#page-app .bc-platform-friend>button{margin-left:6px}
+.bc-dm-audio-error{display:block;margin:7px 0;color:#ffca9a;font-size:11px}
+.bc-dm-audio-error button{border:1px solid #8ed7b2;background:#1d604a;color:#f5fff6;cursor:pointer;border-radius:8px;padding:5px 9px;font-size:11px}
+@media(max-width:650px){.bc-support-methods{grid-template-columns:1fr}.bc-support-methods section{min-height:unset}.bc-support-dialog{padding:20px}.bc-support-header h2{font-size:22px}}
+
+.bc-dm-audio-error .bc-dm-save-audio{display:inline-flex;margin-left:7px;padding:5px 9px;border:1px solid #ffe07a80;border-radius:8px;background:#6e5622;color:#fff2c1;text-decoration:none;font-size:11px;font-weight:700}
+.bc-dm-audio-error .bc-dm-save-audio:hover{background:#9c7a2d}
+
+.bc-support-redeark{display:grid;gap:12px;padding:20px;border:1px solid #89e3a66d;border-radius:15px;background:linear-gradient(125deg,#174c3c,#153b4b);margin:20px 0}
+.bc-support-redeark strong{color:#f7ea99;font-size:15px}
+.bc-support-redeark code{font-size:12px;color:#cdffe1;overflow-wrap:anywhere}
+.bc-support-redeark button{padding:12px;border-radius:10px;border:1px solid #8de2a6;background:#f2df6a;color:#133d31;cursor:pointer;font-weight:800}
+.bc-support-redeark #bc-support-copy-link{background:#215c49;color:#eafff3}
+.bc-support-redeark button:hover{filter:brightness(1.07)}

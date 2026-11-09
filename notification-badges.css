@@ -1,0 +1,17 @@
+/* BrasilCord - chamadas recebidas e avisos não lidos */
+.bc-incoming-call{position:fixed;inset:0;z-index:9000;display:grid;place-items:center;background:rgba(1,12,19,.75);backdrop-filter:blur(12px);padding:20px}
+.bc-incoming-call[hidden]{display:none!important}
+.bc-incoming-call-card{width:min(400px,100%);padding:34px 28px;text-align:center;border-radius:24px;border:1px solid #5ddda176;background:linear-gradient(145deg,#123d38,#131e36);box-shadow:0 25px 90px #000b;color:#eafff4;font-family:system-ui,Segoe UI,sans-serif}
+.bc-incoming-call-icon{width:82px;height:82px;margin:0 auto 18px;display:grid;place-items:center;border-radius:50%;background:#235c45;color:#96ffd0;font-size:37px;border:2px solid #74dca8;animation:bc-ring-pulse 1.7s infinite}
+.bc-incoming-call-card h3{font-size:22px;font-weight:850;margin:10px 0 8px;color:#fff;overflow-wrap:anywhere}
+.bc-incoming-call-card p{color:#b8ded0;font-size:13px;margin:0 0 28px}
+.bc-incoming-call-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bc-incoming-call-actions button{padding:15px 10px;border-radius:12px;color:white;cursor:pointer;font-size:14px;font-weight:800;border:1px solid #ffffff2f}
+.bc-call-accept{background:#16884f}.bc-call-accept:hover{background:#1faf67}
+.bc-call-reject{background:#be3445}.bc-call-reject:hover{background:#d74859}
+@keyframes bc-ring-pulse{50%{box-shadow:0 0 0 16px #65f2a51c,0 0 30px #65f2a54b;transform:scale(1.055)}}
+#page-app .bc-rail-action,#page-app .bc-dm-friend,#page-app .bc-platform-friend{position:relative}
+.bc-unread-badge{position:absolute;top:-5px;right:-5px;z-index:10;display:grid;place-items:center;min-width:19px;height:19px;padding:0 5px;border-radius:999px;border:2px solid #12232a;background:#f4434e;color:white;font:800 10px/1 system-ui;box-shadow:0 2px 11px #ed374a73;pointer-events:none}
+#page-app .bc-dm-friend .bc-unread-badge,#page-app .bc-platform-friend .bc-unread-badge{top:50%;right:12px;transform:translateY(-50%)}
+#page-app .bc-has-unread{border-color:#f15a6660!important}
+@media(prefers-reduced-motion:reduce){.bc-incoming-call-icon{animation:none}}

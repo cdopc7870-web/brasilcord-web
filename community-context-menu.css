@@ -1,0 +1,17 @@
+/* Menus de botão direito dos canais, categorias e cargos. */
+.bc-admin-context-menu{position:fixed;z-index:5800;width:min(285px,calc(100vw - 16px));max-height:min(82vh,520px);overflow-y:auto;overscroll-behavior:contain;padding:8px;border:1px solid #405f61;border-radius:14px;background:linear-gradient(145deg,#24313d,#17212c);box-shadow:0 24px 70px rgba(0,0,0,.65);font-family:system-ui;display:flex;flex-direction:column;gap:3px}
+.bc-admin-context-menu[hidden]{display:none!important}
+.bc-admin-context-menu button{border:0;background:transparent;color:#e4f6f4;text-align:left;font-size:12px;font-weight:650;border-radius:8px;padding:11px 12px;min-height:37px;cursor:pointer}
+.bc-admin-context-menu button:hover,.bc-admin-context-menu button:focus-visible{background:#305247;color:#b8fbd5}
+.bc-admin-context-menu button:focus-visible{outline:2px solid #66e1a2;outline-offset:-2px}
+.bc-admin-context-menu button.bc-context-danger{color:#ffacb6}
+.bc-admin-context-menu button.bc-context-danger:hover{background:#5a323a;color:white}
+.bc-context-caption{color:#79deae;font-size:10px;font-weight:900;letter-spacing:.07em;padding:9px 11px 7px;overflow-wrap:anywhere}
+.bc-context-separator{height:1px;background:#44606355;margin:6px 6px}
+#page-app [data-bc-context-type]{cursor:context-menu}
+#page-app [data-bc-context-type]:hover{background:rgba(53,111,97,.18)}
+#page-app .bc-nav-category-heading{display:flex;align-items:center;justify-content:space-between;gap:7px;margin:11px 4px 5px;padding:7px 9px;border-radius:7px;background:rgba(75,131,112,.13);color:#a6e8ca;font-size:10px;font-weight:900;letter-spacing:.045em}
+#page-app .bc-nav-category-heading .bc-nav-category-gear{opacity:.7;font-size:11px}
+#page-app .bc-nav-category-heading:hover{background:rgba(80,155,118,.26)}
+#page-app .bc-nav-category-heading:focus-visible{outline:2px solid #7febbb}
+@media(max-width:520px){.bc-admin-context-menu{max-height:65vh}}

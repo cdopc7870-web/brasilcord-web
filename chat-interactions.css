@@ -1,0 +1,17 @@
+/* BrasilCord • edição, respostas, reações e mensagens fixadas */
+#page-app .bc-message-reply-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 15px;border-left:3px solid #58dc9b;background:linear-gradient(105deg,#1d5040,#18323d);color:#d9ffe7;font-size:12px;overflow-wrap:anywhere}
+#page-app .bc-message-reply-bar[hidden]{display:none!important}
+#page-app .bc-message-reply-bar span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#page-app .bc-message-reply-bar button{color:#f8fff8;background:#315e4c;border:1px solid #8bdaad61;border-radius:7px;padding:5px 9px;cursor:pointer}
+#page-app .bc-reply-preview{display:flex;align-items:center;gap:7px;min-width:0;max-width:100%;border-left:2px solid #7af5ba;padding:5px 8px;background:#153e3699;border-radius:3px;color:#d3f8e7;cursor:pointer;font-size:11px}
+#page-app .bc-reply-preview strong{font-size:11px;flex-shrink:0}
+#page-app .bc-reply-preview span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#page-app .bc-message-reactions{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+#page-app .bc-reaction-chip{padding:5px 10px;border:1px solid #68b3986e;border-radius:10px;background:#183d38;color:#eafff1;cursor:pointer;font-size:12px}
+#page-app .bc-reaction-chip[data-mine="true"]{border-color:#86eebc;background:#215f48}
+#page-app .bc-reaction-chip:hover{background:#2b7254}
+#page-app .bc-message-pinned{font-size:10px;color:#ffdf79;font-weight:800}
+.bc-emoji-picker{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;z-index:9100;gap:5px;padding:10px;border:1px solid #87e6b46e;border-radius:12px;background:#112b35;box-shadow:0 12px 48px #000c}
+.bc-emoji-picker[hidden]{display:none!important}
+.bc-emoji-picker button{width:42px;height:39px;border:1px solid #5d8f7d61;border-radius:8px;background:#1b4340;font-size:20px;color:white;cursor:pointer}
+.bc-emoji-picker button:hover{background:#297258}

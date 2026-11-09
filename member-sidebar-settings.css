@@ -1,0 +1,56 @@
+
+/* Grupos de cargos e gerenciamento de comunidade no BrasilCord. */
+#page-app .bc-members-pane .bc-members-description{margin-bottom:12px}
+#page-app .bc-platform-members{display:flex;flex-direction:column;gap:1px;min-height:0}
+#page-app .bc-role-group-heading{display:flex;justify-content:space-between;align-items:center;gap:9px;margin:17px 1px 7px;color:#9eacbb;font-size:10px;letter-spacing:.035em;font-weight:750}
+#page-app .bc-role-group-heading:first-child{margin-top:5px}
+#page-app .bc-role-group-heading strong{font-size:10px;word-break:break-word}
+#page-app .bc-role-group-heading span{background:#29313e;color:#b9c8d3;border-radius:7px;padding:2px 7px;font-variant-numeric:tabular-nums}
+#page-app .bc-offline-heading{opacity:.74}
+#page-app .bc-ranked-member{display:flex;flex-wrap:nowrap;padding:7px 3px;gap:9px;border-radius:8px;cursor:context-menu;min-width:0}
+#page-app .bc-ranked-member:hover{background:#27303a}
+#page-app .bc-ranked-member .bc-member-name{flex:1;min-width:0}
+#page-app .bc-ranked-member .bc-member-name strong{font-size:11px}
+#page-app .bc-ranked-member .bc-member-name small{font-size:9px}
+#page-app .bc-ranked-member .bc-member-avatar{position:relative;overflow:hidden;flex:none}
+#page-app .bc-ranked-member .bc-member-avatar img{width:100%;height:100%;object-fit:cover}
+#page-app .bc-member-presence{height:9px;width:9px;border-radius:50%;background:#64717e;flex:none;box-shadow:0 0 0 2px #1b222a}
+#page-app .bc-member-presence[data-online=true]{background:#37c878}
+#page-app .bc-server-heading-row{display:flex;align-items:center;gap:7px;justify-content:space-between;min-width:0;margin-top:5px}
+#page-app .bc-server-heading-row h2{flex:1;min-width:0;margin:0;cursor:context-menu}
+#page-app .bc-server-settings-button{width:34px;height:34px;flex:none;border:1px solid #40584e;background:#213e34;border-radius:9px;color:#edfff5;font-size:18px;cursor:pointer}
+#page-app .bc-server-settings-button:hover{border-color:#75d6a5;background:#2d5847}
+#page-app .bc-server-settings-button[hidden]{display:none!important}
+#page-app #bc-community-manage,#page-app #bc-community-public-settings{border:0;background:none;margin:0;padding:0}
+.bc-server-settings-dialog{position:fixed;inset:0;margin:auto;background:#171e28;color:#edf6f7;border:1px solid #3d555b;border-radius:18px;width:min(790px,calc(100vw - 24px));max-height:min(86vh,850px);padding:0;box-shadow:0 30px 85px #000a;font-family:system-ui;overflow:hidden}
+.bc-server-settings-dialog::backdrop{background:rgba(4,10,18,.76)}
+.bc-settings-dialog-header{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:20px 24px;border-bottom:1px solid #374348}
+.bc-settings-dialog-header span{font-size:10px;letter-spacing:.1em;color:#77cfa0}
+.bc-settings-dialog-header h2{font-size:21px;margin:5px 0 0;color:#f0faf6;overflow-wrap:anywhere}
+#bc-server-settings-close{background:#303c45;border:1px solid #556570;border-radius:9px;color:white;padding:9px 14px;cursor:pointer}
+.bc-settings-tabs{display:flex;flex-wrap:wrap;gap:5px;padding:12px 18px;background:#1c2831;border-bottom:1px solid #36464d}
+.bc-settings-tabs button{border:1px solid transparent;background:transparent;color:#b9c9cd;padding:10px 12px;border-radius:9px;font-size:12px;cursor:pointer}
+.bc-settings-tabs button[aria-selected=true]{background:#1d533f;border-color:#418364;color:#e7fff5}
+.bc-settings-dialog-body{max-height:calc(86vh - 150px);overflow-y:auto;overflow-x:hidden;padding:20px 24px;scrollbar-width:thin}
+.bc-settings-dialog-body>section[hidden]{display:none!important}
+.bc-settings-dialog-body h3{color:#b5efc9;margin:18px 0 9px;font-size:15px}
+.bc-settings-dialog-body p{color:#b4c4c9;font-size:12px;line-height:1.55}
+.bc-settings-dialog-body button{border-radius:8px;cursor:pointer}
+.bc-settings-dialog-body .bc-add-community{display:block;position:relative;margin:16px 0}
+.bc-settings-dialog-body .bc-add-community .bc-add-popover{position:relative;display:grid;inset:auto;width:100%;box-sizing:border-box}
+.bc-settings-dialog-body #bc-platform-invite{display:block;margin:13px 0}
+.bc-settings-dialog-body #bc-platform-invite[hidden]{display:none!important}
+.bc-settings-dialog-body .bc-community-manage .bc-manage-forms{max-height:none;overflow:visible}
+.bc-settings-dialog-body .bc-new-channel{display:grid;gap:12px;margin:12px 0 20px}
+.bc-settings-dialog-body .bc-new-channel[hidden]{display:none!important}
+.bc-settings-dialog-body .bc-new-channel label{color:#e1ebe9;font-size:12px}
+.bc-settings-dialog-body .bc-new-channel input{background:#14232b;color:#f0fafa;border:1px solid #455f61;border-radius:8px;min-height:38px;box-sizing:border-box;width:100%;padding:8px}
+.bc-settings-dialog-body .bc-new-channel button,.bc-settings-dialog-body #bc-role-order-save{border:1px solid #3b8a64;background:#236649;color:#ecfff1;padding:10px 15px;font-size:12px}
+.bc-role-order-item{display:flex;align-items:center;gap:9px;padding:10px;border:1px solid #374852;background:#1d2b34;border-radius:10px;margin:8px 0;min-width:0}
+.bc-role-order-item strong{flex:1;min-width:0;overflow-wrap:anywhere;font-size:13px}
+.bc-role-order-handle{color:#7d999d}
+.bc-role-order-item button{background:#2f464b;border:1px solid #4e7071;color:#e8fff4;padding:7px 12px;font-size:14px}
+.bc-role-order-item button:disabled{opacity:.32;cursor:not-allowed}
+#bc-role-order-feedback{min-height:16px;color:#9ee0af}
+.bc-settings-dialog-body .bc-community-settings form{display:grid;gap:11px}
+@media(max-width:570px){.bc-settings-dialog-header{padding:14px}.bc-settings-tabs{padding:7px}.bc-settings-dialog-body{padding:12px}.bc-role-order-item{padding:7px}}

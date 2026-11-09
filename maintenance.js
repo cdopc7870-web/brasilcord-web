@@ -22,7 +22,7 @@
         return;
       }
       window.sessionStorage.setItem('brasilcord-maintenance-access', 'unlocked');
-      window.location.assign('app.html');
+      window.location.assign('login.html');
     } catch (error) {
       feedback.textContent = 'Não foi possível abrir o BrasilCord. Tente novamente.';
     } finally {

@@ -12,6 +12,7 @@
   <script src="access-guard.js"></script>
   <script src="landing.js" defer></script>
   <script src="auth.js" defer></script>
+<link rel="stylesheet" href="gradients.css">
 </head>
 <body data-theme="dark" class="auth-body"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
@@ -38,7 +39,7 @@
 <main id="conteudo" class="auth-main" data-auth-view="login">
   <section class="auth-panel" aria-labelledby="auth-title">
     <div class="auth-brand-small"><img src="assets/brand-icon.png" alt="" width="38" height="38"><span>Bem-vindo de volta ao BrasilCord</span></div>
-    <h1 id="auth-title">Entrar</h1>
+    <h1 id="auth-title"><span class="bc-gradient-text">Entrar</span></h1>
     <p class="auth-intro">Acesse sua conta e continue de onde parou.</p>
     <form id="auth-form" autocomplete="on">
       <div class="auth-field"><label for="login-email">E-mail</label><input id="login-email" name="email" type="email" autocomplete="username" inputmode="email" maxlength="254" placeholder="voce@exemplo.com" required autofocus></div>

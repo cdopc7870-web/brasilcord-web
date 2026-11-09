@@ -1,0 +1,30 @@
+/* Destaques em degradê: identidade BrasilCord verde, azul e dourado. */
+:root{
+  --bc-title-gradient:linear-gradient(105deg,#066b4b 4%,#145aa5 55%,#876000 100%);
+  --bc-title-gradient-bright:linear-gradient(105deg,#40ed9b 3%,#6cbfff 54%,#ffe083 100%);
+}
+[data-theme="dark"]{--bc-title-gradient:var(--bc-title-gradient-bright)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .bc-gradient-text{
+    display:inline;
+    background-image:var(--bc-title-gradient);
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent!important;
+    -webkit-text-fill-color:transparent;
+    -webkit-box-decoration-break:clone;
+    box-decoration-break:clone;
+  }
+}
+@media (forced-colors:active){
+  .bc-gradient-text{
+    background:none!important;
+    color:CanvasText!important;
+    -webkit-text-fill-color:CanvasText!important;
+  }
+}
+@media print{
+  .bc-gradient-text{background:none!important;color:inherit!important;-webkit-text-fill-color:currentColor!important}
+}

@@ -40,9 +40,28 @@
       button.setAttribute('aria-label',show?'Ocultar senha':'Mostrar senha');
     });
   });
-  function finish(result){
+  let pendingDisplayName='';
+  async function finish(result){
     if(!result?.token||!result?.user)throw Error('O servidor não retornou uma sessão válida.');
-    // O mesmo token é utilizado pela versão normal, guardado somente na sessão da aba.
+    // Opcional: aplicar o nome de exibição após a criação da conta ou confirmação por e-mail.
+    // Se não for possível salvar o nome, preserve o cadastro e a sessão principal.
+    if(pendingDisplayName){
+      try{
+        const controller=new AbortController();
+        const timeout=setTimeout(()=>controller.abort(),8000);
+        try{
+          await fetch(API+'/me',{
+            method:'PATCH',
+            headers:{'Content-Type':'application/json','Authorization':'Bearer '+result.token},
+            body:JSON.stringify({displayName:pendingDisplayName,bio:''}),
+            cache:'no-store',signal:controller.signal
+          }).then(async response=>{
+            if(!response.ok)throw Error('Falha ao salvar nome de exibição.');
+          });
+        }finally{clearTimeout(timeout)}
+      }catch(error){console.warn('Nome de exibição não foi atualizado:',error.message)}
+      pendingDisplayName='';
+    }
     sessionStorage.setItem('brasilcord:web:session',result.token);
     location.replace('app.html?app=1');
   }
@@ -56,7 +75,7 @@
       try{
         const code=otpForm.elements.otp.value.trim();
         if(!/^\d{6}$/.test(code))throw Error('Digite exatamente seis números.');
-        finish(await request('/login/verify',{challengeId,code}));
+        await finish(await request('/login/verify',{challengeId,code}));
       }catch(error){showMessage(otpMsg,errorMessage(error))}
       finally{button.disabled=false}
     });
@@ -81,7 +100,10 @@
         const confirm=String(data.get('confirmPassword')||'');
         if(payload.password!==confirm)throw Error('As senhas não são iguais.');
         if(!/^[a-zA-Z0-9_]{3,28}$/.test(payload.username))throw Error('Use entre 3 e 28 letras, números ou _ no nome de usuário.');
-        // O backend registra apenas username, email e password atualmente.
+        if(data.get('beta')!=='on'||data.get('privacy')!=='on')throw Error('Leia e aceite as condições de uso e informações de privacidade.');
+        pendingDisplayName=String(data.get('displayName')||'').trim();
+        if(pendingDisplayName && (pendingDisplayName.length<2||pendingDisplayName.length>40))throw Error('O nome de exibição deve ter de 2 a 40 caracteres.');
+        // A data de nascimento e o código Beta não são coletados pelo formulário até o backend oferecer suporte.
       }
       const response=await request(view==='register'?'/register':'/login',payload);
       form.elements.password.value='';
@@ -94,7 +116,7 @@
         otpForm.elements.otp.focus();
         return;
       }
-      finish(response);
+      await finish(response);
     }catch(error){showMessage(msg,errorMessage(error))}
     finally{submit.disabled=false}
   });

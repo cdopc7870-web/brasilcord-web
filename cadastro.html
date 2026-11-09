@@ -13,7 +13,7 @@
   <script src="landing.js" defer></script>
   <script src="auth.js" defer></script>
 </head>
-<body data-theme="dark" class="auth-body"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<body data-theme="light" class="auth-body"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="./" aria-label="BrasilCord, voltar à página inicial">
@@ -39,20 +39,49 @@
   <section class="auth-panel" aria-labelledby="auth-title">
     <div class="auth-brand-small"><img src="assets/brand-icon.png" alt="" width="38" height="38"><span>Faça parte da nossa comunidade</span></div>
     <h1 id="auth-title">Criar a sua conta</h1>
-    <p class="auth-intro">Comece seu espaço no BrasilCord. Estamos em fase beta.</p>
+    <p class="auth-intro">Crie sua conta para conversar, criar e conviver. O BrasilCord está em versão beta.</p>
     <form id="auth-form" autocomplete="on">
-      <div class="auth-field"><label for="register-username">Nome de usuário</label>
-      <input id="register-username" type="text" name="username" autocomplete="username" minlength="3" maxlength="28" pattern="[A-Za-z0-9_]{3,28}" placeholder="seu_usuario" required><small>De 3 a 28 caracteres: letras, números e sublinhado (_).</small></div>
-      <div class="auth-field"><label for="register-email">E-mail</label>
-      <input id="register-email" type="email" name="email" autocomplete="email" maxlength="254" inputmode="email" placeholder="voce@exemplo.com" required></div>
-      <div class="auth-field"><label for="register-password">Senha</label>
-      <div class="input-password"><input id="register-password" type="password" name="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Crie uma senha segura" required><button type="button" class="toggle-password" data-toggle-password="register-password" aria-label="Mostrar senha" aria-pressed="false">
-<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
-      <small>Use pelo menos 8 caracteres.</small></div>
-      <div class="auth-field"><label for="register-password-confirm">Repita a senha</label>
-      <div class="input-password"><input id="register-password-confirm" type="password" name="confirmPassword" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Confirme sua senha" required><button type="button" class="toggle-password" data-toggle-password="register-password-confirm" aria-label="Mostrar senha" aria-pressed="false">
-<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div>
-      <label class="auth-check"><input type="checkbox" name="beta" required><span>Entendo que o BrasilCord está em versão beta e algumas funcionalidades ainda podem mudar.</span></label>
+      <div class="auth-field">
+        <label for="register-invite-code">Código de acesso à Beta <span class="optional">(opcional)</span></label>
+        <input id="register-invite-code" name="inviteCode" type="text" autocomplete="off" maxlength="40" placeholder="Convite Beta" disabled aria-describedby="beta-help">
+        <small id="beta-help">O BrasilCord está em fase Beta, mas o cadastro não exige código de convite no momento.</small>
+      </div>
+      <div class="auth-field">
+        <label for="register-username">Nome de usuário</label>
+        <input id="register-username" type="text" name="username" autocomplete="username" minlength="3" maxlength="28" pattern="[A-Za-z0-9_]{3,28}" placeholder="seu_usuario" required>
+        <small>De 3 a 28 caracteres: letras, números e sublinhado (_). É único no BrasilCord.</small>
+      </div>
+      <div class="auth-field">
+        <label for="register-display-name">Nome de exibição <span class="optional">(opcional)</span></label>
+        <input id="register-display-name" type="text" name="displayName" maxlength="40" placeholder="Como gostaria de aparecer?">
+      </div>
+      <div class="auth-field">
+        <label for="register-email">E-mail</label>
+        <input id="register-email" type="email" name="email" autocomplete="email" maxlength="254" inputmode="email" placeholder="voce@exemplo.com" required>
+      </div>
+      <div class="auth-field">
+        <label for="register-password">Senha</label>
+        <div class="input-password"><input id="register-password" type="password" name="password" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Crie uma senha segura" required><button type="button" class="toggle-password" data-toggle-password="register-password" aria-label="Mostrar senha" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+        <small>Pelo menos 8 caracteres. Uma frase curta funciona bem.</small>
+      </div>
+      <div class="auth-field">
+        <label for="register-password-confirm">Repita a senha</label>
+        <div class="input-password"><input id="register-password-confirm" type="password" name="confirmPassword" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Confirme sua senha" required><button type="button" class="toggle-password" data-toggle-password="register-password-confirm" aria-label="Mostrar senha" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+      </div>
+      <fieldset class="birthdate-group" aria-describedby="birthdate-help" disabled>
+        <legend>Data de nascimento <span class="optional">(em breve)</span></legend>
+        <div class="birthdate-grid">
+          <label for="birth-day">Dia <input id="birth-day" type="text" inputmode="numeric" placeholder="DD" maxlength="2"></label>
+          <label for="birth-month">Mês <input id="birth-month" type="text" inputmode="numeric" placeholder="MM" maxlength="2"></label>
+          <label for="birth-year">Ano <input id="birth-year" type="text" inputmode="numeric" placeholder="AAAA" maxlength="4"></label>
+        </div>
+        <small id="birthdate-help">Este dado ainda não é coletado nem armazenado. O recurso depende de suporte no servidor.</small>
+      </fieldset>
+      <div class="auth-consents">
+        <label class="auth-check"><input type="checkbox" name="beta" required><span>Li as <a href="termos.html" target="_blank" rel="noopener noreferrer">condições de uso</a> e entendo que o BrasilCord está em Beta e pode mudar.</span></label>
+        <label class="auth-check"><input type="checkbox" name="privacy" required><span>Li as <a href="privacidade.html" target="_blank" rel="noopener noreferrer">informações de privacidade</a> do BrasilCord.</span></label>
+      </div>
+      <div class="auth-security-note" role="note"><span aria-hidden="true">✓</span> Seus dados de cadastro são enviados ao serviço oficial do BrasilCord. Nunca compartilhe sua senha.</div>
       <button class="auth-submit" type="submit">Criar conta</button>
       <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
     </form>

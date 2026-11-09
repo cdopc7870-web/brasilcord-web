@@ -27,6 +27,8 @@ jobs:
           node --check landing.js
           node -e "const fs=require('fs');for(const p of ['downloads.html','download.css']){if(!fs.existsSync(p))throw Error('Missing download file: '+p)}"
           node --check auth.js
+          node -e "const fs=require('fs');for(const p of ['termos.html','privacidade.html'])if(!fs.existsSync(p))throw Error('Missing legal info page: '+p)"
+          node -e "const fs=require('fs');const s=fs.readFileSync('cadastro.html','utf8');for(const id of ['register-username','register-display-name','register-email','register-password','register-password-confirm','auth-form'])if(!s.includes(id))throw Error('Missing field: '+id)"
           node -e "const fs=require('fs');for(const name of ['login.html','cadastro.html','recuperar-senha.html','acesso.html','auth.css','auth.js']){if(!fs.existsSync(name))throw Error('Missing: '+name)}" 
           node --check maintenance.js
           node --check access-guard.js

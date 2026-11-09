@@ -54,3 +54,23 @@
 .auth-body[data-theme=dark] .auth-check input{accent-color:#2bdc87}
 @media(max-width:850px){.auth-main{min-height:calc(100dvh - 135px);padding-top:60px;padding-bottom:60px}}
 @media(max-width:600px){.auth-main{padding:38px 20px 50px;min-height:calc(100dvh - 130px)}.auth-panel{width:min(100%,420px)}.auth-brand-small{margin-bottom:23px}.auth-register{padding-top:35px}.auth-footer{flex-wrap:wrap;gap:12px 22px}.auth-panel h1{font-size:29px}}
+
+/* Cadastro completo inspirado no layout de referência, sem copiar a marca. */
+.auth-register .auth-panel{width:min(100%,405px)}
+.auth-register .auth-intro{margin-bottom:24px}
+.auth-register .auth-field{margin-bottom:17px}
+.auth-register .auth-field input:disabled{opacity:.68;cursor:not-allowed}
+.birthdate-group{margin:0 0 17px;padding:0;border:0;min-width:0}
+.birthdate-group legend{font-size:13px;font-weight:700;margin-bottom:9px;color:var(--text)}
+.birthdate-grid{display:grid;grid-template-columns:1fr 1fr 1.35fr;gap:11px}
+.birthdate-grid label{display:block;font-size:12px;color:var(--muted)}
+.birthdate-grid input{display:block;width:100%;height:47px;margin-top:7px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;font:inherit;background:var(--auth-field-bg,#fff);color:var(--text)}
+.birthdate-grid input:disabled{opacity:.68;cursor:not-allowed}
+.birthdate-group small{display:block;color:var(--muted);font-size:11px;line-height:1.65;margin-top:8px}
+.auth-consents{display:grid;gap:14px;margin:23px 0 18px}
+.auth-consents .auth-check{margin:0}
+.auth-consents .auth-check a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.auth-security-note{display:flex;align-items:center;gap:10px;padding:14px 16px;margin-bottom:20px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--muted);font-size:12px;line-height:1.5}
+.auth-security-note span{flex:none;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#16845c;color:#fff;font-size:15px;font-weight:900}
+.auth-register .auth-submit{margin-top:5px}
+.auth-body[data-theme=dark] .birthdate-grid input{border-color:#4c6478}

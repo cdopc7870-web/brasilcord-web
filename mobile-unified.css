@@ -23,7 +23,7 @@
  #page-app .bc-rail-exit,#page-app #bc-beta-invite-rail,#page-app #bc-support-rail{display:none!important}
  #page-app .bc-desktop-workarea,
  #page-app .bc-desktop-workarea[data-bc-active-view]:not([data-bc-active-view="chat"]),
- #page-app .bc-desktop-workarea[data-bc-members-hidden="true"]{display:grid;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;height:auto!important;min-height:0!important;flex:1;overflow:hidden}
+ #page-app .bc-desktop-workarea[data-bc-members-hidden="true"]{display:grid;position:relative;grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto minmax(0,1fr)!important;height:auto!important;min-height:0!important;flex:1;overflow:hidden}
  #page-app .bc-server-rail{grid-column:1;grid-row:1;display:flex;flex-direction:row;align-items:center;min-height:65px;height:65px;max-height:65px;gap:9px;padding:7px 10px;border:0;border-bottom:1px solid #ffffff19;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
  #page-app .bc-server-rail::-webkit-scrollbar{display:none}
  #page-app .bc-server-rail-title,#page-app .bc-server-list-eyebrow{display:none!important}

@@ -1,0 +1,47 @@
+/* BrasilCord — motion design leve. Efeitos apenas de opacidade/transform/translate. */
+@keyframes bc-rise{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+@keyframes bc-pop{from{opacity:0;scale:.93}to{opacity:1;scale:1}}
+@keyframes bc-float{0%,100%{translate:0 0}50%{translate:0 -11px}}
+@keyframes bc-glow{0%,100%{opacity:.65;scale:1}50%{opacity:.9;scale:1.065}}
+@keyframes bc-orbit{0%,100%{rotate:0deg}50%{rotate:5deg}}
+@keyframes bc-spark{0%,100%{opacity:.85;scale:1}50%{opacity:1;scale:1.14}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .eyebrow,.hero h1,.hero-lead,.hero-ctas,.hero .availability{animation:bc-rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1{animation-delay:.08s}
+  .hero-lead{animation-delay:.17s}
+  .hero-ctas{animation-delay:.25s}
+  .hero .availability{animation-delay:.32s}
+  .hero-visual{animation:bc-pop .95s cubic-bezier(.2,.7,.2,1) .15s both}
+  .hero-visual .visual-glow{animation:bc-glow 8s ease-in-out 1.3s infinite}
+  .hero-visual .orbit-one{animation:bc-orbit 11s ease-in-out infinite}
+  .hero-visual .orbit-two{animation:bc-orbit 14s ease-in-out reverse infinite}
+  .hero-visual .float-chat{animation:bc-float 5s ease-in-out 1.2s infinite}
+  .hero-visual .float-create{animation:bc-float 5.8s ease-in-out 1.7s infinite}
+  .hero-visual .float-together{animation:bc-float 6.1s ease-in-out 2s infinite}
+  .hero .spark{display:inline-block;animation:bc-spark 3.5s ease-in-out infinite}
+  .motion-ready [data-bc-reveal]{transition:opacity .75s cubic-bezier(.2,.7,.2,1),translate .75s cubic-bezier(.2,.7,.2,1);transition-delay:var(--bc-reveal-delay,0ms)}
+  .motion-ready [data-bc-reveal]:not(.bc-visible){opacity:0;translate:0 22px}
+  .motion-ready [data-bc-reveal].bc-visible{opacity:1;translate:0 0}
+  .motion-ready .feature-card,.motion-ready .partner-card,.motion-ready .download-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,background .25s ease,opacity .75s ease,translate .75s ease}
+  .motion-ready .socials a,.motion-ready .social-download-links a{transition:transform .2s ease,background .2s ease,border-color .2s ease}
+  .motion-ready .socials a:hover{transform:translateY(-3px)}
+  .motion-ready .social-download-links a:hover{transform:translateX(4px)}
+  .motion-ready .nav-links a{position:relative}
+  .motion-ready .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .24s ease}
+  .motion-ready .nav-links a:hover::after,.motion-ready .nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+  .motion-ready .btn:hover{filter:brightness(1.07)}
+  .motion-ready .auth-panel{animation:bc-rise .55s cubic-bezier(.2,.7,.2,1) both}
+  .motion-ready .download-faq details[open]>p{animation:bc-rise .3s ease both}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero *,.hero-visual *,.auth-panel{animation:none!important}
+  .motion-ready [data-bc-reveal],.motion-ready [data-bc-reveal]:not(.bc-visible){opacity:1!important;translate:0 0!important;transition:none!important}
+  .motion-ready .nav-links a::after{transition:none!important}
+}
+@media print{
+  .motion-ready [data-bc-reveal],.motion-ready [data-bc-reveal]:not(.bc-visible){opacity:1!important;translate:none!important}
+}
+
+/* Use data attributes for stagger delays; works with strict style CSP. */
+.motion-ready [data-bc-reveal-delay="1"]{--bc-reveal-delay:85ms}
+.motion-ready [data-bc-reveal-delay="2"]{--bc-reveal-delay:170ms}

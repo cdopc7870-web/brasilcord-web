@@ -32,9 +32,6 @@ const mascotHalo = document.querySelector('.mascot-halo');
 let auroraPointerFrame;
 let auroraPointerPosition;
 let priorInviteFocus;
-let previewAccessGranted = false;
-let previewDialogPriorFocus = null;
-let previewCheckBusy = false;
 const inviteConfirmedPreference = window.brasilcord.getCommunityInviteConfirmed()
   .then(confirmed => (communityInviteConfirmed = confirmed, confirmed))
   .catch(() => false);
@@ -195,14 +192,8 @@ function updateAppVersion() {
 updateAppVersion();
 
 function setPage(name, {focus = false, updateLocation = true} = {}) {
-  // A pagina propria nao deve ser aberta por link, hash ou menu antes da verificacao local.
-  if (name === 'app' && !previewAccessGranted && !window.brasilcord?.isWeb) {
-    openPreviewDialog();
-    return false;
-  }
   const page = pages.find(item => item.dataset.page === name);
   if (!page || document.body.classList.contains('discord-open')) return false;
-  if (name !== 'app') previewAccessGranted = false;
 
   document.body.classList.toggle('bc-app-active', name === 'app');
   document.body.classList.toggle('home-page-active', name === 'inicio');
@@ -528,80 +519,7 @@ async function openDiscord(openAction, statusMessage) {
   }
 }
 
-// A senha e uma barreira visual de teste, nunca uma credencial administrativa real.
-const previewDialog = $('bc-preview-dialog');
-const previewForm = $('bc-preview-form');
-const previewPassword = $('bc-preview-password');
-const previewError = $('bc-preview-error');
-const previewSubmit = $('bc-preview-submit');
-
-function openPreviewDialog() {
-  if (!previewDialog.hidden) return;
-  previewDialogPriorFocus = document.activeElement;
-  previewPassword.value = '';
-  previewError.textContent = '';
-  previewDialog.hidden = false;
-  document.body.classList.add('bc-preview-open');
-  previewPassword.focus({preventScroll: true});
-}
-
-function closePreviewDialog({restoreFocus = true} = {}) {
-  if (previewCheckBusy || previewDialog.hidden) return;
-  previewDialog.hidden = true;
-  document.body.classList.remove('bc-preview-open');
-  previewPassword.value = '';
-  previewError.textContent = '';
-  if (restoreFocus) (previewDialogPriorFocus?.isConnected ? previewDialogPriorFocus : $('enter-brasilcord')).focus({preventScroll: true});
-  previewDialogPriorFocus = null;
-}
-$('bc-preview-close').addEventListener('click', () => closePreviewDialog());
-previewDialog.querySelector('.bc-preview-backdrop').addEventListener('click', () => closePreviewDialog());
-previewDialog.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    closePreviewDialog();
-    return;
-  }
-  if (event.key !== 'Tab') return;
-  const focusable = [...previewDialog.querySelectorAll('button:not([disabled]), input:not([disabled])')];
-  if (!focusable.length) return;
-  if (event.shiftKey && document.activeElement === focusable[0]) {
-    event.preventDefault();
-    focusable.at(-1).focus();
-  } else if (!event.shiftKey && document.activeElement === focusable.at(-1)) {
-    event.preventDefault();
-    focusable[0].focus();
-  }
-});
-previewForm.addEventListener('submit', async event => {
-  event.preventDefault();
-  if (previewCheckBusy) return;
-  previewCheckBusy = true;
-  previewSubmit.disabled = true;
-  previewError.textContent = '';
-  try {
-    const result = await window.brasilcord.verifyPreviewAccess(previewPassword.value);
-    previewPassword.value = '';
-    if (!result?.ok) {
-      previewError.textContent = result?.message || 'Senha incorreta.';
-      previewPassword.focus({preventScroll: true});
-      return;
-    }
-    previewAccessGranted = true;
-    previewDialog.hidden = true;
-    document.body.classList.remove('bc-preview-open');
-    previewDialogPriorFocus = null;
-    setPage('app', {focus: true});
-  } catch (error) {
-    previewPassword.value = '';
-    previewError.textContent = 'Nao foi possivel validar a senha. Tente novamente.';
-  } finally {
-    previewCheckBusy = false;
-    previewSubmit.disabled = false;
-  }
-});
-
-$('enter-brasilcord').addEventListener('click', () => { if(window.brasilcord?.isWeb) setPage('app',{focus:true}); else openPreviewDialog(); });
+$('enter-brasilcord').addEventListener('click', () => setPage('app', {focus: true}));
 $('bc-workspace-back').addEventListener('click', () => setPage('inicio', {focus: true}));
 $('bc-open-discord').addEventListener('click', () => openDiscord(
   () => window.brasilcord.openDiscord(),

@@ -5,7 +5,7 @@
   const menuButton=document.querySelector('.mobile-menu-toggle');
   const menu=document.getElementById('header-menu');
   const systemDark=window.matchMedia('(prefers-color-scheme: dark)');
-  function readTheme(){try{return localStorage.getItem('brasilcord-landing-theme')||'auto'}catch{return'auto'}}
+  function readTheme(){try{return localStorage.getItem('brasilcord-landing-theme')||'dark'}catch{return'dark'}}
   function applyTheme(mode){
     if(!['auto','light','dark'].includes(mode))mode='auto';
     root.dataset.theme=mode==='auto'?(systemDark.matches?'dark':'light'):mode;

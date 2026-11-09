@@ -41,3 +41,7 @@
 @media print{
   .motion-ready [data-bc-reveal],.motion-ready [data-bc-reveal]:not(.bc-visible){opacity:1!important;translate:none!important}
 }
+
+/* Use data attributes for stagger delays; works with strict style CSP. */
+.motion-ready [data-bc-reveal-delay="1"]{--bc-reveal-delay:85ms}
+.motion-ready [data-bc-reveal-delay="2"]{--bc-reveal-delay:170ms}

@@ -10,8 +10,24 @@
   "icons": [
     {
       "src": "assets/brand-icon.png",
-      "sizes": "any",
-      "type": "image/x-icon"
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "id": "./",
+  "lang": "pt-BR",
+  "orientation": "any",
+  "categories": [
+    "social",
+    "communication"
+  ],
+  "shortcut_description": "Abrir o BrasilCord",
+  "shortcuts": [
+    {
+      "name": "Abrir conversas",
+      "url": "./?app=1",
+      "description": "Entrar no BrasilCord"
     }
   ]
 }

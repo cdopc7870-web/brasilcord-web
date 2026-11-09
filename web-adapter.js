@@ -59,9 +59,14 @@
   window.addEventListener('DOMContentLoaded',()=>{
     const params=new URLSearchParams(location.search);
     if(params.get('app')==='1'){
-      const button=document.querySelector('[data-page-target="app"]');
-      if(button)button.click();
-      else document.querySelector('[data-bc-view="chat"]')?.click();
+      // A rota web abre diretamente a mesma interface do PC, sem barreira visual do Electron.
+      document.getElementById('enter-brasilcord')?.click();
+      if(params.get('cadastro')==='1'){
+        document.getElementById('bc-platform-toggle-auth')?.click();
+      }
+      if(params.get('install')==='1'){
+        document.getElementById('bc-install-button')?.click();
+      }
     }
     if('serviceWorker' in navigator && location.protocol==='https:'){
       navigator.serviceWorker.register('./sw.js').catch(()=>{});

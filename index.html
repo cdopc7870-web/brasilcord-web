@@ -36,6 +36,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="web-mobile.css">
   <link rel="stylesheet" href="install-app.css">
+  <link rel="stylesheet" href="landing-download.css">
 </head>
 <body>
   <aside class="bc-install-banner" id="bc-install-banner" aria-label="Instalar BrasilCord">
@@ -158,16 +159,16 @@
       <section class="page-view is-active" id="page-inicio" data-page="inicio" aria-labelledby="hero-title">
       <div class="hero-card">
         <div class="hero-copy">
-          <p class="bc-hero-kicker">Sua comunidade, seu espaço</p>
-          <h1 id="hero-title" tabindex="-1">BrasilCord<br><span>O Brasil conectado!</span></h1>
-          <p class="hero-description">Entre no Discord oficial em uma janela com identidade brasileira. Sua conta, servidores e conversas continuam na plataforma do Discord.</p>
+          <p class="bc-hero-kicker">🇧🇷 Comunidade brasileira • Conversas sem complicação</p>
+          <h1 id="hero-title" tabindex="-1">BrasilCord<br><span>O seu lugar para conversar.</span></h1>
+          <p class="hero-description">Somos uma plataforma brasileira de comunidades e comunicação. Reúna seus amigos, envie mensagens, participe de canais de voz, ligue a câmera e compartilhe a tela. Use diretamente no navegador ou baixe o aplicativo para Windows.</p>
           <div class="hero-actions">
             <button id="enter-brasilcord" class="primary-button bc-enter-button" type="button">
               <span class="bc-enter-symbol" aria-hidden="true">✦</span>Entrar no BrasilCord<span class="button-arrow" aria-hidden="true">→</span>
             </button>
             <button id="open-discord" class="secondary-button" type="button"><span class="discord-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.7 5.1a18 18 0 0 0-4.4-1.4l-.6 1.2a16.5 16.5 0 0 0-5.4 0l-.6-1.2a18 18 0 0 0-4.4 1.4C1.5 9.2.8 13.2 1.1 17.2a18 18 0 0 0 5.4 2.7l1.2-1.9-1.8-.9.4-.3c3.5 1.6 7.4 1.6 10.8 0l.4.3-1.8.9 1.2 1.9a18 18 0 0 0 5.4-2.7c.4-4.6-.8-8.6-2.6-12.1ZM8.8 14.9c-1.1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Zm6.4 0c-1.1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Z"/></svg></span>Entrar no Discord<span class="button-arrow" aria-hidden="true">↗</span></button>
           </div>
-          <p id="open-status" class="open-status" role="status" aria-live="polite">O login acontece na página oficial do Discord, dentro do BrasilCord.</p>
+          <p id="open-status" class="open-status" role="status" aria-live="polite">BrasilCord tem conta e comunidades próprias, independentes do Discord. A versão Windows também oferece acesso separado ao Discord oficial.</p>
         </div>
         <div class="hero-art" aria-label="Papagaio verde do BrasilCord">
           <img class="hero-fauna" src="brand/brasilcord-fauna.svg" alt="" aria-hidden="true">
@@ -188,10 +189,44 @@
         </div>
       </div>
       <div class="home-feature-grid" aria-label="Recursos do BrasilCord">
-        <article class="home-feature-card"><span class="home-feature-icon feature-yellow" aria-hidden="true">✦</span><div><h2>Visual brasileiro</h2><p>Personalize a experiência com a identidade do BrasilCord.</p></div></article>
-        <article class="home-feature-card"><span class="home-feature-icon feature-blue" aria-hidden="true">↻</span><div><h2>Atualizações automáticas</h2><p>O aplicativo verifica novas versões ao iniciar.</p></div></article>
-        <article class="home-feature-card"><span class="home-feature-icon feature-green" aria-hidden="true">▣</span><div><h2>Câmera e transmissão</h2><p>Compartilhe sua câmera ou tela pela janela de transmissão do BrasilCord.</p></div></article>
+        <article class="home-feature-card"><span class="home-feature-icon feature-yellow" aria-hidden="true">✦</span><div><h2>Uma comunidade de verdade</h2><p>Crie e encontre comunidades, faça amizades e converse por canais.</p></div></article>
+        <article class="home-feature-card"><span class="home-feature-icon feature-blue" aria-hidden="true">↻</span><div><h2>Web e Windows</h2><p>Acesse com a mesma conta no navegador ou no aplicativo do computador.</p></div></article>
+        <article class="home-feature-card"><span class="home-feature-icon feature-green" aria-hidden="true">▣</span><div><h2>Chamadas e transmissão</h2><p>Converse por voz e utilize câmera e compartilhamento em dispositivos compatíveis.</p></div></article>
       </div>
+      <section class="bc-landing-intro" aria-labelledby="bc-who-title">
+        <div class="bc-landing-intro-copy">
+          <span class="bc-landing-eyebrow">CONHEÇA O BRASILCORD</span>
+          <h2 id="bc-who-title">Feito no Brasil, para aproximar pessoas.</h2>
+          <p>O BrasilCord é um aplicativo independente de comunicação e comunidades, desenvolvido com identidade brasileira. Aqui você encontra espaços para conversar, compartilhar ideias, fazer amizades e participar de chamadas. O objetivo é tornar sua comunidade mais próxima, seja pelo computador ou pelo celular.</p>
+          <p class="bc-landing-disclaimer">BrasilCord não é um produto oficial do Discord. A plataforma BrasilCord possui sua própria conta; o acesso ao Discord, quando oferecido na versão Windows, é separado.</p>
+        </div>
+        <div class="bc-landing-identity" aria-label="BrasilCord: conversar, compartilhar e se conectar">
+          <span class="bc-landing-identity-orb"><img src="assets/parrot-mascot.png" alt="Mascote papagaio do BrasilCord" loading="lazy"></span>
+          <div class="bc-landing-identity-tags"><span>💬 Conversas</span><span>🎙️ Chamadas</span><span>🇧🇷 Comunidades</span></div>
+        </div>
+      </section>
+      <section class="bc-download-section" id="baixar" aria-labelledby="bc-download-title">
+        <header class="bc-download-header"><span class="bc-landing-eyebrow">COMECE AGORA</span><h2 id="bc-download-title">Escolha como usar o BrasilCord</h2><p>É gratuito para começar. No PC, instale o programa; no celular, adicione o site à tela inicial.</p></header>
+        <div class="bc-download-grid">
+          <article class="bc-download-card bc-download-win">
+            <span class="bc-download-chip">PARA PC</span>
+            <div class="bc-download-card-icon" aria-hidden="true">▦</div>
+            <h3>Aplicativo para Windows</h3>
+            <p>Use o BrasilCord no computador com o aplicativo dedicado. Acesse a versão oficial e obtenha o instalador mais recente.</p>
+            <a class="bc-download-action" href="https://github.com/cdopc7870-web/brasilcord-updates/releases/latest" target="_blank" rel="noopener noreferrer" aria-label="Abrir downloads oficiais do BrasilCord para Windows">⬇ Baixar para Windows <span aria-hidden="true">↗</span></a>
+            <small>Na página aberta, selecione o arquivo <strong>BrasilCord-Setup-… .exe</strong> em Assets.</small>
+          </article>
+          <article class="bc-download-card bc-download-phone">
+            <span class="bc-download-chip">PARA CELULAR</span>
+            <div class="bc-download-card-icon" aria-hidden="true">▯</div>
+            <h3>BrasilCord na tela inicial</h3>
+            <p>Instale como aplicativo web (PWA), com ícone na tela inicial e abertura em janela própria quando o navegador permitir.</p>
+            <button type="button" id="bc-home-install" class="bc-download-action">＋ Adicionar à tela inicial <span aria-hidden="true">↗</span></button>
+            <small><strong>Android:</strong> Chrome → menu ⋮ → Instalar app. <strong>iPhone:</strong> Safari → Compartilhar → Adicionar à Tela de Início.</small>
+          </article>
+        </div>
+        <p class="bc-download-note">No celular não é necessário baixar um APK. A instalação depende do navegador; chamadas exigem internet e permissões de microfone/câmera.</p>
+      </section>
       <section class="home-social-section" aria-labelledby="home-social-title">
         <div class="home-social-heading"><div><p class="home-social-eyebrow">ACOMPANHE O BRASILCORD</p><h2 id="home-social-title">Comunidade e redes oficiais</h2></div><p>Os links pendentes serão ativados quando as URLs oficiais forem configuradas.</p></div>
         <div class="home-social-links" aria-label="Redes sociais do BrasilCord">
@@ -918,6 +953,7 @@
     </dialog>
    <script src="web-adapter.js"></script>
   <script src="install-app.js"></script>
+  <script src="landing-download.js"></script>
   <script src="renderer.js"></script>
   <script src="platform.js"></script>
   <script src="platform-ui.js"></script>

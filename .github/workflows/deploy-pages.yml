@@ -24,6 +24,9 @@ jobs:
           node-version: '22'
       - name: Validar scripts e arquivos
         run: |
+          node --check landing.js
+          node --check maintenance.js
+          node --check access-guard.js
           node --check web-adapter.js
           node --check renderer.js
           node --check platform.js

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0c1120">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'; script-src 'self';">
+  <title>BrasilCord — Acesso antecipado</title>
+  <style>
+    :root{color-scheme:dark;font-family:Inter,"Segoe UI",Arial,sans-serif}
+    *{box-sizing:border-box}
+    html,body{margin:0;min-height:100%;background:#0c1120;color:#f8fafc}
+    body{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 20% 10%,rgba(21,128,61,.16),transparent 45%),radial-gradient(ellipse at 85% 80%,rgba(37,99,235,.13),transparent 45%),#0c1120}
+    main{width:min(100%,500px);text-align:center;padding:54px 36px;border:1px solid rgba(255,255,255,.11);border-radius:24px;background:rgba(20,27,43,.92);box-shadow:0 24px 80px rgba(0,0,0,.27)}
+    .symbol{width:78px;height:78px;margin:0 auto 22px;display:grid;place-items:center;border-radius:21px;font-size:40px;background:linear-gradient(145deg,rgba(34,197,94,.22),rgba(59,130,246,.19))}
+    .brand{margin:0 0 24px;letter-spacing:.16em;text-transform:uppercase;color:#86efac;font-size:12px;font-weight:800}
+    h1{margin:0 0 16px;font-size:clamp(28px,5vw,38px);line-height:1.14;letter-spacing:-.035em}
+    p{margin:0 auto 29px;max-width:365px;line-height:1.65;font-size:16px;color:#bac5d7}
+    a{display:inline-flex;align-items:center;justify-content:center;min-height:52px;width:100%;max-width:320px;border-radius:13px;background:linear-gradient(110deg,#16a34a,#15803d);color:#fff;font-weight:750;text-decoration:none;transition:filter .2s,transform .2s}
+    a:hover{filter:brightness(1.12);transform:translateY(-1px)}
+    a:focus-visible{outline:3px solid #93c5fd;outline-offset:4px}
+    .foot{display:block;margin-top:24px;font-size:12px;color:#8894a8}
+    @media(max-width:420px){main{padding:44px 24px}}
+    @media(prefers-reduced-motion:reduce){a{transition:none}}
+  
+    .unlock{margin:28px auto 0;max-width:320px;padding-top:22px;border-top:1px solid rgba(255,255,255,.11);text-align:left}
+    .unlock label{display:block;margin-bottom:10px;color:#e2e8f0;font-size:13px;font-weight:650}
+    .unlock input{width:100%;padding:13px 15px;background:#0b1221;color:#f8fafc;border:1px solid #475569;border-radius:11px;font:inherit;outline:0}
+    .unlock input:focus{border-color:#86efac;box-shadow:0 0 0 3px rgba(34,197,94,.16)}
+    .unlock button{display:block;width:100%;min-height:47px;margin-top:11px;border:1px solid #64748b;border-radius:11px;background:#273449;color:#f8fafc;font:inherit;font-weight:700;cursor:pointer}
+    .unlock button:hover{background:#35455f}
+    .unlock button:disabled{opacity:.6;cursor:wait}
+    .unlock .feedback{min-height:20px;margin-top:8px;font-size:13px;color:#fca5a5;line-height:1.35}
+    .unlock .feedback:empty{margin:0;min-height:0}
+    .unlock .hint{display:block;margin-top:10px;color:#94a3b8;font-size:12px;text-align:center}
+
+  </style>
+</head>
+<body>
+  <a href="./" style="position:absolute;top:24px;left:24px;color:#94c5ff;text-decoration:none;font:600 14px system-ui,sans-serif;">← Voltar ao site</a>
+  <main aria-labelledby="maintenance-title">
+    <div class="symbol" aria-hidden="true">🛠️</div>
+    <div class="brand">BrasilCord</div>
+    <h1 id="maintenance-title">Estamos em manutenção!</h1>
+    <p>Entre em nosso Discord para acompanhar as novidades e saber quando voltaremos.</p>
+    <a href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Entrar no nosso Discord</a>
+
+    <form class="unlock" id="maintenance-access-form" autocomplete="off">
+      <label for="maintenance-password">Acessar o BrasilCord normal com senha</label>
+      <input id="maintenance-password" type="password" name="maintenance-password" placeholder="Digite a senha de acesso" autocomplete="off" required>
+      <button type="submit" id="maintenance-open-app">Entrar no aplicativo</button>
+      <div class="feedback" id="maintenance-feedback" role="alert" aria-live="polite"></div>
+      <span class="hint">A manutenção continua para os demais visitantes.</span>
+    </form>
+    <small class="foot">Agradecemos pela compreensão.</small>
+  </main>
+  <script src="maintenance.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "BrasilCord",
+  "short_name": "BrasilCord",
+  "description": "Comunidades, chats e chamadas do BrasilCord",
+  "start_url": "./?app=1",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080f1b",
+  "theme_color": "#080f1b",
+  "icons": [
+    {
+      "src": "assets/brand-icon.png",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" fill="none">
+  <defs>
+    <linearGradient id="skin" x1="107" y1="95" x2="236" y2="227" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D99A68"/><stop offset="1" stop-color="#A75F3E"/>
+    </linearGradient>
+    <linearGradient id="tunic" x1="91" y1="227" x2="254" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38A76E"/><stop offset="1" stop-color="#15553B"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="92" y1="48" x2="217" y2="223" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34241C"/><stop offset="1" stop-color="#171916"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="177" cy="487" rx="96" ry="17" fill="#042A1C" fill-opacity=".3"/>
+
+  <!-- Bow held at rest, symbolizing care for the forest. -->
+  <path d="M278 107c43 82 42 241-4 341" stroke="#573A28" stroke-width="10" stroke-linecap="round"/>
+  <path d="M278 107c43 82 42 241-4 341" stroke="#D8A45C" stroke-width="5" stroke-linecap="round"/>
+  <path d="M278 107c-14 108-15 228-4 341" stroke="#E8D4A3" stroke-width="2" opacity=".8"/>
+  <path d="m275 107 7-15m-12 358 7 12" stroke="#684327" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Legs and woven forest-green tunic -->
+  <path d="m131 373-4 92 34 9 24-91m24-15 7 95 34 1 4-104" fill="#74472F" stroke="#422B22" stroke-width="9" stroke-linejoin="round"/>
+  <path d="m124 465 39 1 7 20h-55c-7-6-3-15 9-21Zm63-3 32 3 13 18h-51c-8-6-5-14 6-21Z" fill="#302820"/>
+  <path d="M112 225c22-19 46-30 76-30 33 0 62 15 77 42l-14 145c-40 27-102 27-148-1l-9-128 18-28Z" fill="url(#tunic)" stroke="#3D2D22" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M103 251c47 13 102 13 152 1m-148 16c44 11 96 12 144 1" stroke="#E7C47B" stroke-width="7" opacity=".95"/>
+  <path d="m124 285 14 19 14-19 14 19 14-19 14 19 14-19 14 19 14-19" stroke="#F0D38D" stroke-width="4" opacity=".82"/>
+  <path d="M180 207v145" stroke="#F0D38D" stroke-width="3" opacity=".45"/>
+
+  <!-- Arms -->
+  <path d="M112 237c-26 24-39 58-39 92 0 12 8 19 19 15l30-54m131-51c21 24 33 53 36 82 1 12-8 20-19 15l-26-47" fill="url(#skin)" stroke="#533628" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m262 316 18-11 15 13-13 12-14-4" fill="url(#skin)" stroke="#533628" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M73 326c-4 10-3 21 5 29 6 5 14 4 19-2l7-13" fill="url(#skin)" stroke="#533628" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Face and natural hair; no tribal insignia or costume -->
+  <path d="M105 111c1-51 34-80 76-78 47 2 74 38 66 92-6 41-29 75-66 79-42 4-69-31-76-93Z" fill="url(#skin)" stroke="#533628" stroke-width="8"/>
+  <path d="M104 127c-16-54 7-99 49-110 43-12 90 12 101 59 4 19 1 40-5 57-7-24-17-37-33-47-18 22-52 38-105 38l-7 25Z" fill="url(#hair)"/>
+  <path d="M105 127c-6 50 5 92 37 108-24-3-42-16-51-39-13-32-10-73 14-101m145 0c7 39 0 82-23 112 30-13 46-42 48-76 3-28-6-51-25-70" fill="url(#hair)"/>
+  <path d="M133 124c24 1 48-4 68-15 12-6 21-13 30-22" stroke="#6A4935" stroke-width="7" stroke-linecap="round"/>
+  <path d="M151 152c6-6 14-6 19 0m34-3c6-6 14-5 18 1" stroke="#3A2A22" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="161" cy="155" r="3" fill="#FFF0CD"/><circle cx="211" cy="153" r="3" fill="#FFF0CD"/>
+  <path d="M182 160c-2 11-5 18-4 23 4 4 10 4 15 1" stroke="#8C5138" stroke-width="4" stroke-linecap="round"/>
+  <path d="M175 194c9 7 20 7 29 0" stroke="#6C3B2C" stroke-width="4" stroke-linecap="round"/>
+  <path d="M153 207c17 10 40 11 58 0" stroke="#E9B87F" stroke-width="5" stroke-linecap="round"/>
+</svg>

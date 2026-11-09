@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 390" fill="none">
+  <defs>
+    <linearGradient id="coat" x1="110" y1="102" x2="365" y2="318" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE58A"/><stop offset=".48" stop-color="#F7B847"/><stop offset="1" stop-color="#D8832B"/>
+    </linearGradient>
+    <linearGradient id="face" x1="92" y1="110" x2="212" y2="252" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0B6"/><stop offset="1" stop-color="#E7AA4D"/>
+    </linearGradient>
+    <linearGradient id="belly" x1="190" y1="214" x2="310" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF3D2"/><stop offset="1" stop-color="#E8C17E"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="274" cy="347" rx="176" ry="19" fill="#042A1C" fill-opacity=".3"/>
+
+  <!-- Tail -->
+  <path d="M391 222c54-8 91-41 88-84-2-27-19-42-39-34-17 7-17 29-4 37 10 6 22 0 23-12" stroke="#57351F" stroke-width="27" stroke-linecap="round"/>
+  <path d="M391 222c54-8 91-41 88-84-2-27-19-42-39-34-17 7-17 29-4 37 10 6 22 0 23-12" stroke="url(#coat)" stroke-width="18" stroke-linecap="round"/>
+  <path d="m453 109 13 8m-21 20 18 8m-15 11 16 6" stroke="#6A3C22" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- Legs and body -->
+  <path d="M162 205c32-48 98-72 174-56 49 10 77 39 78 80 1 31-20 54-57 66l-4 49h-31l-9-51c-19 5-42 6-63 2l-8 49h-31l1-57c-37-10-61-33-63-64-1-7 4-13 13-18Z" fill="url(#coat)" stroke="#5A3923" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M214 279c25 13 56 17 91 8l-5 28c-27 10-58 10-89 0l3-36Z" fill="url(#belly)" opacity=".94"/>
+  <path d="m161 227-14 47 13 69h30l-2-65 21-31m165-9 17 31-6 74h-30l-5-68-24-23" fill="url(#coat)" stroke="#5A3923" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m148 342-4 14h47l-1-13m167 0-2 13h47l-1-14" fill="#5A3923"/>
+
+  <!-- Head, ears and cheeks -->
+  <path d="M105 151c-12-32 11-55 37-42 8 4 14 11 18 20 23-11 48-5 62 13 15 19 15 47 6 69-9 23-28 42-57 42-27 0-50-14-62-36-8-15-11-39-4-66Z" fill="url(#face)" stroke="#5A3923" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M111 142c-8-20 3-37 19-37 14 0 24 12 26 26-15 1-29 5-45 11Zm94-1c3-21 19-35 33-28 13 6 15 22 6 39-12-7-25-11-39-11Z" fill="#D88932" stroke="#5A3923" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M118 149c11-12 25-16 43-14m33 3c12 1 23 6 31 15" stroke="#7D4927" stroke-width="6" stroke-linecap="round"/>
+  <path d="M136 165c6-7 15-8 21-1-4 9-14 11-21 1Zm43-7c6-7 16-6 20 2-6 8-15 8-20-2Z" fill="#3D291E"/>
+  <circle cx="150" cy="164" r="3" fill="#FFF9DC"/><circle cx="190" cy="160" r="3" fill="#FFF9DC"/>
+  <path d="M153 185c15-11 34-11 48-1 3 18-7 33-24 35-17 2-28-13-24-34Z" fill="#D89850"/>
+  <path d="M170 185c8-8 20-8 28 0l-4 8c-7 4-14 4-21 0l-3-8Z" fill="#39271F"/>
+  <path d="M183 193c-1 12-8 17-18 18m18-18c2 12 10 16 20 15" stroke="#6A442B" stroke-width="4" stroke-linecap="round"/>
+  <path d="M126 195c-17 7-23 18-24 30m29-24c-13 13-14 24-11 33m91-39c17 4 27 14 31 26m-32-17c12 12 17 23 17 33" stroke="#FFF4D7" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+
+  <!-- Rosettes -->
+  <g fill="#57351F" opacity=".95">
+    <path d="M226 183c7-11 19-12 25-3-5 10-17 13-25 3Zm7-7 6 4m-9 4 7 3m9-9-5 5"/>
+    <path d="M276 169c8-12 21-12 27-2-5 11-19 14-27 2Zm7-8 7 4m-10 5 7 3m13-9-6 5"/>
+    <path d="M328 178c7-10 19-10 24-1-5 9-17 11-24 1Zm7-7 6 4m-8 5 7 2m9-8-5 4"/>
+    <path d="M244 222c8-12 20-12 26-2-5 10-18 13-26 2Zm7-8 7 4m-10 5 7 3m12-9-5 5"/>
+    <path d="M295 215c8-12 21-12 27-1-6 11-19 13-27 1Zm7-8 7 4m-10 5 7 3m13-9-6 5"/>
+    <path d="M347 224c7-10 18-10 23-1-5 9-16 11-23 1Zm6-7 6 4m-9 5 7 2m9-8-5 4"/>
+    <path d="M265 256c7-10 19-10 24-1-5 9-17 12-24 1Zm7-7 6 4m-9 5 7 2m9-8-5 4"/>
+    <path d="M316 254c7-10 18-10 23-1-5 9-16 11-23 1Zm6-7 6 4m-9 5 7 2m9-8-5 4"/>
+  </g>
+  <g fill="#6D4226" opacity=".85">
+    <circle cx="111" cy="203" r="4"/><circle cx="121" cy="224" r="4"/><circle cx="226" cy="260" r="4"/><circle cx="378" cy="205" r="4"/>
+  </g>
+</svg>

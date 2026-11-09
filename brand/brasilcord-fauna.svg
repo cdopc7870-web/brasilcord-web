@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="cloth" x1="188" y1="446" x2="275" y2="606" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e7a447"/><stop offset="1" stop-color="#8b462c"/>
+    </linearGradient>
+    <linearGradient id="fur" x1="805" y1="478" x2="1025" y2="636" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd56a"/><stop offset="1" stop-color="#d58d34"/>
+    </linearGradient>
+    <filter id="glow" x="0" y="0" width="2" height="2" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox">
+      <feGaussianBlur stdDeviation="9" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- A stylized person drawing an arrow through open sky, away from the animals. -->
+  <g opacity=".94" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M254 453c36-58 105-100 190-121" stroke="#ffe866" stroke-width="3" stroke-dasharray="8 12" opacity=".8"/>
+    <circle cx="459" cy="321" r="13" fill="#fff489" opacity=".82" filter="url(#glow)"/>
+    <path d="M214 431 301 405" stroke="#f8efd0" stroke-width="5"/>
+    <path d="m301 405-20-10 7 13-4 14 20-17Z" fill="#fff0b5"/>
+    <path d="M241 371c28 15 36 56 15 82" stroke="#cf9a43" stroke-width="6"/>
+    <path d="M241 371 249 453" stroke="#ebd2a0" stroke-width="2" opacity=".8"/>
+    <path d="M173 435c-4-19 9-38 29-41 21-3 37 12 38 31l-6 16-55 4-6-10Z" fill="#241b18"/>
+    <circle cx="204" cy="415" r="25" fill="#8a5135"/>
+    <path d="M180 410c2-22 37-32 49-9l-1 12c-13-7-27-8-48 2v-5Z" fill="#231c18"/>
+    <path d="M185 445c-15 16-19 50-14 83l72 6c8-30 6-69-7-88l-20-8-31 7Z" fill="url(#cloth)"/>
+    <path d="m189 464 34-13m-40 26 53-9m-54 23 53-7" stroke="#f4d184" stroke-width="4" opacity=".92"/>
+    <path d="m187 528-13 83m50-78 20 78" stroke="#39291e" stroke-width="17"/>
+    <path d="m177 611-15 7m85-6 17 5" stroke="#231c18" stroke-width="10"/>
+    <path d="M225 458c17-21 31-42 49-56l19 5c-10 17-25 42-45 62" fill="#8a5135"/>
+    <path d="m244 467 44-59" stroke="#8a5135" stroke-width="15"/>
+    <path d="M188 461c-19-6-30-18-39-34" stroke="#8a5135" stroke-width="15"/>
+  </g>
+
+  <!-- Quiet jaguar silhouette with rosette markings; it is unharmed and watching. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M813 561c-43-12-63-43-52-65 12-23 34-9 45 3-21-39 2-78 39-77 15-31 62-44 102-24 39 19 60 55 49 87 35 7 53 27 45 48-8 22-37 23-58 17-12 20-33 31-60 32l-7 63h-23l-8-63c-19-2-35-8-48-17l-11 80h-25l1-84-17 0c-14 18-32 26-56 21-20-4-26-20-17-34 8-12 24-13 42-7Z" fill="url(#fur)" stroke="#593a24" stroke-width="7"/>
+    <path d="M790 510c-47-18-76-2-83 22-6 21 12 38 37 31 23-6 36-22 46-39" stroke="#d99b3e" stroke-width="12"/>
+    <path d="M905 423c18-17 39-23 65-17 26 5 41 23 43 46l-18 24-62-2-33-20 5-31Z" fill="#f4c75b" stroke="#593a24" stroke-width="6"/>
+    <path d="m908 423 8-24 21 7 11 20m33-3 17-20 20 15-2 26" fill="#d89538" stroke="#593a24" stroke-width="6"/>
+    <path d="M929 452h7m39-2h7" stroke="#30261d" stroke-width="8"/>
+    <path d="M951 469c12 8 25 7 35-1l-5 14c-9 8-19 8-28-1l-2-12Z" fill="#f8edd4"/>
+    <path d="M831 446c5-8 15-9 21-1-5 7-15 10-21 1Zm33-22c7-8 17-7 21 2-7 7-16 7-21-2Zm19 38c6-9 17-10 23-2-5 9-16 11-23 2Zm35 24c6-9 17-9 23-1-5 9-16 10-23 1Zm-93-2c5-9 15-11 22-4-4 9-14 13-22 4Zm61 23c6-8 17-8 22 0-5 8-16 9-22 0Zm70-41c5-7 13-7 17 0-4 7-12 8-17 0Z" fill="#39271c"/>
+    <path d="M845 555v48m55-48v48m65-51v51" stroke="#9e682f" stroke-width="7"/>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#041828">
+  <meta name="description" content="Recuperação de acesso ao BrasilCord.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; connect-src 'self' https://brasilcord-sinalizacao-dkx157.onrender.com; form-action 'self'; base-uri 'self';">
+  <title>Redefinir senha — BrasilCord</title>
+  <link rel="icon" href="assets/brand-icon.png" type="image/png">
+  <link rel="stylesheet" href="landing.css"><link rel="stylesheet" href="auth.css">
+  <script src="access-guard.js"></script>
+  <script src="landing.js" defer></script>
+  <script src="auth.js" defer></script>
+</head>
+<body data-theme="dark" class="auth-body"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./" aria-label="BrasilCord, voltar à página inicial">
+      <img src="assets/brand-icon.png" width="42" height="42" alt=""><strong>BrasilCord</strong>
+    </a>
+    <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="header-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    <div class="header-menu" id="header-menu">
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="./#recursos">Recursos</a><a href="./#seguranca">Segurança</a><a href="./#como-usar">Como usar</a>
+      </nav>
+      <div class="header-actions">
+        <div class="theme-switch" role="group" aria-label="Aparência do site">
+          <button type="button" data-set-theme="auto" aria-label="Seguir aparência do dispositivo" title="Automático">◐</button>
+          <button type="button" data-set-theme="light" aria-label="Tema claro" title="Tema claro">☼</button>
+          <button type="button" data-set-theme="dark" aria-label="Tema escuro" title="Tema escuro">☾</button>
+        </div>
+        <a class="btn btn-subtle btn-small" href="https://cdopc7870-web.github.io/brasilcord-updates/">Baixar</a>
+      </div>
+    </div>
+  </div>
+</header>
+<main id="conteudo" class="auth-main" data-auth-view="recover">
+  <section class="auth-panel" aria-labelledby="auth-title">
+    <div class="auth-brand-small"><img src="assets/brand-icon.png" alt="" width="38" height="38"><span>Cuide do acesso à sua conta</span></div>
+    <h1 id="auth-title">Redefinir a senha</h1>
+    <p class="auth-intro">A recuperação automática por e-mail ainda não está habilitada no serviço do BrasilCord.</p>
+    <div class="recovery-status" role="status"><span aria-hidden="true">ⓘ</span><p>Estamos preparando esse recurso. Por enquanto, não enviamos links de redefinição e não solicitamos suas senhas pelo suporte.</p></div>
+    <a class="auth-submit auth-submit-link" href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Falar com o suporte no Discord <span aria-hidden="true">↗</span></a>
+    <p class="auth-switch">Lembrou a senha? <a href="login.html">Entrar</a></p>
+  </section>
+</main>
+<footer class="auth-footer" aria-label="Rodapé"><a href="./#seguranca">Segurança e privacidade</a><a href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Precisa de ajuda? Discord</a></footer>
+</body></html>

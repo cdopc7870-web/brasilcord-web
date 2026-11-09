@@ -1,0 +1,64 @@
+/* BrasilCord · atividade de voz, volume por participante e fotos privadas */
+#page-app .bc-call-person-avatar{position:relative;overflow:hidden;border:2px solid #5b9c8e;box-shadow:0 0 0 2px #112a2e;transition:border-color .14s,box-shadow .14s}
+#page-app .bc-call-person-avatar img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}
+#page-app .bc-call-person.bc-is-speaking .bc-call-person-avatar,
+#page-app .bc-voice-connected-member.bc-is-speaking .bc-call-person-avatar{border-color:#42ff87;box-shadow:0 0 0 3px #1ff87cbf,0 0 18px #37f88f85}
+#page-app .bc-call-person.bc-is-speaking{border-color:#2de784;background:#1d453b}
+#page-app .bc-voice-connected-member.bc-is-speaking{background:#1b4d3f}
+#page-app .bc-voice-connected-member{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:9px;min-width:0}
+#page-app .bc-call-mini-avatar{width:29px!important;height:29px!important;flex:none;font-size:10px}
+#page-app .bc-voice-connected-member>span:not(.bc-call-person-avatar){min-width:0;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#page-app [data-bc-voice-user]{cursor:context-menu}
+.bc-voice-peer-menu{position:fixed;z-index:9000;min-width:240px;max-width:calc(100vw - 16px);display:grid;gap:13px;padding:17px;border-radius:16px;border:1px solid #78e5aa87;background:#122b31;color:#edfff4;box-shadow:0 20px 60px #000b;font-family:system-ui,Segoe UI,sans-serif}
+.bc-voice-peer-menu[hidden]{display:none!important}
+.bc-voice-peer-menu strong{font-size:14px;overflow-wrap:anywhere}
+.bc-voice-peer-menu label{font-size:12px;color:#b9f5d4}
+.bc-voice-peer-menu input{width:100%;accent-color:#3fdd87;cursor:pointer}
+.bc-voice-peer-menu button{padding:11px;border-radius:9px;border:1px solid #7ae6b47f;background:#245946;color:#f2fff4;cursor:pointer;font-weight:700}
+#page-app #bc-dm-image-select{flex:none;min-width:41px;min-height:41px;display:grid;place-items:center;border:1px solid #6dd6a47d;border-radius:9px;background:#205541;color:#effff2;font-size:24px;cursor:pointer}
+#page-app #bc-dm-image-select:hover{background:#2a8058}
+#page-app #bc-dm-image-select:disabled{opacity:.4;cursor:not-allowed}
+#page-app .bc-dm-photo{width:auto;max-width:min(320px,100%);max-height:280px;object-fit:contain;cursor:zoom-in;border-radius:12px;border:1px solid #7de3af66;background:#0a222b}
+#page-app .bc-dm-photo-label{font-size:11px;font-weight:700;color:#9ceac4}
+#page-app .bc-dm-photo-error{color:#ffc1a9;font-size:12px}
+.bc-dm-photo-dialog{inset:0;margin:auto;max-width:95vw;max-height:90vh;padding:14px;border:1px solid #8feabb90;border-radius:16px;background:#071720;box-shadow:0 25px 90px #000d}
+.bc-dm-photo-dialog::backdrop{background:#02090dee}
+.bc-dm-photo-dialog img{display:block;max-width:calc(95vw - 32px);max-height:calc(90vh - 78px);object-fit:contain}
+.bc-dm-photo-dialog button{display:block;margin-left:auto;margin-bottom:12px;border:1px solid #87eab8;border-radius:9px;padding:9px 12px;background:#205f48;color:#edfff6;cursor:pointer}
+#page-app .bc-dms-view{position:relative}
+#page-app #bc-dm-request-float{position:absolute;top:18px;right:23px;z-index:6;display:inline-flex;gap:6px;align-items:center;border:1px solid #5ba98a88;border-radius:10px;background:#193b39;color:#e3ffee;padding:8px 12px;cursor:pointer;font-size:12px}
+#page-app #bc-dm-request-float:hover,#page-app #bc-dm-request-float.bc-has-requests{background:#246c51;border-color:#a4eeb8}
+#page-app #bc-dm-request-float-count{display:grid;place-items:center;min-width:18px;height:18px;border-radius:50px;background:#f34459;font-weight:800;color:white}
+#page-app #bc-dm-request-float-count[hidden]{display:none!important}
+#page-app .bc-dm-request-hub{position:absolute;z-index:45;top:62px;right:20px;width:min(390px,calc(100% - 40px));max-height:min(70vh,580px);overflow:auto;margin:0;box-shadow:0 18px 48px #000a}
+#page-app .bc-dm-request-hub[hidden]{display:none!important}
+@media(max-width:640px){#page-app #bc-dm-request-float{top:9px;right:10px;padding:6px 8px}#page-app .bc-dm-request-hub{top:51px;right:8px;width:calc(100% - 16px)}}
+
+/* Avatar da call: sempre uma miniatura circular fixa, independente do vídeo. */
+#page-app .bc-call-person-avatar{
+  width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important;
+  max-width:38px!important;max-height:38px!important;aspect-ratio:1/1;
+  flex:0 0 38px!important;display:grid;place-items:center;overflow:hidden;
+  border-radius:50%!important;line-height:1!important;font-size:12px!important;
+  padding:0!important;box-sizing:border-box!important;
+}
+#page-app .bc-call-person-avatar img{
+  display:block!important;width:100%!important;height:100%!important;
+  max-width:100%!important;max-height:100%!important;
+  min-width:0!important;min-height:0!important;
+  object-fit:cover!important;object-position:center!important;
+  border-radius:50%!important;aspect-ratio:1/1!important;
+}
+#page-app .bc-call-mini-avatar{
+  width:28px!important;height:28px!important;min-width:28px!important;
+  min-height:28px!important;max-width:28px!important;max-height:28px!important;
+  flex:0 0 28px!important;font-size:10px!important;
+}
+#page-app .bc-call-person{gap:10px;min-height:56px;align-items:center;padding:10px}
+#page-app .bc-call-person-info{min-width:0}
+#page-app .bc-native-call-users{grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))}
+#page-app .bc-call-video-tile.bc-call-video-waiting::after{
+  content:'Aguardando vídeo do participante…';position:absolute;inset:35% 10%;
+  display:grid;place-items:center;text-align:center;background:#081c2499;
+  border-radius:12px;color:#cceede;font-size:12px;pointer-events:none;
+}

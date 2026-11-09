@@ -1,0 +1,70 @@
+/* BrasilCord • caixa de mensagens de pessoas ainda não adicionadas e exclusão da comunidade. */
+#page-app .bc-dm-request-hub{margin:0 0 15px;padding:14px;border:1px solid #66c89a55;border-radius:15px;background:linear-gradient(125deg,#103a34,#132b38);box-shadow:inset 0 1px #ffffff13}
+#page-app #bc-dm-request-toggle{display:flex;align-items:center;gap:9px;width:100%;border:0;background:transparent;color:#f0fff7;font-weight:800;padding:10px 12px;border-radius:9px;text-align:left;cursor:pointer}
+#page-app #bc-dm-request-toggle:hover,#page-app #bc-dm-request-toggle.bc-has-requests{background:#20604c}
+#page-app #bc-dm-request-count{display:inline-flex;align-items:center;justify-content:center;min-width:21px;height:21px;padding:0 5px;border-radius:999px;background:#e74656;color:white;font-size:11px;font-weight:900}
+#page-app #bc-dm-request-inbox{margin-top:12px;max-height:400px;overflow:auto}
+#page-app #bc-dm-request-inbox[hidden]{display:none!important}
+#page-app #bc-dm-request-status{color:#fedb90;font-size:12px}
+#page-app #bc-dm-request-list{display:grid;gap:10px}
+#page-app .bc-dm-request-card{background:#102c32;border:1px solid #68b89456;border-radius:12px;padding:14px}
+#page-app .bc-dm-request-sender{display:flex;gap:10px;align-items:center;min-width:0;margin-bottom:10px}
+#page-app .bc-dm-request-sender strong{display:block;color:#f5fff4;font-size:13px;overflow-wrap:anywhere}
+#page-app .bc-dm-request-sender small{display:block;color:#94c8b0;font-size:11px}
+#page-app .bc-dm-request-avatar{flex-shrink:0;width:40px;height:40px;border:2px solid #97edba;border-radius:50%;background:#20644e;display:grid;place-items:center;color:#ffffff;font-weight:900;overflow:hidden}
+#page-app .bc-dm-request-avatar img{width:100%;height:100%;object-fit:cover}
+#page-app .bc-dm-request-summary{width:100%;background:#205044;color:#edfff3;border:1px solid #75dba764;padding:10px 12px;border-radius:9px;cursor:pointer;text-align:left;font-weight:700}
+#page-app .bc-dm-request-summary:hover{background:#2a6652}
+#page-app .bc-dm-request-details{padding-top:11px}
+#page-app .bc-dm-request-details[hidden]{display:none!important}
+#page-app .bc-dm-request-details p{color:#cce8dc;font-size:12px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+#page-app .bc-dm-request-actions{display:flex;gap:8px;flex-wrap:wrap}
+#page-app .bc-dm-request-actions button{padding:10px 12px;border-radius:9px;cursor:pointer;font-weight:750;font-size:12px}
+#page-app .bc-dm-request-accept{color:#083b27;border:1px solid #8ff8af;background:linear-gradient(110deg,#7ef3aa,#41d896)}
+#page-app .bc-dm-request-dismiss{color:#fff0f0;border:1px solid #e8828669;background:#813544}
+#page-app .bc-dm-request-actions button:disabled{opacity:.55;cursor:wait}
+#page-app .bc-dm-request-empty{font-size:12px;color:#a6c6bb;margin:0;padding:9px 4px}
+.bc-dm-request-toast{position:fixed;z-index:9001;right:25px;bottom:25px;max-width:min(370px,calc(100vw - 40px));min-height:65px;background:linear-gradient(120deg,#165742,#153a45);border:1px solid #9be8b1;border-left:5px solid #ffdf58;border-radius:13px;padding:15px;color:#f5fff8;text-align:left;box-shadow:0 18px 52px #000a;cursor:pointer;font-weight:750;font-family:system-ui}
+.bc-dm-request-toast[hidden]{display:none!important}
+.bc-danger-zone{margin-top:30px;padding:24px;border:1px solid #d7677380;border-radius:15px;background:linear-gradient(140deg,#462930,#22232c);color:#ffedf0}
+.bc-danger-zone[hidden],.bc-danger-zone [hidden]{display:none!important}
+.bc-danger-zone h3{color:#ffabb1;margin:0 0 10px}
+.bc-danger-zone p{font-size:12px;color:#e6c3ca;line-height:1.7}
+.bc-danger-zone label{display:block;margin:17px 0 8px;font-size:12px;color:#ffd9d9}
+.bc-danger-zone input{display:block;width:100%;padding:13px;border:1px solid #ee919a;border-radius:10px;background:#151d29;color:#fff}
+.bc-danger-zone button{padding:11px 13px;border-radius:9px;cursor:pointer;font-weight:800}
+#bc-delete-community-start,#bc-delete-community-final{border:1px solid #f6adb2;background:#b1384b;color:#fff}
+#bc-delete-community-final:disabled{opacity:.4;cursor:not-allowed}
+#bc-delete-community-cancel{border:1px solid #7fa89b;background:#283c3c;color:#ecfff3}
+.bc-danger-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:13px}
+@media(max-width:600px){.bc-dm-request-toast{right:12px;bottom:12px}.bc-danger-zone{padding:17px}.bc-dm-request-actions button{flex:1}}
+
+#page-app .bc-dm-stranger-form{display:grid;gap:9px;padding:12px;margin:0 0 16px;border-radius:12px;border:1px solid #75c79e57;background:#102c2b}
+#page-app .bc-dm-stranger-form label{font-size:12px;font-weight:750;color:#d7ffdf}
+#page-app .bc-dm-stranger-form input,#page-app .bc-dm-stranger-form textarea{width:100%;box-sizing:border-box;min-width:0;padding:11px;border-radius:9px;border:1px solid #75d6a46e;background:#071d26;color:#effff3;outline-offset:2px;font-family:inherit;font-size:12px}
+#page-app .bc-dm-stranger-form :is(input,textarea):focus{outline:2px solid #f9dc5b}
+#page-app .bc-dm-stranger-actions{display:flex;flex-wrap:wrap;gap:9px}
+#page-app .bc-dm-stranger-actions button{padding:11px 14px;border-radius:9px;border:1px solid #acf3b88a;background:#25644f;color:#f2fff2;font-size:12px;font-weight:800;cursor:pointer}
+#page-app .bc-dm-stranger-actions button:hover{background:#31795d}
+#page-app .bc-dm-stranger-actions button:disabled{opacity:.5;cursor:wait}
+
+/* Primeiro contato: mensagem real, foto protegida e chamada após aceite. */
+#page-app #bc-user-photo-action{background:#19564e;border-color:#5cc7aa;color:#f0fff5}
+#page-app #bc-user-photo-action:hover{background:#257561}
+#page-app .bc-dm-request-summary{display:flex;align-items:center;justify-content:space-between}
+#page-app .bc-request-photo-preview{display:block;max-width:230px;max-height:190px;object-fit:contain;border-radius:12px;border:1px solid #7adab166;margin:12px auto;background:#0a2427}
+.bc-first-message-dialog{position:fixed;inset:0;margin:auto;width:min(480px,calc(100vw - 28px));max-height:85vh;overflow:auto;border:1px solid #84e5af8c;border-radius:18px;background:linear-gradient(145deg,#123b36,#142633);box-shadow:0 28px 90px #000c;color:#ebfff1;padding:0;font:14px system-ui,Segoe UI,sans-serif}
+.bc-first-message-dialog::backdrop{background:#020e15d1;backdrop-filter:blur(5px)}
+.bc-first-message-dialog form{display:grid;gap:14px;padding:22px}
+.bc-first-message-dialog header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.bc-first-message-dialog h3{font-size:20px;letter-spacing:-.04em;margin:0}
+.bc-first-message-dialog button{border-radius:9px;padding:10px 12px;border:1px solid #8eddad70;background:#205c45;color:#f5fff6;font-weight:750;cursor:pointer}
+.bc-first-message-dialog .bc-compose-close{padding:7px 11px}
+.bc-first-message-dialog label{display:grid;gap:9px;font-weight:750;font-size:12px;color:#dfffea}
+.bc-first-message-dialog textarea{resize:vertical;min-height:120px;width:100%;padding:12px;border:1px solid #67ca9e;border-radius:10px;background:#0d2c32;color:#fff;line-height:1.5;font:13px system-ui;box-sizing:border-box}
+.bc-first-message-dialog .bc-compose-target{font-size:13px;color:#fff0a1;font-weight:750}
+.bc-first-message-dialog .bc-compose-info{font-size:12px;color:#a5d5bf;line-height:1.5}
+.bc-first-message-dialog .bc-compose-error{color:#ffc2a7;min-height:12px;font-size:12px}
+.bc-first-message-dialog .bc-compose-actions{display:flex;gap:9px;justify-content:flex-end}
+.bc-first-message-dialog .bc-compose-send{background:linear-gradient(125deg,#72efab,#40c98c);border-color:#a8ffd2;color:#083c2d}
+@media(max-width:520px){.bc-first-message-dialog form{padding:16px}.bc-first-message-dialog .bc-compose-actions button{flex:1}}

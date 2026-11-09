@@ -1,0 +1,55 @@
+/* BrasilCord · Configurador avançado e convites */
+.bc-call-access-options{display:grid;gap:12px;margin:12px 0;border:1px solid #72cfa553;padding:13px;border-radius:12px;background:#112f31}
+.bc-call-access-options[hidden],#bc-call-role-wrap[hidden],#bc-call-users-wrap[hidden]{display:none!important}
+.bc-call-access-options label{display:grid;gap:6px;color:#d9ffe9;font-size:12px;font-weight:700}
+.bc-call-access-options select{width:100%;padding:10px;border-radius:8px;background:#182f38;color:#f5fff7;border:1px solid #70d6a971}
+#bc-call-users-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;max-height:210px;overflow:auto}
+.bc-member-permission{display:flex!important;flex-direction:row;gap:8px;align-items:center;font-size:12px;border:1px solid #5f9c8754;background:#173c3e;padding:7px;border-radius:9px}
+.bc-member-permission input{accent-color:#40db92}
+#bc-advanced-category-order,#bc-advanced-channel-order{display:grid;gap:7px;margin:12px 0 22px}
+.bc-order-item{display:flex;align-items:center;gap:7px;border:1px solid #6ac39344;border-radius:10px;padding:8px 10px;background:#173338}
+.bc-order-item span{flex:1;min-width:0;overflow-wrap:anywhere;font-weight:650;font-size:13px;color:#e7fff3}
+.bc-order-item button{border:1px solid #76ddb058;color:#e4ffeb;background:#235c50;border-radius:7px;padding:6px 11px;cursor:pointer}
+.bc-order-item button:disabled{opacity:.35;cursor:default}
+#bc-save-advanced-order,#bc-advanced-invite-copy{background:#f7d951;color:#174333;border:0;border-radius:10px;padding:11px 16px;font-weight:900;cursor:pointer}
+#bc-advanced-invite-link{display:block;width:100%;min-width:0;margin:7px 0 12px;box-sizing:border-box;padding:12px;color:#e4ffee;border:1px solid #77dca565;border-radius:9px;background:#102c32}
+#bc-advanced-invite-community{border:1px solid #7bcdab4d;background:#19483e;color:#fff6b1;border-radius:10px;font-weight:750;padding:15px;margin:14px 0}
+#bc-advanced-invite-friends{display:grid;gap:7px;margin-top:12px}
+#bc-advanced-invite-friends button{padding:12px;border:1px solid #63c69566;background:#164639;color:#edfff0;text-align:left;border-radius:10px;cursor:pointer}
+#bc-advanced-invite-friends button:hover{background:#237054}
+#bc-advanced-order-status,#bc-advanced-invite-status{font-size:12px;color:#ffe17e}
+.bc-quick-invite-button{display:grid;place-items:center;align-self:center;width:42px;height:42px;padding:7px;margin:9px auto;border:2px solid #79ffc0;border-radius:14px;background:linear-gradient(140deg,#157753,#106784);cursor:pointer;box-shadow:0 5px 16px #024f4b66}
+.bc-quick-invite-button:hover{background:#289864}
+.bc-quick-invite-button[hidden]{display:none!important}
+.bc-quick-invite-button svg{width:24px;height:24px;fill:none;stroke:#f1fff7;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bc-owner-reports-entry{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:38px;padding:9px 13px;border:1px solid #b8e88b61;border-radius:8px;margin:7px 0;color:#e5f9e8;background:#174036;font-size:12px;cursor:pointer}
+.bc-owner-reports-entry[hidden]{display:none!important}
+.bc-owner-reports-entry span{font-weight:900;color:#ffe474;font-size:10px}
+.bc-advanced-reports-dialog{position:fixed;inset:0;margin:auto;width:min(820px,calc(100vw - 24px));max-height:87vh;overflow:auto;border-radius:19px;border:1px solid #7cdaae82;background:linear-gradient(145deg,#102a30,#0a2029);padding:23px;color:#e9fff3;box-shadow:0 26px 90px #000b}
+.bc-advanced-reports-dialog::backdrop{background:#021015c9}
+.bc-advanced-reports-dialog header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid #66ab865e}
+.bc-advanced-reports-dialog header span{font-size:10px;color:#ffe083;letter-spacing:.12em}
+.bc-advanced-reports-dialog header h2{font-size:22px;margin:7px 0 15px}
+.bc-advanced-reports-dialog header button{border:1px solid #80c8a571;border-radius:9px;background:#245247;color:#f4fff6;padding:8px 12px;cursor:pointer}
+.bc-advanced-reports-dialog>p{font-size:12px;color:#b6d7c9;line-height:1.7}
+#bc-owner-reports-list{display:grid;gap:10px;margin-top:17px}
+.bc-owner-report{background:#18383c;border:1px solid #68bf9966;border-radius:13px;padding:15px}
+.bc-owner-report strong{color:#f3db72}
+.bc-owner-report p{font-size:12px;line-height:1.6;overflow-wrap:anywhere}
+.bc-owner-report pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;padding:10px;border-radius:7px;background:#0b242e;color:#ecffe7}
+.bc-report-profile-button,.bc-report-community{padding:10px;border:1px solid #e2a4a360;border-radius:9px;background:#603940;color:#ffeaf0;font-size:12px;cursor:pointer}
+.bc-report-profile-button:hover,.bc-report-community:hover{background:#8e4150}
+.bc-report-community{margin-top:18px}
+.bc-dm-audio-error button{padding:4px 9px;margin-left:5px;border-radius:7px;background:#286451;border:1px solid #86d9ad;color:#e9fff3;cursor:pointer}
+@media(max-width:620px){.bc-advanced-reports-dialog{padding:13px}.bc-call-access-options{padding:10px}}
+
+/* Visibilidade de todas as insígnias no perfil público e botão de denúncia. */
+#bc-user-public-badge{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:12px 24px}
+#bc-user-public-badge img{width:46px;height:46px;object-fit:contain;filter:drop-shadow(0 3px 7px #0009);border-radius:9px;background:#173b353f}
+.bc-report-current-community{flex-shrink:0;min-height:29px;min-width:29px;padding:4px 7px;border:1px solid #cb88866b;border-radius:8px;background:#60383d;color:#fff0e7;cursor:pointer;font-size:17px}
+.bc-report-current-community:hover{background:#844e4e}
+
+.bc-owner-report .bc-reported-photo{display:block;max-width:180px;width:100%;max-height:180px;object-fit:contain;border:1px solid #9be0ae60;border-radius:13px;background:#112c30;margin-top:10px}
+.bc-owner-report audio{display:block;width:min(100%,360px);margin-top:10px}
+.bc-reported-audio-button{margin-top:9px;padding:10px 14px;border:1px solid #88dfaa;border-radius:9px;background:#24614c;color:#f2fff5;cursor:pointer;font-weight:700}
+.bc-reported-audio-button:disabled{opacity:.5;cursor:wait}

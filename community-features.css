@@ -1,0 +1,37 @@
+
+/* Gestão de comunidade: painel compacto, responsivo e acessível. */
+#page-app .bc-community-manage{padding:9px;margin:10px 8px 0;border:1px solid #354552;background:#222b36;border-radius:11px;overflow:visible}
+#page-app .bc-community-manage>summary{color:#d0efe3;font-size:11px;font-weight:740;cursor:pointer;line-height:1.5}
+#page-app .bc-manage-forms{max-height:49vh;overflow-y:auto;overflow-x:hidden;padding:11px 3px;scrollbar-width:thin}
+#page-app .bc-manage-forms h3{font-size:11px;margin:19px 0 9px;color:#9ee2b8}
+#page-app .bc-manage-forms h3:first-child{margin-top:4px}
+#page-app .bc-manage-forms form{padding:0;margin:8px 0 15px}
+#page-app .bc-manage-forms select,#page-app .bc-manage-forms input:not([type=checkbox]):not([type=color]):not([type=file]){min-height:34px;width:100%;max-width:100%;box-sizing:border-box;background:#101924;border:1px solid #344558;color:#e7f0f8;border-radius:8px;padding:6px;font-size:11px}
+#page-app .bc-manage-forms input[type=color]{display:block;width:62px;height:35px;border:1px solid #3d4f60;background:transparent;border-radius:8px;cursor:pointer}
+#page-app .bc-manage-forms input[type=file]{display:block;width:100%;font-size:10px;max-width:100%;overflow:hidden}
+#page-app .bc-manage-forms fieldset{display:grid;gap:5px;padding:9px;border:1px solid #334150;border-radius:8px}
+#page-app .bc-manage-forms fieldset legend{font-size:11px;color:#bed1d9}
+#page-app .bc-manage-forms fieldset label{display:flex;gap:7px;align-items:center;font-size:10px}
+#page-app .bc-manage-forms fieldset input{width:auto;accent-color:#25d181;margin:0}
+#page-app .bc-manage-forms button{border:1px solid #37664f;border-radius:7px;padding:7px 9px;background:#254d3d;color:#ddf9ea;cursor:pointer;font-size:10px}
+#page-app .bc-management-row{display:flex;flex-wrap:wrap;align-items:center;gap:5px;padding:8px 0;border-bottom:1px solid #354151;font-size:11px;color:#d1dae6}
+#page-app .bc-management-row>span{flex:1;min-width:65px;word-break:break-word}
+#page-app .bc-management-row select{min-width:100px;flex:1}
+#page-app .bc-custom-role-pill{font-weight:800;white-space:normal}
+#page-app .bc-community-photo{width:100%;height:100%;object-fit:cover;border-radius:inherit}
+#page-app .bc-dms-view{overflow:hidden}
+#page-app .bc-dm-layout{display:grid;grid-template-columns:minmax(150px,220px) minmax(0,1fr);flex:1;min-height:0}
+#page-app #bc-dm-friends{padding:13px 8px;background:#191d27;border-right:1px solid #2a3542;min-width:0;overflow-y:auto}
+#page-app .bc-dm-friend{display:block;width:100%;padding:13px 9px;border:0;border-radius:9px;background:transparent;color:#b9cce0;text-align:left;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+#page-app .bc-dm-friend:hover,#page-app .bc-dm-friend[data-active=true]{background:#273844;color:#e9fff4}
+#page-app .bc-dm-conversation{display:flex;flex-direction:column;min-height:0;min-width:0}
+#page-app #bc-dm-name{font-size:14px;margin:0;border-bottom:1px solid #2b3847;padding:15px 19px}
+#page-app #bc-dm-messages{display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;overflow-y:auto;padding:18px}
+#page-app .bc-dm-message{max-width:min(440px,90%);align-self:start;border:1px solid #334254;border-radius:13px;background:#242b39;padding:12px 14px}
+#page-app .bc-dm-message[data-self=true]{align-self:end;background:#1a4b39;border-color:#2b7655}
+#page-app .bc-dm-message small{color:#91b8ad;font-size:10px}
+#page-app .bc-dm-message p{margin:5px 0 0;color:#e5f0f4;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+#page-app #bc-dm-compose{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #304052}
+#page-app #bc-dm-input{flex:1;min-width:0;background:#242d37;border:1px solid #405263;border-radius:9px;color:#e5eff4;padding:11px;font-size:12px}
+#page-app #bc-dm-compose button{border:0;border-radius:8px;background:#26a26d;color:#fff;padding:9px 15px;font-weight:750;cursor:pointer}
+@media(max-width:710px){#page-app .bc-dm-layout{grid-template-columns:108px minmax(0,1fr)}#page-app .bc-dm-friend{font-size:10px;padding:10px 4px}}

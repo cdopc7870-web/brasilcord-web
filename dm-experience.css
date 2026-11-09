@@ -1,0 +1,42 @@
+/* Conversas privadas com identidade, chamadas e mensagens de voz. */
+#page-app .bc-dm-conversation{background:linear-gradient(180deg,#1d2733,#171e29)}
+#page-app .bc-dm-header{display:flex;align-items:center;gap:12px;padding:12px 17px;border-bottom:1px solid rgba(137,179,195,.2);background:#1b2833;min-width:0}
+#page-app .bc-dm-peer-avatar,#page-app .bc-dm-contact-avatar,#page-app .bc-dm-msg-avatar{display:grid;place-items:center;flex:none;overflow:hidden;border-radius:50%;background:linear-gradient(130deg,#185a48,#2b78a0);border:1px solid rgba(123,207,168,.37);color:#e9fff6;font-weight:850}
+#page-app .bc-dm-peer-avatar{width:43px;height:43px;font-size:13px}
+#page-app .bc-dm-contact-avatar{width:34px;height:34px;font-size:10px}
+#page-app .bc-dm-msg-avatar{width:34px;height:34px;font-size:10px}
+#page-app .bc-dm-peer-avatar img,#page-app .bc-dm-contact-avatar img,#page-app .bc-dm-msg-avatar img{width:100%;height:100%;object-fit:cover}
+#page-app .bc-dm-peer-identity{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+#page-app #bc-dm-name{font-size:14px;margin:0;padding:0;border:0;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff}
+#page-app #bc-dm-handle{font-size:10px;color:#86cbaa;overflow:hidden;text-overflow:ellipsis}
+#page-app #bc-dm-call{border:1px solid #528e72;border-radius:9px;background:#21543e;color:#deffeb;font-size:12px;font-weight:800;padding:10px 14px;cursor:pointer}
+#page-app #bc-dm-call:hover{background:#2b7452}
+#page-app #bc-dm-call:disabled{opacity:.45;cursor:not-allowed}
+#page-app .bc-dm-friend{display:flex;align-items:center;gap:10px;white-space:normal;text-align:left;padding:11px 8px}
+#page-app .bc-dm-contact-name{display:flex;flex-direction:column;gap:2px;min-width:0}
+#page-app .bc-dm-contact-name strong{font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#page-app .bc-dm-contact-name small{font-size:10px;color:#9fb1bf;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#page-app #bc-dm-messages{gap:15px;padding:22px 17px}
+#page-app .bc-dm-message{display:flex;align-items:flex-start;gap:10px;min-width:0;max-width:min(520px,94%);padding:11px;background:#243443;border-color:#345568;border-radius:12px}
+#page-app .bc-dm-message[data-self=true]{background:#1b4a3b;border-color:#2b7662}
+#page-app .bc-dm-message-content{display:grid;gap:6px;min-width:0;flex:1}
+#page-app .bc-dm-msg-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:6px;min-width:0}
+#page-app .bc-dm-msg-heading strong{font-size:12px;color:#f6fff9}
+#page-app .bc-dm-msg-heading small{font-size:10px;color:#85ddbc}
+#page-app .bc-dm-msg-heading time{font-size:9px;color:#a7b6c2}
+#page-app .bc-dm-message-content p{margin:0;font-size:12px;line-height:1.65}
+#page-app .bc-dm-message audio{display:block;width:min(290px,100%);min-height:36px;color-scheme:dark}
+#page-app .bc-dm-audio-label{font-size:11px;color:#c6e8d8;font-weight:750}
+#page-app .bc-dm-audio-error{font-size:11px;color:#ffb7b7}
+#page-app #bc-dm-compose{display:flex;gap:8px;align-items:center;padding-bottom:8px}
+#page-app #bc-dm-record{flex:none;width:42px;min-height:41px;display:grid;place-items:center;font-size:19px;padding:7px}
+#page-app #bc-dm-record:disabled{opacity:.4;cursor:not-allowed}
+#page-app .bc-dm-recorder{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:10px 17px;background:#28343b;border-top:1px solid #425765;color:#f1f5f5;font-size:12px}
+#page-app .bc-dm-recorder[hidden]{display:none!important}
+#page-app .bc-dm-recording-dot{width:11px;height:11px;flex:none;border-radius:50%;background:#f37c83;box-shadow:0 0 0 4px #7f3b4f55}
+#page-app .bc-dm-recorder>span:nth-child(2){flex:1}
+#page-app .bc-dm-recorder button{padding:8px 11px;border:1px solid #4d7266;background:#244b3f;color:#ecfff6;border-radius:7px;cursor:pointer;font-size:11px;font-weight:750}
+#page-app #bc-dm-cancel-audio{background:#4c353b;border-color:#79515e}
+#page-app .bc-dm-status{min-height:15px;margin:0;padding:0 17px 10px;color:#9ee5b7;font-size:11px;line-height:1.5}
+#page-app .bc-dm-status[data-error=true]{color:#ffb7b7}
+@media(max-width:710px){#page-app .bc-dm-header{gap:7px;padding:10px}#page-app #bc-dm-call{font-size:10px;padding:8px}#page-app .bc-dm-msg-avatar{width:26px;height:26px}#page-app .bc-dm-message{padding:8px}#page-app .bc-dm-friend{gap:5px}#page-app .bc-dm-contact-avatar{width:25px;height:25px}#page-app .bc-dm-contact-name strong{font-size:10px}#page-app .bc-dm-contact-name small{font-size:8px}}

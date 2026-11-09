@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#041828">
+  <meta name="description" content="Guia completo do BrasilCord: primeiros passos, amigos, mensagens, chamadas, comunidades e configurações.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self';">
+  <title>Como usar o BrasilCord — Guia e documentação</title>
+  <link rel="icon" href="assets/brand-icon.png" type="image/png">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="gradients.css">
+  <link rel="stylesheet" href="docs.css">
+  <script src="landing.js" defer></script>
+  <script src="docs.js" defer></script>
+</head>
+<body data-theme="dark" class="docs-body">
+  <a class="skip-link" href="#conteudo">Pular para o guia</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="BrasilCord — página inicial">
+        <img src="assets/brand-icon.png" width="42" height="42" alt="">
+        <strong>BrasilCord</strong>
+      </a>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="header-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <div class="header-menu" id="header-menu">
+        <nav class="nav-links" aria-label="Menu principal">
+          <a href="./#recursos">Recursos</a>
+          <a href="./#seguranca">Segurança</a>
+          <a href="como-usar.html" aria-current="page">Como usar</a>
+          <a href="parceiros.html">Parceiros</a>
+        </nav>
+        <div class="header-actions">
+          <div class="theme-switch" role="group" aria-label="Aparência do site">
+            <button type="button" data-set-theme="auto" aria-label="Seguir aparência do dispositivo" title="Automático">◐</button>
+            <button type="button" data-set-theme="light" aria-label="Tema claro" title="Tema claro">☼</button>
+            <button type="button" data-set-theme="dark" aria-label="Tema escuro" title="Tema escuro">☾</button>
+          </div>
+          <a class="btn btn-subtle btn-small" href="downloads.html">Baixar</a>
+          <a class="btn btn-dark btn-small" href="acesso.html">Entrar</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <div class="docs-shell">
+      <aside class="docs-sidebar" aria-label="Menu da documentação">
+        <div class="docs-sidebar-inner">
+          <p class="docs-nav-eyebrow">Documentação</p>
+          <nav class="docs-primary-nav" aria-label="Páginas de ajuda">
+            <a class="docs-primary-link active" aria-current="page" href="como-usar.html"><span aria-hidden="true">◈</span><span><strong>Como usar</strong><small>Do primeiro acesso à sua turma</small></span></a>
+            <a class="docs-primary-link" href="downloads.html"><span aria-hidden="true">↓</span><span><strong>Baixar</strong><small>Computador, celular e web</small></span></a>
+            <a class="docs-primary-link" href="privacidade.html"><span aria-hidden="true">◇</span><span><strong>Privacidade</strong><small>Informações de segurança</small></span></a>
+            <a class="docs-primary-link" href="termos.html"><span aria-hidden="true">≡</span><span><strong>Condições de uso</strong><small>Regras da fase beta</small></span></a>
+            <a class="docs-primary-link" href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">?</span><span><strong>Suporte</strong><small>Comunidade oficial no Discord</small></span></a>
+          </nav>
+          <div class="docs-sidebar-note">
+            <span class="status-dot" aria-hidden="true"></span>
+            <div><strong>BrasilCord em beta</strong><p>O guia acompanha o desenvolvimento do aplicativo.</p></div>
+          </div>
+        </div>
+      </aside>
+
+      <article class="docs-article" aria-labelledby="guide-title">
+        <div class="docs-breadcrumb"><a href="./">BrasilCord</a><span aria-hidden="true">/</span><span>Documentação</span><span aria-hidden="true">/</span><strong>Como usar</strong></div>
+        <p class="eyebrow">Guia para começar</p>
+        <h1 id="guide-title">Como usar o <span class="bc-gradient-text">BrasilCord</span></h1>
+        <p class="docs-intro">Do primeiro acesso à sua primeira conversa: descubra como criar uma conta, encontrar amigos, participar de comunidades e usar voz, vídeo ou compartilhamento de tela.</p>
+
+        <div class="docs-quick-actions">
+          <a class="docs-quick-primary" href="acesso.html">Começar agora <span aria-hidden="true">↗</span></a>
+          <a class="docs-quick-secondary" href="downloads.html">Baixar o aplicativo <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="docs-alert" role="note"><span class="docs-alert-icon" aria-hidden="true">i</span><div><strong>Estamos em manutenção.</strong><p>O acesso antecipado pode exigir a liberação da tela de manutenção. Algumas funcionalidades ainda estão sendo testadas e podem variar entre a versão web e a versão Windows.</p></div></div>
+
+        <details class="docs-mobile-index">
+          <summary>Nesta página <span aria-hidden="true">⌄</span></summary>
+          <nav aria-label="Índice do guia para celular">
+            <a href="#primeiro-acesso">1. Crie sua conta</a>
+            <a href="#amigos">2. Adicione amigos</a>
+            <a href="#conversas">3. Comece a conversar</a>
+            <a href="#chamadas">4. Entre numa chamada</a>
+            <a href="#comunidades">5. Participe de comunidades</a>
+            <a href="#perfil">6. Personalize seu perfil</a>
+            <a href="#seguranca">7. Privacidade e segurança</a>
+            <a href="#problemas">8. Resolução de problemas</a>
+            <a href="#dispositivos">9. Computador e celular</a>
+          </nav>
+        </details>
+
+        <section class="docs-chapter" id="primeiro-acesso">
+          <div class="docs-chapter-header"><span class="chapter-num">01</span><h2>Crie a sua conta</h2></div>
+          <p>O primeiro passo é abrir a versão web e escolher <strong>Criar conta</strong>. Informe seu nome de usuário, e-mail e uma senha segura. O nome de exibição é opcional.</p>
+          <ol class="docs-steps">
+            <li>Abra a <a href="acesso.html">página de acesso</a> e libere a manutenção, caso seja solicitado.</li>
+            <li>Selecione <a href="cadastro.html">Criar conta</a>, preencha os campos disponíveis e confirme as condições apresentadas.</li>
+            <li>Se o serviço exigir confirmação por e-mail, siga a verificação antes de continuar.</li>
+            <li>Depois, use <a href="login.html">Entrar</a> com seu e-mail e senha.</li>
+          </ol>
+          <div class="docs-tip"><strong>Importante:</strong> não compartilhe sua senha. A recuperação automática por e-mail ainda não está habilitada nesta versão.</div>
+        </section>
+
+        <section class="docs-chapter" id="amigos">
+          <div class="docs-chapter-header"><span class="chapter-num">02</span><h2>Adicione quem você conhece</h2></div>
+          <p>Ao entrar no BrasilCord, procure a área <strong>Amigos</strong>. É onde você pode acompanhar contatos e pedidos de amizade disponíveis na sua versão.</p>
+          <ol class="docs-steps">
+            <li>Abra <strong>Amigos</strong> no menu do aplicativo.</li>
+            <li>Procure a opção <strong>Adicionar amigo</strong> e informe o usuário da pessoa.</li>
+            <li>Quando o pedido for aceito, abra a conversa privada para começar a falar.</li>
+          </ol>
+          <p>Se o contato não aparecer, confira a grafia do nome de usuário e se ambos estão utilizando a mesma instalação do serviço.</p>
+        </section>
+
+        <section class="docs-chapter" id="conversas">
+          <div class="docs-chapter-header"><span class="chapter-num">03</span><h2>Comece a conversar</h2></div>
+          <p>O BrasilCord reúne <strong>mensagens privadas</strong> e canais de texto das comunidades. Abra uma conversa, escreva no campo de mensagem e envie.</p>
+          <div class="docs-info-grid">
+            <div class="docs-info-card"><span aria-hidden="true">✉</span><strong>Conversa privada</strong><p>Fale diretamente com pessoas adicionadas aos seus contatos.</p></div>
+            <div class="docs-info-card"><span aria-hidden="true">#</span><strong>Canais de texto</strong><p>Mantenha cada assunto em seu próprio espaço dentro de uma comunidade.</p></div>
+          </div>
+          <p>Recursos adicionais, como envio de imagens e ações sobre mensagens, podem depender da versão do aplicativo.</p>
+        </section>
+
+        <section class="docs-chapter" id="chamadas">
+          <div class="docs-chapter-header"><span class="chapter-num">04</span><h2>Entre numa chamada</h2></div>
+          <p>Em uma conversa ou sala de voz compatível, use os controles para iniciar ou entrar na chamada.</p>
+          <ol class="docs-steps">
+            <li>Escolha uma conversa direta ou um canal de voz.</li>
+            <li>Autorize o acesso ao microfone ou à câmera <strong>quando o dispositivo solicitar</strong>.</li>
+            <li>Use os botões para silenciar o microfone, ligar ou desligar a câmera e compartilhar a tela.</li>
+            <li>Ao terminar, selecione <strong>Sair da chamada</strong>.</li>
+          </ol>
+          <div class="docs-tip"><strong>Dica:</strong> a transmissão de tela e as chamadas entre aparelhos diferentes dependem da conexão e das permissões do navegador. Nem todos os recursos estão disponíveis em todos os dispositivos.</div>
+        </section>
+
+        <section class="docs-chapter" id="comunidades">
+          <div class="docs-chapter-header"><span class="chapter-num">05</span><h2>Crie ou entre numa comunidade</h2></div>
+          <p>As comunidades reúnem canais, pessoas e conversas em um único lugar.</p>
+          <ol class="docs-steps">
+            <li>Procure o botão <strong>+</strong> na coluna de comunidades.</li>
+            <li>Escolha entre <strong>Criar comunidade</strong> ou entrar por um convite, quando essas ações estiverem disponíveis.</li>
+            <li>Organize canais de texto e voz e configure as permissões da comunidade.</li>
+          </ol>
+          <p>Se você administrar uma comunidade, configure os cargos com atenção para permitir que cada pessoa veja e utilize os canais corretos.</p>
+        </section>
+
+        <section class="docs-chapter" id="perfil">
+          <div class="docs-chapter-header"><span class="chapter-num">06</span><h2>Deixe do seu jeito</h2></div>
+          <p>Na área de <strong>Perfil</strong> e nas configurações, personalize as informações disponíveis da sua conta.</p>
+          <div class="docs-info-grid">
+            <div class="docs-info-card"><span aria-hidden="true">☺</span><strong>Perfil</strong><p>Ajuste seu nome de exibição e outros detalhes oferecidos pela versão atual.</p></div>
+            <div class="docs-info-card"><span aria-hidden="true">☼</span><strong>Aparência</strong><p>O site permite alternar entre tema claro, escuro e automático.</p></div>
+          </div>
+        </section>
+
+        <section class="docs-chapter" id="seguranca">
+          <div class="docs-chapter-header"><span class="chapter-num">07</span><h2>Privacidade e segurança</h2></div>
+          <p>Use uma senha única e não compartilhe códigos de acesso. Caso encontre comportamento abusivo, utilize as opções de denúncia disponíveis no aplicativo ou procure o suporte.</p>
+          <p>Para saber quais dados são usados no cadastro, consulte as <a href="privacidade.html">informações de privacidade</a>. As regras preliminares da fase Beta estão nas <a href="termos.html">condições de uso</a>.</p>
+          <div class="docs-tip"><strong>Transparência:</strong> não considere mensagens e chamadas criptografadas de ponta a ponta sem uma confirmação técnica específica da versão utilizada.</div>
+        </section>
+
+        <section class="docs-chapter" id="problemas">
+          <div class="docs-chapter-header"><span class="chapter-num">08</span><h2>Se algo der errado</h2></div>
+          <p>Se a página não carregar, tente atualizar o navegador, conferir a conexão e verificar se o BrasilCord está em manutenção.</p>
+          <ul class="docs-bullets">
+            <li><strong>Não consigo entrar:</strong> confira e-mail, senha e eventuais etapas de verificação.</li>
+            <li><strong>Câmera ou microfone não funcionam:</strong> revise as permissões do sistema e do navegador.</li>
+            <li><strong>Não vejo a transmissão:</strong> confira se todos estão conectados à chamada e se a conexão está estável.</li>
+            <li><strong>Preciso de ajuda:</strong> fale com a equipe no <a href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Discord oficial</a>, sem enviar dados sensíveis publicamente.</li>
+          </ul>
+        </section>
+
+        <section class="docs-chapter" id="dispositivos">
+          <div class="docs-chapter-header"><span class="chapter-num">09</span><h2>Use no computador ou celular</h2></div>
+          <p>O BrasilCord possui versão web e instalador para Windows. No celular, utilize o navegador e, quando disponível, crie um atalho na tela inicial.</p>
+          <div class="docs-platform-actions"><a class="btn btn-blue" href="downloads.html#computador">Baixar para Windows <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="downloads.html#celular">Usar no celular <span aria-hidden="true">↗</span></a></div>
+          <p>Ainda não há aplicativo Android ou iOS publicado oficialmente na central de downloads.</p>
+        </section>
+        <div class="docs-end-card"><div><p class="eyebrow">Continue com a comunidade</p><h2>Pronto para conversar?</h2><p>Acompanhe novidades e converse com a equipe no Discord oficial.</p></div><a class="btn btn-blue" href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Acessar Discord <span aria-hidden="true">↗</span></a></div>
+      </article>
+
+      <aside class="docs-toc" aria-label="Índice desta página">
+        <p class="docs-nav-eyebrow">Nesta página</p>
+        <nav>
+          <a href="#primeiro-acesso">1. Crie a sua conta</a>
+          <a href="#amigos">2. Adicione amigos</a>
+          <a href="#conversas">3. Comece a conversar</a>
+          <a href="#chamadas">4. Entre numa chamada</a>
+          <a href="#comunidades">5. Crie uma comunidade</a>
+          <a href="#perfil">6. Deixe do seu jeito</a>
+          <a href="#seguranca">7. Privacidade e segurança</a>
+          <a href="#problemas">8. Se algo der errado</a>
+          <a href="#dispositivos">9. Computador e celular</a>
+        </nav>
+      </aside>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container docs-footer-inner">
+      <div><a href="./" class="brand"><img src="assets/brand-icon.png" alt="" width="40" height="40"><strong>BrasilCord</strong></a><p>Um lugar brasileiro para conversar, criar e conviver.</p></div>
+      <nav aria-label="Links do rodapé"><a href="./">Início</a><a href="downloads.html">Baixar</a><a href="parceiros.html">Parceiros</a><a href="https://www.instagram.com/brasilcordofc/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@brasilcord1" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.youtube.com/@brasilcord" target="_blank" rel="noopener noreferrer">YouTube</a></nav>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="footer-year">2026</span> BrasilCord. Feito no Brasil.</span><span>Em desenvolvimento • Versão beta</span></div>
+  </footer>
+</body>
+</html>

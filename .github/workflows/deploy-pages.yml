@@ -25,6 +25,8 @@ jobs:
       - name: Validar scripts e arquivos
         run: |
           node --check landing.js
+          node --check auth.js
+          node -e "const fs=require('fs');for(const name of ['login.html','cadastro.html','recuperar-senha.html','acesso.html','auth.css','auth.js']){if(!fs.existsSync(name))throw Error('Missing: '+name)}" 
           node --check maintenance.js
           node --check access-guard.js
           node --check web-adapter.js

@@ -25,6 +25,7 @@ jobs:
       - name: Validar scripts e arquivos
         run: |
           node --check landing.js
+          node -e "const fs=require('fs');for(const f of ['parceiros.html','partners.css'])if(!fs.existsSync(f))throw Error('Arquivo ausente: '+f)"
           node -e "const fs=require('fs');for(const p of ['downloads.html','download.css']){if(!fs.existsSync(p))throw Error('Missing download file: '+p)}"
           node --check auth.js
           node -e "const fs=require('fs');for(const p of ['termos.html','privacidade.html'])if(!fs.existsSync(p))throw Error('Missing legal info page: '+p)"

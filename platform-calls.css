@@ -1,0 +1,91 @@
+
+/* Calls nativas do BrasilCord — UI WebRTC dark com acentos brasileiros. */
+#page-app .bc-voice-list {min-height:38px;margin-bottom:4px;}
+#page-app .bc-voice-channel-item {display:flex!important;gap:10px;align-items:center;min-height:39px;}
+#page-app .bc-voice-channel-item .bc-voice-channel-icon {font-size:18px;color:#55d995;}
+#page-app .bc-voice-channel-name {overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+#page-app .bc-call-dock {padding:12px;border:1px solid rgba(30,211,124,.32);border-radius:10px;background:#19332b;margin:8px 9px;}
+#page-app .bc-call-dock>span {display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;font-weight:800;color:#80efb8;}
+#page-app .bc-call-dock>div {display:flex;gap:8px;margin-top:8px;}
+#page-app .bc-call-dock button {flex:1;min-height:32px;padding:0;border:1px solid rgba(140,205,170,.18);border-radius:8px;background:#244c3e;color:#e8fff5;cursor:pointer;}
+#page-app .bc-call-dock button:last-child {background:#65242b;color:#ffe1e2;border-color:rgba(255,125,145,.22);}
+#page-app .bc-native-call {width:min(830px,100%);box-sizing:border-box;margin:26px auto 4px;padding:22px;border:1px solid rgba(137,192,168,.19);border-radius:19px;background:linear-gradient(135deg,#1b2a29,#1a2434 55%,#1b202b);}
+#page-app .bc-native-call-head {text-align:center;}
+#page-app .bc-native-call-chip {display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(33,215,113,.27);border-radius:100px;padding:7px 12px;background:rgba(30,203,111,.09);color:#91f3bf;font-size:10px;font-weight:800;letter-spacing:.11em;}
+#page-app .bc-native-call-chip i {display:block;width:7px;height:7px;border-radius:50%;background:#21df79;}
+#page-app .bc-native-call-head h3 {font-size:25px;letter-spacing:-.045em;margin:17px 0 6px;}
+#page-app .bc-native-call-head p {font-size:12px;color:#a9bdc9;margin:0 auto;max-width:570px;line-height:1.7;}
+#page-app .bc-native-call-users {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;min-height:105px;margin:25px 0;padding:10px;}
+#page-app .bc-call-empty {margin:auto;grid-column:1/-1;color:#91a7b6;font-size:12px;text-align:center;}
+#page-app .bc-call-person {display:flex;align-items:center;gap:11px;padding:13px;border:1px solid rgba(181,214,227,.1);border-radius:12px;background:#202b34;min-width:0;}
+#page-app .bc-call-person-avatar {flex:none;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#138c55,#2866b8);color:white;font-weight:850;}
+#page-app .bc-call-person-info {flex:1;min-width:0;display:grid;gap:3px;}
+#page-app .bc-call-person-info strong {font-size:12px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+#page-app .bc-call-person-info small {font-size:10px;color:#8ca6b5;}
+#page-app .bc-call-person-state {font-size:14px;}
+#page-app .bc-native-call-controls {display:flex;justify-content:center;flex-wrap:wrap;gap:9px;}
+#page-app .bc-native-call-controls button {min-height:43px;border:1px solid rgba(162,193,204,.2);border-radius:10px;padding:0 15px;background:#26313d;color:#e8f2f8;cursor:pointer;font-size:12px;font-weight:750;}
+#page-app .bc-native-call-controls button:hover:not(:disabled) {border-color:rgba(48,223,137,.46);background:#30433f;}
+#page-app #bc-call-join {background:#1c8758;color:#fafffc;border-color:#2ed581;}
+#page-app #bc-call-leave {background:#a72f41;color:white;border-color:#d35467;}
+#page-app .bc-call-capacity {font-size:10px;line-height:1.65;color:#91a4b0;text-align:center;margin:22px 0 0;}
+#page-app .bc-native-call-divider {display:flex;align-items:center;gap:14px;margin:26px auto 0;width:min(840px,100%);color:#8396a5;font-size:10px;letter-spacing:.08em;}
+#page-app .bc-native-call-divider::before,#page-app .bc-native-call-divider::after {content:"";height:1px;background:rgba(173,201,220,.12);flex:1;}
+#page-app .bc-calls-view {overflow-y:auto!important;}
+#page-app .bc-calls-view .bc-live-stage {padding-top:21px;padding-bottom:50px;}
+#page-app .bc-calls-view .bc-live-graphic {width:90px;height:90px;margin-bottom:0;}
+#page-app .bc-calls-view .bc-live-graphic>span {width:63px;height:63px;border-radius:18px;font-size:25px;}
+#page-app .bc-calls-view .bc-live-stage h3 {font-size:19px;}
+#page-app .bc-calls-view .bc-live-stage>p {font-size:11px;}
+@media(max-width:760px) {
+  #page-app .bc-native-call {margin:15px auto;padding:14px;border-radius:12px;}
+  #page-app .bc-native-call-users {grid-template-columns:1fr;}
+  #page-app .bc-native-call-controls button {min-height:39px;font-size:11px;}
+}
+
+/* Atalhos nativos de camera e tela no painel da call. */
+#page-app #bc-call-camera {
+  background:#243a65;
+  border-color:rgba(108,158,251,.38);
+  color:#e8f0ff;
+}
+#page-app #bc-call-camera:hover:not(:disabled) {
+  background:#31518c;
+  border-color:rgba(132,180,255,.7);
+}
+#page-app #bc-call-screen {
+  background:#204b3c;
+  border-color:rgba(68,207,132,.38);
+  color:#e5fff1;
+}
+#page-app #bc-call-screen:hover:not(:disabled) {
+  background:#296f50;
+  border-color:rgba(111,234,163,.7);
+}
+#page-app #bc-call-camera:disabled,
+#page-app #bc-call-screen:disabled {
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+/* Câmera e compartilhamento diretamente na call, sem link. */
+#page-app .bc-call-video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:11px;margin:20px 0;max-width:100%}
+#page-app .bc-call-video-grid[hidden]{display:none!important}
+#page-app .bc-call-video-tile{position:relative;aspect-ratio:16/9;min-width:0;border-radius:13px;overflow:hidden;background:#090e16;border:1px solid rgba(122,189,163,.22)}
+#page-app .bc-call-video-tile[hidden]{display:none!important}
+#page-app .bc-call-video-tile video{width:100%;height:100%;display:block;object-fit:contain;background:#060a10}
+#page-app .bc-call-video-name{position:absolute;left:9px;bottom:9px;max-width:calc(100% - 18px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:rgba(7,15,20,.8);border:1px solid rgba(164,220,185,.25);border-radius:8px;color:#edfff8;padding:5px 9px;font-weight:750;font-size:11px}
+#page-app .bc-call-video-options{display:flex;flex-wrap:wrap;gap:15px;justify-content:center;margin-top:19px}
+#page-app .bc-call-video-options label{display:grid;gap:6px;min-width:155px;font-size:11px;color:#adbfca}
+#page-app .bc-call-video-options select{padding:9px 12px;border:1px solid #435664;border-radius:9px;background:#192b34;color:#e8f8f2;font-size:12px}
+#page-app .bc-call-screen-picker{margin:19px 0;padding:16px;border:1px solid #357256;border-radius:13px;background:#172d28}
+#page-app .bc-call-screen-picker[hidden]{display:none!important}
+#page-app .bc-call-picker-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;color:#e1f9ec;font-size:13px}
+#page-app .bc-call-picker-heading button{border:1px solid #576775;background:#2c3e46;color:#fff;border-radius:8px;padding:8px 11px;cursor:pointer}
+#page-app .bc-call-source-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:10px;max-height:290px;overflow:auto}
+#page-app .bc-call-source-item{display:flex;flex-direction:column;align-items:stretch;gap:7px;border:1px solid #416956;background:#1e3a32;border-radius:10px;color:#e7fff5;padding:8px;cursor:pointer;min-width:0;text-align:left;font:inherit}
+#page-app .bc-call-source-item:hover{border-color:#6bf4ac;background:#285044}
+#page-app .bc-call-source-item img{display:block;aspect-ratio:16/9;width:100%;object-fit:cover;background:#0b131b;border-radius:6px}
+#page-app .bc-call-source-item span{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#page-app .bc-call-picker-hint{font-size:10px;color:#a6c8b5;line-height:1.6;margin:11px 0 0}
+@media(max-width:580px){#page-app .bc-call-video-options{flex-direction:column}#page-app .bc-call-source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -1,0 +1,43 @@
+
+/* Explorar comunidades, moderação e mídia de perfil — BrasilCord dark. */
+#page-app .bc-discover-view{overflow-y:auto}
+#page-app .bc-discover-controls{display:flex;flex-wrap:wrap;gap:13px;padding:22px 27px 10px;align-items:end}
+#page-app .bc-discover-controls label{display:grid;gap:6px;min-width:155px;font-size:11px;color:#acb6c7}
+#page-app .bc-discover-controls select,#page-app .bc-community-settings select{padding:10px;border:1px solid #384253;border-radius:9px;background:#181f2a;color:#e9f3ff}
+#page-app .bc-discover-controls button,#page-app .bc-block-person button,#page-app .bc-discover-card button{min-height:36px;padding:8px 14px;border:1px solid #327654;border-radius:8px;background:#1f5a3f;color:#eafff4;cursor:pointer;font-size:12px}
+#page-app .bc-discover-controls button:hover,#page-app .bc-discover-card button:hover{background:#277a55}
+#page-app .bc-discover-card button:disabled{opacity:.55;cursor:default}
+#page-app #bc-discover-info{margin:8px 27px 16px;color:#9bafbe;font-size:12px}
+#page-app .bc-discover-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;padding:0 27px 28px}
+#page-app .bc-discover-card{display:flex;align-items:center;flex-wrap:wrap;gap:12px;border:1px solid #333e4d;border-radius:15px;background:#1d2530;padding:17px;min-width:0}
+#page-app .bc-discover-avatar{display:grid;place-items:center;width:45px;height:45px;border-radius:14px;background:linear-gradient(135deg,#13ba67,#318cdb);font-weight:850;color:white}
+#page-app .bc-discover-card-body{flex:1;min-width:155px}
+#page-app .bc-discover-card-body strong{font-size:14px;color:#e7f4f1}
+#page-app .bc-discover-card-body p{font-size:12px;color:#bcc9d4;margin:7px 0;overflow-wrap:anywhere}
+#page-app .bc-discover-card-body small{font-size:10px;color:#8caaad}
+#page-app .bc-community-settings{padding:10px 14px;margin:12px 8px 0;background:#242934;border-radius:10px}
+#page-app .bc-community-settings summary{cursor:pointer;font-size:12px;color:#cfe7e3}
+#page-app .bc-community-settings form{max-height:250px;overflow:auto}
+#page-app .bc-block-section{border-top:1px solid #2c3440;margin-top:22px;padding-top:20px}
+#page-app .bc-block-person{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 3px;border-bottom:1px solid #2d3540;font-size:12px}
+#page-app .bc-block-person button{background:#59333b;border-color:#7d3e49}
+#page-app .bc-profile-cover{position:relative;overflow:hidden}
+#page-app .bc-profile-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#page-app .bc-profile-avatar-photo{position:relative;display:block;width:94px;height:94px;margin:-94px 0 0 22px;border-radius:50%;object-fit:cover;border:6px solid #1d212b;box-sizing:border-box}
+#page-app .bc-profile-avatar-photo[hidden]{display:none!important}
+#page-app .bc-user-avatar img{position:absolute;width:100%;height:100%;inset:0;border-radius:50%;object-fit:cover}
+#page-app .bc-user-avatar{position:relative;overflow:hidden}
+#page-app .bc-badge-preview{display:flex;align-items:center;gap:9px;margin-top:14px;color:#acb8cb;font-size:11px}
+#page-app .bc-badge-preview img{width:46px;height:46px;object-fit:contain}
+#page-app .bc-profile-media-editor,#page-app .bc-profile-badge-editor{border-top:1px solid #343b47;padding-top:21px;margin-top:24px;display:grid;gap:9px}
+#page-app .bc-profile-media-editor h4,#page-app .bc-profile-badge-editor h4{font-size:13px;margin:0}
+#page-app .bc-profile-media-editor p,#page-app .bc-profile-badge-editor p{font-size:11px;color:#9fabbc;margin:0}
+#page-app .bc-profile-media-editor label{display:grid;gap:6px;font-size:12px}
+#page-app .bc-profile-media-editor input[type=file]{border:1px solid #394454;border-radius:8px;padding:7px;font-size:11px;color:#d5e4f0;width:100%}
+#page-app .bc-profile-media-editor button{justify-self:start;background:#253844;border:1px solid #385565;color:#d9f5ef;border-radius:8px;padding:8px 10px;font-size:11px;cursor:pointer}
+#page-app #bc-media-status{font-size:11px;color:#a5efc5;min-height:18px}
+#page-app #bc-badge-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:9px}
+#page-app .bc-badge-choice{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;border:1px solid #354453;border-radius:12px;background:#222936;color:#e2eaf3;cursor:pointer;font-size:10px}
+#page-app .bc-badge-choice img{width:65px;height:65px}
+#page-app .bc-badge-choice[aria-pressed=true]{border-color:#e9c64d;background:#39402c}
+#page-app .bc-badge-choice:disabled{filter:grayscale(1);opacity:.38;cursor:not-allowed}

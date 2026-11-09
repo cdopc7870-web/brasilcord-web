@@ -1,0 +1,31 @@
+/* Fundadores Beta: boas-vindas especial. Central de ideias: formulário privado. */
+.bc-beta-congrats,.bc-feedback-dialog{position:fixed;inset:0;margin:auto;padding:25px;box-sizing:border-box;max-height:92vh;overflow-y:auto;width:min(510px,calc(100vw - 26px));border:1px solid #f8d9719e;border-radius:23px;background:radial-gradient(ellipse at 65% 0%,#236e5c88,transparent 55%),linear-gradient(142deg,#103d40,#0c242e);color:#edfff6;box-shadow:0 34px 90px #000d;font-family:system-ui,Segoe UI,sans-serif}
+.bc-beta-congrats::backdrop,.bc-feedback-dialog::backdrop{background:#02141be0;backdrop-filter:blur(8px)}
+.bc-beta-congrats{text-align:center;padding:35px 26px}
+.bc-beta-congrats>img{width:145px;height:145px;object-fit:contain;filter:drop-shadow(0 0 28px #ffe16b75)}
+.bc-beta-confetti{display:flex;align-items:center;justify-content:space-around;color:#ffef80;font-size:28px}
+.bc-beta-confetti span:nth-child(2){color:#6dffb6;font-size:38px}
+.bc-beta-surprise{display:block;color:#ffe57c;letter-spacing:.16em;font-weight:900;font-size:11px;margin:10px 0}
+.bc-beta-congrats h2{font-size:28px;line-height:1.1;margin:12px 0;letter-spacing:-.04em}
+.bc-beta-congrats p{font-size:14px;color:#c4f3d9;line-height:1.65}
+#bc-beta-congrats-copy{color:#fff0ab;font-weight:750}
+#bc-beta-congrats-confirm{width:100%;background:linear-gradient(115deg,#ffe979,#f0c14e);border:1px solid #fff1a9;border-radius:13px;color:#174b37;font-weight:900;padding:14px;cursor:pointer;font-size:15px}
+#bc-beta-congrats-confirm:disabled{opacity:.65}
+#bc-beta-congrats-error{color:#ffd2c7;font-size:12px;min-height:12px}
+.bc-feedback-dialog{width:min(575px,calc(100vw - 26px))}
+.bc-feedback-dialog header{display:flex;justify-content:space-between;align-items:start;gap:12px;border-bottom:1px solid #94ddaa50;padding-bottom:13px}
+.bc-feedback-dialog header div{flex:1}
+.bc-feedback-dialog header small{font-size:10px;color:#ffe779;letter-spacing:.12em;font-weight:900}
+.bc-feedback-dialog h2{font-size:24px;margin:5px 0;letter-spacing:-.03em}
+.bc-feedback-dialog p{font-size:12px;color:#bae4d0;line-height:1.65}
+.bc-feedback-dialog header button{border:1px solid #8cdaaa6c;background:#20564c;color:white;border-radius:9px;padding:8px 10px;cursor:pointer}
+#bc-feedback-form{display:grid;gap:15px;margin-top:18px}
+#bc-feedback-form label{display:grid;gap:8px;font-size:12px;font-weight:800;color:#e6ffef}
+#bc-feedback-form input,#bc-feedback-form textarea{resize:vertical;box-sizing:border-box;width:100%;background:#091f2b;color:#fff;border:1px solid #8ce3b47e;border-radius:10px;padding:12px;font:13px system-ui;outline-offset:2px}
+#bc-feedback-form input:focus,#bc-feedback-form textarea:focus{outline:2px solid #ffe379}
+#bc-feedback-submit{background:linear-gradient(120deg,#ffe477,#55e0a0);border:1px solid #d8ffae;color:#153b2f;font-weight:900;padding:13px;border-radius:12px;cursor:pointer}
+#bc-feedback-submit:disabled{opacity:.55}
+#bc-feedback-status{min-height:16px;color:#ffe389;margin:0;font-size:12px}
+#page-app .bc-channel-item[data-channel-id="b76c0d04-2a6f-47a5-95d1-bc0fdc000015"],#page-app .bc-channel-item[data-channel-id="b76c0d04-2a6f-47a5-95d1-bc0fdc000016"]{background:#1d513e7d;border:1px solid #5ddaa16b}
+#page-app .bc-channel-item[data-channel-id="b76c0d04-2a6f-47a5-95d1-bc0fdc000017"]{background:#403916a8;border:1px solid #ffdf7b6b}
+@media(max-width:510px){.bc-beta-congrats,.bc-feedback-dialog{padding:18px}.bc-beta-congrats>img{width:110px;height:110px}.bc-beta-congrats h2{font-size:23px}}

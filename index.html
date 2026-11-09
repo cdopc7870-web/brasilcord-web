@@ -5,6 +5,10 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://brasilcord-sinalizacao-dkx157.onrender.com; style-src 'self'; script-src 'self'; media-src 'self' blob: https://brasilcord-sinalizacao-dkx157.onrender.com; connect-src 'self' https://*.onrender.com wss://*.onrender.com">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080f1b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BrasilCord">
+  <link rel="apple-touch-icon" href="assets/brand-icon.png">
   <title>BrasilCord</title>
   <link rel="icon" type="image/x-icon" href="assets/brand-icon.png">
   <link rel="stylesheet" href="style.css">
@@ -31,8 +35,17 @@
   <link rel="stylesheet" href="community-context-menu.css">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="web-mobile.css">
+  <link rel="stylesheet" href="install-app.css">
 </head>
 <body>
+  <aside class="bc-install-banner" id="bc-install-banner" aria-label="Instalar BrasilCord">
+    <div class="bc-install-brand"><img src="assets/brand-icon.png" alt="" width="42" height="42"><span><strong>BrasilCord App</strong><small>Instale gratuitamente no celular ou PC</small></span></div>
+    <button type="button" id="bc-install-button" class="bc-install-primary">Instalar aplicativo</button>
+    <button type="button" id="bc-install-dismiss" class="bc-install-dismiss" aria-label="Ocultar aviso de instalação">×</button>
+  </aside>
+  <dialog id="bc-install-help" class="bc-install-help" aria-labelledby="bc-install-help-title">
+    <div class="bc-install-help-inner"><div class="bc-install-help-heading"><strong id="bc-install-help-title">Instalar BrasilCord</strong><button type="button" id="bc-install-help-close" aria-label="Fechar">×</button></div><p id="bc-install-help-text">Use a opção de instalação do seu navegador.</p><button type="button" id="bc-install-help-ok">Entendi</button></div>
+  </dialog>
   <div class="aurora-backdrop is-paused" id="aurora-backdrop" aria-hidden="true">
     <div class="aurora-parallax aurora-parallax-far">
       <span class="aurora-blob aurora-green"></span>
@@ -904,6 +917,7 @@
       </form>
     </dialog>
    <script src="web-adapter.js"></script>
+  <script src="install-app.js"></script>
   <script src="renderer.js"></script>
   <script src="platform.js"></script>
   <script src="platform-ui.js"></script>

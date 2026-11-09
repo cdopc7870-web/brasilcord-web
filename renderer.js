@@ -196,7 +196,7 @@ updateAppVersion();
 
 function setPage(name, {focus = false, updateLocation = true} = {}) {
   // A pagina propria nao deve ser aberta por link, hash ou menu antes da verificacao local.
-  if (name === 'app' && !previewAccessGranted) {
+  if (name === 'app' && !previewAccessGranted && !window.brasilcord?.isWeb) {
     openPreviewDialog();
     return false;
   }
@@ -601,7 +601,7 @@ previewForm.addEventListener('submit', async event => {
   }
 });
 
-$('enter-brasilcord').addEventListener('click', openPreviewDialog);
+$('enter-brasilcord').addEventListener('click', () => { if(window.brasilcord?.isWeb) setPage('app',{focus:true}); else openPreviewDialog(); });
 $('bc-workspace-back').addEventListener('click', () => setPage('inicio', {focus: true}));
 $('bc-open-discord').addEventListener('click', () => openDiscord(
   () => window.brasilcord.openDiscord(),

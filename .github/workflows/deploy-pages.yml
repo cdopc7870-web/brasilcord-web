@@ -1,0 +1,40 @@
+name: Publicar BrasilCord Web
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: brasilcord-pages
+  cancel-in-progress: true
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validar scripts e arquivos
+        run: |
+          node --check web-adapter.js
+          node --check renderer.js
+          node --check platform.js
+          node --check platform-calls.js
+          node -e "const fs=require('fs');const s=fs.readFileSync('index.html','utf8');const refs=[...s.matchAll(/(?:src|href)=\"([^\"]+)\"/g)].map(m=>m[1]).filter(x=>!x.startsWith('#')&&!/^https?:/.test(x)&&!x.startsWith('mailto:'));for(const f of refs){if(!fs.existsSync(f))throw Error('Missing static resource: '+f)}"
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Preparar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

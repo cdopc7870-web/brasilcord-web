@@ -1,12 +1,12 @@
 {
   "name": "BrasilCord",
   "short_name": "BrasilCord",
-  "description": "Comunidades, chats e chamadas do BrasilCord",
-  "start_url": "./?app=1",
+  "description": "BrasilCord: converse, jogue e crie junto com sua turma.",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#080f1b",
-  "theme_color": "#080f1b",
+  "background_color": "#f5f8fc",
+  "theme_color": "#f5f8fc",
   "icons": [
     {
       "src": "assets/brand-icon.png",
@@ -22,12 +22,12 @@
     "social",
     "communication"
   ],
-  "shortcut_description": "Abrir o BrasilCord",
+  "shortcut_description": "Conheça e entre no BrasilCord",
   "shortcuts": [
     {
-      "name": "Abrir conversas",
-      "url": "./?app=1",
-      "description": "Entrar no BrasilCord"
+      "name": "Acesso ao BrasilCord",
+      "url": "./acesso.html",
+      "description": "Abrir o acesso antecipado durante a manutenção"
     }
   ]
 }

@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://brasilcord-sinalizacao-dkx157.onrender.com; style-src 'self'; script-src 'self'; media-src 'self' blob: https://brasilcord-sinalizacao-dkx157.onrender.com; connect-src 'self' https://*.onrender.com wss://*.onrender.com">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080f1b">
+  <title>BrasilCord</title>
+  <link rel="icon" type="image/x-icon" href="assets/brand-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ui-refresh.css">
+  <link rel="stylesheet" href="platform-redesign.css">
+  <link rel="stylesheet" href="platform-calls.css">
+  <link rel="stylesheet" href="platform-extras.css">
+  <link rel="stylesheet" href="community-features.css">
+  <link rel="stylesheet" href="dm-experience.css">
+  <link rel="stylesheet" href="voice-and-private-photos.css">
+  <link rel="stylesheet" href="chat-interactions.css">
+  <link rel="stylesheet" href="dm-requests-ui.css">
+  <link rel="stylesheet" href="community-advanced.css">
+  <link rel="stylesheet" href="community-moderation.css">
+  <link rel="stylesheet" href="support-and-invites.css">
+  <link rel="stylesheet" href="notification-badges.css">
+  <link rel="stylesheet" href="brasilcord-persona.css">
+  <link rel="stylesheet" href="beta-invite.css">
+  <link rel="stylesheet" href="beta-feedback.css">
+  <link rel="stylesheet" href="user-profile-menu.css">
+  <link rel="stylesheet" href="member-sidebar-settings.css">
+  <link rel="stylesheet" href="brasilcord-polish.css">
+  <link rel="stylesheet" href="server-creation-modal.css">
+  <link rel="stylesheet" href="community-context-menu.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="web-mobile.css">
+</head>
+<body>
+  <div class="aurora-backdrop is-paused" id="aurora-backdrop" aria-hidden="true">
+    <div class="aurora-parallax aurora-parallax-far">
+      <span class="aurora-blob aurora-green"></span>
+      <span class="aurora-blob aurora-blue"></span>
+      <span class="aurora-blob aurora-yellow"></span>
+    </div>
+    <div class="aurora-parallax aurora-parallax-near">
+      <span class="aurora-ribbon aurora-ribbon-one"></span>
+      <span class="aurora-ribbon aurora-ribbon-two"></span>
+    </div>
+    <div class="aurora-particles">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </div>
+  <section class="welcome-splash" id="welcome-splash" role="region" aria-labelledby="welcome-title">
+    <div class="splash-landscape" aria-hidden="true">
+      <div class="splash-sun"></div>
+      <div class="splash-ridge splash-ridge-back"></div>
+      <div class="splash-ridge splash-ridge-front"></div>
+      <div class="splash-tree splash-tree-left" aria-hidden="true"><span class="tree-canopy"></span><span class="tree-leaves tree-leaves-one"></span><span class="tree-leaves tree-leaves-two"></span></div>
+      <div class="splash-tree splash-tree-right" aria-hidden="true"><span class="tree-canopy"></span><span class="tree-leaves tree-leaves-one"></span><span class="tree-leaves tree-leaves-two"></span></div>
+      <div class="splash-river"></div>
+      <div class="splash-river-glint"></div>
+      <div class="splash-leaf splash-leaf-left"></div>
+      <div class="splash-leaf splash-leaf-right"></div>
+      <img class="splash-guardian" src="brand/brasilcord-guardian.svg" alt="" aria-hidden="true">
+      <img class="splash-jaguar" src="brand/brasilcord-jaguar.svg" alt="" aria-hidden="true">
+      <img class="splash-birds splash-birds-one" src="brand/brasilcord-birds.svg" alt="" aria-hidden="true">
+      <img class="splash-birds splash-birds-two" src="brand/brasilcord-birds.svg" alt="" aria-hidden="true">
+      <div class="splash-parrot"><img src="assets/parrot-mascot.png" alt=""></div>
+      <span class="splash-spark splash-spark-one"></span>
+      <span class="splash-spark splash-spark-two"></span>
+      <span class="splash-spark splash-spark-three"></span>
+    </div>
+    <div class="splash-content">
+      <p class="splash-kicker"><span>BR</span> UMA ABERTURA COM A CARA DO BRASIL</p>
+      <h1 id="welcome-title">BRASIL<span>CORD</span></h1>
+      <p class="splash-tagline">O jeito abrasileirado de abrir o Discord oficial.</p>
+      <p class="splash-thanks">Obrigado por fazer parte!</p>
+      <div class="splash-actions">
+        <button id="skip-welcome" class="splash-enter" type="button">Entrar no BrasilCord <span aria-hidden="true">↗</span></button>
+        <button id="join-official-server" class="splash-server-button" type="button">Entrar no servidor oficial <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="splash-progress" id="splash-progress" role="progressbar" aria-label="Progresso da animação de abertura" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="splash-progress-fill"></span>
+      </div>
+      <p class="splash-progress-label" id="splash-progress-label">A abertura do BrasilCord está começando…</p>
+      <p class="splash-credit">Criado por DKX157 <span>•</span> inspirado no Rio, na mata e na natureza brasileira</p>
+    </div>
+  </section>
+
+  <div class="discord-toolbar" id="discord-toolbar" role="toolbar" aria-label="Controles do BrasilCord" hidden>
+    <div class="toolbar-brand">
+      <img src="assets/parrot-mascot.png" alt="">
+      <strong>BrasilCord</strong>
+    </div>
+    <div class="toolbar-zoom" role="group" aria-label="Zoom do Discord">
+      <button id="discord-zoom-out" class="toolbar-icon-button" type="button" title="Diminuir zoom" aria-label="Diminuir zoom">−</button>
+      <output id="discord-zoom-level" class="zoom-level" aria-live="polite">100%</output>
+      <button id="discord-zoom-in" class="toolbar-icon-button" type="button" title="Aumentar zoom" aria-label="Aumentar zoom">+</button>
+      <button id="discord-zoom-reset" class="toolbar-reset-button" type="button" title="Restaurar zoom padrão">Padrão</button>
+    </div>
+    <div class="toolbar-stream-actions" role="group" aria-label="Compartilhamento do BrasilCord">
+      <button id="stream-share-screen" class="toolbar-stream-button" type="button" title="Transmitir sua tela em uma janela do BrasilCord"><span aria-hidden="true">▣</span> Transmitir tela</button>
+      <button id="stream-share-camera" class="toolbar-stream-button camera-button" type="button" title="Ligar sua câmera em uma janela do BrasilCord"><span aria-hidden="true">◉</span> Ligar câmera</button>
+    </div>
+    <div class="toolbar-tools-wrap">
+      <button id="discord-tools-button" class="toolbar-utility-button tools-toolbar-button" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="discord-tools-menu"><span aria-hidden="true">✦</span>Tools</button>
+      <div id="discord-tools-menu" class="theme-popover toolbar-theme-popover" role="group" aria-label="Cores do Discord" hidden>
+        <div class="theme-popover-heading"><strong>Personalize o Discord</strong><span>Escolha uma cor de fundo</span></div>
+        <div class="theme-grid">
+          <button class="theme-choice" data-discord-theme="red" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-red" aria-hidden="true"></span>Vermelho</button>
+          <button class="theme-choice" data-discord-theme="orange" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-orange" aria-hidden="true"></span>Laranja</button>
+          <button class="theme-choice" data-discord-theme="yellow" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-yellow" aria-hidden="true"></span>Amarelo</button>
+          <button class="theme-choice" data-discord-theme="green" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-green" aria-hidden="true"></span>Verde</button>
+          <button class="theme-choice" data-discord-theme="cyan" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-cyan" aria-hidden="true"></span>Ciano</button>
+          <button class="theme-choice" data-discord-theme="blue" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-blue" aria-hidden="true"></span>Azul</button>
+          <button class="theme-choice" data-discord-theme="indigo" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-indigo" aria-hidden="true"></span>Índigo</button>
+          <button class="theme-choice" data-discord-theme="violet" type="button" aria-pressed="false"><span class="theme-swatch theme-swatch-violet" aria-hidden="true"></span>Violeta</button>
+        </div>
+        <button id="discord-theme-reset" class="theme-reset-choice" type="button"><span class="theme-reset-swatch" aria-hidden="true">◐</span>Restaurar cor original</button>
+        <p id="discord-theme-status" class="toolbar-tools-status" role="status" aria-live="polite">Cor original</p>
+      </div>
+    </div>
+    <button id="discord-plugins-button" class="toolbar-utility-button plugins-toolbar-button" type="button" title="Abrir plugins"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v3H6a2 2 0 0 0-2 2v3h3a2.5 2.5 0 1 1 0 5H4v3a2 2 0 0 0 2 2h3v-3a2.5 2.5 0 1 1 5 0v3h4a2 2 0 0 0 2-2v-4h-3a2.5 2.5 0 1 1 0-5h3V8a2 2 0 0 0-2-2h-4V3a2.5 2.5 0 1 0-5 0Z"/></svg>Plugins</button>
+    <button id="return-home" class="return-home-button" type="button">← Voltar ao menu</button>
+  </div>
+
+  <div class="app-shell" id="inicio">
+    <header class="topbar">
+      <a class="brand" href="#inicio" data-page-target="inicio" aria-label="BrasilCord, início">
+        <span class="brand-icon"><img src="assets/parrot-mascot.png" alt=""></span>
+        <span class="brand-name"><strong>BrasilCord</strong><small>SEU ATALHO PARA CONVERSAR</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Menu principal">
+        <button class="nav-link active" type="button" data-page-target="inicio" aria-current="page">Início</button>
+        <button class="nav-link" type="button" data-page-target="sobre">Como funciona</button>
+        <button class="nav-link" type="button" data-page-target="criador">Criador</button>
+        <button class="nav-link" type="button" data-page-target="parceiros">Parceiros</button>
+      </nav>
+      <div class="top-actions">
+        <div class="top-status"><span class="online-dot"></span> Discord oficial</div>
+        <button id="ui-sound-toggle" class="ui-sound-toggle" type="button" aria-pressed="true" aria-label="Desativar sons da interface" title="Sons da interface: ligados"><span class="ui-sound-icon" aria-hidden="true">♪</span><span id="ui-sound-label" class="ui-sound-label">Som ligado</span></button>
+        <button id="top-community-discord" class="top-community-button" type="button"><span class="discord-mark" aria-hidden="true">◉</span>Comunidade</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-view is-active" id="page-inicio" data-page="inicio" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <div class="hero-copy">
+          <p class="bc-hero-kicker">Sua comunidade, seu espaço</p>
+          <h1 id="hero-title" tabindex="-1">BrasilCord<br><span>O Brasil conectado!</span></h1>
+          <p class="hero-description">Entre no Discord oficial em uma janela com identidade brasileira. Sua conta, servidores e conversas continuam na plataforma do Discord.</p>
+          <div class="hero-actions">
+            <button id="enter-brasilcord" class="primary-button bc-enter-button" type="button">
+              <span class="bc-enter-symbol" aria-hidden="true">✦</span>Entrar no BrasilCord<span class="button-arrow" aria-hidden="true">→</span>
+            </button>
+            <button id="open-discord" class="secondary-button" type="button"><span class="discord-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.7 5.1a18 18 0 0 0-4.4-1.4l-.6 1.2a16.5 16.5 0 0 0-5.4 0l-.6-1.2a18 18 0 0 0-4.4 1.4C1.5 9.2.8 13.2 1.1 17.2a18 18 0 0 0 5.4 2.7l1.2-1.9-1.8-.9.4-.3c3.5 1.6 7.4 1.6 10.8 0l.4.3-1.8.9 1.2 1.9a18 18 0 0 0 5.4-2.7c.4-4.6-.8-8.6-2.6-12.1ZM8.8 14.9c-1.1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Zm6.4 0c-1.1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Z"/></svg></span>Entrar no Discord<span class="button-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <p id="open-status" class="open-status" role="status" aria-live="polite">O login acontece na página oficial do Discord, dentro do BrasilCord.</p>
+        </div>
+        <div class="hero-art" aria-label="Papagaio verde do BrasilCord">
+          <img class="hero-fauna" src="brand/brasilcord-fauna.svg" alt="" aria-hidden="true">
+          <img class="hero-birds hero-birds-one" src="brand/brasilcord-birds.svg" alt="" aria-hidden="true">
+          <img class="hero-birds hero-birds-two" src="brand/brasilcord-birds.svg" alt="" aria-hidden="true">
+          <div class="art-sun"></div>
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+          <span class="mascot-halo" aria-hidden="true"></span>
+          <div class="parrot-frame"><img src="assets/parrot-mascot.png" alt="Papagaio verde do BrasilCord"></div>
+          <span class="mascot-particle mascot-particle-one">✦</span>
+          <span class="mascot-particle mascot-particle-two">✧</span>
+          <span class="mascot-particle mascot-particle-three">✦</span>
+          <span class="mascot-particle mascot-particle-four">✧</span>
+          <div class="art-label"><span class="art-label-dot"></span> BRASILCORD <b>•</b> <span id="app-version">VERSÃO</span></div>
+          <span class="confetti confetti-yellow" aria-hidden="true">✦</span>
+          <span class="confetti confetti-green" aria-hidden="true">✳</span>
+        </div>
+      </div>
+      <div class="home-feature-grid" aria-label="Recursos do BrasilCord">
+        <article class="home-feature-card"><span class="home-feature-icon feature-yellow" aria-hidden="true">✦</span><div><h2>Visual brasileiro</h2><p>Personalize a experiência com a identidade do BrasilCord.</p></div></article>
+        <article class="home-feature-card"><span class="home-feature-icon feature-blue" aria-hidden="true">↻</span><div><h2>Atualizações automáticas</h2><p>O aplicativo verifica novas versões ao iniciar.</p></div></article>
+        <article class="home-feature-card"><span class="home-feature-icon feature-green" aria-hidden="true">▣</span><div><h2>Câmera e transmissão</h2><p>Compartilhe sua câmera ou tela pela janela de transmissão do BrasilCord.</p></div></article>
+      </div>
+      <section class="home-social-section" aria-labelledby="home-social-title">
+        <div class="home-social-heading"><div><p class="home-social-eyebrow">ACOMPANHE O BRASILCORD</p><h2 id="home-social-title">Comunidade e redes oficiais</h2></div><p>Os links pendentes serão ativados quando as URLs oficiais forem configuradas.</p></div>
+        <div class="home-social-links" aria-label="Redes sociais do BrasilCord">
+          <button class="social-link-button social-discord" data-social-link="discord" type="button" aria-label="Abrir o Discord oficial">
+            <svg class="social-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 5.1a18 18 0 0 0-4.4-1.4l-.6 1.2a16.5 16.5 0 0 0-5.4 0l-.6-1.2a18 18 0 0 0-4.4 1.4C1.5 9.2.8 13.2 1.1 17.2a18 18 0 0 0 5.4 2.7l1.2-1.9-1.8-.9.4-.3c3.5 1.6 7.4 1.6 10.8 0l.4.3-1.8.9 1.2 1.9a18 18 0 0 0 5.4-2.7c.4-4.6-.8-8.6-2.6-12.1ZM8.8 14.9c-1.1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Zm6.4 0c-1.1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1Z"/></svg>
+            <span class="social-link-copy"><strong>Discord</strong><small>Servidor oficial</small></span><span class="social-link-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="social-link-button social-youtube" data-social-link="youtube" type="button" disabled title="Envie o link oficial do YouTube para ativar este botão" aria-label="YouTube, link pendente">
+            <svg class="social-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.7V8.3l6.3 3.7-6.3 3.7Z"/></svg>
+            <span class="social-link-copy"><strong>YouTube</strong><small>Link pendente</small></span><span class="social-link-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="social-link-button social-tiktok" data-social-link="tiktok" type="button" disabled title="Envie o link oficial do TikTok para ativar este botão" aria-label="TikTok, link pendente">
+            <svg class="social-logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5.2h3.8c.2 1.5.8 2.9 2 3.9 1.1 1 2.6 1.4 4.1 1.5v4c-1.4 0-2.8-.4-4.1-1.1-.6-.3-1.1-.7-1.7-1.1v8.2c0 1.5-.5 3-1.5 4.2a7.4 7.4 0 0 1-6.1 2.7 7.5 7.5 0 0 1-4.1-1.3 7.2 7.2 0 0 1-3.3-5.8v-1.5a7.3 7.3 0 0 1 2.5-4.7 7.6 7.6 0 0 1 6.1-1.7v4.2a3.6 3.6 0 0 0-3.4.8 3.3 3.3 0 0 0-.9 3.2 3.4 3.4 0 0 0 2.4 2.4 3.4 3.4 0 0 0 3.3-1.1c.5-.6.8-1.3.8-2.1V.2Z"/></svg>
+            <span class="social-link-copy"><strong>TikTok</strong><small>Link pendente</small></span><span class="social-link-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="social-link-button social-instagram" data-social-link="instagram" type="button" disabled title="Envie o link oficial do Instagram para ativar este botão" aria-label="Instagram, link pendente">
+            <svg class="social-logo" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="instagram-dot" cx="17.5" cy="6.5" r=".8"/></svg>
+            <span class="social-link-copy"><strong>Instagram</strong><small>Link pendente</small></span><span class="social-link-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
+      </section>
+
+      <section class="page-view bc-workspace-page" id="page-app" data-page="app" aria-labelledby="bc-workspace-title" hidden>
+        <div class="bc-community-desktop">
+          <nav class="bc-global-rail" aria-label="Navegação BrasilCord">
+            <div class="bc-global-brand" title="BrasilCord"><img src="assets/parrot-mascot.png" alt="BrasilCord"></div>
+            <button type="button" class="bc-rail-action is-active" data-bc-view="chat" aria-label="Conversas" title="Conversas" aria-pressed="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/></svg>
+            </button>
+            <button type="button" class="bc-rail-action" data-bc-view="dms" aria-label="Mensagens privadas" title="Mensagens privadas" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/><path d="M8 10h8M8 13h5"/></svg>
+            </button>
+            <button type="button" class="bc-rail-action" data-bc-view="friends" aria-label="Amigos" title="Amigos" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8.5" cy="8" r="3"/><path d="M2.5 20v-2a6 6 0 0 1 12 0v2M16 7.5a3 3 0 0 1 0 6M17 16a4 4 0 0 1 4 4"/></svg>
+            </button>
+
+            <button type="button" class="bc-rail-action" data-bc-view="discover" aria-label="Explorar comunidades" title="Explorar comunidades" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.8 8.2-2.8 4.9-4.8 2.7 2.7-4.8z"/></svg>
+            </button>
+            <button type="button" class="bc-rail-action" data-bc-view="calls" aria-label="Transmissões" title="Transmissões" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3V9Z"/></svg>
+            </button>
+            <div class="bc-global-divider"></div>
+            <button type="button" class="bc-rail-action" data-bc-view="profile" aria-label="Meu perfil" title="Meu perfil" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            </button>
+            <button type="button" class="bc-rail-action" data-bc-view="tools" aria-label="Ferramentas" title="Ferramentas" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3h4l.6 2.3 2 1.2 2.2-.7 2 3.5-1.6 1.7v2.2l1.6 1.7-2 3.5-2.2-.7-2 1.2L14 21h-4l-.6-2.3-2-1.2-2.2.7-2-3.5 1.6-1.7v-2.2L3.2 9.3l2-3.5 2.2.7 2-1.2L10 3Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+            <button id="bc-beta-invite-rail" class="bc-rail-action bc-beta-invite-rail" type="button" title="Convide seus amigos • 100 fundadores Beta" aria-label="Convide seus amigos para o BrasilCord">
+               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M18 8v8M14 12h8"/></svg>
+             </button>
+             <button id="bc-support-rail" class="bc-rail-action bc-support-rail" type="button" title="Doe aqui para manter o BrasilCord online" aria-label="Doe aqui · apoiar o BrasilCord">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.7-9.5-10A5.7 5.7 0 0 1 12 5.5 5.7 5.7 0 0 1 21.5 11C20 16.3 12 21 12 21Z"/><path d="M12 9v7M9.5 11.5h5"/></svg>
+            </button>
+            <div class="bc-global-spacer"></div>
+            <button id="bc-workspace-back" class="bc-rail-action bc-rail-exit" type="button" aria-label="Voltar ao início" title="Voltar ao início">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 5-7 7 7 7M4 12h16"/></svg>
+            </button>
+          </nav>
+
+          <div class="bc-stage">
+            <header class="bc-stage-topbar">
+              <div class="bc-stage-title">
+                <span class="bc-stage-kicker">BRASILCORD <b>•</b> COMUNIDADES</span>
+                <h1 id="bc-workspace-title" tabindex="-1">Converse do seu jeito.</h1>
+              </div>
+              <span id="bc-platform-connection" class="bc-platform-state">Conectando ao serviço…</span>
+            </header>
+
+            <section id="bc-platform-auth" class="bc-auth-area" aria-label="Entrar no BrasilCord">
+              <div class="bc-auth-presentation">
+                <span class="bc-auth-eyebrow">UMA COMUNIDADE COM A CARA DO BRASIL</span>
+                <div class="bc-auth-mascot"><img src="assets/parrot-mascot.png" alt="Mascote BrasilCord"></div>
+                <h2>Seu espaço. Sua galera.</h2>
+                <p>Entre nas suas comunidades, envie mensagens e personalize seu perfil. A sua conta BrasilCord é separada do Discord.</p>
+                <div class="bc-auth-tricolor"><i></i><i></i><i></i></div>
+              </div>
+              <div class="bc-auth-card">
+                <div class="bc-platform-auth-heading">
+                  <div><p class="bc-form-eyebrow">SEJA BEM-VINDO</p><h2 id="bc-platform-auth-title">Entre na sua conta</h2><p id="bc-platform-auth-description">Acesse suas comunidades do BrasilCord.</p></div>
+                </div>
+                <form id="bc-platform-auth-form" class="bc-platform-form">
+                  <label id="bc-platform-username-wrap" hidden>Nome de usuário<input id="bc-platform-username" autocomplete="username" minlength="3" maxlength="28" pattern="[A-Za-z0-9_]{3,28}" placeholder="Seu nome de usuário"></label>
+                  <label>E-mail<input id="bc-platform-email" type="email" autocomplete="email" maxlength="254" required placeholder="voce@exemplo.com"></label>
+                  <label>Senha<input id="bc-platform-password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required placeholder="Sua senha"></label>
+                  <button id="bc-platform-submit" type="submit">Entrar no BrasilCord</button>
+                </form>
+                <form id="bc-platform-otp-form" class="bc-platform-form" hidden>
+                  <div class="bc-otp-message"><strong>Confirme seu e-mail</strong><p>Digite o código de 6 números enviado ao seu e-mail. Ele expira em 10 minutos.</p></div>
+                  <label>Código de segurança<input id="bc-platform-otp-code" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" minlength="6" maxlength="6" required placeholder="000000"></label>
+                  <button id="bc-platform-otp-submit" type="submit">Confirmar acesso</button>
+                  <button id="bc-platform-otp-back" type="button">Voltar</button>
+                </form>
+                <p class="bc-auth-switch">É novo por aqui? <button type="button" id="bc-platform-toggle-auth">Criar conta</button></p>
+                <small>Você está entrando na plataforma própria do BrasilCord, não no Discord oficial.</small>
+              </div>
+            </section>
+
+            <div id="bc-platform-app" class="bc-desktop-workarea" hidden>
+              <aside class="bc-server-rail" aria-label="Suas comunidades">
+                <div class="bc-server-rail-title">BC</div>
+                <div class="bc-server-list-eyebrow">COMUNIDADES</div>
+                <div id="bc-platform-communities" class="bc-platform-list bc-server-list" aria-label="Comunidades"></div>
+                <button id="bc-quick-invite-button" class="bc-quick-invite-button" type="button" title="Convidar pessoas" aria-label="Convidar pessoas para sua comunidade" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18c0-2.5-2-4-5-4s-5 1.5-5 4v2h10v-2ZM10 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM19 8v8M15 12h8"/></svg></button>
+                <button id="bc-add-server-button" class="bc-add-server-button" type="button" title="Criar ou entrar em um servidor" aria-label="Adicionar servidor" aria-haspopup="dialog" aria-controls="bc-server-create-dialog">+</button>
+              </aside>
+
+              <aside class="bc-platform-channels bc-channel-pane" aria-label="Canais da comunidade">
+                <div class="bc-community-heading">
+                  <span class="bc-community-subtitle">SUA COMUNIDADE</span>
+                  <div class="bc-server-heading-row">
+                    <h2 id="bc-platform-community-name" title="Clique com o botão direito para configurar">Escolha uma comunidade</h2>
+                    <button id="bc-report-current-community" class="bc-report-current-community" type="button" title="Denunciar esta comunidade" aria-label="Denunciar comunidade">⚑</button>
+                    <button id="bc-server-settings-button" class="bc-server-settings-button" type="button" hidden aria-label="⚙️ Configurações da comunidade" title="⚙️ Configurações da comunidade">⚙️</button>
+                  </div>
+                </div>
+                <div class="bc-channel-section-title"><span>⌗ CANAIS DE TEXTO</span><span aria-hidden="true">＋</span></div>
+                <div id="bc-platform-channel-list" class="bc-platform-list bc-channel-list" aria-label="Canais de texto"></div>
+                <form id="bc-platform-channel-form" class="bc-platform-mini-form bc-new-channel" hidden><label>Novo canal<input name="name" maxlength="35" minlength="2" required placeholder="Nome do canal"></label><button type="submit">Criar canal</button></form>
+                <div class="bc-channel-section-title bc-voice-section"><span>◉ CANAIS DE VOZ</span></div>
+                <div id="bc-platform-voice-list" class="bc-platform-list bc-channel-list bc-voice-list" aria-label="Canais de voz"></div>
+                <button type="button" id="bc-owner-reports-channel" class="bc-owner-reports-entry" hidden>🔒 Central de denúncias <span>DKX</span></button>
+                <div id="bc-call-sidebar-presence" class="bc-voice-connected-list" aria-label="Pessoas na sua call" hidden></div>
+                <details id="bc-community-manage" class="bc-community-manage" hidden>
+                  <summary>⚙ Gerenciar cargos, canais e categorias</summary>
+                  <div class="bc-manage-forms">
+                    <h3>Cargos da comunidade</h3>
+                    <form id="bc-role-create" class="bc-platform-mini-form">
+                      <label>Nome do cargo<input name="name" minlength="2" maxlength="30" required placeholder="Ex.: Moderador"></label>
+                      <label>Cor do cargo<input name="color" type="color" value="#00c853"></label>
+                      <fieldset><legend>Permissões</legend>
+                        <label><input type="checkbox" name="view_channels" checked> Ver canais</label>
+                        <label><input type="checkbox" name="send_messages" checked> Enviar mensagens</label>
+                        <label><input type="checkbox" name="connect_voice" checked> Entrar em calls</label>
+                        <label><input type="checkbox" name="create_invites"> Criar/copiar convites</label>
+                        <label><input type="checkbox" name="manage_channels"> Gerenciar canais</label>
+                        <label><input type="checkbox" name="manage_roles"> Gerenciar cargos</label>
+                         <label><input type="checkbox" name="server_mute"> Silenciar voz dos membros</label>
+                         <label><input type="checkbox" name="server_deafen"> Desativar áudio dos membros</label>
+                         <label><input type="checkbox" name="disconnect_voice"> Desconectar membros das calls</label>
+                         <label><input type="checkbox" name="timeout_members"> Aplicar castigos temporários</label>
+                         <label><input type="checkbox" name="kick_members"> Expulsar membros</label>
+                         <label><input type="checkbox" name="ban_members"> Banir membros</label>
+                      </fieldset><button type="submit">Criar cargo</button>
+                    </form>
+                    <div id="bc-role-list"></div>
+                    <h3>Atribuir cargos aos membros</h3><div id="bc-role-members"></div>
+                    <h3>Categorias de canais</h3>
+                    <form id="bc-category-create" class="bc-platform-mini-form"><label>Categoria<input name="name" minlength="2" maxlength="40" required placeholder="Ex.: VIP"></label>
+                      <label>Visível apenas para este cargo<select name="minRoleId" id="bc-category-role"></select></label>
+                      <button type="submit">Criar categoria</button></form>
+                    <div id="bc-category-list"></div>
+                    <h3>Configurar canal/call</h3>
+                    <form id="bc-channel-config" class="bc-platform-mini-form">
+                      <label>Canal<select name="channelId" id="bc-config-channel"></select></label>
+                      <label>Categoria<select name="categoryId" id="bc-config-category"></select></label>
+                      <label>Restringir visualização ao cargo (chats)<select name="minRoleId" id="bc-config-role"></select></label>
+                      <div class="bc-call-access-options">
+                        <label>Quem pode entrar na call?
+                          <select id="bc-call-access-mode" name="accessMode">
+                            <option value="everyone">Todos podem entrar</option>
+                            <option value="role">Somente um cargo específico</option>
+                            <option value="users">Somente pessoas escolhidas</option>
+                          </select>
+                        </label>
+                        <label id="bc-call-role-wrap" hidden>Cargo permitido<select id="bc-call-access-role"></select></label>
+                        <div id="bc-call-users-wrap" hidden><strong>Pessoas permitidas</strong><div id="bc-call-users-checks"></div></div>
+                      </div>
+                      <button type="submit">Salvar permissões do canal</button>
+                    </form>
+                    <h3>Foto da comunidade</h3>
+                    <input id="bc-community-image" type="file" accept="image/png,image/jpeg,image/webp">
+                    <button id="bc-community-image-remove" type="button">Remover foto</button>
+                    <small>PNG, JPG ou WebP, até 1,5 MB.</small>
+                  </div>
+                </details>
+                <form id="bc-platform-voice-form" class="bc-platform-mini-form bc-new-channel" hidden><label>Novo canal de voz<input name="name" maxlength="35" minlength="2" required placeholder="Ex.: Geral 2"></label><button type="submit">+ Criar canal de voz</button></form>
+                <div id="bc-call-dock" class="bc-call-dock bc-call-dock-br" hidden>
+                  <div class="bc-dock-connection"><span class="bc-dock-live">◉</span><div><strong>Voz conectada</strong><small id="bc-call-dock-name">Canal de voz</small><small id="bc-call-dock-duration">00:00</small></div></div>
+                  <div class="bc-dock-actions">
+                    <button id="bc-call-dock-mute" type="button" title="Ligar/desligar microfone" aria-label="Alternar microfone">🎙</button>
+                    <button id="bc-dock-audio" type="button" title="Ligar/desligar áudio" aria-label="Alternar áudio">🔊</button>
+                    <button id="bc-dock-camera" type="button" title="Ligar/desligar câmera" aria-label="Alternar câmera">📷</button>
+                    <button id="bc-dock-screen" type="button" title="Compartilhar tela" aria-label="Compartilhar tela">▣</button>
+                    <button id="bc-call-dock-leave" type="button" title="Desligar chamada" aria-label="Desligar">☎</button>
+                  </div>
+                </div>
+                <details id="bc-community-public-settings" class="bc-community-settings" hidden><summary>Configurar comunidade</summary>
+                    <form id="bc-community-settings-form" class="bc-platform-mini-form">
+                      <label>Visibilidade<select name="visibility"><option value="private">Privada</option><option value="public">Pública (explorar)</option></select></label>
+                      <label>Categoria<select name="category"><option value="games">Jogos</option><option value="amizade">Amizade</option><option value="musica">Música</option><option value="tecnologia">Tecnologia</option><option value="estudos">Estudos</option><option value="arte">Arte</option><option value="outros">Outros</option></select></label>
+                      <label>Descrição<input name="description" maxlength="300" placeholder="Sobre esta comunidade"></label>
+                      <button type="submit">Salvar divulgação</button>
+                    </form>
+                  </details>
+                <div class="bc-channel-bottom">
+                  <div class="bc-platform-invite-row"><button id="bc-platform-invite" type="button" hidden>⤴ Copiar convite</button></div>
+                  <button id="bc-user-profile-shortcut" type="button" class="bc-user-dock" data-bc-view="profile" aria-label="Abrir meu perfil">
+                    <span id="bc-user-avatar" class="bc-user-avatar" aria-hidden="true">BC</span>
+                    <span class="bc-user-dock-copy"><strong id="bc-platform-user-label">Minha conta</strong><small id="bc-dock-personal-status">🟢 Disponível</small></span>
+                    <span class="bc-user-dock-settings" aria-hidden="true">⚙</span>
+                  </button>
+                  <button id="bc-platform-logout" class="bc-logout" type="button">Sair da conta</button>
+                </div>
+              </aside>
+
+              <div class="bc-platform-center">
+                <section class="bc-platform-chat bc-view-panel" data-bc-view-panel="chat" aria-label="Chat da comunidade">
+                  <div class="bc-platform-chat-header">
+                    <div class="bc-chat-heading"><span class="bc-channel-hash">#</span><strong id="bc-platform-channel-name">Selecione um canal</strong><small id="bc-platform-chat-info">Mensagens da sua comunidade</small></div>
+                    <div class="bc-chat-header-actions">
+                      <input id="bc-chat-search" type="search" placeholder="Buscar neste canal" aria-label="Buscar mensagens no canal" />
+                      <button id="bc-toggle-members" class="bc-header-icon" type="button" title="Mostrar ou ocultar membros" aria-label="Mostrar ou ocultar membros" aria-pressed="true">♙</button>
+                    </div>
+                  </div>
+                  <div id="bc-official-banner" class="bc-official-banner" hidden>
+                    <div class="bc-official-banner-icon" aria-hidden="true">🇧🇷</div>
+                    <div>
+                      <span class="bc-official-eyebrow"><span class="bc-official-verified">✓</span> COMUNIDADE OFICIAL · BRASILCORD</span>
+                      <h3>O ponto de encontro de todo o BrasilCord</h3>
+                      <p>Acompanhe anúncios, atualizações, novidades e sorteios. Todas as contas participam automaticamente.</p>
+                    </div>
+                    <span id="bc-official-readonly-badge" class="bc-official-readonly" hidden><span aria-hidden="true">🔒</span> Somente leitura</span>
+                  </div>
+                  <div id="bc-platform-messages" class="bc-platform-messages" role="log" aria-live="polite"></div>
+                  <div id="bc-message-reply-bar" class="bc-message-reply-bar" hidden>
+                     <span id="bc-message-reply-label">Respondendo mensagem</span>
+                     <button type="button" id="bc-message-reply-cancel" aria-label="Cancelar resposta">✕</button>
+                   </div>
+                   <form id="bc-platform-message-form" class="bc-platform-compose">
+                    <span class="bc-compose-prefix" aria-hidden="true">＋</span>
+                    <input id="bc-platform-message-input" maxlength="2000" placeholder="Escreva uma mensagem…" aria-label="Mensagem" required disabled>
+                    <button type="submit" disabled>Enviar <span aria-hidden="true">➤</span></button>
+                  </form>
+                </section>
+
+                
+                <section class="bc-view-panel bc-discover-view" data-bc-view-panel="discover" aria-label="Explorar comunidades" hidden>
+                  <div class="bc-subpage-heading"><span class="bc-subpage-icon">◈</span><div><h2>Explorar comunidades</h2><p>Descubra comunidades brasileiras públicas por categoria, atividade e novidades</p></div></div>
+                  <div class="bc-discover-controls">
+                    <label>Categoria <select id="bc-discover-category"><option value="all">Todas</option><option value="games">Jogos</option><option value="amizade">Amizade</option><option value="musica">Música</option><option value="tecnologia">Tecnologia</option><option value="estudos">Estudos</option><option value="arte">Arte</option><option value="outros">Outros</option></select></label>
+                    <label>Ordenar por <select id="bc-discover-sort"><option value="online">Mais ativos agora</option><option value="members">Mais membros</option><option value="new">Novas comunidades</option></select></label>
+                    <button type="button" id="bc-discover-refresh">Atualizar</button>
+                  </div>
+                  <p id="bc-discover-info" role="status">Somente comunidades que seus proprietários tornaram públicas aparecem nesta lista.</p>
+                  <div id="bc-discover-list" class="bc-discover-grid"></div>
+                </section>
+                <section class="bc-view-panel bc-dms-view" data-bc-view-panel="dms" hidden aria-label="Mensagens privadas">
+                  <div class="bc-subpage-heading"><span class="bc-subpage-icon">✉</span><div><h2>Mensagens privadas</h2><p>Converse com as pessoas que você adicionou</p></div></div>
+                  <button id="bc-dm-request-float" class="bc-dm-request-float" type="button" aria-label="Ver solicitações de conversa" title="Ver solicitações de conversa">📥 <span id="bc-dm-request-float-count" hidden>0</span></button>
+                  <div class="bc-dm-request-hub" hidden>
+                    <button type="button" id="bc-dm-request-toggle" aria-controls="bc-dm-request-inbox" aria-expanded="false">📥 Solicitações de conversa <span id="bc-dm-request-count" hidden>0</span></button>
+                    <div id="bc-dm-request-inbox" hidden>
+                      <form id="bc-dm-stranger-form" class="bc-dm-stranger-form">
+                        <label for="bc-dm-stranger-username">Enviar para alguém que ainda não é seu amigo</label>
+                        <input id="bc-dm-stranger-username" name="username" minlength="3" maxlength="28" pattern="[A-Za-z0-9_]{3,28}" placeholder="@nome_de_usuario" required autocomplete="off">
+                        <textarea id="bc-dm-stranger-message" name="message" maxlength="500" placeholder="Escreva sua primeira mensagem..." rows="2"></textarea>
+                        <div class="bc-dm-stranger-actions">
+                          <button type="submit" data-request-kind="message">✉ Enviar mensagem</button>
+                          <button type="submit" data-request-kind="call">☎ Ligar</button>
+                        </div>
+                      </form>
+                      <p id="bc-dm-request-status" role="status"></p><div id="bc-dm-request-list"></div>
+                    </div>
+                  </div>
+                  <div class="bc-dm-layout">
+                    <aside id="bc-dm-friends" aria-label="Amigos para conversar"></aside>
+                    <section class="bc-dm-conversation">
+                      <div class="bc-dm-header">
+                        <div id="bc-dm-peer-avatar" class="bc-dm-peer-avatar" aria-hidden="true">BC</div>
+                        <div class="bc-dm-peer-identity"><h3 id="bc-dm-name">Selecione um amigo</h3><small id="bc-dm-handle">Escolha um contato para conversar</small></div>
+                        <button id="bc-dm-call" type="button" title="Ligar para este amigo" aria-label="Iniciar chamada de voz" disabled>☎ Ligar</button>
+                      </div>
+                      <div id="bc-dm-messages" role="log" aria-live="polite"></div>
+                      <div id="bc-dm-recorder" class="bc-dm-recorder" hidden>
+                        <span class="bc-dm-recording-dot" aria-hidden="true"></span>
+                        <span>Gravando… <strong id="bc-dm-record-time">00:00</strong> / 00:45</span>
+                        <button id="bc-dm-cancel-audio" type="button">Cancelar</button>
+                        <button id="bc-dm-send-audio" type="button">Enviar áudio</button>
+                      </div>
+                      <form id="bc-dm-compose"><button id="bc-dm-record" type="button" title="Gravar mensagem de voz" aria-label="Gravar áudio" disabled>🎙</button><button id="bc-dm-image-select" type="button" title="Enviar foto" aria-label="Enviar foto" disabled>▧</button><input id="bc-dm-image-file" type="file" accept="image/png,image/jpeg,image/gif,image/webp" hidden><input id="bc-dm-input" maxlength="2000" placeholder="Digite uma mensagem privada…" required disabled aria-label="Mensagem privada"><button type="submit" disabled>Enviar</button></form>
+                      <p id="bc-dm-status" class="bc-dm-status" role="status" aria-live="polite"></p>
+                    </section>
+                  </div>
+                </section>
+                <section class="bc-view-panel bc-friends-view" data-bc-view-panel="friends" aria-label="Amigos" hidden>
+                  <div class="bc-subpage-heading"><span class="bc-subpage-icon">♧</span><div><h2>Amigos</h2><p>Seus contatos e pedidos de amizade</p></div></div>
+                  <div class="bc-friends-surface">
+                    <form id="bc-platform-friend-form" class="bc-platform-mini-form bc-add-friend">
+                      <label>Adicionar amigo pelo nome de usuário<input name="username" minlength="3" maxlength="28" required placeholder="Digite o nome de usuário"></label>
+                      <button type="submit">Enviar pedido</button>
+                    </form>
+                    <h3>Seus amigos e solicitações</h3>
+                    <div id="bc-platform-friends" class="bc-platform-list bc-friends-list" aria-label="Lista de amigos e pedidos"></div>
+                    <div class="bc-block-section"><h3>Bloquear usuários</h3>
+                      <form id="bc-block-form" class="bc-platform-mini-form"><label>Nome do usuário<input name="username" minlength="3" maxlength="28" required placeholder="Nome do usuário a bloquear"></label><button type="submit">Bloquear pessoa</button></form>
+                      <h3>Usuários bloqueados</h3><div id="bc-block-list"></div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="bc-view-panel bc-calls-view" data-bc-view-panel="calls" aria-label="Transmissões e câmera" hidden>
+                  <div class="bc-subpage-heading"><span class="bc-subpage-icon">▣</span><div><h2>Voz e vídeo</h2><p>Ferramentas de transmissão do BrasilCord</p></div></div>
+                  <div class="bc-native-call" aria-label="Chamada de voz BrasilCord">
+                    <div class="bc-native-call-head">
+                      <span class="bc-native-call-chip"><i></i> CALL BRASILCORD</span>
+                      <h3 id="bc-call-room-name">Escolha um canal de voz</h3>
+                      <p id="bc-call-status" role="status" aria-live="polite">Entre em um canal de voz para conversar por microfone com outros membros.</p>
+                    </div>
+                    <div id="bc-call-videos" class="bc-call-video-grid" aria-label="Câmeras e telas compartilhadas durante a call"></div>
+                    <div class="bc-call-presence-heading"><strong>Na call <span id="bc-call-member-count">0</span>/4</strong><span id="bc-call-elapsed">00:00</span></div>
+                    <div id="bc-call-participants" class="bc-native-call-users" aria-label="Participantes da chamada">
+                      <p class="bc-call-empty">Nenhum participante conectado.</p>
+                    </div>
+                    <div id="bc-call-remote-audio" hidden></div>
+                    <div class="bc-native-call-controls">
+                      <button id="bc-call-join" type="button" disabled>◉ Entrar na call</button>
+                      <button id="bc-call-mute" type="button" disabled aria-pressed="true">🎙 Microfone desligado</button>
+                      <button id="bc-call-deafen" type="button" disabled aria-pressed="false">🔊 Ouvir</button>
+                      <button id="bc-call-camera" type="button" disabled aria-pressed="false">📷 Ligar câmera</button>
+                      <button id="bc-call-screen" type="button" disabled aria-pressed="false">🖥️ Transmitir tela</button>
+                      <button id="bc-call-leave" type="button" disabled>☎ Sair da call</button>
+                    </div>
+                    <div class="bc-call-video-options">
+                      <label>Qualidade da transmissão
+                        <select id="bc-call-quality" aria-label="Qualidade do vídeo da call">
+                          <option value="480">480p · Econômico</option>
+                          <option value="720" selected>720p · HD</option>
+                          <option value="1080">1080p · Full HD</option>
+                        </select>
+                      </label>
+                      <label>Quadros por segundo
+                        <select id="bc-call-fps" aria-label="FPS da transmissão">
+                          <option value="15">15 FPS</option><option value="30" selected>30 FPS</option>
+                        </select>
+                      </label>
+                    </div>
+                    <div id="bc-call-screen-picker" class="bc-call-screen-picker" hidden>
+                      <div class="bc-call-picker-heading"><strong>Escolha o que transmitir</strong><button id="bc-call-picker-cancel" type="button">Cancelar</button></div>
+                      <div id="bc-call-screen-sources" class="bc-call-source-grid"></div>
+                      <p class="bc-call-picker-hint">Selecione uma janela ou monitor. Apenas a fonte escolhida será capturada.</p>
+                    </div>
+                    <p class="bc-call-capacity">Vídeo e tela aparecem diretamente para os participantes da call (até 4 pessoas), sem link. Qualidade e FPS dependem da sua conexão. Algumas redes exigem TURN para conectar.</p>
+                  </div>
+                </section>
+
+                <section class="bc-view-panel bc-profile-view" data-bc-view-panel="profile" aria-label="Meu perfil" hidden>
+                  <div class="bc-subpage-heading"><span class="bc-subpage-icon">♙</span><div><h2>Meu perfil</h2><p>Seu espaço pessoal no BrasilCord</p></div></div>
+                  <div class="bc-profile-layout">
+                    <div class="bc-profile-preview">
+                      <div class="bc-profile-cover"><span class="bc-profile-sky">✦</span><img id="bc-profile-cover-photo" alt="Banner do perfil" hidden></div>
+                      <span id="bc-profile-avatar" class="bc-profile-avatar">BC</span><img id="bc-profile-avatar-photo" class="bc-profile-avatar-photo" alt="Foto do perfil" hidden>
+                      <div class="bc-profile-info">
+                        <h3 id="bc-profile-display-name">Minha conta</h3>
+                        <p id="bc-profile-handle">@brasilcord</p>
+                        <div class="bc-profile-badges"><span>🇧🇷 BrasilCord</span><span id="bc-profile-role" hidden></span></div>
+                        <div id="bc-badge-preview" class="bc-badge-preview" aria-label="Insígnia selecionada"></div>
+                        <h4>Sobre mim</h4><p id="bc-profile-bio">Adicione uma biografia para personalizar seu perfil.</p>
+                      </div>
+                    </div>
+                    <div class="bc-profile-editor">
+                      <h3>Personalização</h3>
+                      <p>Altere seu nome e sua biografia. As mudanças são salvas na sua conta.</p>
+                      <form id="bc-platform-profile-form" class="bc-platform-mini-form">
+                        <label>Nome de exibição<input name="displayName" minlength="2" maxlength="40" required></label>
+                        <label>Biografia<input name="bio" maxlength="250" placeholder="Conte um pouco sobre você"></label>
+                        <button type="submit">Salvar perfil</button>
+                      </form>
+                      <div class="bc-profile-media-editor">
+                        <h4>Foto de perfil e banner</h4><p>PNG, JPG, WebP ou GIF animado. Arquivos são salvos no servidor.</p>
+                        <label>Foto de perfil (até 1,5 MB)<input id="bc-avatar-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+                        <button type="button" id="bc-avatar-remove">Remover foto</button>
+                        <label>Banner (até 3 MB)<input id="bc-banner-file" type="file" accept="image/png,image/jpeg,image/webp,image/gif"></label>
+                        <button type="button" id="bc-banner-remove">Remover banner</button>
+                        <p id="bc-media-status" role="status"></p>
+                      </div>
+                      <div class="bc-profile-badge-editor"><h4>Conquistas BrasilCord</h4><p>Colecione insígnias da comunidade e escolha a que aparece no seu perfil. A liberação de insígnias oficiais é controlada pelo servidor.</p><button type="button" id="bc-open-badge-gallery" class="bc-open-badge-gallery">✦ Explorar minhas insígnias</button><div id="bc-badge-list"></div></div>
+                      <div class="bc-profile-status-editor"><h4>Minha presença</h4><p id="bc-profile-status-preview">🟢 Disponível</p><button id="bc-open-status" type="button">✎ Personalizar presença e recado</button></div>
+                      <section id="bc-owner-badge-panel" class="bc-owner-badge-panel" hidden>
+                        <h4>Painel do proprietário · Insígnias</h4>
+                        <label>Usuário<input id="bc-owner-badge-username" maxlength="28" placeholder="Nome de usuário"></label>
+                        <label>Insígnia<select id="bc-owner-badge-type"><option value="criador_app">Criador do Aplicativo</option><option value="tester">Tester</option><option value="bug_hunter">Bug Hunter</option></select></label>
+                        <div class="bc-owner-badge-actions"><button id="bc-owner-badge-grant" type="button">Conceder</button><button id="bc-owner-badge-revoke" type="button">Retirar</button></div>
+                        <p id="bc-owner-badge-status" role="status"></p>
+                      </section>
+                      <div class="bc-profile-theme">
+                        <h4>Cor de destaque</h4>
+                        <div role="group" aria-label="Cor de destaque do BrasilCord">
+                          <button class="bc-swatch is-active" type="button" data-bc-accent="green" aria-label="Verde" aria-pressed="true"></button>
+                          <button class="bc-swatch" type="button" data-bc-accent="yellow" aria-label="Amarelo" aria-pressed="false"></button>
+                          <button class="bc-swatch" type="button" data-bc-accent="blue" aria-label="Azul" aria-pressed="false"></button>
+                        </div>
+                        <small>Esta preferência altera apenas o tema neste computador.</small>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="bc-view-panel bc-tools-view" data-bc-view-panel="tools" aria-label="Ferramentas" hidden>
+                  <div class="bc-subpage-heading"><span class="bc-subpage-icon">⚙</span><div><h2>Ferramentas</h2><p>Integrações e utilitários do BrasilCord</p></div></div>
+                  <div class="bc-tools-grid">
+                    <article><span>◉</span><h3>Comunidade oficial</h3><p>Participe da comunidade oficial pelo Discord.</p><button id="bc-open-community" type="button">Abrir comunidade ↗</button></article>
+                    <article><span>⌗</span><h3>Discord oficial</h3><p>Acesse o Discord na janela do aplicativo, sem misturar as contas do BrasilCord.</p><button id="bc-open-discord" type="button">Abrir Discord ↗</button></article>
+                    <article><span>↻</span><h3>Atualizações</h3><p>Consulte a versão mais recente do BrasilCord para Windows.</p><button id="bc-check-update" type="button">Verificar atualização</button></article>
+                  </div>
+                  <p id="bc-workspace-status" class="bc-workspace-status" role="status" aria-live="polite"></p>
+                </section>
+              </div>
+
+              <aside class="bc-members-pane" id="bc-members-pane" aria-label="Membros da comunidade">
+                <div class="bc-members-header"><h3>Membros</h3><span id="bc-member-count">0</span></div>
+                <p class="bc-members-description">Pessoas que participam desta comunidade · <span id="bc-online-member-count">0</span> online agora</p>
+                <div id="bc-platform-members" class="bc-platform-members" aria-label="Lista de membros e cargos"></div>
+              </aside>
+            </div>
+            <p id="bc-platform-status" class="bc-platform-feedback" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-view" id="page-sobre" data-page="sobre" aria-labelledby="info-title" hidden>
+        <div class="info-section">
+        <div class="section-heading">
+          <div><p class="section-kicker">SIMPLES E DIRETO</p><h1 id="info-title" tabindex="-1">Como funciona</h1></div>
+          <div class="info-heading-aside"><p>Uma interface brasileira conectada à página oficial do Discord.</p><div class="info-heading-visual" aria-hidden="true"><img class="info-heading-birds" src="brand/brasilcord-birds.svg" alt=""><img class="info-heading-parrot" src="assets/parrot-mascot.png" alt=""><span>PRONTO PARA CONVERSAR</span></div></div>
+        </div>
+        <div class="info-grid">
+          <article class="info-card"><span class="info-number">01</span><span class="info-icon green-icon" aria-hidden="true">↗</span><h3>Abra o Discord oficial</h3><p>A página do Discord é carregada dentro da janela do BrasilCord.</p></article>
+          <article class="info-card"><span class="info-number">02</span><span class="info-icon yellow-icon" aria-hidden="true">◎</span><h3>Entre com sua conta</h3><p>Faça o login diretamente no Discord. O BrasilCord não pede sua senha.</p></article>
+          <article class="info-card"><span class="info-number">03</span><span class="info-icon blue-icon" aria-hidden="true">✦</span><h3>Continue conversando</h3><p>Use os recursos que o Discord oferece na versão para navegador.</p></article>
+          <article class="info-card"><span class="info-number">04</span><span class="info-icon purple-icon" aria-hidden="true">◈</span><h3>Personalize o visual</h3><p>No Discord, abra Tools para escolher uma das oito cores ou voltar ao tema original.</p></article>
+        </div>
+        <div class="info-callout"><span class="callout-check" aria-hidden="true">✓</span><p>Seu login e suas mensagens continuam no Discord oficial.</p><button id="about-open-discord" type="button">Abrir Discord <span aria-hidden="true">↗</span></button></div>
+        </div>
+      </section>
+
+      <section class="page-view creator-page" id="page-criador" data-page="criador" aria-labelledby="creator-title" hidden>
+        <div class="creator-nature" aria-hidden="true"><img class="creator-page-birds" src="brand/brasilcord-birds.svg" alt=""><img class="creator-page-jaguar" src="brand/brasilcord-jaguar.svg" alt=""></div>
+        <div class="creator-page-heading"><p class="section-kicker">QUEM CRIOU</p><h1 id="creator-title" tabindex="-1">Criador do BrasilCord</h1><p>O projeto nasceu para dar uma identidade brasileira ao acesso ao Discord.</p></div>
+        <section class="creator-card" aria-label="Criador do BrasilCord">
+        <img src="assets/creator.png" alt="Foto do criador DKX157">
+        <div class="creator-copy"><span>CRIADOR DO BRASILCORD</span><strong>DKX157</strong><small>Desenvolvedor do projeto</small><em class="creator-signature">Brasil na identidade. Discord nas conversas.</em></div>
+        <span class="creator-badge" aria-label="Brasil">BR</span>
+        </section>
+        <div class="creator-story-grid" aria-label="Sobre o projeto">
+          <article><span>01</span><h2>Identidade brasileira</h2><p>Uma interface própria com cores, natureza e mascote do BrasilCord.</p></article>
+          <article><span>02</span><h2>Discord oficial</h2><p>A janela abre o serviço oficial para você entrar na sua própria conta.</p></article>
+          <article><span>03</span><h2>Desenvolvido por DKX157</h2><p>O BrasilCord foi criado para dar uma identidade brasileira ao acesso ao Discord.</p></article>
+        </div>
+        <button id="creator-community-discord" class="creator-discord-button" type="button"><span aria-hidden="true">◉</span> Comunidade BrasilCord no Discord <span aria-hidden="true">↗</span></button>
+      </section>
+
+      <section class="page-view partners-page" id="page-parceiros" data-page="parceiros" aria-labelledby="partners-title" hidden>
+        <div class="partners-heading">
+          <p class="section-kicker">COMUNIDADE BRASILCORD</p>
+          <h1 id="partners-title" tabindex="-1">Parceiros</h1>
+          <p>Um espaço para conhecer projetos e comunidades que acompanham o BrasilCord.</p>
+        </div>
+        <article class="partners-empty-card">
+          <div class="partners-art" aria-hidden="true"><img class="partners-art-birds" src="brand/brasilcord-birds.svg" alt=""><img class="partners-art-parrot" src="assets/parrot-mascot.png" alt=""></div>
+          <div class="partners-empty-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p class="partners-status">ÁREA DE PARCERIAS</p>
+          <h2>A comunidade começa por aqui.</h2>
+          <p class="partners-empty-copy">Ainda não há parceiros publicados nesta página. Para conversar sobre uma parceria, entre em contato pela comunidade oficial do BrasilCord.</p>
+          <button id="partners-open-discord" class="partners-community-button" type="button">Seja Parceiro <span aria-hidden="true">↗</span></button>
+        </article>
+      </section>
+    </main>
+
+    <footer class="page-footer"><span>BrasilCord <b>•</b> feito no Brasil</span></footer>
+  </div>
+
+  <div id="bc-preview-dialog" class="bc-preview-dialog" hidden>
+    <div class="bc-preview-backdrop" aria-hidden="true"></div>
+    <section class="bc-preview-card" role="dialog" aria-modal="true" aria-labelledby="bc-preview-title" aria-describedby="bc-preview-description">
+      <div class="bc-preview-accent" aria-hidden="true"></div>
+      <button id="bc-preview-close" class="bc-preview-close" type="button" aria-label="Fechar">×</button>
+      <div class="bc-preview-symbol" aria-hidden="true">🔒</div>
+      <p class="bc-preview-kicker">BRASILCORD • ACESSO DE TESTE</p>
+      <h2 id="bc-preview-title">Entrada de administrador</h2>
+      <p id="bc-preview-description">Esta área está em fase de testes. Informe a senha temporária para acessar a pré-visualização do BrasilCord.</p>
+      <form id="bc-preview-form" class="bc-preview-form">
+        <label for="bc-preview-password">Senha de acesso</label>
+        <input id="bc-preview-password" type="password" autocomplete="off" maxlength="128" required placeholder="Digite a senha de teste" />
+        <p id="bc-preview-error" class="bc-preview-error" role="alert" aria-live="assertive"></p>
+        <button id="bc-preview-submit" type="submit">Acessar BrasilCord <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="bc-preview-footnote">A senha libera somente esta tela local. As contas e cargos reais continuam protegidos pelo servidor.</p>
+    </section>
+  </div>
+
+  <div id="community-invite-dialog" class="community-dialog" hidden>
+    <div class="community-dialog-backdrop" aria-hidden="true"></div>
+    <section class="community-dialog-card" role="dialog" aria-modal="true" aria-labelledby="community-invite-title" aria-describedby="community-invite-copy">
+      <button id="community-invite-close" class="community-dialog-close" type="button" aria-label="Fechar aviso">×</button>
+      <div class="community-dialog-brand" aria-hidden="true"><img src="assets/parrot-mascot.png" alt=""></div>
+      <p class="community-dialog-kicker">BRASILCORD · COMUNIDADE</p>
+      <h2 id="community-invite-title">Entre em nosso Discord oficial</h2>
+      <p id="community-invite-copy">Entre pelo convite oficial. Depois, confirme aqui para salvar sua participação neste computador.</p>
+      <button id="community-invite-join" class="community-dialog-primary" type="button">Entrar no servidor oficial <span aria-hidden="true">↗</span></button>
+      <button id="community-invite-confirm" class="community-dialog-confirm" type="button">Já entrei no servidor</button>
+    </section>
+  </div>
+
+  <div id="discord-load-progress" class="discord-load-progress" role="progressbar" aria-label="Carregando o Discord oficial" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" hidden><span id="discord-load-fill"></span></div>
+
+  <div id="update-toast" class="update-toast" role="status" aria-live="polite" hidden>
+    <span class="update-toast-icon" aria-hidden="true">↻</span>
+    <span class="update-toast-copy"><strong>Atualização do BrasilCord</strong><span id="update-message"></span><span class="update-progress"><i id="update-progress-fill"></i></span></span>
+  </div>
+
+  <dialog id="bc-server-settings-dialog" class="bc-server-settings-dialog" aria-label="Configurações da comunidade">
+    <div class="bc-settings-dialog-header">
+      <div><span>⚙️ CONFIGURAÇÕES DA COMUNIDADE</span><h2 id="bc-server-settings-title">Comunidade</h2></div>
+      <button id="bc-server-settings-close" type="button" aria-label="Fechar configurações">✕</button>
+    </div>
+    <nav class="bc-settings-tabs" aria-label="Seções de configuração">
+      <button type="button" data-bc-settings-tab="overview">Visão geral</button>
+      <button type="button" data-bc-settings-tab="roles">Cargos e ordem</button>
+      <button type="button" data-bc-settings-tab="channels">Canais e categorias</button>
+      <button type="button" data-bc-settings-tab="ordering">Organização</button>
+      <button type="button" data-bc-settings-tab="invites">Convites</button>
+    </nav>
+    <div id="bc-server-settings-body" class="bc-settings-dialog-body">
+      <section data-bc-settings-content="overview"><div id="bc-settings-overview"></div>
+          <div class="bc-danger-zone" id="bc-community-danger-zone" hidden>
+            <h3>⚠ Zona de perigo</h3>
+            <p>Exclua sua comunidade permanentemente. Os canais, as mensagens da comunidade, as configurações e os cargos serão removidos. Esta ação não pode ser desfeita.</p>
+            <button type="button" id="bc-delete-community-start">🗑 Excluir minha comunidade</button>
+            <div id="bc-delete-community-confirm" hidden>
+              <label for="bc-delete-community-name">Para confirmar, digite o nome exato da comunidade:</label>
+              <input id="bc-delete-community-name" autocomplete="off" maxlength="48" placeholder="Nome da comunidade">
+              <div class="bc-danger-actions">
+                <button type="button" id="bc-delete-community-cancel">Cancelar</button>
+                <button type="button" id="bc-delete-community-final" disabled>Excluir permanentemente</button>
+              </div>
+            </div>
+            <p id="bc-delete-community-status" role="status"></p>
+          </div></section>
+      <section data-bc-settings-content="roles" hidden>
+        <h3>Ordem dos cargos na lista de membros</h3>
+        <p>Arraste com os botões ↑ e ↓ para escolher em que ordem os cargos aparecem. Somente o proprietário pode salvar.</p>
+        <div id="bc-role-order-list" aria-label="Ordem dos cargos"></div>
+        <button id="bc-role-order-save" type="button">Salvar ordem dos cargos</button>
+        <p id="bc-role-order-feedback" role="status"></p>
+        <div id="bc-settings-roles"></div>
+      </section>
+      <section data-bc-settings-content="channels" hidden><div id="bc-settings-channels"></div></section>
+      <section data-bc-settings-content="ordering" hidden>
+        <h3>↕ Organize sua comunidade</h3><p>Use ↑ e ↓ para trocar a posição. A ordem é salva no servidor.</p>
+        <h4>Categorias</h4><div id="bc-advanced-category-order"></div>
+        <h4>Chats e calls</h4><div id="bc-advanced-channel-order"></div>
+        <button type="button" id="bc-save-advanced-order">Salvar ordem de categorias e canais</button>
+        <p id="bc-advanced-order-status" role="status"></p>
+      </section>
+      <section data-bc-settings-content="invites" hidden>
+        <h3>Convites para a comunidade</h3>
+        <p>O link identifica sua comunidade e pode ser copiado ou enviado para contatos do BrasilCord.</p>
+        <div id="bc-advanced-invite-community"></div>
+        <label>Link de convite<input id="bc-advanced-invite-link" type="text" readonly></label>
+        <button type="button" id="bc-advanced-invite-copy">Copiar link</button>
+        <h4>Enviar convite a amigos</h4><div id="bc-advanced-invite-friends"></div>
+        <p id="bc-advanced-invite-status" role="status"></p>
+      </section>
+    </div>
+  </dialog>
+
+
+   <div id="bc-admin-context-menu" class="bc-admin-context-menu" role="menu" hidden></div>
+  <dialog id="bc-server-create-dialog" class="bc-server-create-dialog" aria-labelledby="bc-server-modal-title" aria-describedby="bc-server-modal-description">
+    <div class="bc-server-modal-inner">
+      <button type="button" id="bc-server-modal-close" class="bc-server-modal-close" aria-label="Fechar janela" title="Fechar">×</button>
+      <div class="bc-server-modal-head">
+        <div class="bc-server-modal-emblem" aria-hidden="true"><span>BC</span></div>
+        <span class="bc-server-modal-eyebrow">BRASILCORD • COMUNIDADES</span>
+        <h2 id="bc-server-modal-title">Criar seu servidor</h2>
+        <p id="bc-server-modal-description">Seu servidor é onde você e seus amigos se reúnem. Crie o seu e comece a interagir.</p>
+      </div>
+
+      <div id="bc-server-modal-choose" class="bc-server-modal-panel" data-server-modal-panel="choose">
+        <button id="bc-server-modal-start-create" class="bc-server-choice bc-server-choice-create" type="button">
+          <span class="bc-server-choice-icon" aria-hidden="true">✦</span>
+          <span class="bc-server-choice-copy"><strong>Criar meu servidor</strong><small>Personalize sua comunidade e convide seus amigos.</small></span>
+          <span class="bc-server-choice-arrow" aria-hidden="true">›</span>
+        </button>
+        <div class="bc-server-modal-separator" aria-hidden="true"><span></span><b>OU</b><span></span></div>
+        <div class="bc-server-join-invite">
+          <h3>Já tem um convite?</h3>
+          <button id="bc-server-modal-start-join" class="bc-server-join-start" type="button">Entrar em um servidor</button>
+        </div>
+      </div>
+
+      <div id="bc-server-modal-create" class="bc-server-modal-panel" data-server-modal-panel="create" hidden>
+        <button class="bc-server-modal-back" type="button" data-server-modal-back>← Voltar</button>
+        <div class="bc-server-modal-step-heading">
+          <h3>Dê um nome ao seu servidor</h3>
+          <p>Escolha um nome que represente sua comunidade. Você poderá configurar canais e cargos depois.</p>
+        </div>
+        <form id="bc-platform-create-form" class="bc-server-modal-form">
+          <label for="bc-server-new-name">NOME DO SERVIDOR</label>
+          <input id="bc-server-new-name" name="name" maxlength="48" minlength="3" required autocomplete="off" placeholder="Ex.: Minha comunidade">
+          <small>Entre 3 e 48 caracteres.</small>
+          <button type="submit" class="bc-server-modal-submit">Criar servidor</button>
+        </form>
+      </div>
+
+      <div id="bc-server-modal-join" class="bc-server-modal-panel" data-server-modal-panel="join" hidden>
+        <button class="bc-server-modal-back" type="button" data-server-modal-back>← Voltar</button>
+        <div class="bc-server-modal-step-heading">
+          <h3>Entrar em um servidor</h3>
+          <p>Cole o código ou o link completo de convite para participar de uma comunidade do BrasilCord.</p>
+        </div>
+        <form id="bc-platform-join-form" class="bc-server-modal-form">
+          <label for="bc-server-invite-code">CÓDIGO DE CONVITE</label>
+          <input id="bc-server-invite-code" name="code" maxlength="256" minlength="8" required autocomplete="off" spellcheck="false" autocapitalize="characters" placeholder="Cole o código aqui">
+          <small>Cole o link de convite do BrasilCord ou somente o código. Convites de outras plataformas não funcionam.</small>
+          <button type="submit" class="bc-server-modal-submit">Entrar no servidor</button>
+        </form>
+      </div>
+      <p id="bc-server-modal-status" class="bc-server-modal-status" role="status" aria-live="polite"></p>
+    </div>
+  </dialog>
+  <div id="bc-user-context-menu" class="bc-user-context-menu" role="menu" hidden></div>
+  <dialog id="bc-user-profile-dialog" class="bc-user-profile-dialog" aria-label="Perfil de usuário">
+    <button id="bc-user-dialog-close" type="button" aria-label="Fechar perfil">✕</button>
+    <div id="bc-user-public-banner" class="bc-user-public-banner"></div>
+    <div id="bc-user-public-avatar" class="bc-user-public-avatar"></div>
+    <h3 id="bc-user-public-name"></h3>
+    <p id="bc-user-public-handle"></p>
+    <p id="bc-user-public-bio"></p>
+    <div id="bc-user-public-badge"></div>
+     <div id="bc-user-public-roles" aria-label="Cargos deste usuário"></div>
+    <p id="bc-user-dialog-status" role="status"></p>
+    <div class="bc-user-profile-actions">
+      <button id="bc-user-message-action" type="button">✉ Mensagem</button>
+       <button id="bc-user-photo-action" type="button">🖼️ Foto</button>
+        <button id="bc-user-call-request" type="button">☎ Ligar</button>
+        <button id="bc-user-friend-action" type="button">Adicionar amigo</button>
+      <button id="bc-user-block-action" type="button">Bloquear</button>
+    </div>
+  </dialog>
+  <dialog id="bc-presence-dialog" class="bc-persona-dialog" aria-labelledby="bc-presence-title">
+    <div class="bc-persona-header"><div><span class="bc-persona-kicker">BRASILCORD • MINHA IDENTIDADE</span><h2 id="bc-presence-title">Seu jeito de aparecer</h2></div><button type="button" id="bc-presence-close" aria-label="Fechar">✕</button></div>
+    <div class="bc-persona-preview"><span class="bc-persona-avatar" id="bc-persona-avatar">BC</span><div><strong id="bc-persona-name">Meu perfil</strong><small id="bc-persona-live">🟢 Disponível</small><p id="bc-persona-recado">Sua vibe no BrasilCord.</p></div></div>
+    <form id="bc-presence-form" class="bc-persona-form">
+      <label>Como você aparece para as pessoas?</label>
+      <div class="bc-presence-options" role="radiogroup" aria-label="Presença">
+        <label><input type="radio" name="mode" value="online" checked><span>🟢 Disponível</span></label>
+        <label><input type="radio" name="mode" value="away"><span>🌙 Ausente</span></label>
+        <label><input type="radio" name="mode" value="dnd"><span>🔴 Não perturbar</span></label>
+        <label><input type="radio" name="mode" value="invisible"><span>⚫ Invisível</span></label>
+      </div>
+      <label for="bc-persona-message">Seu recado</label>
+      <input id="bc-persona-message" maxlength="120" placeholder="🌿 Explorando novas comunidades..." autocomplete="off">
+      <label for="bc-persona-duration">Limpar recado</label>
+      <select id="bc-persona-duration"><option value="0">Não limpar</option><option value="3600">Após 1 hora</option><option value="14400">Após 4 horas</option><option value="86400">Após 24 horas</option></select>
+      <p id="bc-presence-feedback" role="status"></p>
+      <button type="submit" class="bc-persona-submit">Salvar minha presença</button>
+    </form>
+  </dialog>
+  <dialog id="bc-badge-gallery-dialog" class="bc-persona-dialog bc-gallery-dialog" aria-labelledby="bc-gallery-title">
+    <div class="bc-persona-header"><div><span class="bc-persona-kicker">BRASILCORD • COLEÇÃO OFICIAL</span><h2 id="bc-gallery-title">Minha coleção de insígnias</h2></div><button type="button" id="bc-gallery-close" aria-label="Fechar">✕</button></div>
+    <div class="bc-gallery-layout"><div><p>Insígnias oficiais e conquistas da sua jornada.</p><h3>Minha coleção</h3><div id="bc-gallery-items" class="bc-gallery-items"></div></div>
+      <section class="bc-gallery-details"><span class="bc-gallery-emblem" id="bc-gallery-icon">✦</span><span class="bc-gallery-tag" id="bc-gallery-state">BRASILCORD</span><h3 id="bc-gallery-name">Insígnias</h3><p id="bc-gallery-description">Escolha uma insígnia para ver seus detalhes.</p><button type="button" id="bc-gallery-equip" disabled>Selecionar no perfil</button></section></div>
+  </dialog>
+  <dialog id="bc-advanced-owner-reports" class="bc-advanced-reports-dialog" aria-labelledby="bc-report-title">
+    <header><div><span>APENAS PROPRIETÁRIO VERIFICADO</span><h2 id="bc-report-title">🔒 Central de denúncias</h2></div><button type="button" id="bc-owner-reports-close">✕</button></header>
+    <p>Denúncias de mensagens, perfis, fotos, áudios e comunidades são exibidas aqui para moderação.</p>
+    <div id="bc-owner-reports-list" aria-live="polite"></div>
+    <p id="bc-owner-reports-feedback" role="status"></p>
+  </dialog>
+  <dialog id="bc-moderation-dialog" class="bc-moderation-dialog" aria-labelledby="bc-moderation-title">
+    <header><div><small>GERENCIAMENTO DA COMUNIDADE</small><h2 id="bc-moderation-title">Moderação de membro</h2></div><button type="button" id="bc-moderation-close" aria-label="Fechar">✕</button></header>
+    <p id="bc-moderation-member"></p>
+    <label for="bc-moderation-reason">Motivo da ação<input id="bc-moderation-reason" maxlength="300" value="Moderação da comunidade"></label>
+    <label for="bc-moderation-time">Duração do castigo<select id="bc-moderation-time"><option value="5">5 minutos</option><option value="10">10 minutos</option><option value="30">30 minutos</option><option value="60">1 hora</option><option value="360">6 horas</option><option value="1440">1 dia</option><option value="10080">7 dias</option></select></label>
+    <div id="bc-moderation-actions" class="bc-moderation-actions"></div>
+    <p id="bc-moderation-feedback" role="status"></p>
+  </dialog>
+  <dialog id="bc-support-dialog" class="bc-support-dialog" aria-labelledby="bc-support-title">
+    <header class="bc-support-header"><div><span>💚 APOIE O PROJETO</span><h2 id="bc-support-title">Ajude a manter o BrasilCord online</h2></div><button id="bc-support-close" type="button" aria-label="Fechar">✕</button></header>
+    <p>O BrasilCord continua graças à comunidade. Todas as contribuições são voluntárias. Você será direcionado para a página do BrasilCord na RedeArk para conferir as opções disponíveis.</p>
+    <div class="bc-support-redeark">
+      <strong>🇧🇷 Página de apoio BrasilCord · RedeArk</strong>
+      <code>www.redeark.com/produtos?categoria=brasilcord</code>
+      <button type="button" id="bc-support-open">💚 Abrir página para doar</button>
+      <button type="button" id="bc-support-copy-link">Copiar link</button>
+    </div>
+    <p id="bc-support-status" role="status"></p>
+    <small>O pagamento é feito fora do aplicativo, pelo site indicado. Não solicitamos dados bancários no BrasilCord.</small>
+  </dialog>
+   <dialog id="bc-beta-invite-dialog" class="bc-beta-invite-dialog" aria-labelledby="bc-beta-invite-title">
+     <header><span class="bc-beta-crown" aria-hidden="true">✦</span><div><small>BRASILCORD • PROGRAMA DE FUNDADORES</small><h2 id="bc-beta-invite-title">Convide seus amigos!</h2></div><button id="bc-beta-invite-close" type="button" aria-label="Fechar">✕</button></header>
+     <p>As primeiras <strong>100 contas cadastradas</strong> recebem automaticamente a insígnia exclusiva <strong>Beta • Fundador</strong>. A contagem considera a ordem de criação da conta, não a quantidade de convites enviados.</p>
+     <div class="bc-beta-invite-reward"><img src="assets/badges/beta.svg" alt="Insígnia Beta • Fundador"><div><strong id="bc-beta-invite-count">Consultando vagas…</strong><span id="bc-beta-invite-my-status">Entre na sua conta para conferir sua insígnia.</span></div></div>
+     <label for="bc-beta-invite-url">Link oficial para baixar o BrasilCord</label>
+     <div class="bc-beta-invite-link"><input id="bc-beta-invite-url" type="text" readonly value="https://cdopc7870-web.github.io/brasilcord-updates/"><button id="bc-beta-invite-copy" type="button">Copiar</button></div>
+     <h3>Enviar para seus amigos do BrasilCord</h3><div id="bc-beta-invite-friends" class="bc-beta-invite-friends"><p>Entre na sua conta para compartilhar diretamente.</p></div>
+     <p id="bc-beta-invite-status" role="status" aria-live="polite"></p>
+     <button id="bc-beta-invite-share" class="bc-beta-invite-share" type="button">✦ Copiar convite para compartilhar</button>
+     <small>A insígnia não exige convites, pagamentos ou compartilhamento. Vagas são permanentes e não são redistribuídas.</small>
+   </dialog>
+   <dialog id="bc-beta-congrats" class="bc-beta-congrats" aria-labelledby="bc-beta-congrats-title">
+      <div class="bc-beta-confetti" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span></div>
+      <img src="assets/badges/beta.svg" alt="Insígnia Beta • Fundador">
+      <span class="bc-beta-surprise">BRASILCORD • PRIMEIROS 100</span>
+      <h2 id="bc-beta-congrats-title">Parabéns! Você é um fundador Beta!</h2>
+      <p id="bc-beta-congrats-copy">Você foi uma das primeiras 100 pessoas a entrar no BrasilCord e ganhou a insígnia Beta!</p>
+      <p>Chame seus amigos e divirta-se! 🇧🇷</p>
+      <button id="bc-beta-congrats-confirm" type="button">✦ Vamos começar!</button>
+      <p id="bc-beta-congrats-error" role="status"></p>
+    </dialog>
+    <dialog id="bc-feedback-dialog" class="bc-feedback-dialog" aria-labelledby="bc-feedback-title">
+      <header><div><small>BRASILCORD • COMUNIDADE OFICIAL</small><h2 id="bc-feedback-title">Envie sua sugestão</h2></div><button id="bc-feedback-close" type="button" aria-label="Fechar">✕</button></header>
+      <p>Seu envio é privado e será lido somente por DKX157. Não inclua senhas, códigos ou informações sensíveis.</p>
+      <form id="bc-feedback-form">
+        <label>Assunto<input id="bc-feedback-subject" minlength="5" maxlength="100" required placeholder="Resuma sua ideia ou problema"></label>
+        <label>Descrição<textarea id="bc-feedback-details" minlength="10" maxlength="1500" required rows="6" placeholder="Conte o que aconteceu ou como podemos melhorar..."></textarea></label>
+        <p id="bc-feedback-status" role="status" aria-live="polite"></p>
+        <button type="submit" id="bc-feedback-submit">Enviar em privado para DKX157</button>
+      </form>
+    </dialog>
+   <script src="web-adapter.js"></script>
+  <script src="renderer.js"></script>
+  <script src="platform.js"></script>
+  <script src="platform-ui.js"></script>
+  <script src="platform-calls.js"></script>
+  <script src="platform-extras.js"></script>
+  <script src="community-features.js"></script>
+  <script src="member-sidebar-settings.js"></script>
+  <script src="user-profile-menu.js"></script>
+  <script src="community-context-menu.js"></script>
+  <script src="server-creation-modal.js"></script>
+  <script src="dm-requests-ui.js"></script>
+  <script src="notification-badges.js"></script>
+  <script src="brasilcord-persona.js"></script>
+   <script src="beta-invite.js"></script>
+   <script src="beta-feedback.js"></script>
+  <script src="community-advanced.js"></script>
+  <script src="community-moderation.js"></script>
+  <script src="message-invites.js"></script>
+  <script src="support-brasilcord.js"></script>
+</body>
+</html>

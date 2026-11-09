@@ -25,6 +25,7 @@ jobs:
       - name: Validar scripts e arquivos
         run: |
           node --check landing.js
+          node -e "const fs=require('fs');if(!fs.existsSync('gradients.css'))throw Error('gradients.css ausente');for(const page of ['index.html','parceiros.html','downloads.html','login.html','cadastro.html','recuperar-senha.html']){const html=fs.readFileSync(page,'utf8');if(!html.includes('href=\"gradients.css\"'))throw Error('Gradiente não vinculado em '+page)}"
           node -e "const fs=require('fs');if(!fs.existsSync('motion.css'))throw Error('motion.css missing')"
           node -e "const fs=require('fs');for(const f of ['parceiros.html','partners.css'])if(!fs.existsSync(f))throw Error('Arquivo ausente: '+f)"
           node -e "const fs=require('fs');for(const p of ['downloads.html','download.css']){if(!fs.existsSync(p))throw Error('Missing download file: '+p)}"

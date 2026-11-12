@@ -1,1 +1,4 @@
-BrasilCord Web - arquivos em preparação.
+BrasilCord Web — site oficial hospedado pelo GitHub Pages.
+Origem sincronizada por importação com brasilcord-codigo-fonte/web/site em 12/11/2026.
+Backend existente: brasilcord-sinalizacao-dkx157.onrender.com.
+Banco de dados: Neon, acessado exclusivamente pelo backend. Nenhum dado migrado.

@@ -65,6 +65,45 @@
     sessionStorage.setItem('brasilcord:web:session',result.token);
     location.replace('app.html?app=1');
   }
+  if(view==='recover'){
+    const requestForm=document.getElementById('recovery-request-form');
+    const confirmForm=document.getElementById('recovery-confirm-form');
+    const requestStatus=document.getElementById('recovery-request-status');
+    const confirmStatus=document.getElementById('recovery-confirm-status');
+    const report=(el,s,ok)=>{el.textContent=s;el.dataset.state=ok?'ok':'error';};
+    requestForm?.addEventListener('submit',async e=>{
+      e.preventDefault();if(!requestForm.reportValidity())return;
+      const button=requestForm.querySelector('[type=submit]');button.disabled=true;
+      report(requestStatus,'Enviando solicitação...',true);
+      try{
+        const email=document.getElementById('recovery-email').value.trim().toLowerCase();
+        const result=await request('/password-reset/request',{email});
+        report(requestStatus,result.message||'Confira seu e-mail.',true);
+        confirmForm.hidden=false;
+      }catch(err){report(requestStatus,errorMessage(err),false);}
+      finally{button.disabled=false;}
+    });
+    confirmForm?.addEventListener('submit',async e=>{
+      e.preventDefault();if(!confirmForm.reportValidity())return;
+      const email=document.getElementById('recovery-email').value.trim().toLowerCase();
+      const code=document.getElementById('recovery-code').value.trim();
+      const password=document.getElementById('recovery-password').value;
+      if(password!==document.getElementById('recovery-confirm-password').value){
+        report(confirmStatus,'As senhas não coincidem.',false);return;
+      }
+      const button=confirmForm.querySelector('[type=submit]');button.disabled=true;
+      report(confirmStatus,'Verificando código...',true);
+      try{
+        const result=await request('/password-reset/confirm',{email,code,password});
+        report(confirmStatus,result.message||'Senha atualizada. Entre novamente.',true);
+        confirmForm.hidden=true;requestForm.hidden=true;
+        document.getElementById('recovery-password').value='';
+        document.getElementById('recovery-confirm-password').value='';
+      }catch(err){report(confirmStatus,errorMessage(err),false);}
+      finally{button.disabled=false;}
+    });
+    return;
+  }
   if(otpForm){
     otpForm.addEventListener('submit',async event=>{
       event.preventDefault();

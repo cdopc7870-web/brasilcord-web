@@ -40,9 +40,24 @@
   <section class="auth-panel" aria-labelledby="auth-title">
     <div class="auth-brand-small"><img src="assets/brand-icon.png" alt="" width="38" height="38"><span>Cuide do acesso à sua conta</span></div>
     <h1 id="auth-title"><span class="bc-gradient-text">Redefinir a senha</span></h1>
-    <p class="auth-intro">A recuperação automática por e-mail ainda não está habilitada no serviço do BrasilCord.</p>
-    <div class="recovery-status" role="status"><span aria-hidden="true">ⓘ</span><p>Estamos preparando esse recurso. Por enquanto, não enviamos links de redefinição e não solicitamos suas senhas pelo suporte.</p></div>
-    <a class="auth-submit auth-submit-link" href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Falar com o suporte no Discord <span aria-hidden="true">↗</span></a>
+    <p class="auth-intro">Informe o e-mail cadastrado para receber um código temporário de recuperação.</p>
+    <form id="recovery-request-form" class="auth-form" autocomplete="on">
+      <label for="recovery-email">E-mail cadastrado</label>
+      <input id="recovery-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="voce@exemplo.com" required>
+      <button class="auth-submit" type="submit">Enviar código de recuperação</button>
+    </form>
+    <p id="recovery-request-status" class="recovery-status" role="status" aria-live="polite"></p>
+    <form id="recovery-confirm-form" class="auth-form" autocomplete="off" hidden>
+      <p class="auth-intro">Já recebeu seu código? Digite-o e escolha uma nova senha.</p>
+      <label for="recovery-code">Código de 6 dígitos</label>
+      <input id="recovery-code" name="code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="000000">
+      <label for="recovery-password">Nova senha (mínimo de 12 caracteres)</label>
+      <input id="recovery-password" type="password" name="password" minlength="12" maxlength="128" autocomplete="new-password" required>
+      <label for="recovery-confirm-password">Confirmar nova senha</label>
+      <input id="recovery-confirm-password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required>
+      <button class="auth-submit" type="submit">Alterar minha senha</button>
+    </form>
+    <p id="recovery-confirm-status" class="recovery-status" role="status" aria-live="polite"></p>
     <p class="auth-switch">Lembrou a senha? <a href="login.html">Entrar</a></p>
   </section>
 </main>

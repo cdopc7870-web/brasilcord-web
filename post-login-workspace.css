@@ -227,3 +227,63 @@ body.bc-app-active:not(.discord-open) #page-app :is(button,input,textarea,select
  body.bc-app-active:not(.discord-open) .bc-members-pane {display:none!important;}
  body.bc-app-active:not(.discord-open) .bc-platform-compose {margin:0 9px 11px!important;}
 }
+
+
+/* Cartão de conta compacto inspirado na referência de perfil enviada */
+body.bc-app-active:not(.discord-open) .bc-channel-bottom{padding:8px!important;gap:5px!important}
+body.bc-app-active:not(.discord-open) .bc-account-panel{
+ position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;
+ min-height:72px;padding:9px 10px 9px 12px;border:1px solid #303438;border-radius:12px;
+ background:#202226!important;box-shadow:0 3px 12px #0002;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock{
+ display:flex!important;align-items:center;gap:10px;flex:1;min-width:0;min-height:48px;
+ padding:0!important;border:0!important;background:transparent!important;text-align:left;cursor:pointer;
+}
+body.bc-app-active:not(.discord-open) .bc-account-avatar-wrap{position:relative;flex:none;width:40px;height:40px}
+body.bc-app-active:not(.discord-open) .bc-account-avatar-wrap .bc-user-avatar{
+ display:grid;place-items:center;width:40px;height:40px;border-radius:50%;
+ background:#3b8d86;color:#fff;font-size:13px;font-weight:800;overflow:hidden;
+}
+body.bc-app-active:not(.discord-open) .bc-account-avatar-wrap i{
+ position:absolute;right:-1px;bottom:-1px;width:12px;height:12px;border:2px solid #202226;
+ border-radius:50%;background:#35d58a;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock-copy{
+ display:flex!important;flex-direction:column;justify-content:center;gap:4px;min-width:0;flex:1;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock-copy strong{
+ display:block;color:#f0f1f2!important;font-size:14px!important;font-weight:700!important;
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock-copy small{
+ display:block;color:#a7adb2!important;font-size:11px!important;font-weight:550!important;
+ overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions{display:flex;align-items:center;gap:5px;flex:none}
+body.bc-app-active:not(.discord-open) .bc-account-actions button{
+ display:grid;place-items:center;width:32px;height:36px;padding:5px;border:0;border-radius:8px;
+ background:transparent!important;color:#aeb4ba!important;cursor:pointer;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions button:hover:not(:disabled){background:#34383d!important;color:#fff!important}
+body.bc-app-active:not(.discord-open) .bc-account-actions button:disabled{opacity:.65;cursor:not-allowed}
+body.bc-app-active:not(.discord-open) .bc-account-actions button.is-on{color:#f2f4f5!important;background:#343b40!important}
+body.bc-app-active:not(.discord-open) .bc-account-actions svg{
+ width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
+body.bc-app-active:not(.discord-open) .bc-account-settings-menu{
+ position:absolute;right:8px;bottom:calc(100% + 8px);z-index:150;
+ display:grid;gap:3px;min-width:160px;padding:6px;border:1px solid #3b4246;
+ border-radius:10px;background:#222629;box-shadow:0 12px 30px #0008;
+}
+body.bc-app-active:not(.discord-open) .bc-account-settings-menu[hidden]{display:none!important}
+body.bc-app-active:not(.discord-open) .bc-account-settings-menu button{
+ width:100%;padding:9px 10px;border:0;border-radius:7px;background:transparent;
+ color:#e8ecee;text-align:left;font-size:12px;cursor:pointer;
+}
+body.bc-app-active:not(.discord-open) .bc-account-settings-menu button:hover{background:#343a3e}
+body.bc-app-active:not(.discord-open) #bc-platform-logout{margin:0!important}
+@media(max-width:1100px){
+ body.bc-app-active:not(.discord-open) .bc-account-actions{gap:1px}
+ body.bc-app-active:not(.discord-open) .bc-account-actions button{width:29px}
+}

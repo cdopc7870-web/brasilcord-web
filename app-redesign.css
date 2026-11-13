@@ -411,3 +411,313 @@ body.bc-app-refresh[data-ui-density="relaxed"] .bc-member-row {
     align-items: flex-start;
   }
 }
+
+
+/* Christmas everywhere: a festive visual system for the complete workspace */
+body.bc-app-refresh.christmas-on {
+  --bc-app-green: #41e6a0;
+  --bc-app-green-deep: #08734e;
+  --bc-app-gold: #ffd86b;
+  --bc-app-red: #ef6c76;
+  --bc-app-blue: #8fd2ff;
+  --bc-app-holly: #164b3c;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(239, 108, 118, .16), transparent 25rem),
+    radial-gradient(circle at 92% 10%, rgba(255, 216, 107, .12), transparent 22rem),
+    radial-gradient(circle at 52% 105%, rgba(65, 230, 160, .15), transparent 30rem),
+    linear-gradient(135deg, #06131c 0%, #0a2028 48%, #071119 100%);
+}
+
+body.bc-app-refresh.christmas-on .bc-workspace-page {
+  background:
+    linear-gradient(135deg, rgba(8, 25, 31, .82), rgba(4, 13, 20, .76)),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.018) 0 1px, transparent 1px 12px);
+}
+
+body.bc-app-refresh.christmas-on .bc-community-desktop {
+  position: relative;
+  border-color: rgba(255, 216, 107, .3);
+  background:
+    linear-gradient(145deg, rgba(12, 43, 42, .94), rgba(17, 25, 38, .96) 50%, rgba(58, 18, 31, .88));
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, .38),
+    0 0 0 1px rgba(65, 230, 160, .08) inset,
+    0 0 60px rgba(239, 108, 118, .08);
+}
+
+body.bc-app-refresh.christmas-on .bc-community-desktop::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+  opacity: .18;
+  background-image:
+    radial-gradient(circle at 12% 18%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 26%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 44% 71%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 92% 86%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 26% 92%, #fff 0 1px, transparent 2px);
+  background-size: 160px 160px, 210px 210px, 230px 230px, 190px 190px, 260px 260px;
+}
+
+body.bc-app-refresh.christmas-on .bc-server-rail,
+body.bc-app-refresh.christmas-on .bc-platform-channels,
+body.bc-app-refresh.christmas-on .bc-members-pane {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(12, 48, 45, .96), rgba(9, 25, 36, .98) 48%, rgba(45, 20, 30, .96));
+}
+
+body.bc-app-refresh.christmas-on .bc-server-rail::before {
+  content: "✦  🎄  ✦  🎁  ✦";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 7px;
+  left: 12px;
+  right: 12px;
+  overflow: hidden;
+  color: var(--bc-app-gold);
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  opacity: .85;
+  pointer-events: none;
+}
+
+body.bc-app-refresh.christmas-on .bc-platform-channels::before {
+  content: "🎄  CANAIS DA COMUNIDADE  🎄";
+  display: block;
+  padding: 11px 14px 8px;
+  color: #baf3d4;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid rgba(255, 216, 107, .18);
+  background: linear-gradient(90deg, rgba(15, 115, 78, .28), rgba(239, 108, 118, .14));
+}
+
+body.bc-app-refresh.christmas-on .bc-members-pane::before {
+  content: "🎁  MEMBROS DA FESTA";
+  display: block;
+  padding: 10px 14px 8px;
+  color: #ffe7a0;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .11em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid rgba(255, 216, 107, .18);
+}
+
+body.bc-app-refresh.christmas-on .bc-stage-topbar,
+body.bc-app-refresh.christmas-on .bc-chat-heading {
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(12, 65, 53, .72), rgba(21, 31, 45, .88) 52%, rgba(75, 25, 36, .62));
+  border-bottom-color: rgba(255, 216, 107, .22);
+}
+
+body.bc-app-refresh.christmas-on .bc-stage-topbar::after,
+body.bc-app-refresh.christmas-on .bc-chat-heading::after {
+  content: "•  •  •  •  •  •  •  •  •  •  •  •";
+  position: absolute;
+  right: 18px;
+  bottom: -3px;
+  color: var(--bc-app-red);
+  font-size: 12px;
+  letter-spacing: 7px;
+  text-shadow: 7px 0 var(--bc-app-gold), 14px 0 var(--bc-app-green), 21px 0 var(--bc-app-blue);
+  pointer-events: none;
+}
+
+body.bc-app-refresh.christmas-on .bc-channel-list button:hover,
+body.bc-app-refresh.christmas-on .bc-platform-list button:hover,
+body.bc-app-refresh.christmas-on .bc-member-row:hover {
+  background: linear-gradient(90deg, rgba(22, 127, 86, .3), rgba(145, 43, 55, .22));
+  border-color: rgba(255, 216, 107, .35);
+}
+
+body.bc-app-refresh.christmas-on .bc-channel-list button.active,
+body.bc-app-refresh.christmas-on .bc-channel-list button[aria-current="page"],
+body.bc-app-refresh.christmas-on .bc-platform-list button.active,
+body.bc-app-refresh.christmas-on .bc-platform-list button[aria-current="page"] {
+  background:
+    linear-gradient(90deg, rgba(18, 128, 87, .62), rgba(113, 45, 48, .48)),
+    linear-gradient(180deg, rgba(255, 216, 107, .1), transparent);
+  border-color: rgba(255, 216, 107, .48);
+  box-shadow: inset 4px 0 0 var(--bc-app-red), 0 8px 22px rgba(0,0,0,.18);
+}
+
+body.bc-app-refresh.christmas-on .bc-account-panel,
+body.bc-app-refresh.christmas-on #bc-platform-message-form,
+body.bc-app-refresh.christmas-on .bc-platform-compose {
+  border-color: rgba(255, 216, 107, .3);
+  background:
+    linear-gradient(135deg, rgba(9, 65, 49, .72), rgba(16, 34, 46, .9) 65%, rgba(75, 26, 37, .65));
+}
+
+body.bc-app-refresh.christmas-on #bc-platform-message-form::before {
+  content: "🎄";
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: 0 4px 0 2px;
+  border-radius: 10px;
+  background: rgba(255, 216, 107, .14);
+  border: 1px solid rgba(255, 216, 107, .28);
+  font-size: 16px;
+}
+
+body.bc-app-refresh.christmas-on #bc-platform-message-input,
+body.bc-app-refresh.christmas-on .bc-platform-compose textarea,
+body.bc-app-refresh.christmas-on .bc-dm-compose textarea {
+  border-color: rgba(65, 230, 160, .3);
+  background:
+    linear-gradient(135deg, rgba(5, 25, 31, .9), rgba(37, 20, 32, .7));
+}
+
+body.bc-app-refresh.christmas-on #bc-platform-message-form button[type="submit"],
+body.bc-app-refresh.christmas-on .bc-server-modal-submit,
+body.bc-app-refresh.christmas-on .bc-native-call-controls #bc-call-join,
+body.bc-app-refresh.christmas-on .bc-dm-compose button[type="submit"],
+body.bc-app-refresh.christmas-on .bc-primary-button {
+  color: #fff9e3;
+  background:
+    linear-gradient(135deg, #d75062, #a82949 47%, #087b58);
+  border: 1px solid rgba(255, 216, 107, .52);
+  box-shadow: 0 10px 24px rgba(187, 39, 73, .28), inset 0 1px 0 rgba(255,255,255,.2);
+}
+
+body.bc-app-refresh.christmas-on .bc-native-call-controls button,
+body.bc-app-refresh.christmas-on .bc-call-actions button,
+body.bc-app-refresh.christmas-on .bc-account-actions button,
+body.bc-app-refresh.christmas-on .bc-profile-actions button,
+body.bc-app-refresh.christmas-on .bc-server-settings-actions button,
+body.bc-app-refresh.christmas-on .bc-dm-actions button {
+  border-color: rgba(255, 216, 107, .25);
+  background: linear-gradient(135deg, rgba(18, 91, 70, .36), rgba(89, 30, 44, .34));
+}
+
+body.bc-app-refresh.christmas-on .bc-status-pill,
+body.bc-app-refresh.christmas-on .bc-online-pill,
+body.bc-app-refresh.christmas-on .bc-member-status {
+  border-color: rgba(65, 230, 160, .42);
+  background: rgba(65, 230, 160, .14);
+  color: #80f2bc;
+}
+
+body.bc-app-refresh.christmas-on .bc-quick-settings,
+body.bc-app-refresh.christmas-on .bc-persona-dialog,
+body.bc-app-refresh.christmas-on .bc-gallery-dialog,
+body.bc-app-refresh.christmas-on .bc-moderation-dialog,
+body.bc-app-refresh.christmas-on .bc-support-dialog,
+body.bc-app-refresh.christmas-on .bc-beta-invite-dialog {
+  border-color: rgba(255, 216, 107, .48);
+  background:
+    radial-gradient(circle at 90% 0%, rgba(239, 108, 118, .18), transparent 14rem),
+    linear-gradient(145deg, rgba(12, 71, 55, .98), rgba(23, 29, 43, .98) 58%, rgba(75, 24, 38, .98));
+}
+
+body.bc-app-refresh.christmas-on .bc-settings-row {
+  border-color: rgba(255, 216, 107, .25);
+  background: linear-gradient(90deg, rgba(17, 100, 72, .2), rgba(112, 34, 47, .15));
+}
+
+body.bc-app-refresh.christmas-on .bc-settings-row:hover {
+  border-color: rgba(255, 216, 107, .52);
+  background: linear-gradient(90deg, rgba(17, 132, 88, .28), rgba(154, 44, 56, .22));
+}
+
+body.bc-app-refresh.christmas-on .bc-quick-settings-kicker,
+body.bc-app-refresh.christmas-on .bc-settings-feedback {
+  color: var(--bc-app-gold);
+}
+
+body.bc-app-refresh.christmas-on .bc-app-settings-button,
+body.bc-app-refresh.christmas-on #bc-app-christmas-toggle {
+  color: #ffe7a0;
+  border-color: rgba(255, 216, 107, .42);
+  background: linear-gradient(135deg, rgba(158, 40, 58, .3), rgba(15, 116, 78, .3));
+}
+
+body.bc-app-refresh.christmas-on .bc-snowfall {
+  display: block;
+}
+
+.bc-snowfall {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  aria-hidden: true;
+}
+
+.bc-snowfall span {
+  position: absolute;
+  top: -28px;
+  color: rgba(255, 255, 255, .78);
+  font-size: 13px;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,.4));
+  animation: bc-snow-fall 13s linear infinite;
+}
+
+.bc-snowfall span:nth-child(1){left:3%;animation-delay:-2s;animation-duration:12s}
+.bc-snowfall span:nth-child(2){left:8%;animation-delay:-8s;animation-duration:17s}
+.bc-snowfall span:nth-child(3){left:14%;animation-delay:-5s;animation-duration:14s}
+.bc-snowfall span:nth-child(4){left:21%;animation-delay:-11s;animation-duration:19s}
+.bc-snowfall span:nth-child(5){left:27%;animation-delay:-4s;animation-duration:15s}
+.bc-snowfall span:nth-child(6){left:34%;animation-delay:-14s;animation-duration:21s}
+.bc-snowfall span:nth-child(7){left:41%;animation-delay:-6s;animation-duration:16s}
+.bc-snowfall span:nth-child(8){left:48%;animation-delay:-10s;animation-duration:18s}
+.bc-snowfall span:nth-child(9){left:55%;animation-delay:-3s;animation-duration:13s}
+.bc-snowfall span:nth-child(10){left:62%;animation-delay:-16s;animation-duration:20s}
+.bc-snowfall span:nth-child(11){left:69%;animation-delay:-7s;animation-duration:15s}
+.bc-snowfall span:nth-child(12){left:76%;animation-delay:-12s;animation-duration:17s}
+.bc-snowfall span:nth-child(13){left:83%;animation-delay:-4s;animation-duration:14s}
+.bc-snowfall span:nth-child(14){left:90%;animation-delay:-9s;animation-duration:19s}
+.bc-snowfall span:nth-child(15){left:97%;animation-delay:-15s;animation-duration:16s}
+
+@keyframes bc-snow-fall {
+  0% { transform: translate3d(0, -10vh, 0) rotate(0); opacity: 0; }
+  10% { opacity: .8; }
+  50% { transform: translate3d(28px, 52vh, 0) rotate(180deg); }
+  90% { opacity: .72; }
+  100% { transform: translate3d(-24px, 112vh, 0) rotate(360deg); opacity: 0; }
+}
+
+.bc-holiday-ribbon {
+  display: none;
+  position: fixed;
+  z-index: 21;
+  right: 16px;
+  bottom: 14px;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 13px;
+  color: #fff7dc;
+  border: 1px solid rgba(255,216,107,.42);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(154, 40, 55, .92), rgba(8, 111, 75, .94));
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  font-size: 12px;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+body.bc-app-refresh.christmas-on .bc-holiday-ribbon {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bc-snowfall span { animation: none; opacity: .28; top: 12%; }
+}

@@ -144,3 +144,10 @@
 .recovery-page[data-theme=dark] .recovery-status[data-state=error]:not(:empty){background:#351f27;border-color:#68404a;color:#ffd1d1}
 @media(max-width:600px){.recovery-main{padding:25px 14px 38px;min-height:calc(100dvh - 120px)}.recovery-card{padding:25px 21px 22px;border-radius:21px}.recovery-back{margin-bottom:19px}.recovery-card h1{font-size:30px}.recovery-footer{gap:10px 17px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.recovery-field input,.recovery-submit{transition:none}}
+
+/* Opção de sessão persistente */
+.auth-check.remember-login{align-items:flex-start;margin:4px 0 10px;padding:0}
+.auth-check.remember-login input{margin-top:3px}
+.auth-check.remember-login span{display:grid;gap:3px}
+.auth-check.remember-login strong{font-size:12px;font-weight:750;color:var(--text)}
+.auth-check.remember-login small{font-size:11px;color:var(--muted);line-height:1.5}

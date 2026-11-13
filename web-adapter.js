@@ -36,12 +36,14 @@
     copySupportPix:value=>navigator.clipboard.writeText(value).then(()=>({ok:true})),
     returnHome:()=>{document.querySelector('[data-page-target="inicio"]')?.click();return ok();},
     verifyPreviewAccess:()=>ok(),
-    savePlatformSession:token=>{
-      // Armazenamento por aba: evita colocar token de autenticação em localStorage persistente.
-      sessionStorage.setItem(sessionKey,token);return ok();
+    savePlatformSession:(token,remember=true)=>{
+      // Sessão persistente só quando a pessoa marca "Manter conectado".
+      if(remember){localStorage.setItem(sessionKey,token);sessionStorage.removeItem(sessionKey);}
+      else{sessionStorage.setItem(sessionKey,token);localStorage.removeItem(sessionKey);}
+      return ok();
     },
-    restorePlatformSession:()=>Promise.resolve({token:sessionStorage.getItem(sessionKey)||null}),
-    clearPlatformSession:()=>{sessionStorage.removeItem(sessionKey);return ok();},
+    restorePlatformSession:()=>Promise.resolve({token:localStorage.getItem(sessionKey)||sessionStorage.getItem(sessionKey)||null}),
+    clearPlatformSession:()=>{localStorage.removeItem(sessionKey);sessionStorage.removeItem(sessionKey);return ok();},
     setVoiceMicrophoneAllowed:()=>ok(),
     requestInlineCallCamera:()=>ok(),
     releaseInlineCallCamera:()=>ok(),

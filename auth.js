@@ -3,7 +3,7 @@
   const page=document.querySelector('[data-auth-view]');
   if(!page)return;
   const view=page.dataset.authView;
-  const API='https://brasilcord-sinalizacao-dkx157.onrender.com/api/platform';
+  const API='https://brasilcord-backend.onrender.com/api/platform';
   const form=document.getElementById('auth-form');
   const otpForm=document.getElementById('auth-otp-form');
   const msg=document.getElementById('auth-message');

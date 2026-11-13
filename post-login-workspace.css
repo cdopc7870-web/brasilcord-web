@@ -287,3 +287,43 @@ body.bc-app-active:not(.discord-open) #bc-platform-logout{margin:0!important}
  body.bc-app-active:not(.discord-open) .bc-account-actions{gap:1px}
  body.bc-app-active:not(.discord-open) .bc-account-actions button{width:29px}
 }
+
+
+/* Ajuste solicitado: cartão de conta maior e remoção do pequeno botão de seta verde */
+body.bc-app-active:not(.discord-open) .bc-account-panel{
+  min-height:88px!important;
+  padding:12px 13px!important;
+  gap:12px!important;
+  border-radius:14px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock{
+  min-height:62px!important;
+  gap:12px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-avatar-wrap,
+body.bc-app-active:not(.discord-open) .bc-account-avatar-wrap .bc-user-avatar{
+  width:48px!important;height:48px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-avatar-wrap i{
+  width:13px!important;height:13px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock-copy strong{
+  font-size:15px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock-copy small{
+  font-size:12px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions{gap:7px!important}
+body.bc-app-active:not(.discord-open) .bc-account-actions button{
+  width:38px!important;height:42px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions svg{
+  width:23px!important;height:23px!important;
+}
+/* Não mostrar caret/dropdown decorativo no cartão de conta */
+body.bc-app-active:not(.discord-open) #bc-user-profile-shortcut::after,
+body.bc-app-active:not(.discord-open) #bc-user-profile-shortcut::before,
+body.bc-app-active:not(.discord-open) .bc-account-panel::after,
+body.bc-app-active:not(.discord-open) .bc-user-dock-settings{
+  content:none!important;display:none!important;
+}

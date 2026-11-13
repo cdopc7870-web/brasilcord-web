@@ -436,12 +436,24 @@
                   </details>
                 <div class="bc-channel-bottom">
                   <div class="bc-platform-invite-row"><button id="bc-platform-invite" type="button" hidden>⤴ Copiar convite</button></div>
-                  <button id="bc-user-profile-shortcut" type="button" class="bc-user-dock" data-bc-view="profile" aria-label="Abrir meu perfil">
-                    <span id="bc-user-avatar" class="bc-user-avatar" aria-hidden="true">BC</span>
-                    <span class="bc-user-dock-copy"><strong id="bc-platform-user-label">Minha conta</strong><small id="bc-dock-personal-status">🟢 Disponível</small></span>
-                    <span class="bc-user-dock-settings" aria-hidden="true">⚙</span>
-                  </button>
-                  <button id="bc-platform-logout" class="bc-logout" type="button">Sair da conta</button>
+                  <section class="bc-account-panel" aria-label="Controles da sua conta">
+                    <button id="bc-user-profile-shortcut" type="button" class="bc-user-dock" data-bc-view="profile" aria-label="Abrir meu perfil">
+                      <span class="bc-account-avatar-wrap"><span id="bc-user-avatar" class="bc-user-avatar" aria-hidden="true">BC</span><i aria-label="Disponível"></i></span>
+                      <span class="bc-user-dock-copy">
+                        <strong id="bc-platform-user-label">Minha conta</strong>
+                        <small id="bc-dock-personal-status">📌 SEMI EM BREVE BIO!</small>
+                      </span>
+                    </button>
+                    <div class="bc-account-actions">
+                      <button id="bc-user-mic-toggle" type="button" aria-label="Microfone" title="Microfone" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="2.5" width="6" height="12" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v3m-4 0h8"/></svg></button>
+                      <button id="bc-user-audio-toggle" type="button" aria-label="Áudio" title="Áudio" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-2a8 8 0 0 1 16 0v2M4 13H3v5h4v-7H4zm16 0h1v5h-4v-7h3zM17 19a5 5 0 0 1-5 3"/></svg></button>
+                      <button id="bc-user-settings" type="button" aria-label="Configurações da conta" title="Configurações da conta" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="m19.4 15 .1.1 1.4 1.1-1.5 2.6-1.7-.6a8 8 0 0 1-1.5.9l-.3 1.8h-3l-.3-1.8a8 8 0 0 1-1.5-.9l-1.7.6-1.5-2.6 1.4-1.1a7 7 0 0 1 0-1.8l-1.4-1.1 1.5-2.6 1.7.6a8 8 0 0 1 1.5-.9l.3-1.8h3l.3 1.8a8 8 0 0 1 1.5.9l1.7-.6 1.5 2.6-1.4 1.1a7 7 0 0 1 0 1.7Z"/></svg></button>
+                    </div>
+                    <div id="bc-account-settings-menu" class="bc-account-settings-menu" hidden>
+                      <button type="button" data-bc-view="profile">Meu perfil</button>
+                      <button id="bc-platform-logout" type="button">Sair da conta</button>
+                    </div>
+                  </section>
                 </div>
               </aside>
 

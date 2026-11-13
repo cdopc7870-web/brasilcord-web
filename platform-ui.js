@@ -60,6 +60,22 @@
     sync();
   }
 
+
+  // Remove apenas o caret antigo "v" que algumas versões antigas do painel ainda injetam.
+  function removeLegacyAccountCaret(){
+    const panel=document.querySelector('.bc-account-panel');
+    if(!panel)return;
+    panel.querySelectorAll('button').forEach(button=>{
+      if(['bc-user-profile-shortcut','bc-user-mic-toggle','bc-user-audio-toggle','bc-user-settings','bc-platform-logout'].includes(button.id))return;
+      const label=(button.textContent||'').trim().toLocaleLowerCase('pt-BR');
+      if(label==='v'||label==='⌄'||label==='▾'||label==='▼')button.remove();
+    });
+  }
+  removeLegacyAccountCaret();
+  const accountCaretObserver=new MutationObserver(removeLegacyAccountCaret);
+  const accountPanel=document.querySelector('.bc-account-panel');
+  if(accountPanel)accountCaretObserver.observe(accountPanel,{childList:true,subtree:true});
+
   controls.forEach(control => {
       const active = control.dataset.bcView === view;
       control.classList.toggle('is-active',active);

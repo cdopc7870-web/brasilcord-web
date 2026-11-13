@@ -1,0 +1,121 @@
+/* Insígnias BrasilCord — tratamento premium e sazonal. */
+#page-app .bc-badge-preview,
+#page-app #bc-user-public-badge,
+#page-app .bc-profile-badges{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+#page-app .bc-badge-preview{
+  min-height:58px;
+  padding:8px 10px;
+  border:1px solid rgba(220,190,106,.25);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(19,58,46,.72),rgba(77,34,42,.58));
+}
+#page-app .bc-badge-preview img,
+#page-app #bc-user-public-badge img,
+#page-app .bc-profile-badges img{
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  padding:4px;
+  border-radius:14px;
+  border:1px solid rgba(244,215,126,.55);
+  background:radial-gradient(circle at 35% 20%,rgba(255,255,255,.3),transparent 42%),linear-gradient(145deg,#264d3d,#4b2d37);
+  box-shadow:0 6px 18px rgba(0,0,0,.25),0 0 18px rgba(227,191,91,.16);
+  transition:transform .2s ease,filter .2s ease,box-shadow .2s ease;
+}
+#page-app .bc-badge-preview img:hover,
+#page-app #bc-user-public-badge img:hover,
+#page-app .bc-profile-badges img:hover{
+  transform:translateY(-3px) rotate(-2deg);
+  filter:saturate(1.15);
+  box-shadow:0 10px 22px rgba(0,0,0,.3),0 0 24px rgba(227,191,91,.32);
+}
+#page-app .bc-profile-badges span{
+  padding:6px 10px;
+  border:1px solid rgba(244,215,126,.5);
+  border-radius:999px;
+  background:linear-gradient(135deg,#234c3d,#4a2d38);
+  color:#fff0bd;
+  font-size:11px;
+  font-weight:850;
+}
+#page-app #bc-badge-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(122px,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+#page-app .bc-badge-choice{
+  position:relative;
+  display:grid;
+  justify-items:center;
+  gap:7px;
+  min-height:118px;
+  padding:12px 8px 10px;
+  border:1px solid rgba(225,197,105,.25);
+  border-radius:17px;
+  background:linear-gradient(160deg,rgba(28,62,51,.92),rgba(47,34,44,.9));
+  color:#f8f2dc;
+  cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+#page-app .bc-badge-choice::after{
+  content:"✦";
+  position:absolute;
+  top:7px;
+  right:9px;
+  color:#f1d477;
+  font-size:11px;
+  opacity:.7;
+}
+#page-app .bc-badge-choice img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  filter:drop-shadow(0 7px 8px rgba(0,0,0,.28));
+}
+#page-app .bc-badge-choice span{
+  max-width:100%;
+  color:#dcefe1;
+  font-size:11px;
+  font-weight:800;
+  line-height:1.25;
+  text-align:center;
+}
+#page-app .bc-badge-choice:hover:not(:disabled),
+#page-app .bc-badge-choice[aria-pressed=true]{
+  transform:translateY(-3px);
+  border-color:#f2d477;
+  box-shadow:0 12px 26px rgba(0,0,0,.25),0 0 24px rgba(213,167,67,.18);
+}
+#page-app .bc-badge-choice[aria-pressed=true]{
+  background:linear-gradient(155deg,#5a343d,#25513e);
+}
+#page-app .bc-badge-choice:disabled{
+  cursor:not-allowed;
+  filter:saturate(.35);
+  opacity:.68;
+}
+#page-app .bc-badge-choice[data-badge-id="natal_supremo"],
+#page-app [data-badge-id="natal_supremo"]{
+  border-color:#f4d47b;
+  background:radial-gradient(circle at 50% 0,rgba(255,238,157,.28),transparent 38%),linear-gradient(145deg,#742f3e,#15513c 72%);
+  box-shadow:0 0 0 1px rgba(255,228,132,.18),0 12px 30px rgba(117,31,52,.22);
+}
+#page-app .bc-badge-choice[data-badge-id="natal_supremo"]::after{
+  content:"🎄";
+  font-size:13px;
+}
+#page-app .bc-badge-choice[data-badge-id="natal_supremo"] span{
+  color:#ffe9a1;
+}
+#page-app .bc-profile-badge-editor h4::before{
+  content:"🎁 ";
+}
+@media(max-width:620px){
+  #page-app #bc-badge-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

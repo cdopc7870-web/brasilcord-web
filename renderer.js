@@ -325,14 +325,14 @@ function closeWelcomeSplash({focus = true} = {}) {
   }, reducedMotion ? 40 : 720);
 }
 
-if (welcomeSplash && welcomeButton) {
-  welcomeButton.focus({preventScroll: true});
-  welcomeButton.addEventListener('click', () => closeWelcomeSplash());
-  welcomeDuration = reducedMotion ? 1100 : 4700;
-  welcomeStartedAt = performance.now();
-  welcomeFrame = requestAnimationFrame(paintWelcomeProgress);
-  $('splash-progress-label').textContent = reducedMotion ? 'Preparando sua entrada…' : 'A natureza brasileira está chegando…';
-  welcomeTimer = setTimeout(() => closeWelcomeSplash(), welcomeDuration);
+// A abertura animada foi removida da experiência Web: a página fica disponível
+// imediatamente, sem tela intermediária nem temporizador de entrada.
+if (welcomeSplash) {
+  welcomeSplash.hidden = true;
+  welcomeSplash.dataset.dismissed = 'true';
+  clearTimeout(welcomeTimer);
+  cancelAnimationFrame(welcomeFrame);
+  syncAuroraState();
 }
 
 function animateDiscordLoading() {

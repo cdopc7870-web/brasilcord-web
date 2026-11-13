@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#041828">
-  <meta name="description" content="Recuperação de acesso ao BrasilCord.">
+  <meta name="theme-color" content="#f4f8fc">
+  <meta name="description" content="Recupere seu acesso ao BrasilCord com segurança.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; connect-src 'self' https://brasilcord-sinalizacao-dkx157.onrender.com; form-action 'self'; base-uri 'self';">
-  <title>Redefinir senha — BrasilCord</title>
+  <title>Recuperar acesso — BrasilCord</title>
   <link rel="icon" href="assets/brand-icon.png" type="image/png">
-  <link rel="stylesheet" href="landing.css"><link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="landing.css">
+  <link rel="stylesheet" href="auth.css">
+  <link rel="stylesheet" href="gradients.css">
   <script src="access-guard.js"></script>
   <script src="landing.js" defer></script>
   <script src="auth.js" defer></script>
-<link rel="stylesheet" href="gradients.css">
 </head>
-<body data-theme="dark" class="auth-body"><a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<body data-theme="light" class="auth-body recovery-page">
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="./" aria-label="BrasilCord, voltar à página inicial">
@@ -23,7 +25,7 @@
     <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="header-menu" aria-label="Abrir menu"><span></span><span></span><span></span></button>
     <div class="header-menu" id="header-menu">
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="./#recursos">Recursos</a><a href="./#seguranca">Segurança</a><a href="como-usar.html">Como usar</a><a href="parceiros.html">Parceiros</a>
+        <a href="./#recursos">Recursos</a><a href="./#seguranca">Segurança</a><a href="como-usar.html">Como usar</a>
       </nav>
       <div class="header-actions">
         <div class="theme-switch" role="group" aria-label="Aparência do site">
@@ -31,35 +33,58 @@
           <button type="button" data-set-theme="light" aria-label="Tema claro" title="Tema claro">☼</button>
           <button type="button" data-set-theme="dark" aria-label="Tema escuro" title="Tema escuro">☾</button>
         </div>
-        <a class="btn btn-subtle btn-small" href="downloads.html">Baixar</a>
+        <a class="btn btn-subtle btn-small" href="login.html">Entrar</a>
       </div>
     </div>
   </div>
 </header>
-<main id="conteudo" class="auth-main" data-auth-view="recover">
-  <section class="auth-panel" aria-labelledby="auth-title">
-    <div class="auth-brand-small"><img src="assets/brand-icon.png" alt="" width="38" height="38"><span>Cuide do acesso à sua conta</span></div>
-    <h1 id="auth-title"><span class="bc-gradient-text">Redefinir a senha</span></h1>
-    <p class="auth-intro">Informe o e-mail cadastrado para receber um código temporário de recuperação.</p>
-    <form id="recovery-request-form" class="auth-form" autocomplete="on">
-      <label for="recovery-email">E-mail cadastrado</label>
-      <input id="recovery-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="voce@exemplo.com" required>
-      <button class="auth-submit" type="submit">Enviar código de recuperação</button>
+<main id="conteudo" class="auth-main recovery-main" data-auth-view="recover">
+  <section class="auth-panel recovery-card" aria-labelledby="auth-title">
+    <a class="recovery-back" href="login.html"><span aria-hidden="true">←</span> Voltar para entrar</a>
+    <div class="recovery-emblem" aria-hidden="true"><img src="assets/brand-icon.png" alt=""></div>
+    <div class="recovery-eyebrow">CENTRAL DE SEGURANÇA</div>
+    <h1 id="auth-title">Recupere sua <span class="bc-gradient-text">conta</span></h1>
+    <p class="auth-intro">Sem problemas! Vamos ajudar você a criar uma nova senha e voltar ao BrasilCord.</p>
+
+    <div class="recovery-step-heading">
+      <span class="recovery-step-number">1</span>
+      <div><strong>Confirme seu e-mail</strong><small>Enviaremos um código temporário de 6 dígitos.</small></div>
+    </div>
+    <form id="recovery-request-form" class="auth-form recovery-form" autocomplete="on">
+      <div class="recovery-field">
+        <label for="recovery-email">E-mail cadastrado</label>
+        <input id="recovery-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="voce@exemplo.com" required>
+      </div>
+      <button class="auth-submit recovery-submit" type="submit"><span>Enviar código de recuperação</span><span aria-hidden="true">→</span></button>
     </form>
     <p id="recovery-request-status" class="recovery-status" role="status" aria-live="polite"></p>
-    <form id="recovery-confirm-form" class="auth-form" autocomplete="off" hidden>
-      <p class="auth-intro">Já recebeu seu código? Digite-o e escolha uma nova senha.</p>
-      <label for="recovery-code">Código de 6 dígitos</label>
-      <input id="recovery-code" name="code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="000000">
-      <label for="recovery-password">Nova senha (mínimo de 12 caracteres)</label>
-      <input id="recovery-password" type="password" name="password" minlength="12" maxlength="128" autocomplete="new-password" required>
-      <label for="recovery-confirm-password">Confirmar nova senha</label>
-      <input id="recovery-confirm-password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required>
-      <button class="auth-submit" type="submit">Alterar minha senha</button>
+
+    <div class="recovery-divider"><span></span><small>PRÓXIMA ETAPA</small><span></span></div>
+    <form id="recovery-confirm-form" class="auth-form recovery-form recovery-confirm" autocomplete="off" hidden>
+      <div class="recovery-step-heading">
+        <span class="recovery-step-number">2</span>
+        <div><strong>Crie uma nova senha</strong><small>Use o código recebido para confirmar sua identidade.</small></div>
+      </div>
+      <div class="recovery-field">
+        <label for="recovery-code">Código de recuperação</label>
+        <input id="recovery-code" name="code" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required placeholder="000000" aria-describedby="recovery-code-help">
+        <small id="recovery-code-help">O código tem 6 números e expira em 15 minutos.</small>
+      </div>
+      <div class="recovery-field">
+        <label for="recovery-password">Nova senha</label>
+        <input id="recovery-password" type="password" name="password" minlength="12" maxlength="128" autocomplete="new-password" placeholder="Mínimo de 12 caracteres" required>
+      </div>
+      <div class="recovery-field">
+        <label for="recovery-confirm-password">Confirme sua nova senha</label>
+        <input id="recovery-confirm-password" type="password" minlength="12" maxlength="128" autocomplete="new-password" placeholder="Digite a senha novamente" required>
+      </div>
+      <button class="auth-submit recovery-submit" type="submit"><span>Salvar nova senha</span><span aria-hidden="true">✓</span></button>
     </form>
     <p id="recovery-confirm-status" class="recovery-status" role="status" aria-live="polite"></p>
-    <p class="auth-switch">Lembrou a senha? <a href="login.html">Entrar</a></p>
+    <div class="recovery-security"><span aria-hidden="true">▣</span><p><strong>Sua conta protegida</strong><br>O código é temporário, de uso único, e sua senha é armazenada com segurança.</p></div>
+    <p class="auth-switch">Lembrou sua senha? <a href="login.html">Entrar na conta</a></p>
   </section>
 </main>
-<footer class="auth-footer" aria-label="Rodapé"><a href="./#seguranca">Segurança e privacidade</a><a href="https://discord.gg/KgJg3qnj3r" target="_blank" rel="noopener noreferrer">Precisa de ajuda? Discord</a></footer>
-</body></html>
+<footer class="auth-footer recovery-footer"><span>© BrasilCord</span><a href="./#seguranca">Privacidade e segurança</a><a href="https://discord.gg/XaHwEDse99" target="_blank" rel="noopener noreferrer">Precisa de ajuda?</a></footer>
+</body>
+</html>

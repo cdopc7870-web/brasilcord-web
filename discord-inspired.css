@@ -1,0 +1,233 @@
+/* BrasilCord — camada visual inspirada em apps de comunidade modernos.
+   Mantém a identidade brasileira e os recursos existentes, com hierarquia visual
+   familiar: trilho de comunidades, lista de canais, chat e membros. */
+#page-app .bc-community-desktop {
+  --bc-d-bg:#313338;
+  --bc-d-panel:#2b2d31;
+  --bc-d-raised:#383a40;
+  --bc-d-active:#404249;
+  --bc-d-hover:#35373c;
+  --bc-d-stroke:rgba(255,255,255,.08);
+  --bc-d-text:#f2f3f5;
+  --bc-d-muted:#b5bac1;
+  --bc-d-subtle:#949ba4;
+  --bc-d-accent:#23c483;
+  --bc-d-accent-soft:rgba(35,196,131,.16);
+  background:var(--bc-d-bg);
+  color:var(--bc-d-text);
+  font-family:Inter,"Segoe UI",system-ui,sans-serif;
+}
+#page-app .bc-global-rail {
+  background:#1e1f22;
+  border-right:0;
+  padding:12px 10px;
+  gap:8px;
+}
+#page-app .bc-global-brand {
+  width:48px;height:48px;margin-bottom:4px;
+  border:0;border-radius:16px;
+  background:linear-gradient(135deg,#2d8d67,#1b6c91);
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
+#page-app .bc-global-brand img {width:42px;height:42px;}
+#page-app .bc-rail-action {
+  width:48px;height:48px;
+  border-radius:16px;
+  color:#b5bac1;
+  transition:border-radius .18s ease,background .18s ease,color .18s ease;
+}
+#page-app .bc-rail-action:hover,
+#page-app .bc-rail-action.is-active {
+  border-radius:16px;
+  background:var(--bc-d-accent);
+  color:#fff;
+}
+#page-app .bc-rail-action.is-active::before {display:none;}
+#page-app .bc-global-divider {width:32px;background:rgba(255,255,255,.1);}
+#page-app .bc-stage {background:var(--bc-d-bg);}
+#page-app .bc-stage-topbar {
+  min-height:48px;
+  padding:0 18px;
+  border-bottom:1px solid rgba(0,0,0,.22);
+  background:#313338;
+  box-shadow:0 1px 2px rgba(0,0,0,.12);
+}
+#page-app .bc-stage-kicker {color:#b5bac1;letter-spacing:.1em;}
+#page-app .bc-stage-kicker b {color:#23c483;}
+#page-app .bc-stage-title h1 {font-size:16px;letter-spacing:-.015em;}
+#page-app .bc-platform-state {
+  padding:5px 9px;
+  border-radius:4px;
+  background:#2b2d31;
+  color:#b5bac1;
+}
+#page-app .bc-desktop-workarea {
+  grid-template-columns:72px 240px minmax(0,1fr) 240px;
+  min-height:calc(100vh - 48px - 36px);
+}
+#page-app .bc-server-rail {
+  background:#1e1f22;
+  border-right:1px solid rgba(0,0,0,.24);
+  padding:14px 10px;
+}
+#page-app .bc-server-rail-title,
+#page-app .bc-server-list-eyebrow,
+#page-app .bc-community-subtitle,
+#page-app .bc-channel-section-title {
+  color:#949ba4;
+  letter-spacing:.08em;
+}
+#page-app .bc-server-list-eyebrow {font-size:10px;margin:2px 4px 6px;}
+#page-app .bc-platform-channels {
+  background:#2b2d31;
+  border-right:1px solid rgba(0,0,0,.2);
+}
+#page-app .bc-community-heading {
+  min-height:52px;
+  padding:12px 14px;
+  background:#2b2d31;
+  border-bottom:1px solid rgba(0,0,0,.2);
+  box-shadow:0 1px 2px rgba(0,0,0,.1);
+}
+#page-app .bc-community-heading h2 {
+  color:#f2f3f5;
+  font-size:15px;
+  font-weight:700;
+}
+#page-app .bc-channel-section-title {
+  padding:14px 10px 5px;
+  font-size:10px;
+}
+#page-app .bc-platform-list {gap:2px;}
+#page-app .bc-community-item,
+#page-app .bc-channel-item {
+  border-radius:4px;
+  color:#b5bac1;
+  min-height:36px;
+}
+#page-app .bc-community-item:hover,
+#page-app .bc-channel-item:hover {
+  background:rgba(255,255,255,.06);
+  color:#f2f3f5;
+}
+#page-app .bc-community-item.is-active,
+#page-app .bc-channel-item.is-active {
+  background:#404249;
+  color:#fff;
+}
+#page-app .bc-community-symbol {
+  border-radius:12px;
+  background:#404249;
+}
+#page-app .bc-platform-center {background:#313338;}
+#page-app .bc-platform-chat-header {
+  min-height:48px;
+  padding:0 18px;
+  background:#313338;
+  border-bottom:1px solid rgba(0,0,0,.2);
+  box-shadow:0 1px 2px rgba(0,0,0,.1);
+}
+#page-app .bc-chat-heading {gap:8px;}
+#page-app .bc-chat-heading strong {font-size:16px;}
+#page-app .bc-channel-hash {color:#949ba4;font-size:24px;}
+#page-app .bc-chat-heading small {color:#949ba4;}
+#page-app .bc-chat-header-actions input {
+  height:28px;
+  border:0;
+  border-radius:4px;
+  background:#1e1f22;
+  color:#dbdee1;
+}
+#page-app .bc-platform-messages {padding:16px 20px 8px;}
+#page-app .bc-platform-message {
+  padding:6px 8px;
+  border-radius:4px;
+  color:#dbdee1;
+}
+#page-app .bc-platform-message:hover {background:rgba(0,0,0,.12);}
+#page-app .bc-platform-message-author {color:#f2f3f5;font-weight:700;}
+#page-app .bc-platform-message-time {color:#949ba4;}
+#page-app .bc-platform-compose {
+  margin:10px 16px 20px;
+  padding:0 12px;
+  min-height:46px;
+  border:0;
+  border-radius:8px;
+  background:#383a40;
+}
+#page-app .bc-platform-compose input {
+  color:#dbdee1;
+  background:transparent;
+}
+#page-app .bc-platform-compose button {
+  border-radius:4px;
+  background:var(--bc-d-accent);
+  color:#10241b;
+  font-weight:700;
+}
+#page-app .bc-members-pane {
+  background:#2b2d31;
+  border-left:1px solid rgba(0,0,0,.2);
+  padding:18px 10px;
+}
+#page-app .bc-members-header {color:#f2f3f5;font-size:12px;letter-spacing:.08em;}
+#page-app .bc-members-description {color:#949ba4;}
+#page-app .bc-member-row {
+  border-radius:4px;
+  color:#b5bac1;
+  padding:7px 8px;
+}
+#page-app .bc-member-row:hover {background:rgba(255,255,255,.06);color:#f2f3f5;}
+#page-app .bc-account-panel {
+  background:#232428;
+  border-top:1px solid rgba(0,0,0,.2);
+}
+#page-app .bc-user-dock:hover,
+#page-app .bc-account-actions button:hover {background:rgba(255,255,255,.08);}
+#page-app .bc-account-actions button {color:#b5bac1;}
+#page-app .bc-subpage-heading {
+  background:#313338;
+  border-bottom:1px solid rgba(0,0,0,.2);
+  padding:20px 24px;
+}
+#page-app .bc-subpage-heading h2 {color:#f2f3f5;}
+#page-app .bc-subpage-heading p,
+#page-app .bc-subpage-icon {color:#b5bac1;}
+#page-app .bc-view-panel:not(.bc-platform-chat) {
+  background:#313338;
+}
+#page-app .bc-platform-mini-form input,
+#page-app .bc-platform-mini-form textarea,
+#page-app .bc-platform-mini-form select {
+  background:#1e1f22;
+  border:1px solid rgba(0,0,0,.25);
+  color:#dbdee1;
+  border-radius:4px;
+}
+#page-app .bc-platform-mini-form button,
+#page-app .bc-friends-surface button,
+#page-app .bc-profile-editor button {
+  border-radius:4px;
+  background:var(--bc-d-accent);
+  color:#10241b;
+}
+#page-app .bc-call-dock {
+  background:#232428;
+  border-top:1px solid rgba(0,0,0,.2);
+}
+@media (max-width:1200px) {
+  #page-app .bc-desktop-workarea {grid-template-columns:72px 220px minmax(0,1fr);}
+}
+@media (max-width:760px) {
+  #page-app .bc-community-desktop {grid-template-columns:60px minmax(0,1fr);}
+  #page-app .bc-global-rail {padding:10px 6px;}
+  #page-app .bc-global-brand,
+  #page-app .bc-rail-action {width:44px;height:44px;}
+  #page-app .bc-desktop-workarea {grid-template-columns:60px minmax(0,1fr);}
+  #page-app .bc-platform-channels,
+  #page-app .bc-members-pane {display:none;}
+  #page-app .bc-stage-topbar {padding:0 12px;}
+  #page-app .bc-stage-title h1 {font-size:14px;}
+  #page-app .bc-platform-messages {padding:12px 10px 6px;}
+  #page-app .bc-platform-compose {margin:8px 8px 12px;}
+}

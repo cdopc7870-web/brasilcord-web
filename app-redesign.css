@@ -1,0 +1,413 @@
+/* BrasilCord app refresh — visual layer over the existing authenticated workspace */
+:root {
+  --bc-app-bg: #07131c;
+  --bc-app-bg-deep: #040b12;
+  --bc-app-surface: rgba(12, 28, 40, .94);
+  --bc-app-surface-2: rgba(18, 42, 56, .92);
+  --bc-app-border: rgba(161, 222, 198, .18);
+  --bc-app-border-strong: rgba(246, 211, 106, .34);
+  --bc-app-text: #f4fbf8;
+  --bc-app-muted: #91a9b0;
+  --bc-app-green: #35e79a;
+  --bc-app-green-deep: #0f9864;
+  --bc-app-gold: #f6d36a;
+  --bc-app-red: #e66f79;
+  --bc-app-blue: #74b6ff;
+}
+
+body.bc-app-refresh {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(20, 117, 92, .22), transparent 34rem),
+    radial-gradient(circle at 95% 15%, rgba(180, 44, 58, .12), transparent 30rem),
+    linear-gradient(135deg, var(--bc-app-bg-deep), var(--bc-app-bg) 45%, #0a1720);
+  color: var(--bc-app-text);
+}
+
+body.bc-app-refresh .bc-workspace-page {
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+
+body.bc-app-refresh .bc-workspace-page::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 2% 50%, #e66f79 0 4px, transparent 5px),
+    radial-gradient(circle at 10% 50%, #f6d36a 0 4px, transparent 5px),
+    radial-gradient(circle at 18% 50%, #35e79a 0 4px, transparent 5px),
+    radial-gradient(circle at 26% 50%, #74b6ff 0 4px, transparent 5px),
+    radial-gradient(circle at 34% 50%, #e66f79 0 4px, transparent 5px),
+    radial-gradient(circle at 42% 50%, #f6d36a 0 4px, transparent 5px),
+    radial-gradient(circle at 50% 50%, #35e79a 0 4px, transparent 5px),
+    radial-gradient(circle at 58% 50%, #74b6ff 0 4px, transparent 5px),
+    radial-gradient(circle at 66% 50%, #e66f79 0 4px, transparent 5px),
+    radial-gradient(circle at 74% 50%, #f6d36a 0 4px, transparent 5px),
+    radial-gradient(circle at 82% 50%, #35e79a 0 4px, transparent 5px),
+    radial-gradient(circle at 90% 50%, #74b6ff 0 4px, transparent 5px),
+    radial-gradient(circle at 98% 50%, #e66f79 0 4px, transparent 5px);
+  background-size: 8% 100%;
+  background-repeat: repeat-x;
+  opacity: .92;
+}
+
+body.bc-app-refresh .bc-community-desktop {
+  border: 1px solid var(--bc-app-border);
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(5, 16, 24, .74);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, .28), 0 0 0 1px rgba(255,255,255,.025) inset;
+}
+
+body.bc-app-refresh .bc-server-rail,
+body.bc-app-refresh .bc-platform-channels,
+body.bc-app-refresh .bc-members-pane {
+  background: linear-gradient(180deg, rgba(12, 30, 42, .98), rgba(7, 19, 28, .98));
+  border-color: var(--bc-app-border);
+}
+
+body.bc-app-refresh .bc-platform-channels {
+  box-shadow: 8px 0 24px rgba(0,0,0,.12);
+}
+
+body.bc-app-refresh .bc-members-pane {
+  box-shadow: -8px 0 24px rgba(0,0,0,.12);
+}
+
+body.bc-app-refresh .bc-stage-topbar,
+body.bc-app-refresh .bc-chat-heading {
+  min-height: 58px;
+  background: rgba(9, 24, 34, .84);
+  border-color: var(--bc-app-border);
+  backdrop-filter: blur(18px);
+}
+
+body.bc-app-refresh .bc-stage-topbar h1,
+body.bc-app-refresh .bc-chat-heading h2,
+body.bc-app-refresh #bc-workspace-title {
+  color: var(--bc-app-text);
+  letter-spacing: -.01em;
+}
+
+body.bc-app-refresh .bc-channel-list button,
+body.bc-app-refresh .bc-platform-list button,
+body.bc-app-refresh .bc-rail-action,
+body.bc-app-refresh .bc-add-server-button,
+body.bc-app-refresh .bc-member-row,
+body.bc-app-refresh .bc-community-card,
+body.bc-app-refresh .bc-account-panel button {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--bc-app-muted);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
+}
+
+body.bc-app-refresh .bc-channel-list button:hover,
+body.bc-app-refresh .bc-platform-list button:hover,
+body.bc-app-refresh .bc-rail-action:hover,
+body.bc-app-refresh .bc-add-server-button:hover,
+body.bc-app-refresh .bc-member-row:hover,
+body.bc-app-refresh .bc-community-card:hover {
+  color: var(--bc-app-text);
+  background: rgba(53, 231, 154, .09);
+  border-color: rgba(53, 231, 154, .24);
+  transform: translateY(-1px);
+}
+
+body.bc-app-refresh .bc-channel-list button.active,
+body.bc-app-refresh .bc-channel-list button[aria-current="page"],
+body.bc-app-refresh .bc-platform-list button.active,
+body.bc-app-refresh .bc-platform-list button[aria-current="page"] {
+  color: var(--bc-app-text);
+  background: linear-gradient(90deg, rgba(22, 115, 86, .5), rgba(17, 61, 65, .66));
+  border-color: rgba(53, 231, 154, .36);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12), inset 3px 0 0 var(--bc-app-green);
+}
+
+body.bc-app-refresh button,
+body.bc-app-refresh [role="button"] {
+  font: inherit;
+}
+
+body.bc-app-refresh button:focus-visible,
+body.bc-app-refresh [role="button"]:focus-visible,
+body.bc-app-refresh input:focus-visible,
+body.bc-app-refresh select:focus-visible,
+body.bc-app-refresh textarea:focus-visible {
+  outline: 3px solid rgba(246, 211, 106, .82);
+  outline-offset: 2px;
+}
+
+body.bc-app-refresh .bc-account-panel,
+body.bc-app-refresh .bc-platform-compose,
+body.bc-app-refresh #bc-platform-message-form,
+body.bc-app-refresh .bc-call-panel,
+body.bc-app-refresh .bc-dm-card,
+body.bc-app-refresh .bc-profile-card {
+  border-color: var(--bc-app-border);
+  background: rgba(12, 29, 40, .88);
+  box-shadow: 0 16px 34px rgba(0,0,0,.18);
+}
+
+body.bc-app-refresh #bc-platform-message-form {
+  border-radius: 16px;
+  padding: 8px;
+  backdrop-filter: blur(14px);
+}
+
+body.bc-app-refresh #bc-platform-message-input,
+body.bc-app-refresh .bc-platform-compose textarea,
+body.bc-app-refresh .bc-dm-compose textarea {
+  border-radius: 12px;
+  color: var(--bc-app-text);
+  background: rgba(4, 14, 22, .7);
+  border: 1px solid var(--bc-app-border);
+}
+
+body.bc-app-refresh #bc-platform-message-form button[type="submit"],
+body.bc-app-refresh .bc-server-modal-submit,
+body.bc-app-refresh .bc-native-call-controls #bc-call-join,
+body.bc-app-refresh .bc-dm-compose button[type="submit"],
+body.bc-app-refresh .bc-primary-button {
+  color: #062015;
+  background: linear-gradient(135deg, #4ceaa4, #20bb88 55%, #f6d36a);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(24, 175, 119, .24);
+  font-weight: 800;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+body.bc-app-refresh #bc-platform-message-form button[type="submit"]:hover,
+body.bc-app-refresh .bc-server-modal-submit:hover,
+body.bc-app-refresh .bc-native-call-controls #bc-call-join:hover,
+body.bc-app-refresh .bc-dm-compose button[type="submit"]:hover,
+body.bc-app-refresh .bc-primary-button:hover {
+  filter: saturate(1.12) brightness(1.06);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(24, 175, 119, .34);
+}
+
+body.bc-app-refresh .bc-native-call-controls button,
+body.bc-app-refresh .bc-call-actions button,
+body.bc-app-refresh .bc-account-actions button,
+body.bc-app-refresh .bc-profile-actions button,
+body.bc-app-refresh .bc-server-settings-actions button,
+body.bc-app-refresh .bc-dm-actions button {
+  min-height: 38px;
+  border-radius: 11px;
+  border: 1px solid var(--bc-app-border);
+  background: rgba(255,255,255,.055);
+  color: var(--bc-app-text);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+body.bc-app-refresh .bc-native-call-controls button:hover,
+body.bc-app-refresh .bc-call-actions button:hover,
+body.bc-app-refresh .bc-account-actions button:hover,
+body.bc-app-refresh .bc-profile-actions button:hover,
+body.bc-app-refresh .bc-server-settings-actions button:hover,
+body.bc-app-refresh .bc-dm-actions button:hover {
+  transform: translateY(-1px);
+  background: rgba(53, 231, 154, .14);
+  border-color: rgba(53, 231, 154, .4);
+}
+
+body.bc-app-refresh .bc-status-pill,
+body.bc-app-refresh .bc-online-pill,
+body.bc-app-refresh .bc-member-status {
+  border-radius: 999px;
+  border: 1px solid rgba(53, 231, 154, .3);
+  background: rgba(53, 231, 154, .11);
+  color: var(--bc-app-green);
+}
+
+body.bc-app-refresh .bc-quick-settings {
+  width: min(560px, calc(100vw - 28px));
+  border: 1px solid var(--bc-app-border-strong);
+  border-radius: 22px;
+  padding: 0;
+  color: var(--bc-app-text);
+  background: linear-gradient(150deg, rgba(16, 39, 48, .98), rgba(7, 21, 31, .98));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .5);
+}
+
+body.bc-app-refresh .bc-quick-settings::backdrop {
+  background: rgba(1, 7, 12, .72);
+  backdrop-filter: blur(7px);
+}
+
+body.bc-app-refresh .bc-quick-settings-card {
+  padding: 26px;
+}
+
+body.bc-app-refresh .bc-quick-settings-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+body.bc-app-refresh .bc-quick-settings-kicker {
+  margin: 0 0 6px;
+  color: var(--bc-app-gold);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+body.bc-app-refresh .bc-quick-settings h2 {
+  margin: 0;
+  font-size: 1.55rem;
+  letter-spacing: -.025em;
+}
+
+body.bc-app-refresh .bc-quick-settings-close {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--bc-app-border);
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  color: var(--bc-app-text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body.bc-app-refresh .bc-settings-grid {
+  display: grid;
+  gap: 10px;
+}
+
+body.bc-app-refresh .bc-settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 15px 16px;
+  border: 1px solid var(--bc-app-border);
+  border-radius: 15px;
+  background: rgba(255,255,255,.035);
+}
+
+body.bc-app-refresh .bc-settings-row strong,
+body.bc-app-refresh .bc-settings-row small {
+  display: block;
+}
+
+body.bc-app-refresh .bc-settings-row strong {
+  color: var(--bc-app-text);
+  font-size: .95rem;
+}
+
+body.bc-app-refresh .bc-settings-row small {
+  margin-top: 4px;
+  color: var(--bc-app-muted);
+  font-size: .78rem;
+}
+
+body.bc-app-refresh .bc-settings-row input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--bc-app-green);
+}
+
+body.bc-app-refresh .bc-settings-row input[type="range"] {
+  width: 145px;
+  accent-color: var(--bc-app-gold);
+}
+
+body.bc-app-refresh .bc-settings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+body.bc-app-refresh .bc-settings-actions button,
+body.bc-app-refresh .bc-app-settings-button {
+  min-height: 40px;
+  border: 1px solid var(--bc-app-border);
+  border-radius: 12px;
+  padding: 0 14px;
+  color: var(--bc-app-text);
+  background: rgba(255,255,255,.06);
+  cursor: pointer;
+}
+
+body.bc-app-refresh .bc-settings-actions button:hover,
+body.bc-app-refresh .bc-app-settings-button:hover {
+  border-color: rgba(246, 211, 106, .55);
+  background: rgba(246, 211, 106, .12);
+}
+
+body.bc-app-refresh .bc-settings-feedback {
+  min-height: 1.2em;
+  margin: 16px 0 0;
+  color: var(--bc-app-green);
+  font-size: .82rem;
+}
+
+body.bc-app-refresh .bc-app-settings-button {
+  color: var(--bc-app-gold);
+  border-color: rgba(246, 211, 106, .28);
+}
+
+body.bc-app-refresh.christmas-on .bc-community-desktop {
+  background:
+    radial-gradient(circle at 75% 0%, rgba(230, 111, 121, .09), transparent 18rem),
+    radial-gradient(circle at 15% 100%, rgba(53, 231, 154, .1), transparent 20rem),
+    rgba(5, 16, 24, .74);
+}
+
+body.bc-app-refresh[data-ui-density="compact"] .bc-channel-list button,
+body.bc-app-refresh[data-ui-density="compact"] .bc-platform-list button,
+body.bc-app-refresh[data-ui-density="compact"] .bc-member-row {
+  min-height: 32px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+body.bc-app-refresh[data-ui-density="relaxed"] .bc-channel-list button,
+body.bc-app-refresh[data-ui-density="relaxed"] .bc-platform-list button,
+body.bc-app-refresh[data-ui-density="relaxed"] .bc-member-row {
+  min-height: 48px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+@media (max-width: 1100px) {
+  body.bc-app-refresh .bc-members-pane {
+    display: none;
+  }
+  body.bc-app-refresh .bc-community-desktop {
+    grid-template-columns: 72px minmax(220px, 280px) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  body.bc-app-refresh .bc-community-desktop {
+    border-radius: 14px;
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+  body.bc-app-refresh .bc-platform-channels {
+    display: none;
+  }
+  body.bc-app-refresh .bc-stage-topbar,
+  body.bc-app-refresh .bc-chat-heading {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  body.bc-app-refresh .bc-quick-settings-card {
+    padding: 20px;
+  }
+  body.bc-app-refresh .bc-settings-row {
+    align-items: flex-start;
+  }
+}

@@ -30,6 +30,35 @@
       return body;
     }finally{clearTimeout(timer)}
   }
+  async function restoreExistingSession(){
+    if(view!=='login')return false;
+    let token='';
+    try{
+      token=localStorage.getItem('brasilcord:web:session')||sessionStorage.getItem('brasilcord:web:session')||'';
+    }catch{}
+    if(!token)return false;
+    showMessage(msg,'Verificando sua sessão salva...',true);
+    const controller=new AbortController();
+    const timer=setTimeout(()=>controller.abort(),10000);
+    try{
+      const response=await fetch(API+'/me',{
+        headers:{'Authorization':'Bearer '+token,'Accept':'application/json'},
+        cache:'no-store',signal:controller.signal
+      });
+      if(response.ok){
+        location.replace('app.html?app=1');
+        return true;
+      }
+      if(response.status===401||response.status===403){
+        try{localStorage.removeItem('brasilcord:web:session');sessionStorage.removeItem('brasilcord:web:session');}catch{}
+        showMessage(msg,'Sua sessão expirou. Entre novamente.');
+      }
+    }catch(error){
+      if(error?.name!=='AbortError')console.warn('Não foi possível verificar a sessão salva:',error);
+    }finally{clearTimeout(timer);}
+    return false;
+  }
+  const restoreSessionPromise=restoreExistingSession();
   document.querySelectorAll('[data-toggle-password]').forEach(button=>{
     button.addEventListener('click',()=>{
       const input=document.getElementById(button.dataset.togglePassword);

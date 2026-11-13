@@ -44,7 +44,7 @@
     if (token) headers.Authorization = 'Bearer ' + token;
     if (data !== undefined) headers['Content-Type'] = 'application/json';
     const abort = new AbortController();
-    const timeout = setTimeout(() => abort.abort(), 13000);
+    const timeout = setTimeout(() => abort.abort(), 30000);
     try {
       const res = await fetch(API + '/api/platform' + path, {
         method, headers, body: data === undefined ? undefined : JSON.stringify(data),
@@ -171,7 +171,7 @@
     }catch{return;}
     feedback('Restaurando sua sessão salva…');
     const controller=new AbortController();
-    const timeout=setTimeout(()=>controller.abort(),13000);
+    const timeout=setTimeout(()=>controller.abort(),30000);
     try {
       const res=await fetch(API+'/api/platform/me',{
         headers:{Authorization:'Bearer '+saved.token,Accept:'application/json'},

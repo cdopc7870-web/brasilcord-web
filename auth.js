@@ -19,7 +19,7 @@
     :error instanceof TypeError?'Não foi possível conectar ao serviço do BrasilCord.':error?.message||'Não foi possível concluir a operação.';
   async function request(path,payload){
     const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),15000);
+    const timer=setTimeout(()=>controller.abort(),45000);
     try{
       const res=await fetch(API+path,{
         method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -39,7 +39,7 @@
     if(!token)return false;
     showMessage(msg,'Verificando sua sessão salva...',true);
     const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),10000);
+    const timer=setTimeout(()=>controller.abort(),30000);
     try{
       const response=await fetch(API+'/me',{
         headers:{'Authorization':'Bearer '+token,'Accept':'application/json'},

@@ -79,19 +79,28 @@
     const confirmForm=document.getElementById('recovery-confirm-form');
     const requestStatus=document.getElementById('recovery-request-status');
     const confirmStatus=document.getElementById('recovery-confirm-status');
+    const retryButton=document.getElementById('recovery-request-retry');
     const report=(el,s,ok)=>{el.textContent=s;el.dataset.state=ok?'ok':'error';};
+    const recoveryError=error=>{
+      const text=errorMessage(error);
+      if(error instanceof TypeError||/indisponível|não foi possível conectar/i.test(text))
+        return 'O serviço de recuperação está temporariamente indisponível. O problema está no servidor, não no seu e-mail. Tente novamente em alguns minutos.';
+      return text;
+    };
     requestForm?.addEventListener('submit',async e=>{
       e.preventDefault();if(!requestForm.reportValidity())return;
       const button=requestForm.querySelector('[type=submit]');button.disabled=true;
+      if(retryButton)retryButton.hidden=true;
       report(requestStatus,'Enviando solicitação...',true);
       try{
         const email=document.getElementById('recovery-email').value.trim().toLowerCase();
         const result=await request('/password-reset/request',{email});
         report(requestStatus,result.message||'Confira seu e-mail.',true);
         confirmForm.hidden=false;
-      }catch(err){report(requestStatus,errorMessage(err),false);}
+      }catch(err){report(requestStatus,recoveryError(err),false);if(retryButton)retryButton.hidden=false;}
       finally{button.disabled=false;}
     });
+    retryButton?.addEventListener('click',()=>requestForm?.requestSubmit());
     confirmForm?.addEventListener('submit',async e=>{
       e.preventDefault();if(!confirmForm.reportValidity())return;
       const email=document.getElementById('recovery-email').value.trim().toLowerCase();

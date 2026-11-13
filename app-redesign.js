@@ -215,7 +215,7 @@
     body.appendChild(snow);
 
     const ribbon = document.createElement("div");
-    ribbon.className = "bc-holiday-ribbon";
+    ribbon.className = "bc-holiday-status-chip";
     ribbon.setAttribute("aria-hidden", "true");
     ribbon.innerHTML = "<span>🎄</span><span>Modo Natalino BrasilCord</span><span>🎁</span>";
     body.appendChild(ribbon);

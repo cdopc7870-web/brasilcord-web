@@ -62,7 +62,16 @@
       }catch(error){console.warn('Nome de exibição não foi atualizado:',error.message)}
       pendingDisplayName='';
     }
-    sessionStorage.setItem('brasilcord:web:session',result.token);
+    const remember=view!=='login'||document.getElementById('remember-login')?.checked===true;
+    try{
+      if(remember){
+        localStorage.setItem('brasilcord:web:session',result.token);
+        sessionStorage.removeItem('brasilcord:web:session');
+      }else{
+        sessionStorage.setItem('brasilcord:web:session',result.token);
+        localStorage.removeItem('brasilcord:web:session');
+      }
+    }catch{throw Error('Não foi possível salvar a sessão neste navegador. Verifique as configurações de privacidade.');}
     location.replace('app.html?app=1');
   }
   if(view==='recover'){

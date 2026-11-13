@@ -721,3 +721,76 @@ body.bc-app-refresh.christmas-on .bc-holiday-ribbon {
 @media (prefers-reduced-motion: reduce) {
   .bc-snowfall span { animation: none; opacity: .28; top: 12%; }
 }
+
+/* Fix: keep the original topbar ribbon and isolate the floating holiday chip. */
+body.bc-app-refresh.christmas-on .bc-holiday-ribbon {
+  position: absolute !important;
+  z-index: 2 !important;
+  top: 9px !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: 50% !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: min(72vw, 520px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  transform: translateX(-50%) !important;
+  padding: 5px 11px !important;
+  border-radius: 999px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.bc-holiday-status-chip {
+  display: none;
+  position: fixed !important;
+  z-index: 21 !important;
+  right: 16px !important;
+  bottom: 14px !important;
+  top: auto !important;
+  left: auto !important;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: min(80vw, 300px) !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-sizing: border-box !important;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 13px !important;
+  transform: none !important;
+  color: #fff7dc;
+  border: 1px solid rgba(255,216,107,.42);
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, rgba(154,40,55,.92), rgba(8,111,75,.94));
+  box-shadow: 0 10px 24px rgba(0,0,0,.28);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+body.bc-app-refresh.christmas-on .bc-holiday-status-chip {
+  display: flex !important;
+}
+
+@media (max-width: 720px) {
+  body.bc-app-refresh.christmas-on .bc-holiday-ribbon {
+    left: auto !important;
+    right: 10px !important;
+    transform: none !important;
+    max-width: 48vw !important;
+    font-size: 9px !important;
+  }
+  body.bc-app-refresh.christmas-on .bc-holiday-status-chip {
+    right: 10px !important;
+    bottom: 10px !important;
+    max-width: 72vw !important;
+    font-size: 10px !important;
+  }
+}

@@ -1,0 +1,120 @@
+/* BrasilCord — identidade visual brasileira aplicada ao site inteiro.
+   Paleta inspirada na bandeira: verde, amarelo e azul, com uso sutil e premium. */
+:root{
+  --brasil-green:#078447;
+  --brasil-green-bright:#12a765;
+  --brasil-yellow:#f2c532;
+  --brasil-blue:#1264b5;
+  --brasil-blue-deep:#083d78;
+  --brasil-focus:rgba(18,100,181,.28);
+}
+html{scroll-behavior:smooth}
+body:not([data-theme="dark"]){
+  background-image:
+    radial-gradient(ellipse 45% 34% at 5% 8%,rgba(0,151,78,.12),transparent 82%),
+    radial-gradient(ellipse 38% 32% at 96% 18%,rgba(255,207,42,.16),transparent 82%),
+    radial-gradient(ellipse 48% 42% at 76% 92%,rgba(18,100,181,.10),transparent 84%),
+    linear-gradient(135deg,#f8fcf9 0%,#f4f8fd 56%,#fffdf4 100%);
+}
+body[data-theme="dark"]{
+  background-image:
+    radial-gradient(ellipse 42% 35% at 4% 5%,rgba(0,139,75,.22),transparent 84%),
+    radial-gradient(ellipse 38% 33% at 97% 18%,rgba(180,139,10,.12),transparent 84%),
+    radial-gradient(ellipse 50% 45% at 78% 100%,rgba(15,91,168,.20),transparent 86%),
+    linear-gradient(145deg,#061b20 0%,#071b2b 54%,#101d28 100%);
+}
+.site-header{
+  border-bottom-color:rgba(9,126,74,.16);
+  background:color-mix(in srgb,var(--bg,#f5f8fc) 88%,transparent);
+}
+.brand strong{letter-spacing:-.045em}
+.brand img{filter:drop-shadow(0 3px 7px rgba(0,90,65,.16))}
+.nav-links a{transition:color .18s ease}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--brasil-green-bright)}
+.btn-blue,.btn-green,.hero-ctas .btn-primary,.auth-submit{
+  background:linear-gradient(105deg,#078447 0%,#0b9b63 42%,#1264b5 100%);
+  border-color:transparent;
+  color:#fff;
+  box-shadow:0 9px 24px rgba(7,105,75,.19);
+}
+.btn-blue:hover,.btn-green:hover,.hero-ctas .btn-primary:hover,.auth-submit:hover:not(:disabled){
+  filter:saturate(1.12) brightness(1.05);
+  box-shadow:0 13px 29px rgba(7,105,75,.25);
+}
+.btn-subtle,.btn-outline{
+  border-color:rgba(18,100,181,.27);
+}
+.btn-subtle:hover,.btn-outline:hover{
+  border-color:rgba(242,197,50,.78);
+  background:rgba(242,197,50,.12);
+}
+.eyebrow,.section-kicker,.partner-hero .eyebrow,.download-hero .eyebrow{
+  color:var(--brasil-green-bright);
+}
+.hero h1 .bc-gradient-text,.partner-hero h1 .bc-gradient-text,
+.download-hero h1 .bc-gradient-text{
+  background-image:linear-gradient(105deg,#078447 0%,#1264b5 55%,#b58a05 100%);
+}
+.feature-card,.download-card,.partner-card,.docs-sidebar,.docs-toc{
+  border-color:rgba(10,126,75,.18);
+}
+.feature-card:hover,.download-card:hover,.partner-card:hover{
+  border-color:rgba(242,197,50,.65);
+}
+.feature-icon.icon-green,.icon-green{
+  background:rgba(11,158,91,.13);
+  color:#078447;
+}
+.feature-icon.icon-blue,.icon-blue{
+  background:rgba(18,100,181,.12);
+  color:#1264b5;
+}
+.feature-icon.icon-yellow,.icon-yellow{
+  background:rgba(242,197,50,.18);
+  color:#947000;
+}
+.join-strip,.partner-cta{
+  background:
+    linear-gradient(112deg,rgba(0,139,75,.09),rgba(242,197,50,.13) 52%,rgba(18,100,181,.09)),
+    var(--surface);
+  border-color:rgba(9,126,74,.2);
+}
+.step-number,.step span{color:var(--brasil-green-bright)}
+.availability-dot{background:var(--brasil-yellow);box-shadow:0 0 0 4px rgba(242,197,50,.18)}
+.site-footer{
+  border-top:1px solid rgba(9,126,74,.15);
+}
+.footer-column a:hover,.text-link{color:var(--brasil-blue)}
+.theme-switch button.active{
+  background:linear-gradient(125deg,#078447,#1264b5);
+  color:#fff;
+}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--brasil-yellow);
+  outline-offset:3px;
+}
+.docs-primary-link.active{
+  background:linear-gradient(110deg,rgba(0,139,75,.17),rgba(18,100,181,.12));
+  border-color:rgba(0,139,75,.35);
+  color:var(--brasil-green-bright);
+}
+.docs-primary-link>span:first-child{color:var(--brasil-green-bright)}
+/* Tema claro */
+body[data-theme="light"] .site-header{background:rgba(248,252,249,.9);border-bottom-color:rgba(0,132,68,.16)}
+body[data-theme="light"] .site-footer{background:linear-gradient(110deg,rgba(0,139,75,.045),rgba(242,197,50,.055),rgba(18,100,181,.045))}
+body[data-theme="light"] .btn-subtle,body[data-theme="light"] .btn-outline{background:rgba(255,255,255,.82)}
+body[data-theme="light"] .feature-card,body[data-theme="light"] .download-card,body[data-theme="light"] .partner-card{box-shadow:0 16px 42px rgba(10,83,52,.055)}
+/* Tema escuro: mantém o contraste e usa tons vivos sem ofuscar. */
+body[data-theme="dark"] .site-header{background:rgba(5,25,35,.88);border-bottom-color:rgba(55,185,128,.2)}
+body[data-theme="dark"] .btn-blue,body[data-theme="dark"] .btn-green,body[data-theme="dark"] .auth-submit{
+  background:linear-gradient(105deg,#087b49 0%,#079b65 45%,#1264b5 100%);
+  color:#fff;
+}
+body[data-theme="dark"] .join-strip,body[data-theme="dark"] .partner-cta{
+  background:linear-gradient(110deg,rgba(0,139,75,.22),rgba(174,137,10,.12),rgba(18,100,181,.2)),var(--surface);
+  border-color:rgba(64,174,133,.3);
+}
+body[data-theme="dark"] .feature-card,body[data-theme="dark"] .download-card,body[data-theme="dark"] .partner-card{border-color:rgba(64,174,133,.23)}
+body[data-theme="dark"] .feature-card:hover,body[data-theme="dark"] .download-card:hover,body[data-theme="dark"] .partner-card:hover{border-color:rgba(242,197,50,.55)}
+body[data-theme="dark"] .icon-yellow{color:#ffdf70}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

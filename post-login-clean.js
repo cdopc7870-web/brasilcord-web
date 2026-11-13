@@ -31,9 +31,9 @@
     const hasMessage = messages.querySelector('.bc-platform-message, .bc-message-row, [data-message-id], article');
     const text = messages.textContent || '';
     const placeholder = !hasMessage && /Selecione um canal para conversar|mensagens da sua comunidade aparecerão aqui/i.test(text);
-    const existing = messages.querySelector('.bc-clean-empty');
+    const existing = messages.querySelector('.bc-polish-empty');
     if (placeholder && !existing) {
-      messages.innerHTML = '<div class="bc-clean-empty"><div class="bc-clean-empty-card"><div class="bc-clean-empty-icon" aria-hidden="true">#</div><h3>Pronto para conversar?</h3><p>Escolha um canal à esquerda ou comece uma mensagem. Aqui você acompanha novidades e participa da comunidade em tempo real.</p><div class="bc-clean-empty-actions"><button type="button" data-bc-clean-action="channel">Abrir boas-vindas</button><button type="button" data-bc-clean-action="members">Ver membros</button><button type="button" data-bc-clean-action="compose">Escrever mensagem</button></div></div></div>';
+      messages.innerHTML = '<div class="bc-polish-empty"><div class="bc-polish-empty-card"><div class="bc-polish-empty-icon" aria-hidden="true">#</div><h3>Pronto para conversar?</h3><p>Escolha um canal à esquerda ou comece uma mensagem. Aqui você acompanha novidades e participa da comunidade em tempo real.</p><div class="bc-polish-empty-actions"><button type="button" data-bc-clean-action="channel">Abrir boas-vindas</button><button type="button" data-bc-clean-action="members">Ver membros</button><button type="button" data-bc-clean-action="compose">Escrever mensagem</button></div></div></div>';
     }
     if (!placeholder && existing) existing.remove();
   }

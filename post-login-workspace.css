@@ -401,3 +401,133 @@ body.bc-app-active:not(.discord-open) .bc-account-actions #bc-user-settings:focu
   body.bc-app-active:not(.discord-open) .bc-desktop-workarea{grid-template-columns:54px minmax(0,1fr)!important;}
   body.bc-app-active:not(.discord-open) .bc-account-panel{min-height:68px!important;}
 }
+
+/* BrasilCord Web — navegação e chat no layout compacto de comunidades.
+   Estilos próprios. A tela de login, a navegação móvel e a API não mudam. */
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) {
+  --bc-chat-main: #292b30;
+  --bc-chat-side: #222429;
+  --bc-chat-rail: #191b1f;
+  --bc-chat-field: #34373e;
+  --bc-chat-hover: #353840;
+  --bc-chat-text: #f0f2f5;
+  --bc-chat-muted: #b7bec8;
+  --bc-chat-accent: #72d8ac;
+}
+
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) :is(.bc-platform-center,.bc-platform-chat,.bc-platform-messages,.bc-platform-chat-header) {
+  background: var(--bc-chat-main) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) :is(.bc-channel-pane,.bc-community-heading,.bc-members-pane) {
+  background: var(--bc-chat-side) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-server-rail {
+  background: var(--bc-chat-rail) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-server-list .bc-community-item {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  background: var(--bc-chat-field) !important;
+  transition: border-radius .16s ease, background-color .16s ease;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-server-list .bc-community-item:hover,
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-server-list .bc-community-item[data-active="true"] {
+  border-radius: 14px !important;
+  background: #255741 !important;
+  border-color: var(--bc-chat-accent) !important;
+  transform: none;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-server-list .bc-community-item[data-active="true"]::before {
+  left: 0;
+  top: 11px;
+  bottom: 11px;
+  width: 3px;
+  background: var(--bc-chat-accent);
+}
+
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-channel-section-title {
+  color: var(--bc-chat-muted) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-channel-item {
+  margin-inline: 0;
+  min-height: 34px !important;
+  color: var(--bc-chat-muted) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-channel-item:hover {
+  background: var(--bc-chat-hover) !important;
+  color: var(--bc-chat-text) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-channel-item:is([data-active="true"],.is-active,[aria-current="page"]) {
+  background: #393e45 !important;
+  color: var(--bc-chat-text) !important;
+  box-shadow: inset 3px 0 var(--bc-chat-accent);
+}
+
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-platform-message p {
+  color: #dce0e5 !important;
+  font-size: .875rem !important;
+  overflow-wrap: anywhere;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-platform-message-head time {
+  color: var(--bc-chat-muted) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-platform-compose {
+  min-height: 50px !important;
+  background: var(--bc-chat-field) !important;
+  border: 1px solid #474b55 !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-platform-compose:focus-within {
+  border-color: var(--bc-chat-accent) !important;
+  box-shadow: 0 0 0 1px var(--bc-chat-accent) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-platform-compose input::placeholder {
+  color: var(--bc-chat-muted) !important;
+}
+body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-platform-compose button[type="submit"] {
+  width: auto !important;
+  min-width: 44px;
+  padding-inline: 10px;
+  border-radius: 7px !important;
+  background: var(--bc-chat-accent) !important;
+  color: #14241d !important;
+}
+
+@media (min-width: 821px) {
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) {
+    grid-template-columns: 64px minmax(242px, 265px) minmax(0, 1fr) 206px !important;
+  }
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]):is([data-bc-members-hidden="true"],[data-bc-active-view]:not([data-bc-active-view="chat"]),:has(> .bc-members-pane[hidden])) {
+    grid-template-columns: 64px minmax(242px, 265px) minmax(0, 1fr) !important;
+  }
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-community-heading {
+    min-height: 58px !important;
+    padding: 10px 14px !important;
+  }
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-platform-chat-header {
+    min-height: 52px !important;
+    max-height: none !important;
+  }
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-account-actions {
+    gap: 4px !important;
+  }
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-account-actions button {
+    width: 32px !important;
+  }
+}
+@media (max-width: 700px) {
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) {
+    grid-template-columns: minmax(0, 1fr) !important;
+    min-height: 0 !important;
+  }
+  body.bc-app-active:not(.discord-open) #page-app:has(#bc-platform-app:not([hidden])) :is(.bc-community-desktop,.bc-stage) {
+    min-height: 0 !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.bc-app-active:not(.discord-open) #bc-platform-app:not([hidden]) .bc-server-list .bc-community-item {
+    transition: none;
+  }
+}

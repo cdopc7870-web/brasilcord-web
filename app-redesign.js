@@ -197,3 +197,44 @@
     });
   });
 })();
+
+
+/* Christmas everywhere: snowfall and persistent festive chrome */
+(() => {
+  "use strict";
+
+  const mountHolidayDecor = () => {
+    const body = document.body;
+    if (!body || document.getElementById("bc-snowfall")) return;
+
+    const snow = document.createElement("div");
+    snow.id = "bc-snowfall";
+    snow.className = "bc-snowfall";
+    snow.setAttribute("aria-hidden", "true");
+    snow.innerHTML = Array.from({ length: 15 }, () => "<span>❄</span>").join("");
+    body.appendChild(snow);
+
+    const ribbon = document.createElement("div");
+    ribbon.className = "bc-holiday-ribbon";
+    ribbon.setAttribute("aria-hidden", "true");
+    ribbon.innerHTML = "<span>🎄</span><span>Modo Natalino BrasilCord</span><span>🎁</span>";
+    body.appendChild(ribbon);
+
+    const syncHolidayDecor = () => {
+      const enabled = body.classList.contains("christmas-on");
+      snow.hidden = !enabled;
+      ribbon.hidden = !enabled;
+      body.dataset.holidayTheme = enabled ? "christmas" : "classic";
+    };
+
+    syncHolidayDecor();
+    const observer = new MutationObserver(syncHolidayDecor);
+    observer.observe(body, { attributes: true, attributeFilter: ["class"] });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountHolidayDecor, { once: true });
+  } else {
+    mountHolidayDecor();
+  }
+})();

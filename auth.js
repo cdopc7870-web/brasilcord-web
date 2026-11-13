@@ -19,7 +19,7 @@
     :error instanceof TypeError?'Não foi possível conectar ao serviço do BrasilCord.':error?.message||'Não foi possível concluir a operação.';
   async function request(path,payload){
     const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),45000);
+    const timer=setTimeout(()=>controller.abort(),20000);
     try{
       const res=await fetch(API+path,{
         method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -39,7 +39,7 @@
     if(!token)return false;
     showMessage(msg,'Verificando sua sessão salva...',true);
     const controller=new AbortController();
-    const timer=setTimeout(()=>controller.abort(),30000);
+    const timer=setTimeout(()=>controller.abort(),12000);
     try{
       const response=await fetch(API+'/me',{
         headers:{'Authorization':'Bearer '+token,'Accept':'application/json'},
@@ -52,9 +52,13 @@
       if(response.status===401||response.status===403){
         try{localStorage.removeItem('brasilcord:web:session');sessionStorage.removeItem('brasilcord:web:session');}catch{}
         showMessage(msg,'Sua sessão expirou. Entre novamente.');
+        return false;
       }
+      showMessage(msg,'Não foi possível validar a sessão salva. Entre novamente.');
     }catch(error){
-      if(error?.name!=='AbortError')console.warn('Não foi possível verificar a sessão salva:',error);
+      showMessage(msg,error?.name==='AbortError'
+        ?'A verificação da sessão demorou. Entre novamente.'
+        :'Não foi possível verificar a sessão salva. Entre novamente.');
     }finally{clearTimeout(timer);}
     return false;
   }

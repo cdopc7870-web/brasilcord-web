@@ -3,7 +3,7 @@
 // Interface da plataforma própria do BrasilCord. Não utiliza credenciais do Discord.
 // O token permanece apenas em memoria durante o uso e e salvo criptografado pelo Electron no Windows.
 (() => {
-  const API = 'https://brasilcord-sinalizacao-dkx157.onrender.com';
+  const API = 'https://brasilcord-backend.onrender.com';
   const $ = id => document.getElementById(id);
   const auth = $('bc-platform-auth');
   const app = $('bc-platform-app');
@@ -653,7 +653,7 @@
     if(!selectedCommunity) return;
     try {
       const data=await request('/communities/'+selectedCommunity.id+'/invite');
-      await navigator.clipboard.writeText('https://brasilcord-sinalizacao-dkx157.onrender.com/invite/'+data.code);
+      await navigator.clipboard.writeText('https://brasilcord-backend.onrender.com/invite/'+data.code);
       feedback('Link de convite copiado para a área de transferência.');
     } catch(err) {feedback('Não foi possível copiar: '+err.message,true);}
   });
@@ -770,7 +770,7 @@
     if (!token || destroyed || socket) return;
     try {
       platformLiveAuthenticated=false;
-      const connection = new WebSocket('wss://brasilcord-sinalizacao-dkx157.onrender.com/platform/ws');
+      const connection = new WebSocket('wss://brasilcord-backend.onrender.com/platform/ws');
       socket = connection;
       connection.addEventListener('open',()=>{
         if(socket===connection) connection.send(JSON.stringify({type:'authenticate',token}));

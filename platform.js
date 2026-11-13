@@ -407,7 +407,7 @@
     const head = make('div', '', 'bc-platform-message-head');
     head.append(make('strong', message.author?.displayName || message.author?.username || 'Usuário'));
     if(message.author?.username)head.append(make('small','@'+message.author.username,'bc-platform-message-handle'));
-    head.append(make('time', new Date(message.createdAt).toLocaleString('pt-BR')));
+    head.append(make('time', new Intl.DateTimeFormat('pt-BR', {hour:'2-digit', minute:'2-digit'}).format(new Date(message.createdAt))));
     const avatar=make('span',(message.author?.displayName||message.author?.username||'B').slice(0,2).toLocaleUpperCase('pt-BR'),'bc-message-avatar');
     if(message.author?.avatarUrl){
       const photo=make('img',null,'bc-channel-message-avatar-photo');

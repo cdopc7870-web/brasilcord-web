@@ -8,7 +8,8 @@
   const checks = {
     site: {url: () => './index.html?status=' + Date.now(), label: 'Site funcionando'},
     backend: {url: () => backend + '/health', label: 'Servidor online'},
-    api: {url: () => backend + '/api/platform/health', label: 'API respondendo'}
+    api: {url: () => backend + '/api/platform/health', label: 'API respondendo'},
+    voice: {url: () => backend + '/api/ice-config', label: 'Chamadas disponíveis'}
   };
 
   function setCard(id, state, detail) {
@@ -74,7 +75,8 @@
     const onlineCount = results.filter(Boolean).length;
     const allOnline = onlineCount === results.length;
     const apiOnline = results[2] === true;
-    summary.dataset.state = allOnline ? 'online' : apiOnline ? 'warning' : 'offline';
+    const voiceOnline = results[3] === true;
+    summary.dataset.state = allOnline ? 'online' : (apiOnline && voiceOnline) ? 'warning' : 'offline';
     summaryText.textContent = allOnline
       ? 'Tudo funcionando normalmente'
       : apiOnline

@@ -70,14 +70,14 @@
         <label for="register-password-confirm">Repita a senha</label>
         <div class="input-password"><input id="register-password-confirm" type="password" name="confirmPassword" autocomplete="new-password" minlength="8" maxlength="128" placeholder="Confirme sua senha" required><button type="button" class="toggle-password" data-toggle-password="register-password-confirm" aria-label="Mostrar senha" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-6 10-6 10 6 10 6-3.8 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
       </div>
-      <fieldset class="birthdate-group" aria-describedby="birthdate-help" disabled>
-        <legend>Data de nascimento <span class="optional">(em breve)</span></legend>
+      <fieldset class="birthdate-group" aria-describedby="birthdate-help">
+        <legend>Data de nascimento</legend>
         <div class="birthdate-grid">
-          <label for="birth-day">Dia <input id="birth-day" type="text" inputmode="numeric" placeholder="DD" maxlength="2"></label>
-          <label for="birth-month">Mês <input id="birth-month" type="text" inputmode="numeric" placeholder="MM" maxlength="2"></label>
-          <label for="birth-year">Ano <input id="birth-year" type="text" inputmode="numeric" placeholder="AAAA" maxlength="4"></label>
+          <label for="birth-day">Dia <input id="birth-day" name="birthDay" type="text" inputmode="numeric" autocomplete="bday-day" placeholder="DD" maxlength="2" pattern="[0-9]{1,2}" required></label>
+          <label for="birth-month">Mês <input id="birth-month" name="birthMonth" type="text" inputmode="numeric" autocomplete="bday-month" placeholder="MM" maxlength="2" pattern="[0-9]{1,2}" required></label>
+          <label for="birth-year">Ano <input id="birth-year" name="birthYear" type="text" inputmode="numeric" autocomplete="bday-year" placeholder="AAAA" maxlength="4" pattern="[0-9]{4}" required></label>
         </div>
-        <small id="birthdate-help">Este dado ainda não é coletado nem armazenado. O recurso depende de suporte no servidor.</small>
+        <small id="birthdate-help">Informe uma data válida. Ela será usada para concluir seu cadastro.</small>
       </fieldset>
       <div class="auth-consents">
         <label class="auth-check"><input type="checkbox" name="beta" required><span>Li as <a href="termos.html" target="_blank" rel="noopener noreferrer">condições de uso</a> e entendo que o BrasilCord está em Beta e pode mudar.</span></label>

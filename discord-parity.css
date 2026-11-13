@@ -79,7 +79,7 @@ body.bc-app-active:not(.discord-open) {
 .bc-thread-message { padding:10px; border:1px solid #3d4954; border-radius:9px; background:#252c33; }
 .bc-thread-message .bc-platform-message { min-height:0; padding:0; border:0; background:transparent; }
 .bc-thread-message .bc-parity-message-actions { display:none; }
-.bc-parity-composer-menu {
+.bc-platform-compose { position:relative; }\n.bc-parity-composer-menu {
   position:absolute; z-index:90; bottom:58px; left:8px; width:250px; padding:10px;
   border:1px solid #4a5865; border-radius:12px; background:#20262d; box-shadow:var(--bc-parity-shadow);
 }

@@ -2,7 +2,7 @@
 // Extras da plataforma BrasilCord. Token apenas em memoria; nunca em localStorage.
 (() => {
   const $=id=>document.getElementById(id);
-  const BASE='https://brasilcord-sinalizacao-dkx157.onrender.com/api/platform';
+  const BASE='https://brasilcord-backend.onrender.com/api/platform';
   let token=null,user=null,community=null;
   const feedback=message=>{$('bc-platform-status').textContent=message;};
   const node=(tag,text,cls)=>{

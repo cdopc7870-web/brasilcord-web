@@ -7,7 +7,7 @@
 .bc-status-summary-dot{width:.7rem;height:.7rem;border-radius:50%;background:#f0ad32;box-shadow:0 0 0 .25rem rgba(240,173,50,.14)}
 .bc-status-summary[data-state=online]{color:#087a55}.bc-status-summary[data-state=online] .bc-status-summary-dot{background:#0aa66f;box-shadow:0 0 0 .25rem rgba(10,166,111,.14)}
 .bc-status-summary[data-state=offline]{color:#aa3e3e}.bc-status-summary[data-state=offline] .bc-status-summary-dot{background:#d34d4d;box-shadow:0 0 0 .25rem rgba(211,77,77,.14)}
-.bc-status-checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.bc-status-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
 .bc-status-card{display:flex;align-items:flex-start;gap:.85rem;min-height:132px;padding:1.15rem;border:1px solid #d5e2e8;border-radius:22px;background:rgba(255,255,255,.84);box-shadow:0 14px 35px rgba(36,73,98,.08)}
 .bc-status-card-icon{display:grid;place-items:center;width:2.7rem;height:2.7rem;flex:0 0 auto;border-radius:14px;background:#e7f7ef;color:#07835b;font-size:1.35rem;font-weight:900}
 .bc-status-card-copy{min-width:0;flex:1}.bc-status-card h2{margin:.15rem 0 .25rem;font-size:1rem}.bc-status-card p{margin:0;color:#6a8095;font-size:.86rem}.bc-status-card small{display:block;margin-top:.8rem;color:#758ca0;font-size:.77rem;line-height:1.35}

@@ -27,7 +27,40 @@
     if (!views.has(view)) return;
     state.view = view;
     workarea.dataset.bcActiveView = view;
-    controls.forEach(control => {
+  
+  const accountSettings = $('bc-user-settings');
+  const accountMenu = $('bc-account-settings-menu');
+  accountSettings.addEventListener('click', () => {
+    const opening = accountMenu.hidden;
+    accountMenu.hidden = !opening;
+    accountSettings.setAttribute('aria-expanded',String(opening));
+  });
+  accountMenu.querySelector('[data-bc-view="profile"]').addEventListener('click', () => {
+    accountMenu.hidden = true;
+    accountSettings.setAttribute('aria-expanded','false');
+    openView('profile');
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.bc-account-panel')) {
+      accountMenu.hidden = true;
+      accountSettings.setAttribute('aria-expanded','false');
+    }
+  });
+  $('bc-user-mic-toggle').addEventListener('click', () => $('bc-call-mute').click());
+  $('bc-user-audio-toggle').addEventListener('click', () => $('bc-call-deafen').click());
+  for (const [source,target] of [['bc-call-mute','bc-user-mic-toggle'],['bc-call-deafen','bc-user-audio-toggle']]) {
+    const sync = () => {
+      const original = $(source), button = $(target);
+      button.disabled = original.disabled;
+      button.setAttribute('aria-pressed',original.getAttribute('aria-pressed') || 'false');
+      button.classList.toggle('is-on',original.getAttribute('aria-pressed') === 'true');
+    };
+    $(source).addEventListener('click',sync);
+    new MutationObserver(sync).observe($(source),{attributes:true,attributeFilter:['disabled','aria-pressed']});
+    sync();
+  }
+
+  controls.forEach(control => {
       const active = control.dataset.bcView === view;
       control.classList.toggle('is-active',active);
       control.setAttribute('aria-pressed',String(active));
@@ -62,6 +95,8 @@
     $('bc-profile-display-name').textContent = user?.displayName || 'Minha conta';
     $('bc-profile-handle').textContent = user?.username ? '@'+user.username : '@brasilcord';
     $('bc-profile-bio').textContent = user?.bio || 'Adicione uma biografia para personalizar seu perfil.';
+    $('bc-platform-user-label').textContent = (user?.displayName || user?.username || 'Minha conta') + (user?.username ? ' · @'+user.username : '');
+    $('bc-dock-personal-status').textContent = user?.bio ? '📌 ' + user.bio : '📌 SEMI EM BREVE BIO!';
   }
 
   function updateRole() {

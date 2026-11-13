@@ -355,3 +355,49 @@ body.bc-app-active:not(.discord-open) .bc-account-panel{
 body.bc-app-active:not(.discord-open) .bc-channel-bottom button:not(#bc-user-profile-shortcut):not(#bc-user-mic-toggle):not(#bc-user-audio-toggle):not(#bc-user-settings):not(#bc-platform-logout):not(#bc-platform-invite){
   /* Buttons outside the account panel remain untouched. */
 }
+
+
+/* Dock de conta horizontal, no estilo da referência enviada */
+@media (min-width: 1101px){
+  body.bc-app-active:not(.discord-open) .bc-desktop-workarea{
+    grid-template-columns:64px minmax(340px,520px) minmax(320px,1fr) minmax(200px,255px)!important;
+  }
+}
+@media (min-width:821px) and (max-width:1100px){
+  body.bc-app-active:not(.discord-open) .bc-desktop-workarea{
+    grid-template-columns:58px minmax(290px,360px) minmax(280px,1fr) 190px!important;
+  }
+}
+body.bc-app-active:not(.discord-open) .bc-channel-pane{min-width:0!important;}
+body.bc-app-active:not(.discord-open) .bc-channel-bottom{
+  width:100%!important;box-sizing:border-box!important;padding:8px 10px 12px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-panel{
+  width:100%!important;max-width:none!important;min-width:0!important;min-height:72px!important;
+  box-sizing:border-box!important;padding:10px 13px!important;gap:12px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock{flex:1 1 auto!important;min-width:0!important;}
+body.bc-app-active:not(.discord-open) .bc-user-dock-copy{flex:1 1 auto!important;min-width:0!important;}
+body.bc-app-active:not(.discord-open) .bc-account-actions{flex:0 0 auto!important;gap:8px!important;}
+body.bc-app-active:not(.discord-open) .bc-account-actions #bc-user-settings{
+  display:grid!important;place-items:center!important;width:40px!important;height:40px!important;
+  padding:0!important;border:0!important;border-radius:9px!important;background:transparent!important;
+  color:#b8c0c8!important;outline:none!important;box-shadow:none!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions #bc-user-settings:hover{
+  background:#343a40!important;color:#fff!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions #bc-user-settings[aria-expanded="true"]{
+  background:#343a40!important;color:#fff!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions #bc-user-settings svg{
+  display:block!important;width:23px!important;height:23px!important;fill:none!important;
+  stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-actions #bc-user-settings:focus-visible{
+  outline:2px solid #a9c7b8!important;outline-offset:2px!important;
+}
+@media(max-width:820px){
+  body.bc-app-active:not(.discord-open) .bc-desktop-workarea{grid-template-columns:54px minmax(0,1fr)!important;}
+  body.bc-app-active:not(.discord-open) .bc-account-panel{min-height:68px!important;}
+}

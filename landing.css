@@ -208,3 +208,103 @@ body[data-theme="dark"] {
   background:#ffd320;
   box-shadow:0 0 0 4px rgba(255,211,32,.15);
 }
+
+
+/* BrasilCord — identidade visual Brasil: verde, amarelo e azul em todas as páginas. */
+:root{
+  --green:#078b43;
+  --blue:#0759b8;
+  --gold:#f2c500;
+  --border:#d6e4d9;
+  --shadow:0 18px 50px rgba(8,82,55,.07);
+}
+body[data-theme="light"]{
+  background:
+    radial-gradient(ellipse 42% 34% at 92% 9%,rgba(255,211,45,.17),transparent 86%),
+    radial-gradient(ellipse 43% 38% at 4% 28%,rgba(0,153,76,.11),transparent 86%),
+    radial-gradient(ellipse 50% 48% at 76% 64%,rgba(0,91,187,.08),transparent 88%),
+    linear-gradient(135deg,#f8fcf8 0%,#f5f9ff 58%,#fffdf2 100%);
+}
+body[data-theme="light"] .site-header{
+  background:rgba(248,252,249,.91);
+  border-bottom-color:rgba(0,132,68,.15);
+}
+body[data-theme="light"] .nav-links a:hover,
+body[data-theme="light"] .footer-column a:hover{color:#078b43}
+body[data-theme="light"] .eyebrow,
+body[data-theme="light"] .step span,
+body[data-theme="light"] .join-strip .join-label{color:#078b43}
+body[data-theme="light"] .btn-blue,
+body[data-theme="light"] .btn-green{
+  background:linear-gradient(105deg,#078b43 0%,#00a95c 48%,#0759b8 100%);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 9px 24px rgba(0,117,66,.18);
+}
+body[data-theme="light"] .btn-blue:hover,
+body[data-theme="light"] .btn-green:hover{
+  filter:saturate(1.12) brightness(1.04);
+  box-shadow:0 13px 28px rgba(0,117,66,.24);
+}
+body[data-theme="light"] .btn-subtle,
+body[data-theme="light"] .btn-outline{
+  background:rgba(255,255,255,.82);
+  border-color:rgba(0,91,187,.24);
+}
+body[data-theme="light"] .btn-subtle:hover,
+body[data-theme="light"] .btn-outline:hover{
+  background:#fff7d6;
+  border-color:#e0b500;
+}
+body[data-theme="light"] .theme-switch{
+  border-color:rgba(0,91,187,.24);
+  background:rgba(255,255,255,.84);
+}
+body[data-theme="light"] .theme-switch button.active{
+  background:#078b43;
+  color:#fff;
+}
+body[data-theme="light"] .feature-card{
+  border-color:rgba(0,120,65,.16);
+  box-shadow:0 16px 42px rgba(10,83,52,.055);
+}
+body[data-theme="light"] .icon-green{background:#d9f4e4;color:#087b40}
+body[data-theme="light"] .icon-blue{background:#deedff;color:#0759b8}
+body[data-theme="light"] .icon-yellow{background:#fff3bf;color:#8c6b00}
+body[data-theme="light"] .join-strip{
+  background:linear-gradient(110deg,rgba(0,145,72,.09),rgba(255,210,35,.17),rgba(0,91,187,.08));
+  border-color:rgba(0,120,65,.17);
+}
+body[data-theme="light"] .site-footer{
+  background:linear-gradient(110deg,rgba(0,111,61,.055),rgba(0,91,187,.045));
+}
+body[data-theme="light"] .text-link{color:#0759b8}
+body[data-theme="light"] .availability-dot{
+  background:#f2c500;
+  box-shadow:0 0 0 4px rgba(242,197,0,.2);
+}
+
+/* Paleta nacional também no tema escuro, mantendo contraste e leitura. */
+body[data-theme="dark"]{
+  --green:#35df8b;
+  --blue:#75bdff;
+  --gold:#ffd43b;
+}
+body[data-theme="dark"] .btn-blue,
+body[data-theme="dark"] .btn-green{
+  background:linear-gradient(105deg,#20c878 0%,#079b58 48%,#126bd0 100%);
+  color:#fff;
+  border-color:rgba(103,220,167,.2);
+}
+body[data-theme="dark"] .btn-blue:hover,
+body[data-theme="dark"] .btn-green:hover{filter:brightness(1.12) saturate(1.1)}
+body[data-theme="dark"] .theme-switch button.active{
+  background:linear-gradient(120deg,#087c45,#0759b8);
+  color:#fff;
+}
+body[data-theme="dark"] .join-strip{
+  background:linear-gradient(110deg,rgba(0,119,64,.28),rgba(190,151,0,.12),rgba(0,76,160,.24));
+  border-color:rgba(92,176,151,.32);
+}
+body[data-theme="dark"] .feature-card{border-color:rgba(82,180,144,.27)}
+body[data-theme="dark"] .icon-yellow{background:rgba(242,197,0,.18);color:#ffdf61}

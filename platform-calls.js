@@ -26,6 +26,25 @@
   const sourcesGrid = $('bc-call-screen-sources');
   const qualitySelect = $('bc-call-quality');
   const fpsSelect = $('bc-call-fps');
+  const noiseSuppressionSelect = $('bc-call-noise-suppression');
+  const audioProcessingStatus = $('bc-call-audio-processing-status');
+  const voiceAudioSettingsKey = 'brasilcord-voice-audio-settings';
+  const audioProfiles = {
+    off: {noiseSuppression:false, echoCancellation:false, autoGainControl:false, label:'Supressão desligada'},
+    standard: {noiseSuppression:true, echoCancellation:true, autoGainControl:true, label:'Supressão padrão ativa'},
+    strong: {noiseSuppression:true, echoCancellation:true, autoGainControl:false, label:'Supressão forte solicitada'}
+  };
+  function readNoiseMode(){
+    try{
+      const stored=localStorage.getItem(voiceAudioSettingsKey);
+      return audioProfiles[stored]?stored:'standard';
+    }catch{return 'standard';}
+  }
+  function saveNoiseMode(mode){
+    try{localStorage.setItem(voiceAudioSettingsKey,mode);}catch{}
+  }
+  let noiseMode=readNoiseMode();
+  if(noiseSuppressionSelect)noiseSuppressionSelect.value=noiseMode;
   const qualityPresets={480:{height:480,bitrate:550000},720:{height:720,bitrate:1600000},1080:{height:1080,bitrate:3200000}};
   const localVideo={camera:null,screen:null};
   const remoteVideos=new Map();
@@ -64,6 +83,35 @@
     if(!audio)return;
     audio.volume=volumeFor(id)/100;
     audio.muted=deafened||serverDeafened||localPeerMute.has(id);
+  }
+  function updateAudioProcessingStatus(track){
+    if(!audioProcessingStatus)return;
+    const profile=audioProfiles[noiseMode];
+    const actual=track?.getSettings?.()||{};
+    const native=actual.noiseSuppression===false?'nativa indisponível ou desligada':'nativa aplicada quando suportada';
+    audioProcessingStatus.textContent=profile.label+' · '+native+'.';
+  }
+  async function applyAudioProcessing(track,announce=false){
+    if(!track||track.readyState!=='live'){
+      if(audioProcessingStatus)audioProcessingStatus.textContent=audioProfiles[noiseMode].label+' · será aplicada ao entrar na call.';
+      return false;
+    }
+    const profile=audioProfiles[noiseMode];
+    const capabilities=track.getCapabilities?.()||null;
+    const constraints={};
+    for(const key of ['noiseSuppression','echoCancellation','autoGainControl']){
+      if(!capabilities||key in capabilities)constraints[key]=profile[key];
+    }
+    try{
+      await track.applyConstraints(constraints);
+      updateAudioProcessingStatus(track);
+      if(announce)message(profile.label+'.');
+      return true;
+    }catch{
+      if(audioProcessingStatus)audioProcessingStatus.textContent=profile.label+' · este navegador não permite alterar durante a call; será usado na próxima entrada.';
+      if(announce)message('O navegador recusou a alteração durante a call. Ela será aplicada na próxima entrada.');
+      return false;
+    }
   }
   function closePeerMenu(){peerMenu.hidden=true;menuPeer=null;}
   function updatePeerMenu(){
@@ -640,12 +688,19 @@
     try {
       const allowed=await window.brasilcord.setVoiceMicrophoneAllowed(true);
       if(!allowed)throw Error('Permissão local de microfone indisponível.');
+      const audioProfile=audioProfiles[noiseMode];
       const stream=await navigator.mediaDevices.getUserMedia({
-        audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},
+        audio:{
+          echoCancellation:audioProfile.echoCancellation,
+          noiseSuppression:audioProfile.noiseSuppression,
+          autoGainControl:audioProfile.autoGainControl,
+          channelCount:1
+        },
         video:false
       });
       if(seq!==generation){stream.getTracks().forEach(t=>t.stop());return;}
       localStream=stream;
+      await applyAudioProcessing(stream.getAudioTracks()[0]);
       await refreshIceServers();
       if(!stream.getAudioTracks().length)throw Error('Nenhum microfone foi encontrado.');
       selfMeter=newMeter(stream);
@@ -734,6 +789,12 @@
   $('bc-call-picker-cancel').addEventListener('click',cancelPicker);
   qualitySelect.addEventListener('change',()=>void applyQuality());
   fpsSelect.addEventListener('change',()=>void applyQuality());
+  noiseSuppressionSelect?.addEventListener('change',()=>{
+    noiseMode=audioProfiles[noiseSuppressionSelect.value]?noiseSuppressionSelect.value:'standard';
+    saveNoiseMode(noiseMode);
+    if(localStream?.getAudioTracks()[0])void applyAudioProcessing(localStream.getAudioTracks()[0],true);
+    else if(audioProcessingStatus)audioProcessingStatus.textContent=audioProfiles[noiseMode].label+' · será aplicada ao entrar na call.';
+  });
   muteButton.addEventListener('click',toggleMute);
   deafenButton.addEventListener('click',toggleDeafen);
   leaveButton.addEventListener('click',()=>dropCall('Você saiu da call.'));

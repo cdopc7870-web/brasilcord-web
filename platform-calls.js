@@ -208,7 +208,7 @@
     const fallback=labelOf(person).trim().slice(0,2).toLocaleUpperCase('pt-BR')||'BC';
     avatar.textContent=fallback;
     const url=person?.avatarUrl;
-    if(typeof url==='string'&&/^https:\/\/brasilcord-sinalizacao-dkx157\.onrender\.com\/api\/platform\/media\//.test(url)){
+    if(typeof url==='string'&&/^https:\/\/brasilcord-backend\.onrender\.com\/api\/platform\/media\//.test(url)){
       const img=document.createElement('img');img.src=url;img.alt='';img.loading='lazy';img.decoding='async';
       img.width=compact?26:34;img.height=compact?26:34;
       img.addEventListener('error',()=>{img.remove();avatar.textContent=fallback;},{once:true});

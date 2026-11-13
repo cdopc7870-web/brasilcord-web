@@ -6,7 +6,44 @@
   const invite='https://discord.gg/XaHwEDse99';
   const open=url=>{window.open(url,'_blank','noopener,noreferrer');return ok();};
   const sessionKey='brasilcord:web:session';
+  const sessionDbName='brasilcord-session-store';
+  const sessionStoreName='sessions';
   const prefKey='brasilcord:web:invite-confirmed';
+  // IndexedDB funciona como cópia persistente caso o navegador limpe/bloqueie o localStorage.
+  function openSessionDb(){
+    return new Promise((resolve,reject)=>{
+      if(!('indexedDB' in window)){reject(new Error('IndexedDB indisponível'));return;}
+      const request=indexedDB.open(sessionDbName,1);
+      request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains(sessionStoreName))db.createObjectStore(sessionStoreName);};
+      request.onsuccess=()=>resolve(request.result);
+      request.onerror=()=>reject(request.error||new Error('Falha ao abrir armazenamento seguro'));
+    });
+  }
+  async function writePersistentSession(token){
+    const db=await openSessionDb();
+    try{await new Promise((resolve,reject)=>{
+      const tx=db.transaction(sessionStoreName,'readwrite');
+      tx.objectStore(sessionStoreName).put(token,sessionKey);
+      tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error('Gravação cancelada'));
+    });}finally{db.close();}
+  }
+  async function readPersistentSession(){
+    const db=await openSessionDb();
+    try{return await new Promise((resolve,reject)=>{
+      const tx=db.transaction(sessionStoreName,'readonly');
+      const request=tx.objectStore(sessionStoreName).get(sessionKey);
+      request.onsuccess=()=>resolve(typeof request.result==='string'?request.result:null);
+      request.onerror=()=>reject(request.error);
+    });}finally{db.close();}
+  }
+  async function clearPersistentSession(){
+    const db=await openSessionDb();
+    try{await new Promise((resolve,reject)=>{
+      const tx=db.transaction(sessionStoreName,'readwrite');
+      tx.objectStore(sessionStoreName).delete(sessionKey);
+      tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
+    });}finally{db.close();}
+  }
   const noEvent=()=>()=>{};
   window.brasilcord={
     isWeb:true,
@@ -36,14 +73,39 @@
     copySupportPix:value=>navigator.clipboard.writeText(value).then(()=>({ok:true})),
     returnHome:()=>{document.querySelector('[data-page-target="inicio"]')?.click();return ok();},
     verifyPreviewAccess:()=>ok(),
-    savePlatformSession:(token,remember=true)=>{
-      // Sessão persistente só quando a pessoa marca "Manter conectado".
-      if(remember){localStorage.setItem(sessionKey,token);sessionStorage.removeItem(sessionKey);}
-      else{sessionStorage.setItem(sessionKey,token);localStorage.removeItem(sessionKey);}
+    savePlatformSession:async(token,remember=true)=>{
+      if(typeof token!=='string'||!token){return {ok:false,message:'Token de sessão inválido.'};}
+      try{
+        if(remember){
+          localStorage.setItem(sessionKey,token);
+          sessionStorage.removeItem(sessionKey);
+          await writePersistentSession(token);
+          const saved=await readPersistentSession();
+          if(saved!==token)throw new Error('Não foi possível confirmar a gravação da sessão.');
+          if(navigator.storage?.persist)void navigator.storage.persist().catch(()=>{});
+        }else{
+          sessionStorage.setItem(sessionKey,token);
+          localStorage.removeItem(sessionKey);
+          await clearPersistentSession().catch(()=>{});
+        }
+        return {ok:true};
+      }catch(error){
+        return {ok:false,message:'Não foi possível manter o login salvo neste navegador. Verifique as permissões de armazenamento.'};
+      }
+    },
+    restorePlatformSession:async()=>{
+      let token=null;
+      try{token=localStorage.getItem(sessionKey);}catch{}
+      if(!token){try{token=await readPersistentSession();}catch{}}
+      if(!token){try{token=sessionStorage.getItem(sessionKey);}catch{}}
+      return {token:token||null};
+    },
+    clearPlatformSession:async()=>{
+      try{localStorage.removeItem(sessionKey);}catch{}
+      try{sessionStorage.removeItem(sessionKey);}catch{}
+      await clearPersistentSession().catch(()=>{});
       return ok();
     },
-    restorePlatformSession:()=>Promise.resolve({token:localStorage.getItem(sessionKey)||sessionStorage.getItem(sessionKey)||null}),
-    clearPlatformSession:()=>{localStorage.removeItem(sessionKey);sessionStorage.removeItem(sessionKey);return ok();},
     setVoiceMicrophoneAllowed:()=>ok(),
     requestInlineCallCamera:()=>ok(),
     releaseInlineCallCamera:()=>ok(),

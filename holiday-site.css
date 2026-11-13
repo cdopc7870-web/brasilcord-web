@@ -222,3 +222,85 @@ body:not(.christmas-on) .holiday-theme-toggle {
   .holiday-theme-toggle { min-width:34px; width:34px; overflow:hidden; padding:0; justify-content:center; font-size:16px; }
   .holiday-theme-toggle .holiday-toggle-label { display:none; }
 }
+
+/* Camada festiva compartilhada por todas as páginas públicas */
+body.holiday-site.christmas-on{
+  background:
+    radial-gradient(circle at 8% 0,rgba(220,74,92,.12),transparent 24%),
+    radial-gradient(circle at 92% 14%,rgba(75,185,123,.13),transparent 25%),
+    linear-gradient(180deg,#061c18 0,#0a211d 18%,#07121d 100%) !important;
+}
+body.holiday-site.christmas-on .site-header{
+  position:relative;
+  overflow:visible;
+  background:
+    radial-gradient(circle at 16% 0,rgba(255,224,133,.12),transparent 24%),
+    linear-gradient(110deg,#0c2f26,#123c31 54%,#4a2634) !important;
+  border-bottom-color:rgba(241,211,116,.48) !important;
+  box-shadow:0 14px 34px rgba(0,0,0,.2);
+}
+body.holiday-site.christmas-on .site-header::before{
+  content:"🎄  ✦  ❄  🎁  ✧  ❄  ✦  🎄";
+  position:absolute;
+  left:5%;
+  right:5%;
+  bottom:-2px;
+  overflow:hidden;
+  color:rgba(255,227,143,.65);
+  font-size:11px;
+  letter-spacing:18px;
+  line-height:12px;
+  pointer-events:none;
+  white-space:nowrap;
+}
+.holiday-season-banner{
+  position:relative;
+  z-index:4;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:8px 16px;
+  border-bottom:1px solid rgba(227,191,91,.3);
+  background:linear-gradient(90deg,rgba(111,35,50,.9),rgba(18,78,57,.92),rgba(111,35,50,.9));
+  color:#fff2bb;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.02em;
+  box-shadow:0 6px 20px rgba(0,0,0,.16);
+}
+.holiday-season-banner span{color:#c6f0d4;font-weight:700}
+body.holiday-site.christmas-on .hero,
+body.holiday-site.christmas-on .product-showcase,
+body.holiday-site.christmas-on .features-section,
+body.holiday-site.christmas-on .safety-section,
+body.holiday-site.christmas-on .how-section{
+  box-shadow:0 20px 60px rgba(1,16,12,.28);
+}
+body.holiday-site.christmas-on .btn-blue::before,
+body.holiday-site.christmas-on .bc-download-action::before{content:"🎁 ";font-size:.9em}
+body.holiday-site.christmas-on .btn-dark::before{content:"✨ ";font-size:.9em}
+body.holiday-site.christmas-on .btn-outline::before,
+body.holiday-site.christmas-on .btn-subtle::before{content:"❄️ ";font-size:.9em}
+body.holiday-site.christmas-on .eyebrow::before,
+body.holiday-site.christmas-on .bc-landing-eyebrow::before{content:"🎄 ";font-size:.9em}
+body.holiday-site.christmas-on .site-footer{
+  background:
+    radial-gradient(circle at 50% 0,rgba(223,187,85,.1),transparent 36%),
+    linear-gradient(135deg,#09271f,#321f2b) !important;
+  border-top-color:rgba(232,200,107,.42) !important;
+}
+body.holiday-site.christmas-on .site-footer::before{
+  content:"🎄  Boas festas do BrasilCord  🎁";
+  display:block;
+  margin-bottom:12px;
+  color:#f1d37e;
+  font-weight:900;
+  letter-spacing:.04em;
+}
+@media(max-width:720px){
+  .holiday-season-banner{padding:7px 10px;font-size:10px}
+  body.holiday-site.christmas-on .site-header::before{letter-spacing:7px}
+  .holiday-season-banner span:last-child{display:none}
+}

@@ -592,6 +592,14 @@
                           <option value="15">15 FPS</option><option value="30" selected>30 FPS</option>
                         </select>
                       </label>
+                      <label>Supressão de ruído
+                        <select id="bc-call-noise-suppression" aria-label="Perfil de supressão de ruído">
+                          <option value="off">Desligada</option>
+                          <option value="standard" selected>Padrão</option>
+                          <option value="strong">Forte · quando suportado</option>
+                        </select>
+                        <small id="bc-call-audio-processing-status">Aplicada pelo navegador na entrada da call.</small>
+                      </label>
                     </div>
                     <div id="bc-call-screen-picker" class="bc-call-screen-picker" hidden>
                       <div class="bc-call-picker-heading"><strong>Escolha o que transmitir</strong><button id="bc-call-picker-cancel" type="button">Cancelar</button></div>

@@ -327,3 +327,20 @@ body.bc-app-active:not(.discord-open) .bc-account-panel::after,
 body.bc-app-active:not(.discord-open) .bc-user-dock-settings{
   content:none!important;display:none!important;
 }
+
+
+/* Cartão de conta mais largo e sem o pequeno botão/caret verde sobreposto */
+body.bc-app-active:not(.discord-open) .bc-channel-bottom{
+  width:100%!important;box-sizing:border-box!important;overflow:visible!important;
+  padding-left:7px!important;padding-right:7px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-panel{
+  width:calc(100% + 12px)!important;max-width:none!important;box-sizing:border-box!important;
+  margin-left:-6px!important;min-height:88px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-user-dock{min-width:0!important;flex:1 1 auto!important;}
+body.bc-app-active:not(.discord-open) .bc-account-actions{flex:0 0 auto!important;}
+body.bc-app-active:not(.discord-open) .bc-account-panel > button:not(#bc-user-profile-shortcut),
+body.bc-app-active:not(.discord-open) #bc-user-profile-shortcut .bc-user-dock-settings{
+  display:none!important;
+}

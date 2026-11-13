@@ -74,3 +74,13 @@
 .auth-security-note span{flex:none;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#16845c;color:#fff;font-size:15px;font-weight:900}
 .auth-register .auth-submit{margin-top:5px}
 .auth-body[data-theme=dark] .birthdate-grid input{border-color:#4c6478}
+
+
+/* Na recuperação de senha, os containers de status vazios não devem
+   ocupar espaço nem parecer campos/botões brancos. */
+.auth-main[data-auth-view="recover"] .recovery-status:empty{
+  display:none;
+}
+.auth-main[data-auth-view="recover"] .recovery-status:not(:empty){
+  margin:14px 0 0;
+}

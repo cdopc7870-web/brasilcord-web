@@ -151,3 +151,5 @@
 .auth-check.remember-login span{display:grid;gap:3px}
 .auth-check.remember-login strong{font-size:12px;font-weight:750;color:var(--text)}
 .auth-check.remember-login small{font-size:11px;color:var(--muted);line-height:1.5}
+
+.recovery-retry{display:block;margin:9px auto 0;padding:8px 12px;border:1px solid #b6c6d4;border-radius:8px;background:transparent;color:#1467aa;cursor:pointer;font-size:12px;font-weight:700}.recovery-retry:hover{background:#edf6ff;border-color:#6aa0c9}.recovery-retry[hidden]{display:none}

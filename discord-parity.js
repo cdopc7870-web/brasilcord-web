@@ -412,7 +412,7 @@
           if (action === 'thread') openThread(row);
           else if (action === 'reply') dispatchMessageMenu(row, 'Responder');
           else if (action === 'react') dispatchMessageMenu(row, 'Reagir');
-          else dispatchMessageMenu(row, '');
+          else { row.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, cancelable: true, button: 2, clientX: Math.max(20, row.getBoundingClientRect().left + 40), clientY: Math.max(20, row.getBoundingClientRect().top + 20) })); }
         });
         actions.append(button);
       });

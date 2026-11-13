@@ -378,3 +378,16 @@ body.bc-app-active:not(.discord-open) #page-app {
 #page-app .bc-message-avatar{position:relative;overflow:hidden}
 #page-app .bc-message-avatar .bc-channel-message-avatar-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}
 #page-app .bc-platform-message-handle{color:#84cdb0;font-size:10px;font-weight:650}
+
+/* Preferência para manter a sessão no navegador */
+#page-app .bc-auth-card .bc-platform-form .bc-remember-login{
+  display:flex;align-items:flex-start;gap:10px;margin:0 0 2px;
+  color:#dce7f1;font-size:12px;line-height:1.45;cursor:pointer;
+}
+#page-app .bc-auth-card .bc-platform-form .bc-remember-login input{
+  width:16px;min-height:16px;height:16px;flex:none;margin:1px 0 0;
+  padding:0;accent-color:#24d778;
+}
+#page-app .bc-auth-card .bc-platform-form .bc-remember-login span{display:grid;gap:3px}
+#page-app .bc-auth-card .bc-platform-form .bc-remember-login strong{font-size:12px}
+#page-app .bc-auth-card .bc-platform-form .bc-remember-login small{font-size:10px;color:#98a9bb;font-weight:450}

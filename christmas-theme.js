@@ -4,25 +4,30 @@
   const root = document.querySelector('#page-app .bc-community-desktop');
   if (!root || root.dataset.bcChristmasReady === 'true') return;
   root.dataset.bcChristmasReady = 'true';
-  document.body.classList.add('bc-christmas-mode');
+
+  const preferenceKey = 'brasilcord-christmas-enabled';
+  const readEnabled = () => {
+    try { return localStorage.getItem(preferenceKey) !== 'false'; } catch { return true; }
+  };
+  const saveEnabled = enabled => {
+    try { localStorage.setItem(preferenceKey, String(enabled)); } catch {}
+  };
 
   const topbar = root.querySelector('.bc-stage-topbar');
-  if (topbar) {
-    const ribbon = document.createElement('span');
-    ribbon.className = 'bc-holiday-ribbon';
-    ribbon.textContent = 'Boas festas · BrasilCord';
-    topbar.append(ribbon);
+  const ribbon = document.createElement('span');
+  ribbon.className = 'bc-holiday-ribbon';
+  ribbon.textContent = 'Boas festas · BrasilCord';
+  topbar?.append(ribbon);
 
-    const lights = document.createElement('div');
-    lights.className = 'bc-holiday-lights';
-    lights.setAttribute('aria-hidden', 'true');
-    for (let index = 0; index < 18; index += 1) {
-      const bulb = document.createElement('span');
-      bulb.className = 'bc-holiday-light';
-      lights.append(bulb);
-    }
-    topbar.append(lights);
+  const lights = document.createElement('div');
+  lights.className = 'bc-holiday-lights';
+  lights.setAttribute('aria-hidden', 'true');
+  for (let index = 0; index < 18; index += 1) {
+    const bulb = document.createElement('span');
+    bulb.className = 'bc-holiday-light';
+    lights.append(bulb);
   }
+  topbar?.append(lights);
 
   const snow = document.createElement('div');
   snow.className = 'bc-holiday-snow';
@@ -41,4 +46,25 @@
     snow.append(flake);
   }
   root.append(snow);
+
+  const actions = topbar?.querySelector('.bc-parity-actions');
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'bc-parity-top-button bc-holiday-toggle';
+  toggle.setAttribute('aria-label', 'Alternar tema natalino');
+  actions?.prepend(toggle);
+
+  const apply = enabled => {
+    document.body.classList.toggle('bc-christmas-mode', enabled);
+    [ribbon, lights, snow].forEach(node => { node.hidden = !enabled; });
+    toggle.textContent = enabled ? '🎄' : '☼';
+    toggle.title = enabled ? 'Desativar tema natalino' : 'Ativar tema natalino';
+    toggle.setAttribute('aria-pressed', String(enabled));
+  };
+  toggle.addEventListener('click', () => {
+    const enabled = !document.body.classList.contains('bc-christmas-mode');
+    saveEnabled(enabled);
+    apply(enabled);
+  });
+  apply(readEnabled());
 })();

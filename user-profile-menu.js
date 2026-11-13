@@ -6,7 +6,8 @@
   const menu=$('bc-user-context-menu');
   const dialog=$('bc-user-profile-dialog');
   if(!menu||!dialog)return;
-  const API='https://brasilcord-sinalizacao-dkx157.onrender.com/api/platform';
+  const API='https://brasilcord-backend.onrender.com/api/platform';
+  const BADGE_IDS=new Set(['criador_app','tester','bug_hunter','beta','conexao','coroa','cosmico','criador','pioneiro','natal_supremo']);
   let token=null,selfId=null,selected=null,profile=null,serial=0,community=null,members=[],roles=[];
   const friendAction=$('bc-user-friend-action'),blockAction=$('bc-user-block-action'),status=$('bc-user-dialog-status');
   async function request(path,method='GET',body){
@@ -60,9 +61,9 @@
     $('bc-user-public-avatar').classList.toggle('bc-user-avatar-placeholder',!p.avatarUrl);
     if(!p.avatarUrl)$('bc-user-public-avatar').textContent=p.displayName.slice(0,2).toUpperCase();
     const badge=$('bc-user-public-badge');badge.replaceChildren();
-    if(p.selectedBadge&&/^(criador_app|tester|bug_hunter|beta)$/.test(p.selectedBadge)){
+    if(p.selectedBadge&&BADGE_IDS.has(p.selectedBadge)){
       const img=document.createElement('img');
-      img.src='assets/badges/'+p.selectedBadge+'.svg';img.alt='Insígnia '+p.selectedBadge;
+      img.src='assets/badges/'+p.selectedBadge+'.svg';img.alt='Insígnia '+p.selectedBadge;img.dataset.badgeId=p.selectedBadge;
       badge.append(img);
     }
     try{
@@ -72,7 +73,7 @@
       for(const item of awarded.badges||[]){
         if(!/^[a-z0-9_-]+\.svg$/.test(item.asset))continue;
         const image=document.createElement('img');
-        image.src='assets/badges/'+item.asset;image.alt=item.name;image.title=item.name+' · '+item.description;
+        image.src='assets/badges/'+item.asset;image.alt=item.name;image.title=item.name+' · '+item.description;image.dataset.badgeId=item.id;
         badge.append(image);
       }
     }catch{/* O perfil continua visível mesmo sem o catálogo de insígnias. */}

@@ -16,8 +16,14 @@
   const topbar = root.querySelector('.bc-stage-topbar');
   const ribbon = document.createElement('span');
   ribbon.className = 'bc-holiday-ribbon';
-  ribbon.textContent = 'Boas festas · BrasilCord';
+  ribbon.textContent = '🎄 Boas festas · BrasilCord · 2026';
   topbar?.append(ribbon);
+
+  const holidayBadge = document.createElement('span');
+  holidayBadge.className = 'bc-holiday-badge';
+  holidayBadge.innerHTML = '<span aria-hidden="true">👑</span><strong>Natal Supremo</strong><small>edição especial</small>';
+  holidayBadge.setAttribute('aria-label', 'Insígnia sazonal Natal Supremo');
+  topbar?.append(holidayBadge);
 
   const lights = document.createElement('div');
   lights.className = 'bc-holiday-lights';
@@ -56,7 +62,7 @@
 
   const apply = enabled => {
     document.body.classList.toggle('bc-christmas-mode', enabled);
-    [ribbon, lights, snow].forEach(node => { node.hidden = !enabled; });
+    [ribbon, holidayBadge, lights, snow].forEach(node => { node.hidden = !enabled; });
     toggle.textContent = enabled ? '🎄' : '☼';
     toggle.title = enabled ? 'Desativar tema natalino' : 'Ativar tema natalino';
     toggle.setAttribute('aria-pressed', String(enabled));

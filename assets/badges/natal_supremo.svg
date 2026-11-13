@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Natal Supremo</title>
+  <desc id="desc">Insígnia natalina dourada com coroa, estrela e pinheiro</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#8f3045"/><stop offset=".52" stop-color="#185440"/><stop offset="1" stop-color="#0b2b25"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff0a6"/><stop offset=".45" stop-color="#e2b84f"/><stop offset="1" stop-color="#9a6827"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <path d="M64 5 76 20l19-5-4 20 17 10-17 10 4 20-19-5-12 15-12-15-19 5 4-20-17-10 17-10-4-20 19 5Z" fill="url(#bg)" stroke="#f5d879" stroke-width="4"/>
+  <path d="m42 48 8 7 14-18 14 18 8-7-4 19H46Z" fill="url(#gold)" stroke="#fff3b4" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="50" cy="55" r="3" fill="#c9465b"/><circle cx="78" cy="55" r="3" fill="#4fd18d"/>
+  <path d="M64 40c-4-7 4-10 0-17-5 5-7 10-4 14-6 0-10 4-10 9h28c0-5-4-9-10-9 3-4 1-9-4-14 0 7 8 10 0 17Z" fill="#67d9a2" stroke="#d8f7cf" stroke-width="2" filter="url(#glow)"/>
+  <path d="M64 37v41m-16-3h32m-25 9h18" stroke="#f6d76f" stroke-width="4" stroke-linecap="round"/>
+  <path d="m64 84 4 8-4 8-4-8Z" fill="#fff2a6"/>
+  <circle cx="34" cy="29" r="2" fill="#fff4bf"/><circle cx="96" cy="31" r="2" fill="#fff4bf"/><circle cx="31" cy="88" r="2" fill="#fff4bf"/><circle cx="98" cy="86" r="2" fill="#fff4bf"/>
+</svg>

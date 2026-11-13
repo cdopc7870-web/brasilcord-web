@@ -3,6 +3,8 @@
 (() => {
   const $=id=>document.getElementById(id);
   const BASE='https://brasilcord-backend.onrender.com/api/platform';
+  const BADGE_IDS=new Set(['criador_app','tester','bug_hunter','beta','conexao','coroa','cosmico','criador','pioneiro','natal_supremo']);
+  const isBadgeId=id=>BADGE_IDS.has(id);
   let token=null,user=null,community=null;
   const feedback=message=>{$('bc-platform-status').textContent=message;};
   const node=(tag,text,cls)=>{
@@ -39,8 +41,8 @@
     preview.replaceChildren();
     const equipped=p?.equippedBadges||[];
     if(equipped.length){
-      for(const badge of equipped.filter(id=>/^(criador_app|tester|bug_hunter|beta)$/.test(id))){
-        const img=node('img');img.src='assets/badges/'+badge+'.svg';img.alt='Insígnia '+badge;img.width=46;img.height=46;
+      for(const badge of equipped.filter(isBadgeId)){
+        const img=node('img');img.src='assets/badges/'+badge+'.svg';img.alt='Insígnia '+badge;img.dataset.badgeId=badge;img.width=46;img.height=46;
         preview.append(img);
       }
       preview.append(node('span','Insígnias equipadas: '+equipped.length));
@@ -137,11 +139,11 @@
       const payload=await req('/me/badges');
       for(const badge of payload.badges){
         const box=node('button',null,'bc-badge-choice');
-        box.type='button';box.disabled=!badge.unlocked;
+        box.type='button';box.dataset.badgeId=badge.id;box.disabled=!badge.unlocked;
         box.title=badge.description;
         const equipped=(payload.equipped||[]).includes(badge.id);
         box.setAttribute('aria-pressed',String(equipped));
-        const img=node('img');img.src='assets/badges/'+badge.asset;img.alt='';
+        const img=node('img');img.src='assets/badges/'+badge.asset;img.alt='';img.dataset.badgeId=badge.id;
         box.append(img,node('span',(equipped?'✓ ':'')+badge.name+(badge.unlocked?'':' · bloqueada')));
         box.addEventListener('click',async()=>{
           try{

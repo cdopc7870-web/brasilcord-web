@@ -395,7 +395,11 @@
     removeVideoTile('self',kind);
     if(kind==='camera')await window.brasilcord.releaseInlineCallCamera().catch(()=>{});
     else await window.brasilcord.clearInlineCallSource().catch(()=>{});
-    if(notify){mediaState();message(kind==='camera'?'Câmera desligada.':'Transmissão de tela encerrada.');}
+    if(notify){
+      mediaState();
+      renegotiateAll();
+      message(kind==='camera'?'Câmera desligada.':'Transmissão de tela encerrada.');
+    }
   }
   async function setVideo(kind,stream) {
     if(!activeRoom){stream.getTracks().forEach(t=>t.stop());return;}
@@ -410,6 +414,9 @@
     }
     ensureVideoTile('self',kind,'Você',stream,true);
     mediaState();
+    // A trilha pode ser ativada depois do primeiro SDP. Renegociar garante
+    // que os demais participantes recebam a câmera ou a tela.
+    renegotiateAll();
     message(kind==='camera'?'Câmera ligada dentro da call.':'Sua tela está aparecendo dentro da call.');
   }
   async function cameraToggle() {
@@ -531,8 +538,8 @@
     const pc=new RTCPeerConnection({iceServers:ICE_SERVERS});
     connections.set(id,pc);
     for(const track of localStream.getAudioTracks())pc.addTrack(track,localStream);
-    // Trilha de vídeo de câmera e tela em transceivers permanentes: replaceTrack
-    // permite ligar e desligar o vídeo sem renegociar a cada mudança.
+    // Trilha de vídeo de câmera e tela em transceivers permanentes.
+    // replaceTrack atualiza a mídia e renegotiateAll publica a mudança no SDP.
     const cam=pc.addTransceiver('video',{direction:'sendrecv'});
     const screen=pc.addTransceiver('video',{direction:'sendrecv'});
     videoSenders.set(id,{camera:cam.sender,screen:screen.sender});

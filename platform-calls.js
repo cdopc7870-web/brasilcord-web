@@ -55,7 +55,7 @@
     try{
       const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),7000);
       let response;
-      try{response=await fetch('https://brasilcord-sinalizacao-dkx157.onrender.com/api/ice-config',{signal:ctl.signal,cache:'no-store'});}
+      try{response=await fetch('https://brasilcord-backend.onrender.com/api/ice-config',{signal:ctl.signal,cache:'no-store'});}
       finally{clearTimeout(timer);}
       if(!response.ok)return;
       const config=await response.json();
@@ -208,7 +208,7 @@
     const fallback=labelOf(person).trim().slice(0,2).toLocaleUpperCase('pt-BR')||'BC';
     avatar.textContent=fallback;
     const url=person?.avatarUrl;
-    if(typeof url==='string'&&/^https:\/\/brasilcord-sinalizacao-dkx157\.onrender\.com\/api\/platform\/media\//.test(url)){
+    if(typeof url==='string'&&/^https:\/\/brasilcord-backend\.onrender\.com\/api\/platform\/media\//.test(url)){
       const img=document.createElement('img');img.src=url;img.alt='';img.loading='lazy';img.decoding='async';
       img.width=compact?26:34;img.height=compact?26:34;
       img.addEventListener('error',()=>{img.remove();avatar.textContent=fallback;},{once:true});
@@ -709,7 +709,7 @@
         track.addEventListener('ended',()=>{if(seq===generation)dropCall('O microfone foi desconectado.');});
       });
       message('Conectando ao canal de voz…');
-      const ws=new WebSocket('wss://brasilcord-sinalizacao-dkx157.onrender.com/platform/voice');
+      const ws=new WebSocket('wss://brasilcord-backend.onrender.com/platform/voice');
       socket=ws;
       ws.onopen=()=>{
         if(seq!==generation)return;

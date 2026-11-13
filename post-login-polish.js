@@ -104,4 +104,54 @@
   syncView();
 
   window.addEventListener('pagehide', () => observer.disconnect(), {once: true});
+
+  function enhanceEmptyChat() {
+    const messages = document.getElementById('bc-platform-messages');
+    if (!messages) return;
+    const hasMessage = messages.querySelector('.bc-platform-message, .bc-message-row, [data-message-id]');
+    const placeholder = !hasMessage && /Selecione um canal para conversar/i.test(messages.textContent || '');
+    const existing = messages.querySelector('.bc-polish-empty');
+    if (placeholder && !existing) {
+      messages.innerHTML = '<div class="bc-polish-empty"><div class="bc-polish-empty-card"><div class="bc-polish-empty-icon" aria-hidden="true">#</div><h3>Pronto para conversar?</h3><p>Escolha um canal à esquerda ou comece uma mensagem. Aqui você acompanha as novidades e participa da comunidade em tempo real.</p><div class="bc-polish-empty-actions"><button type="button" data-bc-empty-action="channel">Abrir boas-vindas</button><button type="button" data-bc-empty-action="members">Ver membros</button><button type="button" data-bc-empty-action="compose">Escrever mensagem</button></div></div></div>';
+    } else if (!placeholder && existing) {
+      existing.remove();
+    }
+  }
+
+  function handleEmptyAction(action) {
+    if (action === 'members') {
+      document.getElementById('bc-toggle-members')?.click();
+      notify('Lista de membros alternada');
+      return;
+    }
+    if (action === 'compose') {
+      const input = document.getElementById('bc-platform-message-input');
+      if (input && !input.disabled) {
+        input.focus({preventScroll: true});
+        notify('Mensagem pronta');
+      } else {
+        notify('Escolha um canal para escrever', 'error');
+      }
+      return;
+    }
+    const firstChannel = document.querySelector('#bc-platform-channel-list button');
+    if (firstChannel) {
+      firstChannel.click();
+      notify('Canal de boas-vindas aberto');
+    }
+  }
+
+  root.addEventListener('click', event => {
+    const button = event.target.closest('[data-bc-empty-action]');
+    if (button) handleEmptyAction(button.dataset.bcEmptyAction);
+  });
+
+  const messages = document.getElementById('bc-platform-messages');
+  if (messages) {
+    const emptyObserver = new MutationObserver(enhanceEmptyChat);
+    emptyObserver.observe(messages, {childList: true, subtree: true});
+    enhanceEmptyChat();
+    window.addEventListener('pagehide', () => emptyObserver.disconnect(), {once: true});
+  }
+
 })();

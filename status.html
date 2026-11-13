@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#071a2b">
-  <meta name="description" content="Status dos serviços do BrasilCord.">
-  <title>Status do BrasilCord</title>
+  <meta name="theme-color" content="#f7f4fc">
+  <meta name="description" content="Painel público de status dos serviços do BrasilCord.">
+  <title>Status dos sistemas BrasilCord</title>
   <link rel="icon" href="assets/brand-icon.png" type="image/png">
   <link rel="stylesheet" href="landing.css">
   <link rel="stylesheet" href="gradients.css">
@@ -15,72 +15,51 @@
   <script src="holiday-site.js" defer></script>
   <script src="status.js" defer></script>
 </head>
-<body data-theme="dark" class="bc-status-body">
+<body data-theme="light" class="bc-status-body">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="./" aria-label="BrasilCord, voltar à página inicial">
-        <img src="assets/brand-icon.png" alt="" width="42" height="42"><strong>BrasilCord</strong>
-      </a>
-      <div class="header-menu bc-status-menu">
-        <nav class="nav-links" aria-label="Navegação principal">
-          <a href="./#recursos">Recursos</a>
-          <a href="./#seguranca">Segurança</a>
-          <a href="como-usar.html">Como usar</a>
-          <a class="is-current" href="status.html" aria-current="page">Status</a>
-        </nav>
-        <div class="header-actions">
-          <a class="btn btn-subtle btn-small" href="downloads.html">Baixar</a>
-          <a class="btn btn-dark btn-small" href="login.html">Entrar</a>
+  <main id="conteudo" class="bc-status-page">
+    <div class="container bc-status-shell">
+      <div class="bc-status-topbar">
+        <a class="bc-status-brand" href="./" aria-label="BrasilCord, voltar à página inicial"><img src="assets/brand-icon.png" alt="" width="32" height="32"><span>BrasilCord</span></a>
+        <div class="bc-status-top-actions">
+          <button class="holiday-theme-toggle" type="button" aria-pressed="true" aria-label="Alternar tema natalino" title="Desativar tema natalino"><span aria-hidden="true">🎄 </span><span class="holiday-toggle-label">Tema normal</span></button>
+          <a class="bc-status-login" href="login.html">Entrar</a>
         </div>
       </div>
-    </div>
-  </header>
-
-  <main id="conteudo" class="bc-status-main">
-    <section class="bc-status-hero container" aria-labelledby="status-title">
-      <p class="eyebrow"><span class="spark" aria-hidden="true">✦</span> Painel de saúde do BrasilCord</p>
-      <h1 id="status-title">Veja se tudo está <span class="bc-gradient-text">funcionando bem.</span></h1>
-      <p class="bc-status-lead">Verifique o site, o servidor e a API de contas em tempo real. Se uma parte falhar, o painel informa exatamente qual serviço precisa de atenção.</p>
-
-      <div id="bc-status-summary" class="bc-status-summary" data-state="checking" role="status" aria-live="polite">
-        <span class="bc-status-summary-dot" aria-hidden="true"></span>
-        <span id="bc-status-summary-text">Verificando serviços…</span>
-      </div>
-
-      <div id="bc-status-checks" class="bc-status-checks" aria-label="Serviços monitorados">
-        <article class="bc-status-card is-checking" data-status-card="site">
-          <div class="bc-status-card-icon" aria-hidden="true">◈</div>
-          <div class="bc-status-card-copy"><h2>Site web</h2><p data-status-uptime>Uptime: calculando…</p><small data-status-detail>Verificando…</small></div>
-          <span class="bc-status-pill" data-status-pill>Verificando</span>
-        </article>
-        <article class="bc-status-card is-checking" data-status-card="backend">
-          <div class="bc-status-card-icon" aria-hidden="true">⌁</div>
-          <div class="bc-status-card-copy"><h2>Servidor BrasilCord</h2><p data-status-uptime>Uptime: calculando…</p><small data-status-detail>Verificando…</small></div>
-          <span class="bc-status-pill" data-status-pill>Verificando</span>
-        </article>
-        <article class="bc-status-card is-checking" data-status-card="api">
-          <div class="bc-status-card-icon" aria-hidden="true">◎</div>
-          <div class="bc-status-card-copy"><h2>API de contas</h2><p data-status-uptime>Uptime: calculando…</p><small data-status-detail>Verificando…</small></div>
-          <span class="bc-status-pill" data-status-pill>Verificando</span>
-        </article>
-        <article class="bc-status-card is-checking" data-status-card="voice">
-          <div class="bc-status-card-icon" aria-hidden="true">◉</div>
-          <div class="bc-status-card-copy"><h2>Chamadas e voz</h2><p data-status-uptime>Uptime: calculando…</p><small data-status-detail>Verificando…</small></div>
-          <span class="bc-status-pill" data-status-pill>Verificando</span>
-        </article>
-      </div>
-
-      <div class="bc-status-actions">
-        <button id="bc-status-refresh" class="btn btn-blue" type="button">Verificar novamente <span aria-hidden="true">↻</span></button>
-        <a class="btn btn-outline" href="login.html">Voltar para entrar</a>
-      </div>
+      <section class="bc-status-heading" aria-labelledby="status-title">
+        <p class="bc-status-eyebrow">PAINEL DE STATUS</p>
+        <h1 id="status-title">Status dos sistemas <span>BrasilCord</span></h1>
+      </section>
+      <section class="bc-status-summary-card" aria-live="polite">
+        <div class="bc-status-summary-icon" aria-hidden="true">✓</div>
+        <div class="bc-status-summary-copy"><strong id="bc-status-summary-text">Verificando serviços…</strong><span id="bc-status-summary-caption">Consultando os serviços monitorados agora.</span></div>
+        <div class="bc-status-summary-time" id="bc-status-updated-chip">Atualizando…</div>
+      </section>
+      <section class="bc-status-metrics" aria-label="Resumo dos serviços">
+        <article class="bc-status-metric"><span><i class="metric-icon metric-pulse" aria-hidden="true">⌁</i>No ar agora</span><strong id="bc-metric-online">—</strong></article>
+        <article class="bc-status-metric"><span><i class="metric-icon metric-check" aria-hidden="true">✓</i>Operacionais</span><strong id="bc-metric-operational">—</strong></article>
+        <article class="bc-status-metric"><span><i class="metric-icon metric-wrench" aria-hidden="true">⌕</i>Em manutenção</span><strong id="bc-metric-maintenance">0</strong></article>
+        <article class="bc-status-metric"><span><i class="metric-icon metric-alert" aria-hidden="true">!</i>Indisponíveis</span><strong id="bc-metric-offline">—</strong></article>
+      </section>
+      <section class="bc-status-services" aria-labelledby="services-title">
+        <div class="bc-status-services-heading"><h2 id="services-title"><span class="services-heading-icon" aria-hidden="true">▤</span> Componentes e serviços</h2><span id="bc-service-count">4 serviços · 3 categorias</span></div>
+        <div class="bc-service-groups">
+          <section class="bc-service-group" data-group="site"><details open><summary><span class="bc-group-icon" aria-hidden="true">▥</span><span class="bc-group-title"><strong>Site e experiência</strong><small>Interface pública do BrasilCord</small></span><span class="bc-group-state" data-group-state>Verificando</span><span class="bc-group-count" data-group-count>1 serviço</span><span class="bc-group-chevron" aria-hidden="true">⌄</span></summary><div class="bc-service-list">
+            <article class="bc-service-row is-checking" data-status-card="site" data-status-group="site"><span class="bc-service-dot" aria-hidden="true"></span><div class="bc-service-name"><strong>Site web</strong><small data-status-detail>Verificando…</small></div><p data-status-uptime>Uptime: calculando…</p><span class="bc-status-pill" data-status-pill>Verificando</span></article>
+          </div></details></section>
+          <section class="bc-service-group" data-group="platform"><details open><summary><span class="bc-group-icon" aria-hidden="true">▤</span><span class="bc-group-title"><strong>Plataforma e dados</strong><small>Servidor e API de contas</small></span><span class="bc-group-state" data-group-state>Verificando</span><span class="bc-group-count" data-group-count>2 serviços</span><span class="bc-group-chevron" aria-hidden="true">⌄</span></summary><div class="bc-service-list">
+            <article class="bc-service-row is-checking" data-status-card="backend" data-status-group="platform"><span class="bc-service-dot" aria-hidden="true"></span><div class="bc-service-name"><strong>Servidor BrasilCord</strong><small data-status-detail>Verificando…</small></div><p data-status-uptime>Uptime: calculando…</p><span class="bc-status-pill" data-status-pill>Verificando</span></article>
+            <article class="bc-service-row is-checking" data-status-card="api" data-status-group="platform"><span class="bc-service-dot" aria-hidden="true"></span><div class="bc-service-name"><strong>API de contas</strong><small data-status-detail>Verificando…</small></div><p data-status-uptime>Uptime: calculando…</p><span class="bc-status-pill" data-status-pill>Verificando</span></article>
+          </div></details></section>
+          <section class="bc-service-group" data-group="voice"><details open><summary><span class="bc-group-icon" aria-hidden="true">◉</span><span class="bc-group-title"><strong>Comunicação</strong><small>Chamadas, voz e mídia</small></span><span class="bc-group-state" data-group-state>Verificando</span><span class="bc-group-count" data-group-count>1 serviço</span><span class="bc-group-chevron" aria-hidden="true">⌄</span></summary><div class="bc-service-list">
+            <article class="bc-service-row is-checking" data-status-card="voice" data-status-group="voice"><span class="bc-service-dot" aria-hidden="true"></span><div class="bc-service-name"><strong>Chamadas e voz</strong><small data-status-detail>Verificando…</small></div><p data-status-uptime>Uptime: calculando…</p><span class="bc-status-pill" data-status-pill>Verificando</span></article>
+          </div></details></section>
+        </div>
+      </section>
+      <div class="bc-status-actions"><button id="bc-status-refresh" class="btn btn-blue" type="button">Verificar novamente <span aria-hidden="true">↻</span></button><a class="btn btn-outline" href="login.html">Voltar para entrar</a></div>
       <p id="bc-status-updated" class="bc-status-updated" role="status">A verificação será atualizada automaticamente.</p>
-    </section>
+    </div>
   </main>
-
-  <footer class="site-footer bc-status-footer">
-    <div class="container footer-bottom"><span>© <span id="footer-year">2026</span> BrasilCord. Feito no Brasil.</span><span>Monitoramento público • Versão beta</span></div>
-  </footer>
+  <footer class="bc-status-footer"><div class="container"><span>© <span id="footer-year">2026</span> BrasilCord</span><span>Monitoramento público · Versão beta</span></div></footer>
 </body>
 </html>

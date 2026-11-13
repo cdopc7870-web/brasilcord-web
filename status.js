@@ -1,9 +1,11 @@
 'use strict';
 (() => {
   const backend = 'https://brasilcord-backend.onrender.com';
-  const summary = document.getElementById('bc-status-summary');
+  const summary = document.querySelector('.bc-status-summary-card');
   const summaryText = document.getElementById('bc-status-summary-text');
+  const summaryCaption = document.getElementById('bc-status-summary-caption');
   const updated = document.getElementById('bc-status-updated');
+  const updatedChip = document.getElementById('bc-status-updated-chip');
   const refreshButton = document.getElementById('bc-status-refresh');
   const checks = {
     site: {url: () => './index.html?status=' + Date.now(), label: 'Site funcionando'},
@@ -32,9 +34,43 @@
     const pill = card.querySelector('[data-status-pill]');
     const message = card.querySelector('[data-status-detail]');
     const uptime = card.querySelector('[data-status-uptime]');
-    pill.textContent = state === 'online' ? 'Online' : state === 'warning' ? 'Atenção' : state === 'checking' ? 'Verificando' : 'Offline';
-    message.textContent = detail;
+    if (pill) pill.textContent = state === 'online' ? 'Operacional' : state === 'warning' ? 'Atenção' : state === 'checking' ? 'Verificando' : 'Indisponível';
+    if (message) message.textContent = detail;
     if (uptime) uptime.textContent = uptimeText;
+  }
+
+  function updateDashboard(results) {
+    const ids = Object.keys(checks);
+    const total = ids.length;
+    const online = results.filter(Boolean).length;
+    const warning = ids.filter(id => document.querySelector('[data-status-card="' + id + '"]')?.classList.contains('is-warning')).length;
+    const offline = Math.max(0, total - online - warning);
+    const percentage = Math.round((online / total) * 100);
+
+    document.getElementById('bc-metric-online').textContent = percentage + '%';
+    document.getElementById('bc-metric-operational').textContent = online + '/' + total;
+    document.getElementById('bc-metric-maintenance').textContent = warning;
+    document.getElementById('bc-metric-offline').textContent = offline;
+    document.getElementById('bc-service-count').textContent = total + ' serviços · ' + document.querySelectorAll('.bc-service-group').length + ' categorias';
+
+    const allOnline = online === total;
+    summary?.classList.toggle('is-warning', !allOnline && warning > 0);
+    summary?.classList.toggle('is-offline', offline > 0);
+    summaryText.textContent = allOnline ? 'Todos os sistemas no ar' : warning > 0 ? 'Serviços com atenção' : 'Há serviços indisponíveis';
+    summaryCaption.textContent = online + ' de ' + total + ' serviços monitorados estão online.';
+
+    document.querySelectorAll('.bc-service-group').forEach(group => {
+      const rows = [...group.querySelectorAll('[data-status-card]')];
+      const groupOnline = rows.filter(row => row.classList.contains('is-online')).length;
+      const groupWarning = rows.some(row => row.classList.contains('is-warning'));
+      const groupOffline = rows.some(row => row.classList.contains('is-offline'));
+      const state = group.querySelector('[data-group-state]');
+      group.classList.toggle('is-warning', groupWarning);
+      group.classList.toggle('is-offline', groupOffline);
+      if (state) {
+        state.textContent = groupOffline ? 'Indisponível' : groupWarning ? 'Atenção' : groupOnline === rows.length ? 'Operacional' : 'Verificando';
+      }
+    });
   }
 
   async function probe(id) {
@@ -76,21 +112,16 @@
 
   async function runChecks() {
     refreshButton.disabled = true;
-    summary.dataset.state = 'checking';
-    summaryText.textContent = 'Verificando serviços…';
     for (const id of Object.keys(checks)) setCard(id, 'checking', 'Verificando…', 'Uptime: calculando…');
     const results = await Promise.all(Object.keys(checks).map(probe));
+    updateDashboard(results);
     const onlineCount = results.filter(Boolean).length;
     const allOnline = onlineCount === results.length;
     const apiOnline = results[2] === true;
     const voiceOnline = results[3] === true;
-    summary.dataset.state = allOnline ? 'online' : (apiOnline && voiceOnline) ? 'warning' : 'offline';
-    summaryText.textContent = allOnline
-      ? 'Tudo funcionando normalmente'
-      : apiOnline
-        ? 'O site está parcialmente disponível'
-        : 'Há uma falha que precisa de atenção';
+    if (summary) summary.dataset.state = allOnline ? 'online' : (apiOnline && voiceOnline) ? 'warning' : 'offline';
     updated.textContent = 'Última verificação: ' + new Intl.DateTimeFormat('pt-BR', {hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(new Date());
+    updatedChip.textContent = 'Atualizado agora';
     refreshButton.disabled = false;
   }
 

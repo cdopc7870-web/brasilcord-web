@@ -84,3 +84,63 @@
 .auth-main[data-auth-view="recover"] .recovery-status:not(:empty){
   margin:14px 0 0;
 }
+
+
+/* Redesign da página de recuperação de acesso */
+.recovery-page{--recovery-ink:#10263e;--recovery-muted:#64768b;--recovery-line:#e1e9f1;--recovery-surface:#fff;--recovery-blue:#176bc5;--recovery-green:#16a875;background:radial-gradient(ellipse at 15% 12%,rgba(40,190,137,.11),transparent 34%),radial-gradient(ellipse at 88% 78%,rgba(42,127,218,.12),transparent 38%),#f3f7fc;color:var(--recovery-ink)}
+.recovery-main{min-height:calc(100dvh - 150px);padding:46px 20px 56px;align-items:center}
+.recovery-card{width:min(100%,490px);padding:34px 38px 28px;background:rgba(255,255,255,.94);border:1px solid rgba(218,229,240,.95);border-radius:26px;box-shadow:0 24px 70px rgba(24,55,89,.11),0 3px 10px rgba(24,55,89,.04);backdrop-filter:blur(12px)}
+.recovery-back{display:inline-flex;align-items:center;gap:8px;color:#65788e;font-size:12px;font-weight:650;text-decoration:none;margin-bottom:22px}
+.recovery-back:hover{color:var(--recovery-blue)}
+.recovery-back span{font-size:17px}
+.recovery-emblem{width:56px;height:56px;display:grid;place-items:center;border-radius:18px;background:linear-gradient(145deg,#e3f8ef,#e7f1ff);border:1px solid #dceee8;margin-bottom:17px}
+.recovery-emblem img{width:39px;height:39px;object-fit:contain}
+.recovery-eyebrow{font-size:10px;letter-spacing:.16em;font-weight:850;color:#168b68;margin-bottom:8px}
+.recovery-card h1{font-size:clamp(29px,5vw,36px);line-height:1.1;letter-spacing:-.055em;color:#132b43;margin:0 0 12px;font-weight:850}
+.recovery-card .auth-intro{font-size:14px;line-height:1.7;color:var(--recovery-muted);margin:0 0 26px}
+.recovery-step-heading{display:flex;align-items:center;gap:12px;margin:0 0 15px}
+.recovery-step-number{width:31px;height:31px;display:grid;place-items:center;flex:none;border-radius:50%;background:#e8f3ff;color:#176bc5;font-size:13px;font-weight:850}
+.recovery-step-heading strong{display:block;color:#1a3048;font-size:13px;font-weight:800;margin-bottom:3px}
+.recovery-step-heading small{display:block;color:#7a899a;font-size:11px;line-height:1.5}
+.recovery-form{display:grid;gap:13px}
+.recovery-field{min-width:0}
+.recovery-field label{display:block;color:#30465d;font-size:12px;font-weight:750;margin:0 0 7px}
+.recovery-field input{appearance:none;display:block;width:100%;height:49px;padding:0 15px;border:1px solid #dce5ee;border-radius:12px;background:#fbfdff;color:#152b43;font:inherit;font-size:14px;outline:none;transition:border-color .18s,box-shadow .18s,background .18s}
+.recovery-field input::placeholder{color:#9aa8b7}
+.recovery-field input:focus{border-color:#3889d7;background:#fff;box-shadow:0 0 0 4px rgba(44,132,211,.12)}
+.recovery-field>small{display:block;margin:7px 0 0;color:#8291a1;font-size:11px;line-height:1.5}
+.recovery-submit{min-height:50px;margin:3px 0 0;border-radius:13px;background:linear-gradient(105deg,#176bc5,#1687c9 55%,#12a77b);color:white;box-shadow:0 8px 18px rgba(24,112,190,.19);font-size:13px;display:flex;justify-content:center;align-items:center;gap:12px}
+.recovery-submit span:last-child{font-size:17px;line-height:1}
+.recovery-submit:hover:not(:disabled){filter:brightness(1.05);transform:translateY(-1px);box-shadow:0 11px 22px rgba(24,112,190,.24)}
+.recovery-status:empty{display:none!important}
+.recovery-status:not(:empty){display:block;margin:13px 0 0;padding:12px 14px;border:1px solid #d8e8f4;border-radius:12px;background:#f4f9ff;color:#45627d;font-size:12px;line-height:1.6}
+.recovery-status[data-state=ok]:not(:empty){border-color:#ccebdd;background:#f1fbf6;color:#26734f}
+.recovery-status[data-state=error]:not(:empty){border-color:#f0d4d4;background:#fff6f6;color:#a64444}
+.recovery-divider{display:flex;align-items:center;gap:12px;margin:22px 0;color:#9aa9b8}
+.recovery-divider span{height:1px;flex:1;background:#e7edf3}
+.recovery-divider small{font-size:9px;letter-spacing:.14em;font-weight:800}
+.recovery-confirm[hidden]{display:none!important}
+.recovery-confirm .recovery-step-heading{margin-bottom:2px}
+.recovery-security{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;margin-top:22px;border:1px solid #e0eee8;border-radius:13px;background:#f6fbf8;color:#688174}
+.recovery-security>span{width:27px;height:27px;display:grid;place-items:center;flex:none;border-radius:9px;background:#e2f5eb;color:#16875d;font-size:14px}
+.recovery-security p{margin:0;font-size:11px;line-height:1.55}
+.recovery-security strong{color:#27644a;font-size:11px}
+.recovery-card .auth-switch{margin:20px 0 0;font-size:12px;color:#74869a}
+.recovery-card .auth-switch a{font-weight:800;color:#176bc5;text-decoration:none}
+.recovery-card .auth-switch a:hover{text-decoration:underline}
+.recovery-footer{padding:16px 20px 24px;gap:20px;color:#8292a3}
+.recovery-footer a{color:#71849a}
+.recovery-page[data-theme=dark]{--recovery-ink:#edf5fc;--recovery-muted:#a9b8c8;--recovery-line:#294258;--recovery-surface:#10263a;background:radial-gradient(ellipse at 15% 12%,rgba(40,190,137,.13),transparent 34%),radial-gradient(ellipse at 88% 78%,rgba(42,127,218,.16),transparent 38%),#081827;color:var(--recovery-ink)}
+.recovery-page[data-theme=dark] .recovery-card{background:rgba(13,34,53,.96);border-color:#29445b;box-shadow:0 24px 70px rgba(0,0,0,.3)}
+.recovery-page[data-theme=dark] .recovery-card h1,.recovery-page[data-theme=dark] .recovery-step-heading strong{color:#eff7ff}
+.recovery-page[data-theme=dark] .recovery-field label{color:#c4d3e1}
+.recovery-page[data-theme=dark] .recovery-field input{background:#0a1e30;border-color:#34516a;color:#edf5fc}
+.recovery-page[data-theme=dark] .recovery-field input:focus{background:#10283e}
+.recovery-page[data-theme=dark] .recovery-divider span{background:#294258}
+.recovery-page[data-theme=dark] .recovery-security{background:#102c2a;border-color:#245144;color:#a4c9b8}
+.recovery-page[data-theme=dark] .recovery-security strong{color:#b9f0d2}
+.recovery-page[data-theme=dark] .recovery-status:not(:empty){background:#122c40;border-color:#31516a;color:#c2d7e8}
+.recovery-page[data-theme=dark] .recovery-status[data-state=ok]:not(:empty){background:#102e29;border-color:#285d49;color:#b3e9cf}
+.recovery-page[data-theme=dark] .recovery-status[data-state=error]:not(:empty){background:#351f27;border-color:#68404a;color:#ffd1d1}
+@media(max-width:600px){.recovery-main{padding:25px 14px 38px;min-height:calc(100dvh - 120px)}.recovery-card{padding:25px 21px 22px;border-radius:21px}.recovery-back{margin-bottom:19px}.recovery-card h1{font-size:30px}.recovery-footer{gap:10px 17px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.recovery-field input,.recovery-submit{transition:none}}

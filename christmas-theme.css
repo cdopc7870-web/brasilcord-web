@@ -1,0 +1,221 @@
+/* Tema natalino BrasilCord — decorativo, legível e responsivo. */
+body.bc-christmas-mode.bc-app-active {
+  --clean-accent: #7ed9ae;
+  --clean-accent-strong: #52b887;
+  --clean-yellow: #e8c86b;
+  --christmas-red: #c94d5d;
+  --christmas-red-dark: #7f2938;
+  --christmas-pine: #123e34;
+  --christmas-pine-deep: #0c2924;
+  --christmas-snow: #f7fbff;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-community-desktop {
+  background:
+    radial-gradient(circle at 88% 4%, rgba(197,67,84,.12), transparent 24%),
+    radial-gradient(circle at 18% 96%, rgba(50,142,99,.1), transparent 22%),
+    var(--clean-bg) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-stage-topbar {
+  position: relative !important;
+  background:
+    linear-gradient(110deg, #101f1b 0%, #182a25 48%, #241d23 100%) !important;
+  border-bottom-color: #355044 !important;
+  box-shadow: 0 6px 22px rgba(0,0,0,.28) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-stage-topbar::after {
+  content: "✦  ✧  ✦  ✧  ✦  ✧  ✦";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: -1px;
+  overflow: hidden;
+  height: 8px;
+  color: var(--christmas-red);
+  font-size: 8px;
+  letter-spacing: 31px;
+  line-height: 8px;
+  opacity: .72;
+  pointer-events: none;
+  white-space: nowrap;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-stage-title h1 {
+  color: #fff7e0 !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-stage-kicker {
+  color: #9eddb8 !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-platform-state {
+  border-color: #4d815f !important;
+  background: #153a2d !important;
+  color: #c2f0d2 !important;
+}
+.bc-holiday-ribbon {
+  position: absolute;
+  z-index: 2;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 11px;
+  border: 1px solid rgba(232,200,107,.42);
+  border-radius: 999px;
+  background: rgba(94,48,52,.48);
+  color: #f4d989;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.bc-holiday-lights {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 11%;
+  right: 11%;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
+}
+.bc-holiday-light {
+  width: 7px;
+  height: 10px;
+  border-radius: 50% 50% 45% 45%;
+  background: #e1c86b;
+  box-shadow: 0 0 9px currentColor;
+  color: #e1c86b;
+  animation: bc-holiday-twinkle 2.8s ease-in-out infinite;
+}
+.bc-holiday-light:nth-child(2n) { background:#d65366; color:#d65366; animation-delay:.55s; }
+.bc-holiday-light:nth-child(3n) { background:#6bd0a0; color:#6bd0a0; animation-delay:1.15s; }
+.bc-holiday-light:nth-child(4n) { background:#f3f6ff; color:#f3f6ff; animation-delay:1.8s; }
+@keyframes bc-holiday-twinkle {
+  0%,100% { opacity:.44; transform:translateY(0) scale(.78); }
+  50% { opacity:1; transform:translateY(1px) scale(1); }
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-global-brand {
+  border-color: #5d7658 !important;
+  background: linear-gradient(145deg, #274d3d, #342a2e) !important;
+  box-shadow: 0 0 0 3px rgba(200,77,93,.12), 0 8px 20px rgba(0,0,0,.3) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-global-brand::after {
+  content: "✦";
+  position: absolute;
+  top: -5px;
+  right: -3px;
+  color: var(--christmas-red);
+  font-size: 16px;
+  filter: drop-shadow(0 0 4px rgba(201,77,93,.6));
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-rail-action:hover {
+  border-color: #6b806e !important;
+  background: #273b35 !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-rail-action.is-active,
+body.bc-christmas-mode.bc-app-active #page-app .bc-rail-action[aria-pressed=true] {
+  border-color: #a6676f !important;
+  background: linear-gradient(145deg, #542f39, #2b4c3e) !important;
+  box-shadow: inset 3px 0 #e2c56a, 0 8px 18px rgba(0,0,0,.22) !important;
+  color: #fff4dc !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-server-list .bc-community-item[data-active=true] {
+  border-color: #e4c66b !important;
+  background: linear-gradient(145deg, #254c3e, #4b3038) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-channel-item:is([data-active=true], .is-active, [aria-current=page]) {
+  border-color: #526f5f !important;
+  background: linear-gradient(90deg, #254a3c, #30383b) !important;
+  box-shadow: inset 3px 0 var(--christmas-red) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-channel-item:hover {
+  border-color: #587963 !important;
+  background: #2a4239 !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-official-banner {
+  border-color: #9d7c3d !important;
+  background:
+    radial-gradient(circle at 92% 18%, rgba(201,77,93,.25), transparent 20%),
+    linear-gradient(115deg, #163e32, #273532 58%, #362d31) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-official-eyebrow {
+  color: #f0d27a !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-platform-compose {
+  border-color: #526b5d !important;
+  background: linear-gradient(105deg, #293b35, #30343b) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-platform-compose:focus-within {
+  border-color: #d1ad5e !important;
+  box-shadow: 0 0 0 3px rgba(232,200,107,.13), 0 9px 24px rgba(0,0,0,.2) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-platform-compose > button[type=submit] {
+  border-color: rgba(255,255,255,.16) !important;
+  background: linear-gradient(145deg, #d75a68, #ad394c) !important;
+  color: #fff8ee !important;
+  box-shadow: 0 5px 15px rgba(201,77,93,.3) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-platform-compose > button[type=submit]:hover {
+  background: linear-gradient(145deg, #eb7180, #c8485a) !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-parity-top-button:hover {
+  border-color: #927750 !important;
+  background: #3c3336 !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-parity-top-button[data-parity-action=notifications]::after {
+  content: "✦";
+  position: absolute;
+  top: -7px;
+  right: -5px;
+  color: #e4c66b;
+  font-size: 11px;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-parity-settings,
+body.bc-christmas-mode.bc-app-active #page-app .bc-parity-surface {
+  border-color: #6b5b4c !important;
+  background: #202b29 !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-settings-tabs {
+  background: #172520 !important;
+  border-color: #3b5548 !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-settings-tab[aria-selected=true] {
+  border-color: #6b8d73 !important;
+  background: #2c4a3b !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-members-pane {
+  background:
+    radial-gradient(circle at 90% 2%, rgba(201,77,93,.08), transparent 23%),
+    #20272b !important;
+}
+body.bc-christmas-mode.bc-app-active #page-app .bc-member-status-online,
+body.bc-christmas-mode.bc-app-active #page-app .bc-platform-member[data-status=online]::after {
+  background: #d7b65e !important;
+}
+.bc-holiday-snow {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bc-holiday-snowflake {
+  position: absolute;
+  top: -20px;
+  color: rgba(247,251,255,.72);
+  font-size: var(--flake-size);
+  opacity: var(--flake-opacity);
+  animation: bc-holiday-fall var(--flake-duration) linear var(--flake-delay) infinite;
+  text-shadow: 0 0 6px rgba(255,255,255,.35);
+}
+@keyframes bc-holiday-fall {
+  0% { transform:translate3d(0,-20px,0) rotate(0deg); }
+  50% { transform:translate3d(var(--flake-drift),52vh,0) rotate(160deg); }
+  100% { transform:translate3d(calc(var(--flake-drift) * -1),110vh,0) rotate(320deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bc-holiday-light,.bc-holiday-snowflake { animation:none !important; }
+}
+@media (max-width:720px) {
+  .bc-holiday-ribbon { left:auto; right:10px; transform:none; font-size:9px; }
+  .bc-holiday-lights { left:4%; right:4%; }
+  body.bc-christmas-mode.bc-app-active #page-app .bc-stage-topbar::after { letter-spacing:12px; }
+}

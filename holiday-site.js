@@ -28,7 +28,7 @@
       button.querySelector('.holiday-toggle-label').textContent = enabled ? 'Tema normal' : 'Tema natalino';
       button.firstChild.textContent = enabled ? '☼ ' : '🎄 ';
     }
-    const decorative = document.querySelectorAll('.holiday-snow, .holiday-lights');
+    const decorative = document.querySelectorAll('.holiday-snow, .holiday-lights, .holiday-season-banner');
     decorative.forEach(node => { node.hidden = !enabled; });
   };
 
@@ -51,6 +51,14 @@
   }
 
   const header = document.querySelector('.site-header');
+  let seasonBanner = header?.querySelector('.holiday-season-banner');
+  if (header && !seasonBanner) {
+    seasonBanner = document.createElement('div');
+    seasonBanner.className = 'holiday-season-banner';
+    seasonBanner.setAttribute('role', 'status');
+    seasonBanner.innerHTML = '<span aria-hidden="true">🎄</span><strong>Natal no BrasilCord</strong><span>✨ cores, comunidades e boas festas</span><span aria-hidden="true">🎁</span>';
+    header.append(seasonBanner);
+  }
   if (header && !header.querySelector('.holiday-lights')) {
     const lights = document.createElement('div');
     lights.className = 'holiday-lights';

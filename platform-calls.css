@@ -89,3 +89,7 @@
 #page-app .bc-call-source-item span{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #page-app .bc-call-picker-hint{font-size:10px;color:#a6c8b5;line-height:1.6;margin:11px 0 0}
 @media(max-width:580px){#page-app .bc-call-video-options{flex-direction:column}#page-app .bc-call-source-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+#page-app .bc-call-video-options label small{font-size:10px;line-height:1.4;color:#8faea0;max-width:205px;}
+#page-app #bc-call-noise-suppression{border-color:#4d765f;background:#17352b;color:#edfff5;}
+#page-app #bc-call-noise-suppression:focus{outline:2px solid #69d89d;outline-offset:2px;}

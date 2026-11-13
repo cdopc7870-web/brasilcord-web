@@ -344,3 +344,14 @@ body.bc-app-active:not(.discord-open) .bc-account-panel > button:not(#bc-user-pr
 body.bc-app-active:not(.discord-open) #bc-user-profile-shortcut .bc-user-dock-settings{
   display:none!important;
 }
+
+/* Garantir que o cartão use toda a largura disponível da coluna */
+body.bc-app-active:not(.discord-open) .bc-channel-pane .bc-channel-bottom{
+  width:100%!important;box-sizing:border-box!important;padding-left:5px!important;padding-right:5px!important;
+}
+body.bc-app-active:not(.discord-open) .bc-account-panel{
+  width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box!important;
+}
+body.bc-app-active:not(.discord-open) .bc-channel-bottom button:not(#bc-user-profile-shortcut):not(#bc-user-mic-toggle):not(#bc-user-audio-toggle):not(#bc-user-settings):not(#bc-platform-logout):not(#bc-platform-invite){
+  /* Buttons outside the account panel remain untouched. */
+}

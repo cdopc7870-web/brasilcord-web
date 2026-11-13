@@ -23,11 +23,6 @@
     return name.slice(0,2).toLocaleUpperCase('pt-BR') || 'BC';
   }
 
-  function openView(view, {focus=true} = {}) {
-    if (!views.has(view)) return;
-    state.view = view;
-    workarea.dataset.bcActiveView = view;
-  
   const accountSettings = $('bc-user-settings');
   const accountMenu = $('bc-account-settings-menu');
   accountSettings.addEventListener('click', () => {
@@ -59,6 +54,13 @@
     new MutationObserver(sync).observe($(source),{attributes:true,attributeFilter:['disabled','aria-pressed']});
     sync();
   }
+
+
+  function openView(view, {focus=true} = {}) {
+    if (!views.has(view)) return;
+    state.view = view;
+    workarea.dataset.bcActiveView = view;
+  
 
 
   // Remove apenas o caret antigo "v" que algumas versões antigas do painel ainda injetam.

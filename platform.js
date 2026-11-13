@@ -152,7 +152,10 @@
     $('bc-platform-profile-form').elements.bio.value=user.bio || '';
     notifyState({type:'voice-session',token});
     if(persist) {
-      const stored=await window.brasilcord.savePlatformSession(token);
+      const remember=$('bc-platform-remember')?.checked===true;
+      const stored=remember
+        ? await window.brasilcord.savePlatformSession(token,true)
+        : await window.brasilcord.clearPlatformSession();
       if(!stored?.ok) feedback(stored?.message||'Entrou, mas não foi possível salvar a sessão.',true);
     }
     await Promise.all([loadCommunities(),loadFriends()]);
